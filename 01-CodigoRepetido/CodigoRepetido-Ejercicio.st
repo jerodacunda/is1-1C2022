@@ -21,6 +21,17 @@ TestCase subclass: #CustomerBookTest
 	poolDictionaries: ''
 	category: 'CodigoRepetido-Ejercicio'!
 
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:19:39'!
+assertExecuting: aClosure shouldNotTakeMoreThan: anAmountOfMilliseconds 
+
+	
+	| millisecondsAfterRunning millisecondsBeforeRunning |
+	millisecondsBeforeRunning := Time millisecondClockValue * millisecond.
+	aClosure value.
+	millisecondsAfterRunning := Time millisecondClockValue * millisecond.
+	
+	self assert: (millisecondsAfterRunning-millisecondsBeforeRunning) < (anAmountOfMilliseconds)! !
+
 !CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/12/2022 20:04:16'!
 assertExecuting: aClosure shouldRaise: anErrorClass andMustKeepValid: aCustomerBook
 	
@@ -53,49 +64,37 @@ createCustomerBookWith: aCustomer
 	^customerBook	
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/11/2022 21:40:41'!
-execute: aClosure shouldNotTakeMoreThan: anAmountOfMilliseconds 
-
-	
-	| millisecondsAfterRunning millisecondsBeforeRunning |
-	millisecondsBeforeRunning := Time millisecondClockValue * millisecond.
-	aClosure value.
-	millisecondsAfterRunning := Time millisecondClockValue * millisecond.
-	
-	self assert: (millisecondsAfterRunning-millisecondsBeforeRunning) < (anAmountOfMilliseconds)! !
-
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/11/2022 21:38:58'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:25:59'!
 test01AddingCustomerShouldNotTakeMoreThan50Milliseconds
 
-	| customerBook aClosure |
+	| customerBook addCustomerClosure |
 	
 	customerBook := CustomerBook new.
 	
-	aClosure _ [customerBook addCustomerNamed: 'John Lennon'.].
+	addCustomerClosure _ [customerBook addCustomerNamed: 'John Lennon'.].
 	
-	self execute: aClosure shouldNotTakeMoreThan: 50 * millisecond.
+	self assertExecuting: addCustomerClosure shouldNotTakeMoreThan: 50 * millisecond.
 	
 	
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/11/2022 21:43:03'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:25:10'!
 test02RemovingCustomerShouldNotTakeMoreThan100Milliseconds
 
-	| customerBook paulMcCartney aClosure |
+	| customerBook paulMcCartney removeCustomerClosure |
 	
-	customerBook := CustomerBook new.
 	paulMcCartney := 'Paul McCartney'.
 	
-	customerBook addCustomerNamed: paulMcCartney.
+	customerBook _ self createCustomerBookWith: paulMcCartney.
 	
-	aClosure _ [customerBook removeCustomerNamed: paulMcCartney.].
+	removeCustomerClosure _ [customerBook removeCustomerNamed: paulMcCartney.].
 	
-	self execute: aClosure shouldNotTakeMoreThan: 100 * millisecond.
+	self assertExecuting: removeCustomerClosure shouldNotTakeMoreThan: 100 * millisecond.
 	  
 	
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'HernanWilkinson 5/9/2012 18:12'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:45:15'!
 test03CanNotAddACustomerWithEmptyName 
 
 	| customerBook |
@@ -109,36 +108,36 @@ test03CanNotAddACustomerWithEmptyName
 			self assert: anError messageText = CustomerBook customerCanNotBeEmptyErrorMessage.
 			self assert: customerBook isEmpty ]! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/12/2022 20:33:25'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:53:50'!
 test04CanNotRemoveAnInvalidCustomer
 	
-	| customerBook johnLennon errorClass removeCustomerFromBookClosure |
+	| customerBook johnLennon errorClass removeCustomerClosure |
 			
 	johnLennon := 'John Lennon'.
 	customerBook _ self createCustomerBookWith: johnLennon.	
 	
-	removeCustomerFromBookClosure _ [ 
+	removeCustomerClosure _ [ 
 		customerBook removeCustomerNamed: 'Paul McCartney'.
 		self fail
 	].
 	errorClass _ NotFound.
 
-	self assertExecuting: removeCustomerFromBookClosure shouldRaise:  errorClass andMustKeepValid: customerBook.! !
+	self assertExecuting: removeCustomerClosure shouldRaise:  errorClass andMustKeepValid: customerBook.! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/12/2022 20:34:02'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:30:27'!
 test05SuspendingACustomerShouldNotRemoveItFromCustomerBook
 
-	| customerBook paulMcCartney anAmountOfCostumers activeCostumers suspendedCostumers|
+	| customerBook paulMcCartney amountOfCostumers activeCostumers suspendedCostumers|
 	
 	paulMcCartney := 'Paul McCartney'.
 	customerBook _ self createCustomerBookWith: paulMcCartney.
 	customerBook suspendCustomerNamed: paulMcCartney.
 	
-	anAmountOfCostumers _ 1.
+	amountOfCostumers _ 1.
 	activeCostumers _ 0.
 	suspendedCostumers _ 1.
 	
-	self assertThat: customerBook with: anAmountOfCostumers hasActive: activeCostumers andSuspended: suspendedCostumers.
+	self assertThat: customerBook with: amountOfCostumers hasActive: activeCostumers andSuspended: suspendedCostumers.
 	
 	self assert: (customerBook includesCustomerNamed: paulMcCartney).
 	
@@ -146,21 +145,21 @@ test05SuspendingACustomerShouldNotRemoveItFromCustomerBook
 	
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/12/2022 20:31:06'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:30:50'!
 test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 
-	| customerBook paulMcCartney activeCostumers anAmountOfCostumers suspendedCostumers |
+	| customerBook paulMcCartney activeCostumers amountOfCostumers suspendedCostumers |
 	
 	paulMcCartney := 'Paul McCartney'.
 	customerBook _ self createCustomerBookWith: paulMcCartney.
 	customerBook suspendCustomerNamed: paulMcCartney.
 	customerBook removeCustomerNamed: paulMcCartney.	
 	
-	anAmountOfCostumers _ 0.
+	amountOfCostumers _ 0.
 	activeCostumers _ 0.
 	suspendedCostumers _ 0.	
 	
-	self assertThat: customerBook with: anAmountOfCostumers hasActive: activeCostumers andSuspended: suspendedCostumers.
+	self assertThat: customerBook with: amountOfCostumers hasActive: activeCostumers andSuspended: suspendedCostumers.
 	
 	self deny: (customerBook includesCustomerNamed: paulMcCartney).
 
@@ -168,38 +167,38 @@ test06RemovingASuspendedCustomerShouldRemoveItFromCustomerBook
 	
 ! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/12/2022 20:33:34'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:54:18'!
 test07CanNotSuspendAnInvalidCustomer
 	
-	| customerBook johnLennon errorClass suspendCustomerFromBookClosure |
+	| customerBook johnLennon errorClass suspendCustomerClosure |
 	
 	johnLennon := 'John Lennon'.
 	customerBook _ self createCustomerBookWith: johnLennon.	
 	
-	suspendCustomerFromBookClosure _ [ 
+	suspendCustomerClosure _ [ 
 		customerBook suspendCustomerNamed: 'George Harrison'.
 		self fail 
 	].
 	errorClass _ CantSuspend.
 
-	self assertExecuting: suspendCustomerFromBookClosure shouldRaise:  errorClass andMustKeepValid: customerBook.! !
+	self assertExecuting: suspendCustomerClosure shouldRaise:  errorClass andMustKeepValid: customerBook.! !
 
-!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/12/2022 20:33:41'!
+!CustomerBookTest methodsFor: 'testing' stamp: 'JDR 4/13/2022 13:54:49'!
 test08CanNotSuspendAnAlreadySuspendedCustomer
 	
-	| customerBook johnLennon errorClass suspendCustomerFromBookClosure |
+	| customerBook johnLennon errorClass suspendCustomerClosure |
 	
 	johnLennon := 'John Lennon'.
 	customerBook _ self createCustomerBookWith: johnLennon.
 	customerBook suspendCustomerNamed: johnLennon.
 	
-	suspendCustomerFromBookClosure _ [ 
+	suspendCustomerClosure _ [ 
 		customerBook suspendCustomerNamed: johnLennon.
 		self fail 
 	].
 	errorClass _ CantSuspend.
 
-	self assertExecuting: suspendCustomerFromBookClosure shouldRaise:  errorClass andMustKeepValid: customerBook.
+	self assertExecuting: suspendCustomerClosure shouldRaise: errorClass andMustKeepValid: customerBook.
 ! !
 
 
