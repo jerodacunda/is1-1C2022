@@ -144,7 +144,7 @@ TestCase subclass: #SentenceFinderByPrefixTest
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:12:54'!
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'AF 4/26/2022 21:12:54'!
 test01FindAPrefixInAnEmptyStackShouldReturnAnEmptyList
 
 	| sentenceFinder stack |
@@ -155,7 +155,7 @@ test01FindAPrefixInAnEmptyStackShouldReturnAnEmptyList
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:15:09'!
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'AF 4/26/2022 21:15:09'!
 test02FindASentenceInAStackWithSentenceShouldReturnAListWithThatSentence
 
 	| sentenceFinder stack word1 expectedList |
@@ -171,7 +171,7 @@ test02FindASentenceInAStackWithSentenceShouldReturnAListWithThatSentence
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:18:39'!
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'AF 4/26/2022 21:18:39'!
 test03FindAPrefixInAStackShouldReturnAListWithSentencesThatBeginWithThatPrefix
 
 	| sentenceFinder stack word1 expectedList word2 word3 |
@@ -192,7 +192,7 @@ test03FindAPrefixInAStackShouldReturnAListWithSentencesThatBeginWithThatPrefix
 	
 	! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:20:07'!
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'AF 4/26/2022 21:20:07'!
 test04FindAPrefixShouldKeepStackUnchanged
 
 	| sentenceFinder stack word1 expectedList word2 word3 |
@@ -215,7 +215,7 @@ test04FindAPrefixShouldKeepStackUnchanged
 	self assert: word2 equals: stack pop.
 	self assert: word1 equals: stack pop.! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:20:50'!
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'JDR 4/27/2022 21:11:36'!
 test05FindAnEmptyPrefixShouldRaiseAnError
 
 	| sentenceFinder stack word1 |
@@ -227,9 +227,37 @@ test05FindAnEmptyPrefixShouldRaiseAnError
 	
 	self should: [sentenceFinder find: ''] 
 	raise: Error
-	description:[:anErrorDescription | self assert: anErrorDescription messageText equals: SentenceFinderByPrefix prefixCanNotBeEmptyErrorDescription ].
+	description:[:anErrorDescription | self assert: anErrorDescription messageText equals: SentenceFinderByPrefix prefixCannotBeEmptyErrorDescription ].
 	
 	self assert: word1 equals: stack pop.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'JDR 4/27/2022 21:05:55'!
+test06FindAPrefixWithEmptySpacesShouldRaiseAnError
+
+	| sentenceFinder stack word1 |
+	stack _ OOStack new.
+	sentenceFinder _ SentenceFinderByPrefix with: stack.
+	
+	word1 _ 'melocoton'.
+	stack push: word1.
+	
+	self should: [sentenceFinder find: 'melo coton'] 
+	raise: Error
+	description:[:anErrorDescription | self assert: anErrorDescription messageText equals: SentenceFinderByPrefix prefixCannotHaveEmptySpacesErrorDescription ].
+	
+	self assert: word1 equals: stack pop.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'test' stamp: 'JDR 4/27/2022 21:09:06'!
+test07FindAPrefixInAnEmptyStackShouldKeepStackEmpty
+
+	| sentenceFinder stack     |
+	stack _ OOStack new.
+	sentenceFinder _ SentenceFinderByPrefix with: stack.
+
+	sentenceFinder find: 'melo'.
+	
+	self assert: stack isEmpty  
+! !
 
 
 !classDefinition: #OOStack category: 'Stack-Exercise'!
@@ -239,34 +267,36 @@ Object subclass: #OOStack
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'AF 4/25/2022 21:40:31'!
+!OOStack methodsFor: 'initialization' stamp: 'AF 4/25/2022 21:40:31'!
 initialize
 	
 	state _ StackStateEmpty new.
 	contents _ OrderedCollection new.! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'AF 4/25/2022 21:36:54'!
+
+!OOStack methodsFor: 'adding' stamp: 'AF 4/25/2022 21:36:40'!
+push: anElement
+ 
+	contents add: anElement.! !
+
+
+!OOStack methodsFor: 'accessing & removing' stamp: 'AF 4/25/2022 21:36:54'!
 isEmpty
 	^contents isEmpty ! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'AF 4/25/2022 21:37:38'!
+!OOStack methodsFor: 'accessing & removing' stamp: 'AF 4/25/2022 21:37:38'!
 pop
 	| element |
 	element _ self top.
 	contents remove: element.
 	^element.! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'AF 4/25/2022 21:36:40'!
-push: anElement
- 
-	contents add: anElement.! !
-
-!OOStack methodsFor: 'as yet unclassified' stamp: 'AF 4/25/2022 21:39:38'!
+!OOStack methodsFor: 'accessing & removing' stamp: 'AF 4/25/2022 21:39:38'!
 size
 
 	^contents size.! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:46:53'!
+!OOStack methodsFor: 'accessing & removing' stamp: 'AF 4/26/2022 19:46:53'!
 top
 	
 	state _ StackState with: self size.
@@ -292,11 +322,18 @@ Object subclass: #SentenceFinderByPrefix
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:02:48'!
+!SentenceFinderByPrefix methodsFor: 'initialization' stamp: 'JDR 4/27/2022 20:45:28'!
+initializeWith: anOOStack 
+	
+	ooStack _ anOOStack ! !
+
+
+!SentenceFinderByPrefix methodsFor: 'accessing' stamp: 'JDR 4/27/2022 20:58:06'!
 find: aPrefix
 
 	| returnList|
 	self assertPrefixIsNotEmpty: aPrefix.
+	self assertPrefixHasNoEmptySpaces: aPrefix.
 	
 	backupData _ OOStack new.
 	returnList _ self findSentencesStartingWith: aPrefix.
@@ -306,7 +343,19 @@ find: aPrefix
 	
 		! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:01:56'!
+
+!SentenceFinderByPrefix methodsFor: 'assertions' stamp: 'JDR 4/27/2022 21:05:35'!
+assertPrefixHasNoEmptySpaces: aPrefix
+	
+	(aPrefix includesSubString: ' ') ifTrue:[self error: SentenceFinderByPrefix prefixCannotHaveEmptySpacesErrorDescription].! !
+
+!SentenceFinderByPrefix methodsFor: 'assertions' stamp: 'JDR 4/27/2022 21:03:22'!
+assertPrefixIsNotEmpty: aPrefix
+	
+	aPrefix isEmpty ifTrue:[self error: SentenceFinderByPrefix prefixCannotBeEmptyErrorDescription].! !
+
+
+!SentenceFinderByPrefix methodsFor: 'accessing - private' stamp: 'AF 4/26/2022 21:01:56'!
 findSentencesStartingWith: aPrefix
 
 	| returnList |
@@ -321,27 +370,17 @@ findSentencesStartingWith: aPrefix
 	^returnList.
 	! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 21:01:48'!
+!SentenceFinderByPrefix methodsFor: 'accessing - private' stamp: 'AF 4/26/2022 21:01:48'!
 if: currentSentence startsWith: aPrefix addItTo: returnList
 
 	backupData push: currentSentence.
 		(currentSentence beginsWith: aPrefix) ifTrue:[ returnList add: currentSentence]! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 20:29:57'!
-initilaizeWith: anOOStack 
-	
-	ooStack _ anOOStack ! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 20:46:26'!
+!SentenceFinderByPrefix methodsFor: 'restoring - private' stamp: 'AF 4/26/2022 20:46:26'!
 restoreStack
 
 	^ [backupData isEmpty] whileFalse: [ooStack push: backupData pop]! !
-
-
-!SentenceFinderByPrefix methodsFor: 'assertions' stamp: 'AF 4/26/2022 21:05:56'!
-assertPrefixIsNotEmpty: aPrefix
-	
-	aPrefix isEmpty ifTrue:[self error: SentenceFinderByPrefix prefixCanNotBeEmptyErrorDescription].! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -349,15 +388,19 @@ assertPrefixIsNotEmpty: aPrefix
 SentenceFinderByPrefix class
 	instanceVariableNames: ''!
 
-!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 20:57:46'!
+!SentenceFinderByPrefix class methodsFor: 'error descriptions' stamp: 'JDR 4/27/2022 21:03:22'!
+prefixCannotBeEmptyErrorDescription
+	^'A prefix cannot be empty'! !
+
+!SentenceFinderByPrefix class methodsFor: 'error descriptions' stamp: 'JDR 4/27/2022 21:03:12'!
+prefixCannotHaveEmptySpacesErrorDescription
+	^'A prefix cannot have empty spaces'! !
+
+
+!SentenceFinderByPrefix class methodsFor: 'instance creation' stamp: 'JDR 4/27/2022 20:45:28'!
 with: aOOStack
 
-	^self new initilaizeWith: aOOStack ! !
-
-
-!SentenceFinderByPrefix class methodsFor: 'error descriptions' stamp: 'AF 4/26/2022 21:05:56'!
-prefixCanNotBeEmptyErrorDescription
-	^'A prefix cannot be empty'! !
+	^self new initializeWith: aOOStack ! !
 
 
 !classDefinition: #StackState category: 'Stack-Exercise'!
@@ -367,7 +410,7 @@ Object subclass: #StackState
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!StackState methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:47:15'!
+!StackState methodsFor: 'assertions' stamp: 'AF 4/26/2022 19:47:15'!
 assertStackIsNotEmpty
 
 	self subclassResponsibility.! !
@@ -378,12 +421,12 @@ assertStackIsNotEmpty
 StackState class
 	instanceVariableNames: ''!
 
-!StackState class methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:35:37'!
+!StackState class methodsFor: 'instance creation' stamp: 'AF 4/26/2022 19:35:37'!
 canHandle: aStackSize
 	
 	self subclassResponsibility.! !
 
-!StackState class methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:40:54'!
+!StackState class methodsFor: 'instance creation' stamp: 'AF 4/26/2022 19:40:54'!
 with: aStackSize
 
 	| subclass |
@@ -400,7 +443,7 @@ StackState subclass: #StackStateEmpty
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!StackStateEmpty methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:46:52'!
+!StackStateEmpty methodsFor: 'assertions' stamp: 'AF 4/26/2022 19:46:52'!
 assertStackIsNotEmpty
 	
 	self error: OOStack stackEmptyErrorDescription! !
@@ -411,7 +454,7 @@ assertStackIsNotEmpty
 StackStateEmpty class
 	instanceVariableNames: ''!
 
-!StackStateEmpty class methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:34:03'!
+!StackStateEmpty class methodsFor: 'instance creation' stamp: 'AF 4/26/2022 19:34:03'!
 canHandle: aStackSize
 
 	^aStackSize = 0! !
@@ -424,7 +467,7 @@ StackState subclass: #StackStateNotEmpty
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!StackStateNotEmpty methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:46:52'!
+!StackStateNotEmpty methodsFor: 'assertions' stamp: 'AF 4/26/2022 19:46:52'!
 assertStackIsNotEmpty
 	
 	! !
@@ -435,7 +478,7 @@ assertStackIsNotEmpty
 StackStateNotEmpty class
 	instanceVariableNames: ''!
 
-!StackStateNotEmpty class methodsFor: 'as yet unclassified' stamp: 'AF 4/26/2022 19:34:46'!
+!StackStateNotEmpty class methodsFor: 'instance creation' stamp: 'AF 4/26/2022 19:34:46'!
 canHandle: aStackSize
 
 	^aStackSize > 0	! !
