@@ -1,0 +1,1685 @@
+
+
+----STARTUP---- (12 May 2022 20:22:12) as /home/clinux01/Documentos/5/linux64/CuisUniversity-5096.image!
+
+
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #MarsRoverTests category: 'MarsRover' stamp: 'JDR 5/12/2022 20:24:21'!
+TestCase subclass: #MarsRoverTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #MarsRover category: 'MarsRover' stamp: 'JDR 5/12/2022 20:41:08'!
+Object subclass: #MarsRover
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!MarsRoverTests methodsFor: 'no messages' stamp: 'JDR 5/12/2022 20:40:52'!
+test01RoverStaysAtOriginWhenReceivingEmptyString
+
+	| marsRover |
+	marsRover _ MarsRover new.
+
+	self assert: (marsRover process: '') isAt: 0@0 facing: #south! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:42:42'!
+ERROR!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:42:42'!
+ERROR!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:42:52'!
+process: aString 
+	self shouldBeImplemented.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:43:25' prior: 50474126!
+process: aString 
+	
+	! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:43:28'!
+ERROR!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:43:53' prior: 50474111!
+test01RoverStaysAtOriginWhenReceivingEmptyString
+
+	| marsRover |
+	marsRover _ MarsRover new.
+
+	self assert: ((marsRover process: '') isAt: 0@0 facing: #south)! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:43:56'!
+ERROR!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:44:02'!
+isAt: aPoint facing: aSymbol 
+	self shouldBeImplemented.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:45:02' prior: 50474151!
+isAt: aPoint facing: aCardinalPoint
+	
+	^true! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:45:14' prior: 50474156!
+isAt: aCoordinate facing: aCardinalPoint
+	
+	^true! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:45:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:45:16'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:50:31'!
+test02
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #north.
+	
+	marsRover process: 'f'.
+	
+	self deny: (marsRover isAt: 0@0 facing: #north)! !
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:50:42'!
+ERROR!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:50:42'!
+ERROR!
+!MarsRover class methodsFor: 'instance creation' stamp: 'JDR 5/12/2022 20:51:01'!
+createAt: aPoint facing: aSymbol 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeCreateAt: aPoint facing: aSymbol ! !
+!MarsRover class methodsFor: 'instance creation' stamp: 'JDR 5/12/2022 20:51:26' prior: 50474186!
+createAt: aCoordinate facing: aCardinalPoint 
+	
+	^self new initializeCreateAt: aCoordinate facing: aCardinalPoint ! !
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:51:27'!
+ERROR!
+
+!classDefinition: #MarsRover category: 'MarsRover' stamp: 'JDR 5/12/2022 20:51:32'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'coordinate'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #MarsRover category: 'MarsRover' stamp: 'JDR 5/12/2022 20:51:32'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'coordinate cardinalPoint'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!MarsRover methodsFor: 'initialization' stamp: 'JDR 5/12/2022 20:51:32'!
+initializeCreateAt: aCoordinate facing: aCardinalPoint 
+	self shouldBeImplemented.
+	coordinate := aCoordinate.
+	cardinalPoint := aCardinalPoint.! !
+!MarsRover methodsFor: 'initialization' stamp: 'JDR 5/12/2022 20:51:38' prior: 50474218!
+initializeCreateAt: aCoordinate facing: aCardinalPoint 
+	
+	coordinate := aCoordinate.
+	cardinalPoint := aCardinalPoint.! !
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:51:39'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:52:41' prior: 50474131!
+process: aString 
+	
+	aString = 'f' ifTrue: []
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:54:22' prior: 50474236!
+process: aString 
+	
+	aString = 'f' ifTrue: [coordinate _ 0@1]
+	! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:55:23' prior: 50474173!
+test02
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #north.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@1 facing: #north)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:56:50' prior: 50474161!
+isAt: aCoordinate facing: aCardinalPoint
+	
+	^aCoordinate = coordinate! !
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:57:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:57:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:57:09'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:57:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:57:09'!
+FAILURE!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:57:35' prior: 50474139!
+test01RoverStaysAtOriginWhenReceivingEmptyString
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+
+	self assert: ((marsRover process: '') isAt: 0@0 facing: #south)! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:57:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:57:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:57:36'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:58:22'!
+test03
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #north.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: #north)! !
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 20:58:26'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:59:00' prior: 50474241!
+process: aString 
+	
+	aString = 'f' ifTrue: [coordinate _ 0@1].
+	aString = 'b' ifTrue: [coordinate _ 0@-1].
+	! !
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 20:59:03'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 20:59:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 20:59:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 20:59:07'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 20:59:07'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 20:59:43'!
+test04
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #north.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #west)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:03:46' prior: 50474305!
+process: aString 
+	
+	aString = 'f' ifTrue: [coordinate _ 0@1].
+	aString = 'b' ifTrue: [coordinate _ 0@-1].
+	aString = 'l' ifTrue: [cardinalPoint _ #west].
+	! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:03:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:03:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:03:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:03:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:03:53'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:04:30'!
+test05
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #north.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #east)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:04:53' prior: 50474333!
+process: aString 
+	
+	aString = 'f' ifTrue: [coordinate _ 0@1].
+	aString = 'b' ifTrue: [coordinate _ 0@-1].
+	aString = 'l' ifTrue: [cardinalPoint _ #west].
+	aString = 'r' ifTrue: [cardinalPoint _ #east].
+	! !
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:05:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:05:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:05:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:05:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:05:04'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:05:04'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:06:31'!
+test06
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: #south)! !
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:06:37'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:08:28' prior: 50474362!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@1].
+		aString = 'b' ifTrue: [coordinate _ 0@-1].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+	! !
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:08:30'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:21:34'!
+test07
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@1 facing: #south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:21:50' prior: 50474434!
+test07
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:22:01'!
+test08
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #west)! !
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:22:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:23:13'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:23:47'!
+test09
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: -1@0 facing: #west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:24:01'!
+test10
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: #west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:24:46' prior: 50474514!
+test10
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:25:03' prior: 50474522!
+test10
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:25:41'!
+test12
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:25:48'!
+test11
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:26:13' prior: 50474531!
+test10
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: #west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:26:46'!
+test13
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@0 facing: #east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:26:55'!
+test14
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: -1@0 facing: #east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:27:07'!
+test15
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:27:15'!
+test16
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:24'!
+test17
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:32' prior: 50474588!
+test16
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:35' prior: 50474580!
+test15
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: -1@0 facing: #east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:39' prior: 50474572!
+test14
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #east.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@0 facing: #east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:41' prior: 50474564!
+test13
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:44' prior: 50474539!
+test12
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #south)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:49' prior: 50474547!
+test11
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: #west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:28:54' prior: 50474556!
+test10
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #west.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: -1@0 facing: #west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:29:03' prior: 50474506!
+test09
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #west)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:29:14' prior: 50474451!
+test08
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: #east)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:29:35' prior: 50474443!
+test07
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #south.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@1 facing: #south)! !
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/12/2022 21:30:16'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/12/2022 21:30:16'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/12/2022 21:30:16'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/12/2022 21:30:16'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/12/2022 21:30:16'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:31:13' prior: 50474398!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@1].
+		aString = 'b' ifTrue: [coordinate _ 0@-1].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:31:35' prior: 50474737!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@1].
+		aString = 'b' ifTrue: [coordinate _ 0@-1].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/12/2022 21:31:40'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:34:04'!
+test18
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 0@0 facing: #north.
+	
+	marsRover process: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: #north)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:37:17' prior: 50474838!
+test18
+
+	| marsRover |
+	marsRover _ MarsRover createAt: 1@3 facing: #north.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@4 facing: #north)! !
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/12/2022 21:37:19'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:37:47' prior: 50474762!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ coordinate + 0@1].
+		aString = 'b' ifTrue: [coordinate _ 0@-1].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:37:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/12/2022 21:37:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/12/2022 21:37:47'!
+ERROR!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/12/2022 21:37:55'!
+ERROR!
+
+coordinate + 0@1!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:38:17' prior: 50474858!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ coordinate + (0@1)].
+		aString = 'b' ifTrue: [coordinate _ 0@-1].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/12/2022 21:38:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:38:21'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:47:08'!
+moveOnePositionToNorth
+
+	^ coordinate _ coordinate + (0@1)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:47:08' prior: 50474938!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [coordinate _ 0@-1].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:47:31'!
+moveOnePositionToSouth
+
+	^ coordinate _ 0@-1! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:47:31' prior: 50475022!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 0@-1].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:47:31' prior: 50475059!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [coordinate _ 0@1].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:47:45' prior: 50475092!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [cardinalPoint _ #east].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/12/2022 21:47:46'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:48:23'!
+faceToEast
+
+	^ cardinalPoint _ #east! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:48:23' prior: 50475125!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [cardinalPoint _ #east].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:48:23' prior: 50475207!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [cardinalPoint _ #west].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:48:38'!
+faceWest
+
+	^ cardinalPoint _ #west! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:48:38' prior: 50475241!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [cardinalPoint _ #west].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:48:38' prior: 50475279!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ -1@0].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:49:49'!
+moveToEast
+
+	^ coordinate _ -1@0! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:49:49' prior: 50475312!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [coordinate _ -1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:49:49' prior: 50475349!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [coordinate _ 1@0].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:10'!
+moveToWest
+
+	^ coordinate _ 1@0! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:10' prior: 50475382!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [coordinate _ 1@0].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:10' prior: 50475419!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [cardinalPoint _ #south].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:30'!
+faceSouth
+
+	^ cardinalPoint _ #south! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:30' prior: 50475452!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [cardinalPoint _ #south].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:30' prior: 50475489!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+
+!classDefinition: #MarsRover category: 'MarsRover' stamp: 'JDR 5/12/2022 21:50:46'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'coordinate faceNorth'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:46' prior: 50475274!
+faceWest
+
+	^ faceNorth _ #west! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:46' prior: 50474226!
+initializeCreateAt: aCoordinate facing: aCardinalPoint 
+	
+	coordinate := aCoordinate.
+	faceNorth := aCardinalPoint.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:46' prior: 50475484!
+faceSouth
+
+	^ faceNorth _ #south! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:46' prior: 50475522!
+process: aString 
+	
+	faceNorth = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	faceNorth = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	faceNorth = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [faceNorth _ #north].
+	].
+
+	faceNorth = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [faceNorth _ #north].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:50:46' prior: 50475202!
+faceToEast
+
+	^ faceNorth _ #east! !
+
+!classDefinition: #MarsRover category: 'MarsRover' stamp: 'JDR 5/12/2022 21:51:31'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'coordinate cardinalPoint'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:31' prior: 50475561!
+faceWest
+
+	^ cardinalPoint _ #west! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:31' prior: 50475565!
+initializeCreateAt: aCoordinate facing: aCardinalPoint 
+	
+	coordinate := aCoordinate.
+	cardinalPoint := aCardinalPoint.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:31' prior: 50475572!
+faceSouth
+
+	^ cardinalPoint _ #south! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:31' prior: 50475577!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [cardinalPoint _ #north].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:31' prior: 50475609!
+faceToEast
+
+	^ cardinalPoint _ #east! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:49'!
+faceNorth
+
+	^ cardinalPoint _ #north! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:49' prior: 50475638!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [self faceNorth].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [cardinalPoint _ #north].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/12/2022 21:51:49' prior: 50475679!
+process: aString 
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [self faceNorth].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [self faceNorth].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
