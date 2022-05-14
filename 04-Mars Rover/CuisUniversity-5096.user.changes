@@ -1683,3 +1683,4186 @@ process: aString
 	].
 
 	! !
+
+----STARTUP---- (14 May 2022 11:13:12) as /home/jerodacunda/Escritorio/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/jerodacunda/Escritorio/linux64/MarsRover.st----!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 11:21:21'!
+PASSED!
+
+Object subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #North category: 'MarsRover' stamp: 'JDR 5/14/2022 11:37:42'!
+Object subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+Object subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #South category: 'MarsRover' stamp: 'JDR 5/14/2022 11:37:46'!
+Object subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+Object subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #West category: 'MarsRover' stamp: 'JDR 5/14/2022 11:37:49'!
+Object subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+Object subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #East category: 'MarsRover' stamp: 'JDR 5/14/2022 11:37:52'!
+Object subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!North methodsFor: 'no messages' stamp: 'JDR 5/14/2022 11:40:33'!
+xx: aString yy: aMarsRover
+
+	aString = 'f' ifTrue: [aMarsRover moveOnePositionToNorth].
+	aString = 'b' ifTrue: [aMarsRover moveOnePositionToSouth].
+	aString = 'l' ifTrue: [aMarsRover faceWest].
+	aString = 'r' ifTrue: [aMarsRover faceToEast].! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:40:47' prior: 50474438!
+xx: aCommandToProcess yy: aMarsRover
+
+	aCommandToProcess = 'f' ifTrue: [aMarsRover moveOnePositionToNorth].
+	aCommandToProcess = 'b' ifTrue: [aMarsRover moveOnePositionToSouth].
+	aCommandToProcess = 'l' ifTrue: [aMarsRover faceWest].
+	aCommandToProcess = 'r' ifTrue: [aMarsRover faceToEast].! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:40:55' prior: 50474449!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveOnePositionToNorth].
+	aCommand = 'b' ifTrue: [aMarsRover moveOnePositionToSouth].
+	aCommand = 'l' ifTrue: [aMarsRover faceWest].
+	aCommand = 'r' ifTrue: [aMarsRover faceToEast].! !
+!South methodsFor: 'no messages' stamp: 'JDR 5/14/2022 11:41:38'!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveOnePositionToSouth].
+	aCommand = 'b' ifTrue: [aMarsRover moveOnePositionToNorth].
+	aCommand = 'l' ifTrue: [aMarsRover faceToEast].
+	aCommand = 'r' ifTrue: [aMarsRover faceWest].! !
+!West methodsFor: 'no messages' stamp: 'JDR 5/14/2022 11:41:48'!
+xx: aCommand yy: aMarsRover! !
+!East methodsFor: 'no messages' stamp: 'JDR 5/14/2022 11:41:52'!
+xx: aCommand yy: aMarsRover! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:42:13' prior: 50474482!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'b' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'l' ifTrue: [aMarsRover faceSouth].
+	aCommand = 'r' ifTrue: [aMarsRover faceNorth].! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:42:37' prior: 50474485!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'b' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'l' ifTrue: [aMarsRover faceNorth].
+	aCommand = 'r' ifTrue: [aMarsRover faceSouth].! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:45:46' prior: 50474300!
+process: aString 
+
+	cardinalPoint _ North new.
+	cardinalPoint xx: aString yy: self.
+	
+	cardinalPoint = #north ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToNorth].
+		aString = 'b' ifTrue: [self moveOnePositionToSouth].
+		aString = 'l' ifTrue: [self faceWest].
+		aString = 'r' ifTrue: [self faceToEast].
+	].
+
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [self faceNorth].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [self faceNorth].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:45:55' prior: 50474509!
+process: aString 
+
+	cardinalPoint _ North new.
+	cardinalPoint xx: aString yy: self.
+	
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [self faceNorth].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [self faceNorth].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:47:12' prior: 50474499!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'b' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'l' ifTrue: [aMarsRover faceSouth].
+	aCommand = 'r' ifTrue: [aMarsRover faceNorth].! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:47:17' prior: 50474489!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'b' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'l' ifTrue: [aMarsRover faceNorth].
+	aCommand = 'r' ifTrue: [aMarsRover faceSouth].
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:51:10' prior: 50474543!
+process: aString 
+
+	cardinalPoint _ North new.
+	cardinalPoint xx: aString yy: self.	
+	
+	cardinalPoint = #south ifTrue: [
+		aString = 'f' ifTrue: [self moveOnePositionToSouth].
+		aString = 'b' ifTrue: [self moveOnePositionToNorth].
+		aString = 'l' ifTrue: [self faceToEast].
+		aString = 'r' ifTrue: [self faceWest].
+	].
+
+	cardinalPoint = #west ifTrue: [
+		aString = 'f' ifTrue: [self moveToEast].
+		aString = 'b' ifTrue: [self moveToWest].
+		aString = 'l' ifTrue: [self faceSouth].
+		aString = 'r' ifTrue: [self faceNorth].
+	].
+
+	cardinalPoint = #east ifTrue: [
+		aString = 'f' ifTrue: [self moveToWest].
+		aString = 'b' ifTrue: [self moveToEast].
+		aString = 'l' ifTrue: [self faceNorth].
+		aString = 'r' ifTrue: [self faceSouth].
+	].
+
+	! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:55:32' prior: 50474105!
+test01RoverStaysAtOriginWhenReceivingEmptyString
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+
+	self assert: ((marsRover process: '') isAt: 0@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 11:55:44'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 11:55:44'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 11:55:44'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 11:55:44'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 11:55:44'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 11:55:44'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 11:55:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 11:55:50'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:56:24' prior: 50474114!
+test02
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:56:42' prior: 50474122!
+test03
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 11:56:46'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 11:56:46'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 11:56:46'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 11:56:46'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 11:56:46'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 11:56:46'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 11:56:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 11:56:51'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 11:56:55'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:57:31' prior: 50474130!
+test04
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 11:57:36'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:58:40' prior: 50474278!
+isAt: aCoordinate facing: aCardinalPoint
+	
+	^(aCoordinate = coordinate) and: (aCardinalPoint = cardinalPoint) 
+	! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 11:58:49'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 11:58:49'!
+FAILURE!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:59:41' prior: 50474752!
+test04
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 11:59:55' prior: 50474274!
+faceWest
+
+	^ cardinalPoint _ West new! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:00:03' prior: 50474270!
+faceToEast
+
+	^ cardinalPoint _ East new.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:00:09' prior: 50474266!
+faceSouth
+
+	^ cardinalPoint _ South new! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:00:15' prior: 50474262!
+faceNorth
+
+	^ cardinalPoint _ North new! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:00:32'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:00:32'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:01:22'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:01:22'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:02:53' prior: 50474590!
+process: aString 
+
+	cardinalPoint xx: aString yy: self.	
+! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:03:00'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:03:00'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:04:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:04:06'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:05:22' prior: 50474786!
+faceWest
+
+	cardinalPoint _ West new! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:06:23' prior: 50474764!
+isAt: aCoordinate facing: aCardinalPoint
+	
+	^(aCoordinate = coordinate) and: [aCardinalPoint = cardinalPoint] 
+	! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:06:25'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:06:32'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:06:32'!
+FAILURE!
+
+aCardinalPoint = cardinalPoint!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:09:36' prior: 50474835!
+isAt: aCoordinate facing: aCardinalPoint
+	
+	^(aCoordinate = coordinate) and: [aCardinalPoint isKindOf: cardinalPoint class] 
+	! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:09:41'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:10:06' prior: 50474138!
+test05
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:10:13'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:10:28' prior: 50474146!
+test06
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:10:32'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:10:48' prior: 50474154!
+test07
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:11:11' prior: 50474162!
+test08
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:11:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:11:15'!
+ERROR!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:11:19'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:11:34' prior: 50474170!
+test09
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:11:38'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:11:59' prior: 50474178!
+test10
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:12:02'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:12:02'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:12:23'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:12:23'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:14:19' prior: 50474296!
+moveToWest
+
+	^ coordinate _ -1@0! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:14:32' prior: 50474292!
+moveToEast
+
+	^ coordinate _ 1@0! !
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:15:06'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:15:28' prior: 50474186!
+test11
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:15:31'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:15:49' prior: 50474194!
+test12
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:15:53'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:15:53'!
+FAILURE!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:16:20' prior: 50475013!
+test12
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)! !
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:16:24'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:16:24'!
+FAILURE!
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:17:02' prior: 50474579!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'b' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'l' ifTrue: [aMarsRover faceSouth].
+	aCommand = 'r' ifTrue: [aMarsRover faceNorth].
+	! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:17:24' prior: 50474569!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'b' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'l' ifTrue: [aMarsRover faceNorth].
+	aCommand = 'r' ifTrue: [aMarsRover faceSouth].! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:17:37'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:17:42'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:17:45'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:17:48'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:17:52'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:17:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:17:59'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:18:01'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:18:02'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:18:05'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:18:09'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:18:12'!
+ERROR!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:18:12'!
+ERROR!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:18:27' prior: 50474202!
+test13
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)! !
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:18:32'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:18:44' prior: 50474210!
+test14
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:18:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:18:46'!
+ERROR!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:18:46'!
+ERROR!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:18:46'!
+ERROR!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:18:46'!
+ERROR!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:18:50'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:19:08' prior: 50474218!
+test15
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:19:10'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:19:21' prior: 50474226!
+test16
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:19:35' prior: 50474234!
+test17
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)! !
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:19:38'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:19:54' prior: 50474242!
+test18
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@4 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:19:56'!
+PASSED!
+
+Object subclass: #CardinalPoint
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #CardinalPoint category: 'MarsRover' stamp: 'JDR 5/14/2022 12:23:15'!
+Object subclass: #CardinalPoint
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+CardinalPoint subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #East category: 'MarsRover' stamp: 'JDR 5/14/2022 12:23:29'!
+CardinalPoint subclass: #East
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+CardinalPoint subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #North category: 'MarsRover' stamp: 'JDR 5/14/2022 12:23:33'!
+CardinalPoint subclass: #North
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+CardinalPoint subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #South category: 'MarsRover' stamp: 'JDR 5/14/2022 12:23:36'!
+CardinalPoint subclass: #South
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+CardinalPoint subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+
+!classDefinition: #West category: 'MarsRover' stamp: 'JDR 5/14/2022 12:23:39'!
+CardinalPoint subclass: #West
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:25:52' prior: 50474815!
+process: aCommand 
+
+	cardinalPoint xx: aCommand yy: self.	
+! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:29:25' prior: 50475314!
+process: aCommand 
+
+	(aCommand = 'f') ifTrue: [cardinalPoint moveForward].
+	(aCommand = 'b') ifTrue: [cardinalPoint moveBackwards].
+	(aCommand = 'l') ifTrue: [cardinalPoint turnLeft].
+	(aCommand = 'r') ifTrue: [cardinalPoint turnRight].
+	
+	cardinalPoint xx: aCommand yy: self.	
+! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:30:01'!
+moveForward
+
+	! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:30:15'!
+moveForward: aMarsRover
+
+	! !
+
+!methodRemoval: North #moveForward stamp: 'JDR 5/14/2022 12:30:19'!
+moveForward
+
+	!
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:30:36' prior: 50475334!
+moveForward: aMarsRover
+
+	aMarsRover moveOnePositionToNorth.
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:31:09' prior: 50475319!
+process: aCommand 
+
+	(aCommand = 'f') ifTrue: [cardinalPoint moveForward: self].
+	(aCommand = 'b') ifTrue: [cardinalPoint moveBackwards: self].
+	(aCommand = 'l') ifTrue: [cardinalPoint turnLeft: self].
+	(aCommand = 'r') ifTrue: [cardinalPoint turnRight: self].
+	! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:31:37'!
+moveBackwards: aMarsRover
+
+	aMarsRover moveOnePositionToSouth.
+	! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:32:05'!
+turnLeft: aMarsRover
+
+	aMarsRover faceWest.
+	! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:32:17'!
+turnRight: aMarsRover
+
+	aMarsRover faceToEast.
+	! !
+!South methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:33:30'!
+moveForward: aMarsRover
+
+	aMarsRover moveOnePositionToSouth! !
+!South methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:33:45'!
+moveBackwards: aMarsRover
+
+	aMarsRover moveOnePositionToNorth! !
+!South methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:34:03'!
+turnLeft: aMarsRover
+
+	aMarsRover faceToEast! !
+!South methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:34:15'!
+turnRight: aMarsRover
+
+	aMarsRover faceWest! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:34:39'!
+moveForward: aMarsRover
+
+	aMarsRover moveToWest! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:34:52'!
+moveBackwards: aMarsRover
+
+	aMarsRover moveToEast! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:35:18'!
+turnLeft: aMarsRover
+
+	aMarsRover faceSouth
+! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:35:24'!
+turnRight: aMarsRover
+
+	aMarsRover faceNorth
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:35:47'!
+moveForward: aMarsRover
+
+	aMarsRover moveToEast
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:35:59'!
+moveBackwards: aMarsRover
+
+	aMarsRover moveToWest
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:36:21'!
+turnLeft: aMarsRover
+
+	aMarsRover faceNorth
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:36:25'!
+turnRight: aMarsRover
+
+	aMarsRover faceNorth
+! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:36:30' prior: 50475416!
+turnRight: aMarsRover
+
+	aMarsRover faceSouth
+! !
+!CardinalPoint methodsFor: 'no messages' stamp: 'JDR 5/14/2022 12:36:52'!
+moveForward: aMarsRover
+
+	self subclassResponsibility ! !
+!CardinalPoint methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:36:58'!
+moveBackwards: aMarsRover
+
+	self subclassResponsibility ! !
+!CardinalPoint methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:37:05'!
+turnLeft: aMarsRover
+
+	self subclassResponsibility ! !
+!CardinalPoint methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:37:08'!
+turnRight: aMarsRover
+
+	self subclassResponsibility ! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:37:44'!
+PASSED!
+
+!methodRemoval: East #xx:yy: stamp: 'JDR 5/14/2022 12:37:48'!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'b' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'l' ifTrue: [aMarsRover faceNorth].
+	aCommand = 'r' ifTrue: [aMarsRover faceSouth].!
+
+!methodRemoval: North #xx:yy: stamp: 'JDR 5/14/2022 12:37:50'!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveOnePositionToNorth].
+	aCommand = 'b' ifTrue: [aMarsRover moveOnePositionToSouth].
+	aCommand = 'l' ifTrue: [aMarsRover faceWest].
+	aCommand = 'r' ifTrue: [aMarsRover faceToEast].!
+
+!methodRemoval: South #xx:yy: stamp: 'JDR 5/14/2022 12:37:52'!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveOnePositionToSouth].
+	aCommand = 'b' ifTrue: [aMarsRover moveOnePositionToNorth].
+	aCommand = 'l' ifTrue: [aMarsRover faceToEast].
+	aCommand = 'r' ifTrue: [aMarsRover faceWest].!
+
+!methodRemoval: West #xx:yy: stamp: 'JDR 5/14/2022 12:37:54'!
+xx: aCommand yy: aMarsRover
+
+	aCommand = 'f' ifTrue: [aMarsRover moveToWest].
+	aCommand = 'b' ifTrue: [aMarsRover moveToEast].
+	aCommand = 'l' ifTrue: [aMarsRover faceSouth].
+	aCommand = 'r' ifTrue: [aMarsRover faceNorth].
+	!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:37:57'!
+PASSED!
+!Behavior method!
+createAt: aCoordinate facing: aCardinalPoint
+	^ [
+	([
+	(self coverAll:
+		{51 to: 54}) new ] valueCoveringAll:
+		{56 to: 58})
+		initializeCreateAt:
+			(aCoordinate
+				cover: (80 to: 90)
+				declaredAt: (11 to: 21))
+		facing:
+			(aCardinalPoint
+				cover: (100 to: 113)
+				declaredAt: (31 to: 44)) ] valueCoveringAll:
+		{60 to: 78. 92 to: 98}.! !
+!Behavior method!
+initializeCreateAt: aCoordinate facing: aCardinalPoint
+	(coordinate _ aCoordinate
+		cover: (74 to: 84)
+		declaredAt: (21 to: 31))
+		cover: (60 to: 69)
+		declaredAt: (60 to: 69).
+	(cardinalPoint _ aCardinalPoint
+		cover: (105 to: 118)
+		declaredAt: (41 to: 54))
+		cover: (88 to: 100)
+		declaredAt: (88 to: 100).! !
+!Behavior method!
+process: aCommand
+	[
+	([
+	(aCommand
+		cover: (23 to: 30)
+		declaredAt: (10 to: 17)) =
+		('f' coverAll:
+			{34 to: 36}) ] valueCoveringAll:
+		{32 to: 32}) ifTrue: [
+		[
+		(cardinalPoint
+			cover: (48 to: 60)
+			declaredAt: (48 to: 60)) moveForward:
+			(self coverAll:
+				{75 to: 78}) ] valueCoveringAll:
+			{62 to: 73} ]] valueCoveringAll:
+		{39 to: 45}.
+	[
+	([
+	(aCommand
+		cover: (84 to: 91)
+		declaredAt: (10 to: 17)) =
+		('b' coverAll:
+			{95 to: 97}) ] valueCoveringAll:
+		{93 to: 93}) ifTrue: [
+		[
+		(cardinalPoint
+			cover: (109 to: 121)
+			declaredAt: (48 to: 60)) moveBackwards:
+			(self coverAll:
+				{138 to: 141}) ] valueCoveringAll:
+			{123 to: 136} ]] valueCoveringAll:
+		{100 to: 106}.
+	[
+	([
+	(aCommand
+		cover: (147 to: 154)
+		declaredAt: (10 to: 17)) =
+		('l' coverAll:
+			{158 to: 160}) ] valueCoveringAll:
+		{156 to: 156}) ifTrue: [
+		[
+		(cardinalPoint
+			cover: (172 to: 184)
+			declaredAt: (48 to: 60)) turnLeft:
+			(self coverAll:
+				{196 to: 199}) ] valueCoveringAll:
+			{186 to: 194} ]] valueCoveringAll:
+		{163 to: 169}.
+	[
+	([
+	(aCommand
+		cover: (205 to: 212)
+		declaredAt: (10 to: 17)) =
+		('r' coverAll:
+			{216 to: 218}) ] valueCoveringAll:
+		{214 to: 214}) ifTrue: [
+		[
+		(cardinalPoint
+			cover: (230 to: 242)
+			declaredAt: (48 to: 60)) turnRight:
+			(self coverAll:
+				{255 to: 258}) ] valueCoveringAll:
+			{244 to: 253} ]] valueCoveringAll:
+		{221 to: 227}.! !
+!Behavior method!
+isAt: aCoordinate facing: aCardinalPoint
+	^ [
+	([
+	(aCoordinate
+		cover: (47 to: 57)
+		declaredAt: (7 to: 17)) =
+		(coordinate
+			cover: (61 to: 70)
+			declaredAt: (61 to: 70)) ] valueCoveringAll:
+		{59 to: 59}) and: [
+		[
+		(aCardinalPoint
+			cover: (79 to: 92)
+			declaredAt: (27 to: 40)) isKindOf:
+			([
+			(cardinalPoint
+				cover: (104 to: 116)
+				declaredAt: (104 to: 116)) class ] valueCoveringAll:
+				{118 to: 122}) ] valueCoveringAll:
+			{94 to: 102} ]] valueCoveringAll:
+		{73 to: 76}.! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:46:23'!
+PASSED!
+!Behavior method!
+moveForward: aMarsRover
+	[
+	(aMarsRover
+		cover: (27 to: 36)
+		declaredAt: (14 to: 23)) moveOnePositionToNorth ] valueCoveringAll:
+		{38 to: 59}.! !
+!Behavior method!
+moveOnePositionToNorth
+	^ (coordinate _ [
+	(coordinate
+		cover: (28 to: 37)
+		declaredAt: (28 to: 37)) +
+		([
+		(0 coverAll:
+			{55 to: 55}) @
+			(1 coverAll:
+				{57 to: 57}) ] valueCoveringAll:
+			{56 to: 56}) ] valueCoveringAll:
+		{52 to: 52})
+		cover: (41 to: 50)
+		declaredAt: (28 to: 37).! !
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:46:23'!
+PASSED!
+!Behavior method!
+moveBackwards: aMarsRover
+	[
+	(aMarsRover
+		cover: (29 to: 38)
+		declaredAt: (16 to: 25)) moveOnePositionToSouth ] valueCoveringAll:
+		{40 to: 61}.! !
+!Behavior method!
+moveOnePositionToSouth
+	^ (coordinate _ [
+	(0 coverAll:
+		{41 to: 41}) @
+		(-1 coverAll:
+			{43 to: 44}) ] valueCoveringAll:
+		{42 to: 42})
+		cover: (28 to: 37)
+		declaredAt: (28 to: 37).! !
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:46:23'!
+PASSED!
+!Behavior method!
+turnLeft: aMarsRover
+	[
+	(aMarsRover
+		cover: (24 to: 33)
+		declaredAt: (11 to: 20)) faceWest ] valueCoveringAll:
+		{35 to: 42}.! !
+!Behavior method!
+faceWest
+	(cardinalPoint _ [
+	(West
+		cover: (28 to: 31)
+		declaredAt: (28 to: 31)) new ] valueCoveringAll:
+		{33 to: 35})
+		cover: (12 to: 24)
+		declaredAt: (12 to: 24).! !
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:46:23'!
+PASSED!
+!Behavior method!
+turnRight: aMarsRover
+	[
+	(aMarsRover
+		cover: (25 to: 34)
+		declaredAt: (12 to: 21)) faceToEast ] valueCoveringAll:
+		{36 to: 45}.! !
+!Behavior method!
+faceToEast
+	^ (cardinalPoint _ [
+	(East
+		cover: (32 to: 35)
+		declaredAt: (32 to: 35)) new ] valueCoveringAll:
+		{37 to: 39})
+		cover: (16 to: 28)
+		declaredAt: (16 to: 28).! !
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+moveForward: aMarsRover
+	[
+	(aMarsRover
+		cover: (27 to: 36)
+		declaredAt: (14 to: 23)) moveOnePositionToSouth ] valueCoveringAll:
+		{38 to: 59}.! !
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+moveBackwards: aMarsRover
+	[
+	(aMarsRover
+		cover: (29 to: 38)
+		declaredAt: (16 to: 25)) moveOnePositionToNorth ] valueCoveringAll:
+		{40 to: 61}.! !
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+turnLeft: aMarsRover
+	[
+	(aMarsRover
+		cover: (24 to: 33)
+		declaredAt: (11 to: 20)) faceToEast ] valueCoveringAll:
+		{35 to: 44}.! !
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+turnRight: aMarsRover
+	[
+	(aMarsRover
+		cover: (25 to: 34)
+		declaredAt: (12 to: 21)) faceWest ] valueCoveringAll:
+		{36 to: 43}.! !
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+moveForward: aMarsRover
+	[
+	(aMarsRover
+		cover: (27 to: 36)
+		declaredAt: (14 to: 23)) moveToWest ] valueCoveringAll:
+		{38 to: 47}.! !
+!Behavior method!
+moveToWest
+	^ (coordinate _ [
+	(-1 coverAll:
+		{29 to: 30}) @
+		(0 coverAll:
+			{31 to: 32}) ] valueCoveringAll:
+		{31 to: 31})
+		cover: (16 to: 25)
+		declaredAt: (16 to: 25).! !
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+moveBackwards: aMarsRover
+	[
+	(aMarsRover
+		cover: (29 to: 38)
+		declaredAt: (16 to: 25)) moveToEast ] valueCoveringAll:
+		{40 to: 49}.! !
+!Behavior method!
+moveToEast
+	^ (coordinate _ [
+	(1 coverAll:
+		{29 to: 29}) @
+		(0 coverAll:
+			{30 to: 31}) ] valueCoveringAll:
+		{30 to: 30})
+		cover: (16 to: 25)
+		declaredAt: (16 to: 25).! !
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+turnLeft: aMarsRover
+	[
+	(aMarsRover
+		cover: (24 to: 33)
+		declaredAt: (11 to: 20)) faceSouth ] valueCoveringAll:
+		{35 to: 43}.! !
+!Behavior method!
+faceSouth
+	^ (cardinalPoint _ [
+	(South
+		cover: (31 to: 35)
+		declaredAt: (31 to: 35)) new ] valueCoveringAll:
+		{37 to: 39})
+		cover: (15 to: 27)
+		declaredAt: (15 to: 27).! !
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+turnRight: aMarsRover
+	[
+	(aMarsRover
+		cover: (25 to: 34)
+		declaredAt: (12 to: 21)) faceNorth ] valueCoveringAll:
+		{36 to: 44}.! !
+!Behavior method!
+faceNorth
+	^ (cardinalPoint _ [
+	(North
+		cover: (31 to: 35)
+		declaredAt: (31 to: 35)) new ] valueCoveringAll:
+		{37 to: 39})
+		cover: (15 to: 27)
+		declaredAt: (15 to: 27).! !
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+moveForward: aMarsRover
+	[
+	(aMarsRover
+		cover: (27 to: 36)
+		declaredAt: (14 to: 23)) moveToEast ] valueCoveringAll:
+		{38 to: 47}.! !
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+moveBackwards: aMarsRover
+	[
+	(aMarsRover
+		cover: (29 to: 38)
+		declaredAt: (16 to: 25)) moveToWest ] valueCoveringAll:
+		{40 to: 49}.! !
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+turnLeft: aMarsRover
+	[
+	(aMarsRover
+		cover: (24 to: 33)
+		declaredAt: (11 to: 20)) faceNorth ] valueCoveringAll:
+		{35 to: 43}.! !
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!Behavior method!
+turnRight: aMarsRover
+	[
+	(aMarsRover
+		cover: (25 to: 34)
+		declaredAt: (12 to: 21)) faceSouth ] valueCoveringAll:
+		{36 to: 44}.! !
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:46:24'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:48:14'!
+test19
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@2 facing: cardinalPoint)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:48:52'!
+test20
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 2@3 facing: cardinalPoint)! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:49:03'!
+test21
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@3 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 12:49:08'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:49:22' prior: 50474288!
+moveOnePositionToSouth
+
+	^ coordinate _ coordinate + 0@-1! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:49:26' prior: 50475875!
+moveOnePositionToSouth
+
+	^ coordinate _ coordinate + (0@-1)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:49:35' prior: 50474993!
+moveToEast
+
+	^ coordinate _ coordinate + (1@0)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:49:45' prior: 50474988!
+moveToWest
+
+	^ coordinate _ coordinate + (-1@0)! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test19 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test20 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 12:49:47'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:52:04'!
+test22
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: cardinalPoint)! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:53:36'!
+processASingleCommand: aCommand 
+
+	
+
+	(aCommand = 'f') ifTrue: [cardinalPoint moveForward: self].
+	(aCommand = 'b') ifTrue: [cardinalPoint moveBackwards: self].
+	(aCommand = 'l') ifTrue: [cardinalPoint turnLeft: self].
+	(aCommand = 'r') ifTrue: [cardinalPoint turnRight: self].
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:53:54' prior: 50475956!
+processASingleCommand: aSingleCommand 
+
+	
+
+	(aSingleCommand = 'f') ifTrue: [cardinalPoint moveForward: self].
+	(aSingleCommand = 'b') ifTrue: [cardinalPoint moveBackwards: self].
+	(aSingleCommand = 'l') ifTrue: [cardinalPoint turnLeft: self].
+	(aSingleCommand = 'r') ifTrue: [cardinalPoint turnRight: self].
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:54:09' prior: 50475968!
+processASingleCommand: aSingleCommand 	
+
+	(aSingleCommand = 'f') ifTrue: [cardinalPoint moveForward: self].
+	(aSingleCommand = 'b') ifTrue: [cardinalPoint moveBackwards: self].
+	(aSingleCommand = 'l') ifTrue: [cardinalPoint turnLeft: self].
+	(aSingleCommand = 'r') ifTrue: [cardinalPoint turnRight: self].
+	! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:56:01' prior: 50475346!
+process: aCommand 
+
+	aCommand do: [ :singleCommand | self processASingleCommand: singleCommand ]! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:56:06'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test19 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test20 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test22 stamp: 'JDR 5/14/2022 12:56:06'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:56:20'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:56:20'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 12:57:18' prior: 50475981!
+processASingleCommand: aSingleCommand 	
+
+	(aSingleCommand = $f) ifTrue: [cardinalPoint moveForward: self].
+	(aSingleCommand = $b) ifTrue: [cardinalPoint moveBackwards: self].
+	(aSingleCommand = $l) ifTrue: [cardinalPoint turnLeft: self].
+	(aSingleCommand = $r) ifTrue: [cardinalPoint turnRight: self].
+	! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test19 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test20 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22 stamp: 'JDR 5/14/2022 12:57:19'!
+PASSED!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:02:32'!
+test23
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	self should: [marsRover process: 't'] raise: Error - MessageNotUnderstood withMessageText: MarsRover invalidCommandErrorDescription.
+	
+	! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:02:55' prior: 50476126!
+test23
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	self  should: [marsRover process: 't'] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: MarsRover invalidCommandErrorDescription.
+	
+	! !
+!MarsRover class methodsFor: 'nil' stamp: 'JDR 5/14/2022 13:03:34'!
+invalidCommandErrorDescription
+
+	'Cannot process an invalid command'! !
+!MarsRover class methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:03:43' prior: 50476149!
+invalidCommandErrorDescription
+
+	^'Cannot process an invalid command'! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:05:30' prior: 50475994!
+process: aCommand 
+
+	self assertValidCommand: aCommand.
+	aCommand do: [ :singleCommand | self processASingleCommand: singleCommand ]! !
+
+----End fileIn of /home/jerodacunda/Escritorio/linux64/Packages/TerseGuide.pck.st----!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:08:54'!
+assertValidCommand: aCommand
+
+	aCommand do: [ :singleCommand | singleCommand ]! !
+
+!classDefinition: #MarsRover category: 'MarsRover' stamp: 'JDR 5/14/2022 13:10:14'!
+Object subclass: #MarsRover
+	instanceVariableNames: 'coordinate cardinalPoint validSingleCommands'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'MarsRover'!
+!MarsRover methodsFor: 'initialization' stamp: 'JDR 5/14/2022 13:10:13' prior: 50474331!
+initializeCreateAt: aCoordinate facing: aCardinalPoint 
+	
+	coordinate := aCoordinate.
+	cardinalPoint := aCardinalPoint.
+	validSingleCommands := OrderedCollection with: $f with: $b with: $l with: $r.! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:10:51' prior: 50479088!
+assertValidCommand: aCommand
+
+	aCommand do: [ :singleCommand | validSingleCommands includes: singleCommand ]! !
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:10:58'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:10:58'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:11:08'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:11:08'!
+FAILURE!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:11:30'!
+FAILURE!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:13:31' prior: 50479112!
+assertValidCommand: aCommand
+
+	aCommand do: [ :singleCommand | (validSingleCommands includes: singleCommand) ifFalse: [self error: MarsRover invalidCommandErrorDescription ] ]! !
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:13:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test19 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test20 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:13:35'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:14:43' prior: 50479131!
+assertValidCommand: aCommand
+
+	aCommand do: [ :singleCommand | (validSingleCommands includes: singleCommand) ifFalse: [self error: MarsRover invalidCommandErrorDescription ] ]! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:15:59'!
+assertSingleCommandIsValid: aSingleCommand
+
+	(validSingleCommands includes: aSingleCommand) ifFalse: [self error: MarsRover invalidCommandErrorDescription ] ! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:16:25' prior: 50479201!
+assertValidCommand: aCommand
+
+	aCommand do: [ :singleCommand | self assertSingleCommandIsValid: singleCommand ]! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test19 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test20 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:16:27'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:16:51'!
+assertCommandIsValid: aCommand
+
+	aCommand do: [ :singleCommand | self assertSingleCommandIsValid: singleCommand ]! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:16:51' prior: 50476161!
+process: aCommand 
+
+	self assertCommandIsValid: aCommand.
+	aCommand do: [ :singleCommand | self processASingleCommand: singleCommand ]! !
+
+!methodRemoval: MarsRover #assertValidCommand: stamp: 'JDR 5/14/2022 13:16:51'!
+assertValidCommand: aCommand
+
+	aCommand do: [ :singleCommand | self assertSingleCommandIsValid: singleCommand ]!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:17:48'!
+faceEast
+
+	^ cardinalPoint _ East new.! !
+!North methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:17:48' prior: 50475366 overrides: 50475440!
+turnRight: aMarsRover
+
+	aMarsRover faceEast.
+	! !
+!South methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:17:48' prior: 50475380 overrides: 50475435!
+turnLeft: aMarsRover
+
+	aMarsRover faceEast! !
+
+!methodRemoval: MarsRover #faceToEast stamp: 'JDR 5/14/2022 13:17:48'!
+faceToEast
+
+	^ cardinalPoint _ East new.!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test18 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test19 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test20 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test21 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:18:19'!
+PASSED!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:19:31'!
+moveOnePositionToEast
+
+	^ coordinate _ coordinate + (1@0)! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:19:31' prior: 50475392 overrides: 50475430!
+moveBackwards: aMarsRover
+
+	aMarsRover moveOnePositionToEast! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:19:31' prior: 50475404 overrides: 50475425!
+moveForward: aMarsRover
+
+	aMarsRover moveOnePositionToEast
+! !
+
+!methodRemoval: MarsRover #moveToEast stamp: 'JDR 5/14/2022 13:19:31'!
+moveToEast
+
+	^ coordinate _ coordinate + (1@0)!
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:19:43'!
+moveOnePositionToWest
+
+	^ coordinate _ coordinate + (-1@0)! !
+!East methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:19:43' prior: 50475408 overrides: 50475430!
+moveBackwards: aMarsRover
+
+	aMarsRover moveOnePositionToWest
+! !
+!West methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:19:43' prior: 50475388 overrides: 50475425!
+moveForward: aMarsRover
+
+	aMarsRover moveOnePositionToWest! !
+
+!methodRemoval: MarsRover #moveToWest stamp: 'JDR 5/14/2022 13:19:43'!
+moveToWest
+
+	^ coordinate _ coordinate + (-1@0)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:27:23'!
+test02RoverMovesForwardCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test02 stamp: 'JDR 5/14/2022 13:27:23'!
+test02
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:27:57'!
+test03RoverMovesForwardCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test03 stamp: 'JDR 5/14/2022 13:27:57'!
+test03
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:28:10'!
+test03RoverMovesBackwardsCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test03RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:28:10'!
+test03RoverMovesForwardCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:28:22'!
+test04RoverMovesForwardCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!methodRemoval: MarsRoverTests #test04 stamp: 'JDR 5/14/2022 13:28:22'!
+test04
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:28:36'!
+test04RoverRotatesLeftCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!methodRemoval: MarsRoverTests #test04RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:28:36'!
+test04RoverMovesForwardCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:28:45'!
+test05RoverRotatesLeftCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!methodRemoval: MarsRoverTests #test05 stamp: 'JDR 5/14/2022 13:28:45'!
+test05
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:28:50'!
+test05RoverRotatesRightCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!methodRemoval: MarsRoverTests #test05RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:28:50'!
+test05RoverRotatesLeftCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:29:11'!
+test06RoverMovesForwardCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test06 stamp: 'JDR 5/14/2022 13:29:11'!
+test06
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:29:29'!
+test07RoverMovesBackwardsCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test07 stamp: 'JDR 5/14/2022 13:29:29'!
+test07
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:29:44'!
+test08RoverRotatesLeftCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!methodRemoval: MarsRoverTests #test08 stamp: 'JDR 5/14/2022 13:29:44'!
+test08
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:29:55'!
+test09RoverRotatesRightCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!methodRemoval: MarsRoverTests #test09 stamp: 'JDR 5/14/2022 13:29:55'!
+test09
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:30:10'!
+test10RoverMovesForwardCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test10 stamp: 'JDR 5/14/2022 13:30:10'!
+test10
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:30:19'!
+test14RoverMovesForwardCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test14 stamp: 'JDR 5/14/2022 13:30:19'!
+test14
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:30:34'!
+test11RoverMovesBackwardsCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test11 stamp: 'JDR 5/14/2022 13:30:34'!
+test11
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:30:41'!
+test15RoverMovesBackwardsCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test15 stamp: 'JDR 5/14/2022 13:30:41'!
+test15
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:30:56'!
+test12RoverRotatesLeftCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)! !
+
+!methodRemoval: MarsRoverTests #test12 stamp: 'JDR 5/14/2022 13:30:56'!
+test12
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:31:04'!
+test16RoverRotatesLeftCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)! !
+
+!methodRemoval: MarsRoverTests #test16 stamp: 'JDR 5/14/2022 13:31:04'!
+test16
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:31:21'!
+test13RoverRotatesRightCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)! !
+
+!methodRemoval: MarsRoverTests #test13 stamp: 'JDR 5/14/2022 13:31:21'!
+test13
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:31:31'!
+test17RoverRotatesRightCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)! !
+
+!methodRemoval: MarsRoverTests #test17 stamp: 'JDR 5/14/2022 13:31:31'!
+test17
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)!
+
+!methodRemoval: MarsRoverTests #test18 stamp: 'JDR 5/14/2022 13:31:52'!
+test18
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 1@4 facing: cardinalPoint)!
+
+!methodRemoval: MarsRoverTests #test19 stamp: 'JDR 5/14/2022 13:32:08'!
+test19
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 1@2 facing: cardinalPoint)!
+
+!methodRemoval: MarsRoverTests #test20 stamp: 'JDR 5/14/2022 13:32:11'!
+test20
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'f'.
+	
+	self assert: (marsRover isAt: 2@3 facing: cardinalPoint)!
+
+!methodRemoval: MarsRoverTests #test21 stamp: 'JDR 5/14/2022 13:32:14'!
+test21
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ MarsRover createAt: 1@3 facing: cardinalPoint.
+	
+	marsRover process: 'b'.
+	
+	self assert: (marsRover isAt: 0@3 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:33:39'!
+test22RoverProcessAChainOfCommandsCorrectly
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test22 stamp: 'JDR 5/14/2022 13:33:39'!
+test22
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:33:48'!
+test22RoverProcessesAChainOfCommandsCorrectly
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: cardinalPoint)! !
+
+!methodRemoval: MarsRoverTests #test22RoverProcessAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:33:48'!
+test22RoverProcessAChainOfCommandsCorrectly
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	marsRover process: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: cardinalPoint)!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:34:36'!
+test23AnInvalidCommandShouldRaiseAnError
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	self  should: [marsRover process: 't'] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: MarsRover invalidCommandErrorDescription.
+	
+	! !
+
+!methodRemoval: MarsRoverTests #test23 stamp: 'JDR 5/14/2022 13:34:36'!
+test23
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ MarsRover createAt: 0@0 facing: cardinalPoint.
+	
+	self  should: [marsRover process: 't'] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: MarsRover invalidCommandErrorDescription.
+	
+	!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:34:46'!
+PASSED!
+!MarsRoverTests methodsFor: 'nil' stamp: 'JDR 5/14/2022 13:38:07'!
+create: aMarsRover at: aCoordinate facing: aCardinalPoint andProcess: aCommand! !
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:38:47'!
+createAMarsRoverAt: aCoordinate facing: aCardinalPoint andProcess: aCommand! !
+
+!methodRemoval: MarsRoverTests #create:at:facing:andProcess: stamp: 'JDR 5/14/2022 13:38:48'!
+create: aMarsRover at: aCoordinate facing: aCardinalPoint andProcess: aCommand!
+!MarsRoverTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:39:40' prior: 50479973!
+createAMarsRoverAt: aCoordinate facing: aCardinalPoint andProcess: aCommand
+
+	| marsRover |
+	marsRover _ MarsRover createAt: aCoordinate facing: aCardinalPoint.
+	marsRover process: aCommand.
+	
+	^marsRover! !
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:40:45' prior: 50479415!
+test02RoverMovesForwardCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'f'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:40:47'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:41:33' prior: 50479455!
+test03RoverMovesBackwardsCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	
+	cardinalPoint _ North new.
+	marsRover _ marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'b'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:41:36'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:42:03' prior: 50479496!
+test04RoverRotatesLeftCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:42:05'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:42:34' prior: 50479537!
+test05RoverRotatesRightCorrectlyWhenFacingNorth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:42:36'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:42:56' prior: 50479559!
+test06RoverMovesForwardCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'f'.
+	
+	self assert: (marsRover isAt: 0@-1 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:42:57'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:43:23' prior: 50479579!
+test07RoverMovesBackwardsCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'b'.
+	
+	self assert: (marsRover isAt: 0@1 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:43:24'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:43:42' prior: 50479599!
+test08RoverRotatesLeftCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: East new)! !
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:43:43'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:44:14' prior: 50479618!
+test09RoverRotatesRightCorrectlyWhenFacingSouth
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ South new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: West new)! !
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:44:15'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:44:38' prior: 50479637!
+test10RoverMovesForwardCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'f'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:44:39'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:44:52' prior: 50479677!
+test11RoverMovesBackwardsCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'b'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:44:53'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:45:07' prior: 50479717!
+test12RoverRotatesLeftCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)! !
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:45:08'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:45:20' prior: 50479755!
+test13RoverRotatesRightCorrectlyWhenFacingWest
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ West new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)! !
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:45:21'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:45:36' prior: 50479657!
+test14RoverMovesForwardCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'f'.
+	
+	self assert: (marsRover isAt: 1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:45:36'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:45:50' prior: 50479697!
+test15RoverMovesBackwardsCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'b'.
+	
+	self assert: (marsRover isAt: -1@0 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:45:50'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:46:00' prior: 50479736!
+test16RoverRotatesLeftCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'l'.
+	
+	self assert: (marsRover isAt: 0@0 facing: North new)! !
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:46:00'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:46:12' prior: 50479774!
+test17RoverRotatesRightCorrectlyWhenFacingEast
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ East new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'r'.
+	
+	self assert: (marsRover isAt: 0@0 facing: South new)! !
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:46:12'!
+PASSED!
+!MarsRoverTests methodsFor: 'testing' stamp: 'JDR 5/14/2022 13:46:23' prior: 50479849!
+test22RoverProcessesAChainOfCommandsCorrectly
+
+	| marsRover cardinalPoint |
+	cardinalPoint _ North new.
+	marsRover _ self createAMarsRoverAt: 0@0 facing: cardinalPoint andProcess: 'ff'.
+	
+	self assert: (marsRover isAt: 0@2 facing: cardinalPoint)! !
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:46:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:46:45'!
+PASSED!
+!MarsRover methodsFor: 'rotations - private' stamp: 'JDR 5/14/2022 13:53:14' prior: 50474796!
+faceSouth
+
+	cardinalPoint _ South new! !
+!MarsRover methodsFor: 'rotations - private' stamp: 'JDR 5/14/2022 13:53:19' prior: 50474801!
+faceNorth
+
+	cardinalPoint _ North new! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:53:19'!
+PASSED!
+!MarsRover methodsFor: 'rotations - private' stamp: 'JDR 5/14/2022 13:53:23' prior: 50479300!
+faceEast
+
+	cardinalPoint _ East new.! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 13:53:23'!
+PASSED!
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:56:19'!
+isForwardCommand: aSingleCommand 	
+
+	(aSingleCommand = $f) ifTrue: [cardinalPoint moveForward: self].
+! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:56:55' prior: 50476060!
+processASingleCommand: aSingleCommand 	
+
+	self isForwardCommand: aSingleCommand.
+	(aSingleCommand = $b) ifTrue: [cardinalPoint moveBackwards: self].
+	(aSingleCommand = $l) ifTrue: [cardinalPoint turnLeft: self].
+	(aSingleCommand = $r) ifTrue: [cardinalPoint turnRight: self].
+	! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:58:22'!
+processIfCommandIsForward: aSingleCommand 	
+
+	(aSingleCommand = $f) ifTrue: [cardinalPoint moveForward: self].
+! !
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'JDR 5/14/2022 13:58:22' prior: 50481306!
+processASingleCommand: aSingleCommand 	
+
+	self processIfCommandIsForward: aSingleCommand.
+	(aSingleCommand = $b) ifTrue: [cardinalPoint moveBackwards: self].
+	(aSingleCommand = $l) ifTrue: [cardinalPoint turnLeft: self].
+	(aSingleCommand = $r) ifTrue: [cardinalPoint turnRight: self].
+	! !
+
+!methodRemoval: MarsRover #isForwardCommand: stamp: 'JDR 5/14/2022 13:58:22'!
+isForwardCommand: aSingleCommand 	
+
+	(aSingleCommand = $f) ifTrue: [cardinalPoint moveForward: self].
+!
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:59:05'!
+processIfCommandIsBackwards: aSingleCommand 	
+
+	(aSingleCommand = $b) ifTrue: [cardinalPoint moveBackwards: self].
+! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:59:16'!
+processIfCommandIsLeft: aSingleCommand 	
+
+	(aSingleCommand = $b) ifTrue: [cardinalPoint moveBackwards: self].
+! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:59:19'!
+processIfCommandIsRight: aSingleCommand 	
+
+	(aSingleCommand = $b) ifTrue: [cardinalPoint moveBackwards: self].
+! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:59:36' prior: 50481350!
+processIfCommandIsLeft: aSingleCommand 	
+
+	(aSingleCommand = $l) ifTrue: [cardinalPoint turnLeft: self]
+! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 13:59:47' prior: 50481357!
+processIfCommandIsRight: aSingleCommand 	
+
+	(aSingleCommand = $r) ifTrue: [cardinalPoint turnRight: self].
+	! !
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 14:00:31' prior: 50481325!
+processASingleCommand: aSingleCommand 	
+
+	self processIfCommandIsForward: aSingleCommand.
+	self processIfCommandIsBackwards: aSingleCommand.
+	self processIfCommandIsLeft: aSingleCommand.
+	self processIfCommandIsRight: aSingleCommand.
+	
+	
+	! !
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 14:00:31'!
+PASSED!
+!MarsRover methodsFor: 'processing - private' stamp: 'JDR 5/14/2022 14:00:51' prior: 50481378!
+processASingleCommand: aSingleCommand 	
+
+	self processIfCommandIsForward: aSingleCommand.
+	
+	self processIfCommandIsBackwards: aSingleCommand.
+	
+	self processIfCommandIsLeft: aSingleCommand.
+	
+	self processIfCommandIsRight: aSingleCommand.
+	
+	
+	! !
+!MarsRover methodsFor: 'processing' stamp: 'JDR 5/14/2022 14:01:33' prior: 50479287!
+process: aCommand 
+
+	self assertCommandIsValid: aCommand.
+	
+	aCommand do: [ :singleCommand | self processASingleCommand: singleCommand ]! !
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test01RoverStaysAtOriginWhenReceivingEmptyString stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test02RoverMovesForwardCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test03RoverMovesBackwardsCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test04RoverRotatesLeftCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test05RoverRotatesRightCorrectlyWhenFacingNorth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test06RoverMovesForwardCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test07RoverMovesBackwardsCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test08RoverRotatesLeftCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test09RoverRotatesRightCorrectlyWhenFacingSouth stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test10RoverMovesForwardCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test11RoverMovesBackwardsCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test12RoverRotatesLeftCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test13RoverRotatesRightCorrectlyWhenFacingWest stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test14RoverMovesForwardCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test15RoverMovesBackwardsCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test16RoverRotatesLeftCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test17RoverRotatesRightCorrectlyWhenFacingEast stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test22RoverProcessesAChainOfCommandsCorrectly stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
+
+!testRun: #MarsRoverTests #test23AnInvalidCommandShouldRaiseAnError stamp: 'JDR 5/14/2022 14:04:33'!
+PASSED!
