@@ -116,6 +116,87 @@ test07
 	
 ! !
 
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:17:33'!
+test08
+
+	| portfolio account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 100 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 50 on: account2.
+	Withdraw register: 10 on: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addAccount: account2.
+	
+	self assert: 3 equals: portfolio transactions size.
+	self assert: account1 transactions, account2 transactions equals: portfolio transactions.
+	
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:29:35'!
+test09
+
+	| portfolio portfolioToAdd account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 10 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 100 on: account2. 
+	Withdraw register: 50 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addPortfolio: portfolioToAdd. 
+	
+	self assert: 3 equals: portfolio transactions size.
+	self assert: account1 transactions, portfolioToAdd transactions equals: portfolio transactions
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:33:37'!
+test10
+	
+	| account deposit portfolio |
+	account _ ReceptiveAccount new.
+	deposit _ Deposit register: 10 on: account. 
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account.
+	
+	self assert: (portfolio hasRegistered: deposit).
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 21:10:24'!
+test11
+	
+	| portfolio account1 account2 deposit1 deposit2 portfolioToAdd withdraw |
+	account1 _ ReceptiveAccount new.
+	deposit1 _ Deposit register: 10 on: account1.
+	
+	account2 _ ReceptiveAccount new.
+	deposit2 _ Deposit register: 50 on: account2.
+	withdraw _ Withdraw register: 20 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account1.
+	
+	portfolio _ Portfolio new.
+	portfolio addPortfolio: portfolioToAdd.
+	portfolio addAccount: account2.
+	
+	self assert: (portfolio hasRegistered: deposit1).
+	self assert: (portfolio hasRegistered: deposit2).
+	self assert: (portfolio hasRegistered: withdraw).
+	self deny: (portfolioToAdd hasRegistered: deposit2).
+! !
+
 
 !classDefinition: #ReceptiveAccountTest category: 'Portfolio-Ejercicio'!
 TestCase subclass: #ReceptiveAccountTest
@@ -345,6 +426,11 @@ balance
 	
 	^balance! !
 
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:40:29'!
+hasRegistered: aTransaction 
+	
+	^self transactions includes: aTransaction! !
+
 !Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:43:12'!
 initialize
 
@@ -352,13 +438,14 @@ initialize
 	portfolios _ OrderedCollection new.
 	! !
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:58:24'!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:24:34'!
 transactions
-	| transacctions |
-	transacctions _ OrderedCollection new.
-	accounts ifNotEmpty: [transacctions addAll: accounts first transactions].
+	| transactions |
+	transactions _ OrderedCollection new.
+	accounts do: [ :anAccount | transactions addAll: anAccount transactions ].
+	portfolios do: [ :aPortfolio | transactions addAll: aPortfolio transactions].
 	
-	^transacctions.! !
+	^transactions.! !
 
 
 !classDefinition: #ReceptiveAccount category: 'Portfolio-Ejercicio'!

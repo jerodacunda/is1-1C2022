@@ -1382,3 +1382,530 @@ PASSED!
 
 !testRun: #PortfolioTests #test07 stamp: 'JDR 5/16/2022 21:59:49'!
 PASSED!
+
+----QUIT----(16 May 2022 22:02:08) CuisUniversity-5096.image priorSource: 4557982!
+
+----STARTUP---- (19 May 2022 17:07:28) as /home/clinux01/Documentos/6/linux64/CuisUniversity-5096.image!
+
+
+!testRun: #PortfolioTests #test07 stamp: 'JDR 5/19/2022 17:07:39'!
+PASSED!
+
+!testRun: #PortfolioTests #test01 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+
+!testRun: #PortfolioTests #test02 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+
+!testRun: #PortfolioTests #test03 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+
+!testRun: #PortfolioTests #test04 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+
+!testRun: #PortfolioTests #test05 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+
+!testRun: #PortfolioTests #test06 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+
+!testRun: #PortfolioTests #test07 stamp: 'JDR 5/19/2022 17:07:47'!
+PASSED!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:04:54' prior: 50478539!
+transactions
+	| transactions |
+	transactions _ OrderedCollection new.
+	accounts ifNotEmpty: [transactions addAll: accounts first transactions].
+	
+	^transactions.! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:09:13'!
+test08
+
+	| portfolio account account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 100 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 50 on: account2.
+	Withdraw register: 10 on: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addAccount: account2.
+	
+	self assert: 3 equals: portfolio transactions size.
+	self assert: account transactions equals: portfolio transactions 
+	
+! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:09:40' prior: 50478670!
+test08
+
+	| portfolio account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 100 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 50 on: account2.
+	Withdraw register: 10 on: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addAccount: account2.
+	
+	self assert: 3 equals: portfolio transactions size.
+	
+! !
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:10:08'!
+FAILURE!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:10:08'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:11:35' prior: 50478662!
+transactions
+	| transactions |
+	transactions _ OrderedCollection new.
+	accounts ifNotEmpty: [transactions addAll: accounts transactions].
+	
+	^transactions.! !
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:11:39'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:11:39'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:12:11'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:12:11'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:13:04'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:13:04'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:13:25'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:13:47'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:13:47'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:14:05'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:14:13'!
+ERROR!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:14:13'!
+ERROR!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:16:01' prior: 50478708!
+transactions
+	| transactions |
+	transactions _ OrderedCollection new.
+	accounts do: [ :anAccount | transactions addAll: anAccount transactions ].
+	
+	^transactions.! !
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:16:14'!
+PASSED!
+
+!testRun: #PortfolioTests #test01 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test02 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test03 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test04 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test05 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test06 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test07 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:16:20'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:17:33' prior: 50478688!
+test08
+
+	| portfolio account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 100 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 50 on: account2.
+	Withdraw register: 10 on: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addAccount: account2.
+	
+	self assert: 3 equals: portfolio transactions size.
+	self assert: account1 transactions, account2 transactions equals: portfolio transactions.
+	
+! !
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test01 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test02 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test03 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test04 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test05 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test06 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test07 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:17:41'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:20:10'!
+test09
+
+	| portfolio account1 account2 account portfolioToAdd |
+	
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account. 
+	
+	portfolioToAdd _ Portfolio new.
+	
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addAccount: account2.
+	
+	self assert: 3 equals: portfolio transactions size.
+	self assert: account1 transactions, account2 transactions equals: portfolio transactions.
+	
+! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:20:34' prior: 50478814!
+test09
+
+	| portfolio account portfolioToAdd |
+	
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account. 
+	
+	portfolioToAdd _ Portfolio new.
+	
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account.
+	portfolio addAccount: account.
+	
+	self assert: 3 equals: portfolio transactions size.
+! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:21:11' prior: 50478831!
+test09
+
+	| portfolio account portfolioToAdd |
+	
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account. 
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account.	
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account.
+	portfolio addAccount: account.
+	
+	self assert: 3 equals: portfolio transactions size.
+! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:22:53' prior: 50478844!
+test09
+
+	| portfolio account portfolioToAdd |
+	
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account. 
+	Withdraw register: 50 on: account.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account.	
+	
+	portfolio _ Portfolio new.
+	portfolio addPortfolio: portfolioToAdd. 
+	
+	self assert: 2 equals: portfolio transactions size.
+! !
+
+!testRun: #PortfolioTests #test09 stamp: 'JDR 5/19/2022 20:22:56'!
+FAILURE!
+
+!testRun: #PortfolioTests #test09 stamp: 'JDR 5/19/2022 20:22:56'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:24:34' prior: 50478745!
+transactions
+	| transactions |
+	transactions _ OrderedCollection new.
+	accounts do: [ :anAccount | transactions addAll: anAccount transactions ].
+	portfolios do: [ :aPortfolio | transactions addAll: aPortfolio transactions].
+	
+	^transactions.! !
+
+!testRun: #PortfolioTests #test09 stamp: 'JDR 5/19/2022 20:24:38'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:26:44' prior: 50478858!
+test09
+
+	| portfolio portfolioToAdd account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 10 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 100 on: account2. 
+	Withdraw register: 50 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addPortfolio: portfolioToAdd. 
+	
+	self assert: 3 equals: portfolio transactions size.
+! !
+
+!testRun: #PortfolioTests #test09 stamp: 'JDR 5/19/2022 20:26:50'!
+PASSED!
+
+!testRun: #PortfolioTests #test01 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test02 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test03 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test04 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test05 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test06 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test07 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test08 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+
+!testRun: #PortfolioTests #test09 stamp: 'JDR 5/19/2022 20:27:01'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:29:35' prior: 50478891!
+test09
+
+	| portfolio portfolioToAdd account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 10 on: account1. 
+	
+	account2 _ ReceptiveAccount new.
+	Deposit register: 100 on: account2. 
+	Withdraw register: 50 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account2.
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account1.
+	portfolio addPortfolio: portfolioToAdd. 
+	
+	self assert: 3 equals: portfolio transactions size.
+	self assert: account1 transactions, portfolioToAdd transactions equals: portfolio transactions
+! !
+
+!testRun: #PortfolioTests #test09 stamp: 'JDR 5/19/2022 20:29:38'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:32:37'!
+test10
+	
+	| account deposit portfolio |
+	account _ ReceptiveAccount new.
+	deposit _ Deposit register: 10 on: account. 
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account.
+	
+	self assert: portfolio hasRegistered: deposit.
+! !
+
+!testRun: #PortfolioTests #test10 stamp: 'JDR 5/19/2022 20:32:53'!
+ERROR!
+
+!testRun: #PortfolioTests #test10 stamp: 'JDR 5/19/2022 20:32:53'!
+ERROR!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:33:37' prior: 50478956!
+test10
+	
+	| account deposit portfolio |
+	account _ ReceptiveAccount new.
+	deposit _ Deposit register: 10 on: account. 
+	
+	portfolio _ Portfolio new.
+	portfolio addAccount: account.
+	
+	self assert: (portfolio hasRegistered: deposit).
+! !
+
+!testRun: #PortfolioTests #test10 stamp: 'JDR 5/19/2022 20:33:39'!
+ERROR!
+
+!testRun: #PortfolioTests #test10 stamp: 'JDR 5/19/2022 20:33:39'!
+ERROR!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:33:44'!
+hasRegistered: aDeposit 
+	self shouldBeImplemented.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:33:57' prior: 50478987!
+hasRegistered: aDeposit 
+	
+	^true! !
+
+!testRun: #PortfolioTests #test10 stamp: 'JDR 5/19/2022 20:33:59'!
+PASSED!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:34:27' prior: 50478992!
+hasRegistered: aTransaction 
+	
+	^true! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:39:09'!
+test11
+	
+	| account deposit portfolio account1 account2 deposit1 deposit2 portfolioToAdd withdraw |
+	account1 _ ReceptiveAccount new.
+	deposit1 _ Deposit register: 10 on: account1.
+	
+	account2 _ ReceptiveAccount new.
+	deposit2 _ Deposit register: 50 on: account2.
+	withdraw _ Withdraw register: 20 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account1.
+	
+	portfolio _ Portfolio new.
+	portfolio addPortfolio: portfolioToAdd.
+	portfolio addAccount: account2.
+	
+	self assert: (portfolio hasRegistered: deposit1).
+	self assert: (portfolio hasRegistered: deposit2).
+	self assert: (portfolio hasRegistered: withdraw).
+! !
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:39:47' prior: 50479003!
+test11
+	
+	| portfolio account1 account2 deposit1 deposit2 portfolioToAdd withdraw |
+	account1 _ ReceptiveAccount new.
+	deposit1 _ Deposit register: 10 on: account1.
+	
+	account2 _ ReceptiveAccount new.
+	deposit2 _ Deposit register: 50 on: account2.
+	withdraw _ Withdraw register: 20 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account1.
+	
+	portfolio _ Portfolio new.
+	portfolio addPortfolio: portfolioToAdd.
+	portfolio addAccount: account2.
+	
+	self assert: (portfolio hasRegistered: deposit1).
+	self assert: (portfolio hasRegistered: deposit2).
+	self assert: (portfolio hasRegistered: withdraw).
+! !
+
+!testRun: #PortfolioTests #test11 stamp: 'JDR 5/19/2022 20:39:56'!
+PASSED!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:40:29' prior: 50478999!
+hasRegistered: aTransaction 
+	
+	^self transactions includes: aTransaction! !
+
+!testRun: #PortfolioTests #test11 stamp: 'JDR 5/19/2022 20:40:39'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:42:51' prior: 50479027!
+test11
+	
+	| portfolio account1 account2 deposit1 deposit2 portfolioToAdd withdraw deposit3 unusedAccount |
+	account1 _ ReceptiveAccount new.
+	deposit1 _ Deposit register: 10 on: account1.
+	
+	account2 _ ReceptiveAccount new.
+	deposit2 _ Deposit register: 50 on: account2.
+	withdraw _ Withdraw register: 20 on: account2.
+	
+	unusedAccount _ ReceptiveAccount new.
+	deposit3 _ Deposit register: 100 on: unusedAccount.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account1.
+	
+	portfolio _ Portfolio new.
+	portfolio addPortfolio: portfolioToAdd.
+	portfolio addAccount: account2.
+	
+	self assert: (portfolio hasRegistered: deposit1).
+	self assert: (portfolio hasRegistered: deposit2).
+	self assert: (portfolio hasRegistered: withdraw).
+	self deny: (portfolio hasRegistered: deposit3).
+! !
+
+!testRun: #PortfolioTests #test11 stamp: 'JDR 5/19/2022 20:42:58'!
+PASSED!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 21:10:24' prior: 50479061!
+test11
+	
+	| portfolio account1 account2 deposit1 deposit2 portfolioToAdd withdraw |
+	account1 _ ReceptiveAccount new.
+	deposit1 _ Deposit register: 10 on: account1.
+	
+	account2 _ ReceptiveAccount new.
+	deposit2 _ Deposit register: 50 on: account2.
+	withdraw _ Withdraw register: 20 on: account2.
+	
+	portfolioToAdd _ Portfolio new.
+	portfolioToAdd addAccount: account1.
+	
+	portfolio _ Portfolio new.
+	portfolio addPortfolio: portfolioToAdd.
+	portfolio addAccount: account2.
+	
+	self assert: (portfolio hasRegistered: deposit1).
+	self assert: (portfolio hasRegistered: deposit2).
+	self assert: (portfolio hasRegistered: withdraw).
+	self deny: (portfolioToAdd hasRegistered: deposit2).
+! !
+
+!testRun: #PortfolioTests #test11 stamp: 'JDR 5/19/2022 21:10:28'!
+PASSED!
