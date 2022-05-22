@@ -15,7 +15,7 @@ test01
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:13:34'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:28:45'!
 test02
 
 	| portfolio account |
@@ -23,13 +23,13 @@ test02
 	Deposit register: 100 on: account.
 	
 	portfolio _ Portfolio new.
-	portfolio addAccount: account.
+	portfolio addXxx: account.
 	
 	self assert: 100 equals: portfolio balance
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:23:39'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:29:06'!
 test03
 
 	| portfolio account portfolioToAdd |
@@ -37,16 +37,16 @@ test03
 	Deposit register: 100 on: account.
 	
 	portfolioToAdd _ Portfolio new.
-	portfolioToAdd addAccount: account.
+	portfolioToAdd addXxx: account.
 	
 	portfolio _ Portfolio new.
-	portfolio addPortfolio: portfolioToAdd.
+	portfolio addXxx: portfolioToAdd.
 	
 	self assert: 100 equals: portfolio balance
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:35:14'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:29:11'!
 test04
 
 	| portfolio account1 account2 |
@@ -58,14 +58,14 @@ test04
 	Withdraw register: 75 on: account2.
 	
 	portfolio _ Portfolio new.
-	portfolio addAccount: account1.
-	portfolio addAccount: account2.
+	portfolio addXxx: account1.
+	portfolio addXxx: account2.
 	
 	self assert: 125 equals: portfolio balance
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:42:10'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:29:23'!
 test05
 
 	| portfolio account1 account2 portfolioToAdd1 portfolioToAdd2 |
@@ -77,14 +77,14 @@ test05
 	Withdraw register: 50 on: account2.
 	
 	portfolioToAdd1 _ Portfolio new.
-	portfolioToAdd1 addAccount: account1.
+	portfolioToAdd1 addXxx: account1.
 	
 	portfolioToAdd2 _ Portfolio new.
-	portfolioToAdd2 addAccount: account2.
+	portfolioToAdd2 addXxx: account2.
 	
 	portfolio _ Portfolio new.
-	portfolio addPortfolio: portfolioToAdd1.
-	portfolio addPortfolio: portfolioToAdd2.
+	portfolio addXxx: portfolioToAdd1.
+	portfolio addXxx: portfolioToAdd2.
 	
 	self assert: 150 equals: portfolio balance
 	
@@ -100,7 +100,7 @@ test06
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:59:49'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:29:29'!
 test07
 
 	| portfolio account |
@@ -109,14 +109,14 @@ test07
 	Deposit register: 100 on: account. 
 	
 	portfolio _ Portfolio new.
-	portfolio addAccount: account.
+	portfolio addXxx: account.
 	
 	self assert: 1 equals: portfolio transactions size.
 	self assert: account transactions equals: portfolio transactions 
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:17:33'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:02:43'!
 test08
 
 	| portfolio account1 account2 |
@@ -129,18 +129,18 @@ test08
 	Withdraw register: 10 on: account2.
 	
 	portfolio _ Portfolio new.
-	portfolio addAccount: account1.
-	portfolio addAccount: account2.
+	portfolio addXxx: account1.
+	portfolio addXxx: account2.
 	
 	self assert: 3 equals: portfolio transactions size.
-	self assert: account1 transactions, account2 transactions equals: portfolio transactions.
+	self assert: (account1 transactions, account2 transactions) asSet equals: portfolio transactions asSet.
 	
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:29:35'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:02:06'!
 test09
 
-	| portfolio portfolioToAdd account1 account2 |
+	| portfolio portfolioToAdd account1 account2 expectedTransactions |
 	
 	account1 _ ReceptiveAccount new.
 	Deposit register: 10 on: account1. 
@@ -150,17 +150,19 @@ test09
 	Withdraw register: 50 on: account2.
 	
 	portfolioToAdd _ Portfolio new.
-	portfolioToAdd addAccount: account2.
+	portfolioToAdd addXxx: account2.
 	
 	portfolio _ Portfolio new.
-	portfolio addAccount: account1.
-	portfolio addPortfolio: portfolioToAdd. 
+	portfolio addXxx: account1.
+	portfolio addXxx: portfolioToAdd. 
+	
+	expectedTransactions _ account1 transactions, portfolioToAdd transactions.
 	
 	self assert: 3 equals: portfolio transactions size.
-	self assert: account1 transactions, portfolioToAdd transactions equals: portfolio transactions
+	self assert: expectedTransactions asSet equals: portfolio transactions asSet
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:33:37'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:29:48'!
 test10
 	
 	| account deposit portfolio |
@@ -168,12 +170,12 @@ test10
 	deposit _ Deposit register: 10 on: account. 
 	
 	portfolio _ Portfolio new.
-	portfolio addAccount: account.
+	portfolio addXxx: account.
 	
 	self assert: (portfolio hasRegistered: deposit).
 ! !
 
-!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 21:10:24'!
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:29:56'!
 test11
 	
 	| portfolio account1 account2 deposit1 deposit2 portfolioToAdd withdraw |
@@ -185,16 +187,137 @@ test11
 	withdraw _ Withdraw register: 20 on: account2.
 	
 	portfolioToAdd _ Portfolio new.
-	portfolioToAdd addAccount: account1.
+	portfolioToAdd addXxx: account1.
 	
 	portfolio _ Portfolio new.
-	portfolio addPortfolio: portfolioToAdd.
-	portfolio addAccount: account2.
+	portfolio addXxx: portfolioToAdd.
+	portfolio addXxx: account2.
 	
 	self assert: (portfolio hasRegistered: deposit1).
 	self assert: (portfolio hasRegistered: deposit2).
 	self assert: (portfolio hasRegistered: withdraw).
 	self deny: (portfolioToAdd hasRegistered: deposit2).
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 21:46:13'!
+test12
+
+	| account portfolio |
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account.
+	
+	portfolio _ Portfolio new.
+	portfolio addXxx: account.
+	
+	self should: [portfolio addXxx: portfolio] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:34:31'!
+test13
+
+	| account portfolio portfolioParent |
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account.
+	
+	portfolio _ Portfolio new.	
+	portfolioParent _ Portfolio new.
+	
+	portfolio addXxx: account.
+	portfolioParent addXxx: portfolio.
+	
+	self should: [portfolioParent addXxx: portfolio] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:34:10'!
+test14
+
+	| account portfolioParent portfolio |
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account.
+	
+	portfolioParent _ Portfolio new.	
+	portfolio _ Portfolio new.
+	
+	portfolio addXxx: account.
+	
+	portfolioParent addXxx: portfolio.	
+	
+	self should: [portfolioParent addXxx: account] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:33:51'!
+test15
+
+	| portfolio portfolioParent |
+	
+	portfolio _ Portfolio new.
+	portfolioParent _ Portfolio new.
+	
+	portfolioParent addXxx: portfolio.
+	
+	self should: [portfolio addXxx: portfolioParent] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:37:39'!
+test16
+
+	| portfolio portfolioParent1 portfolioParent2 |
+	
+	portfolio _ Portfolio new.	
+	portfolioParent1 _ Portfolio new.	
+	portfolioParent2 _ Portfolio new.
+	
+	portfolioParent1 addXxx: portfolio.
+	portfolioParent2 addXxx: portfolio.	
+	
+	self should: [portfolio addXxx: portfolioParent1] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:38:29'!
+test17
+
+	| portfolio portfolioGrandParent portfolioParent |
+	
+	portfolio _ Portfolio new.
+	portfolioParent _ Portfolio new.	
+	portfolioGrandParent _ Portfolio new.
+	
+	portfolioGrandParent addXxx: portfolioParent.
+	portfolioParent addXxx: portfolio.	
+	
+	self should: [portfolio addXxx: portfolioGrandParent] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
+! !
+
+!PortfolioTests methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:10:27'!
+test18
+
+	| account portfolio portfolioParent1 portfolioParent2 |
+	account _ ReceptiveAccount new.
+	Deposit register: 100 on: account.
+	
+	portfolioParent1 _ Portfolio new.	
+	portfolioParent2 _ Portfolio new.
+	portfolio _ Portfolio new.
+	
+	portfolioParent1 addXxx: portfolio.
+	portfolioParent2 addXxx: portfolio.
+	portfolioParent2 addXxx: account.	
+	
+	self should: [portfolio addXxx: account] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Portfolio xxxIsAlreadyAddedErrorDescription ]
 ! !
 
 
@@ -395,61 +518,142 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
-!classDefinition: #Portfolio category: 'Portfolio-Ejercicio'!
-Object subclass: #Portfolio
-	instanceVariableNames: 'accounts portfolios'
+!classDefinition: #XXX category: 'Portfolio-Ejercicio'!
+Object subclass: #XXX
+	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:37:42'!
-addAccount: anAccount
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:14:31'!
+balance
 
-	accounts add: anAccount
+	self subclassResponsibility ! !
 
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:14:08'!
+hasRegistered: aTransaction
+
+	self subclassResponsibility ! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:14:49'!
+initialize
+
+	self subclassResponsibility ! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:14:22'!
+transactions 
+
+	self subclassResponsibility ! !
+
+
+!classDefinition: #Portfolio category: 'Portfolio-Ejercicio'!
+XXX subclass: #Portfolio
+	instanceVariableNames: 'xxxs parents'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:20:12'!
+addRootsTo: aSetOfRoots
+
+	(self isRoot) 
+		ifTrue: [aSetOfRoots add: self] 
+		ifFalse: [	parents do: [ :aParent | aParent addRootsTo: aSetOfRoots ] ]! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:22:00'!
+addXxx: aXxx
+	
+	| roots |
+		
+	roots _ self findRoots.
+	roots do: [ :aRoot | aRoot assertAXxxIsNotDescendant: aXxx. ].
+	
+	xxxs add: aXxx.
+	(aXxx isKindOf: Portfolio) ifTrue: [aXxx markAsParent: self]! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 21:45:59'!
+assertAXxxIsNotDescendant: aXxx	
+		
+	(aXxx = self) ifTrue: [self error: Portfolio xxxIsAlreadyAddedErrorDescription].
+	
+	xxxs do: [ :xxx | 		
+		(xxx = aXxx) ifTrue: [self error: Portfolio xxxIsAlreadyAddedErrorDescription] .
+		(xxx isKindOf: Portfolio) ifTrue: [ xxx assertAXxxIsNotDescendant: aXxx ].
+	].
+	
+	
 	! !
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:43:12'!
-addPortfolio: aPortfolio 
-	
-	portfolios add: aPortfolio! !
-
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:43:58'!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:31:27'!
 balance
 	
 	| balance |
 	
 	balance _ 0.
 
-	accounts do: [:account | balance _ account balance + balance].
-	portfolios do: [:portfolio | balance _ portfolio balance + balance].
+	xxxs do: [ :xxx | balance _ xxx balance + balance].
 	
 	^balance! !
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:40:29'!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 22:22:56'!
+findRoots
+
+	| roots |
+	roots _ Set new.
+	self addRootsTo: roots.
+	
+	^roots! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:35:47'!
 hasRegistered: aTransaction 
 	
-	^self transactions includes: aTransaction! !
+	^xxxs anySatisfy: [ :aXxx | aXxx hasRegistered: aTransaction].! !
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/16/2022 21:43:12'!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 21:20:08'!
 initialize
 
-	accounts _ OrderedCollection new.
-	portfolios _ OrderedCollection new.
-	! !
+	xxxs _ Set new.
+	parents _ OrderedCollection new.	! !
 
-!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/19/2022 20:24:34'!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 21:38:38'!
+isRoot
+	
+	^parents isEmpty! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 21:20:08'!
+markAsParent: aPortfolio
+
+	parents add: aPortfolio! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 19:33:21'!
 transactions
+
 	| transactions |
+	
 	transactions _ OrderedCollection new.
-	accounts do: [ :anAccount | transactions addAll: anAccount transactions ].
-	portfolios do: [ :aPortfolio | transactions addAll: aPortfolio transactions].
+	xxxs do: [ :aXxx | transactions addAll: aXxx transactions].
 	
 	^transactions.! !
 
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Portfolio class' category: 'Portfolio-Ejercicio'!
+Portfolio class
+	instanceVariableNames: ''!
+
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 20:20:38'!
+portfolioCannotBeAddedToItselfErrorDescription
+
+	^'cannot add a portfolio into itself'! !
+
+!Portfolio class methodsFor: 'as yet unclassified' stamp: 'JDR 5/21/2022 20:25:58'!
+xxxIsAlreadyAddedErrorDescription
+
+	'xxx is already added in portfolio'! !
+
 
 !classDefinition: #ReceptiveAccount category: 'Portfolio-Ejercicio'!
-Object subclass: #ReceptiveAccount
+XXX subclass: #ReceptiveAccount
 	instanceVariableNames: 'transactions'
 	classVariableNames: ''
 	poolDictionaries: ''
