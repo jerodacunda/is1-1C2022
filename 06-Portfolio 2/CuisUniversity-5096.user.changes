@@ -1,0 +1,365 @@
+
+
+----STARTUP---- (23 May 2022 21:12:57) as /home/clinux01/Escritorio/555/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/clinux01/Escritorio/555/linux64/Portfolio-Ejercicio.st----!
+
+----STARTUP---- (23 May 2022 21:15:15) as /home/clinux01/Escritorio/555/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/clinux01/Escritorio/555/linux64/Portfolio-Solucion.st----!
+
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #TransferenceTest category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:15:59'!
+TestCase subclass: #TransferenceTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:18:08'!
+Object subclass: #Transference
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferenceTest methodsFor: 'no messages' stamp: 'JDR 5/23/2022 21:17:55'!
+test01
+
+	| account1 account2 amount |
+	account1 _ ReceptiveAccount new.
+	account2 _ ReceptiveAccount new.
+	
+	Transference an: amount from: account1 to: account2.! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:21:41' prior: 50474832!
+test01
+
+	| account1 account2 amount |
+	account1 _ ReceptiveAccount new.
+	account2 _ ReceptiveAccount new.
+	amount _ 20.
+	
+	Transference an: amount from: account1 to: account2.
+	
+	self assert: (account1 balance) equals: (-1 * amount).
+	self assert: (account2 balance) equals: amount ! !
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:21:42' prior: 50474841!
+test01
+
+	| account1 account2 amount |
+	account1 _ ReceptiveAccount new.
+	account2 _ ReceptiveAccount new.
+	amount _ 20.
+	
+	Transference an: amount from: account1 to: account2.
+	
+	self assert: (account1 balance) equals: (-1 * amount).
+	self assert: (account2 balance) equals: amount ! !
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:21:43'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:21:53'!
+ERROR!
+!Transference class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:21:57'!
+an: aSmallInteger from: aReceptiveAccount to: aReceptiveAccount3 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeAn: aSmallInteger from: aReceptiveAccount to: aReceptiveAccount3 ! !
+!Transference class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:23:57' prior: 50474871!
+an: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	^self new initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:24:01'!
+ERROR!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:24:14'!
+Object subclass: #Transference
+	instanceVariableNames: 'ammount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:24:14'!
+Object subclass: #Transference
+	instanceVariableNames: 'ammount sourceAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transference category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:24:14'!
+Object subclass: #Transference
+	instanceVariableNames: 'ammount sourceAccount destinationAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transference methodsFor: 'initialization' stamp: 'JDR 5/23/2022 21:24:14'!
+initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+	self shouldBeImplemented.
+	ammount := anAmmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.! !
+!Transference methodsFor: 'initialization' stamp: 'JDR 5/23/2022 21:24:19' prior: 50474917!
+initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:24:21'!
+FAILURE!
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:25:42'!
+FAILURE!
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:25:42'!
+FAILURE!
+!Transference methodsFor: 'initialization' stamp: 'JDR 5/23/2022 21:26:33' prior: 50474927!
+initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceAccount register: self.
+	destinationAccount register: self.! !
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:26:34'!
+ERROR!
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:26:34'!
+ERROR!
+!Transference methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:26:41'!
+affectBalance: aSmallInteger 
+	self shouldBeImplemented.! !
+!Transference class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:29:31' prior: 50474883!
+an: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	Withdraw register: anAmmount on: aSourceAccount.
+	Deposit  register: anAmmount on: aDestinationAccount ! !
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:29:32'!
+PASSED!
+
+!testRun: #TransferenceTest #test01 stamp: 'JDR 5/23/2022 21:30:27'!
+PASSED!
+
+!classRenamed: #Transference as: #Transfer stamp: 'JDR 5/23/2022 21:30:46'!
+Smalltalk renameClassNamed: #Transference as: #Transfer!
+!TransferenceTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:30:46' prior: 50474854!
+test01
+
+	| account1 account2 amount |
+	account1 _ ReceptiveAccount new.
+	account2 _ ReceptiveAccount new.
+	amount _ 20.
+	
+	Transfer an: amount from: account1 to: account2.
+	
+	self assert: (account1 balance) equals: (-1 * amount).
+	self assert: (account2 balance) equals: amount ! !
+
+!classRenamed: #TransferenceTest as: #TransferTest stamp: 'JDR 5/23/2022 21:31:01'!
+Smalltalk renameClassNamed: #TransferenceTest as: #TransferTest!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/23/2022 21:31:07'!
+PASSED!
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:32:32' prior: 50474964!
+an: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	Withdraw register: anAmount on: aSourceAccount.
+	Deposit  register: anAmount on: aDestinationAccount ! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:34:53' prior: 50474982!
+test01
+
+	"creating a transfer affects source account and destination account	"
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount balance) equals: (-1 * amount).
+	self assert: (destinationAccount balance) equals: amount ! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:36:11' prior: 50475010!
+test01
+
+	"creating a transfer affects source destination balance	"
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount balance) equals: (-1 * amount).
+	self assert: (destinationAccount balance) equals: amount ! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:36:13' prior: 50475027!
+test01
+
+	"creating a transfer affects source and destination balance	"
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount balance) equals: (-1 * amount).
+	self assert: (destinationAccount balance) equals: amount ! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:54:00'!
+test02
+
+	"creating a transfer affects source and destination balance	"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer SourceFileVersionString).
+	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:54:10'!
+ERROR!
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:55:27' prior: 50475001!
+an: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	^ self an: anAmount from: aSourceAccount to: aDestinationAccount! !
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:55:40'!
+Object subclass: #Transfer
+	instanceVariableNames: 'ammount sourceAccount destinationAccount sourceTransaction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:55:51'!
+Object subclass: #Transfer
+	instanceVariableNames: 'ammount sourceAccount destinationAccount sourceTransaction deposticTransaction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/23/2022 21:55:49' prior: 50474943!
+initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ Withdraw register: anAmmount on: aSourceAccount.
+	deposticTransaction _ Deposit  register: anAmmount on: aDestinationAccount.! !
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:56:24' prior: 50475080!
+an: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	^ self new initializeAn: anAmount from: aSourceAccount to: aDestinationAccount! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/23/2022 21:56:25'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:56:25'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:56:25'!
+ERROR!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:56:46' prior: 50475059!
+test02
+
+	"creating a transfer affects source and destination balance	"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
+	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:56:49'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:56:55'!
+sourceTransactionASDSEGREGDFG
+	self shouldBeImplemented.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:57:10' prior: 50475155!
+sourceTransactionASDSEGREGDFG
+	
+	^ sourceTransaction.! !
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:57:12'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:57:17'!
+destinationTransactionASDSEGREGDFG
+	self shouldBeImplemented.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:57:35' prior: 50475167!
+destinationTransactionASDSEGREGDFG
+	
+	^deposticTransaction ! !
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:57:36'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/23/2022 21:57:38'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/23/2022 21:57:38'!
+PASSED!
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:57:52'!
+Object subclass: #Transfer
+	instanceVariableNames: 'ammount sourceAccount destinationAccount sourceTransaction depositcTransaction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:57:52' prior: 50475106!
+initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ Withdraw register: anAmmount on: aSourceAccount.
+	depositcTransaction _ Deposit  register: anAmmount on: aDestinationAccount.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:57:52' prior: 50475172!
+destinationTransactionASDSEGREGDFG
+	
+	^depositcTransaction ! !
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/23/2022 21:58:05'!
+Object subclass: #Transfer
+	instanceVariableNames: 'ammount sourceAccount destinationAccount sourceTransaction depositTransaction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:58:05' prior: 50475194!
+initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ Withdraw register: anAmmount on: aSourceAccount.
+	depositTransaction _ Deposit  register: anAmmount on: aDestinationAccount.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:58:05' prior: 50475208!
+destinationTransactionASDSEGREGDFG
+	
+	^depositTransaction ! !
