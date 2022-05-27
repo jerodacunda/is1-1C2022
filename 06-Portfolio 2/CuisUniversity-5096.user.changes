@@ -363,3 +363,636 @@ initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount
 destinationTransactionASDSEGREGDFG
 	
 	^depositTransaction ! !
+
+----QUIT----(23 May 2022 22:03:52) CuisUniversity-5096.image priorSource: 4557982!
+
+----STARTUP---- (26 May 2022 19:56:29) as /home/clinux01/Escritorio/555/linux64/CuisUniversity-5096.image!
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 19:59:23' prior: 50475135!
+test02
+
+	""
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
+	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 20:01:25' prior: 50475247!
+test02
+
+	"both transfer legs should know their transfer"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
+	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/26/2022 20:05:07' prior: 50475223!
+initializeAn: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ Withdraw register: anAmount on: aSourceAccount.
+	depositTransaction _ Deposit  register: anAmount on: aDestinationAccount.! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 20:06:13' prior: 50475264!
+test02
+
+	"a transfer should be registered in both transfer legs"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
+	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 20:30:28' prior: 50475295!
+test02
+
+	"a transfer should know both its transfer legs"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
+	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+
+TestCase subclass: #DestinationPata
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:42:27'!
+TestCase subclass: #DestinationPata
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+TestCase subclass: #SourcePata
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:42:32'!
+TestCase subclass: #SourcePata
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:43:17' prior: 50475282!
+initializeAn: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ SourcePata register: anAmount on: aSourceAccount.
+	depositTransaction _ DestinationPata  register: anAmount on: aDestinationAccount.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:43:19'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:43:19'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:43:20'!
+ERROR!
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:43:25'!
+register: aSmallInteger on: aReceptiveAccount 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeRegister: aSmallInteger on: aReceptiveAccount ! !
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:43:48' prior: 50475376!
+register: anAmount on: aReceptiveAccount 
+
+	^self new initializeRegister: anAmount on: aReceptiveAccount ! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:43:48'!
+ERROR!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:43:56'!
+TestCase subclass: #SourcePata
+	instanceVariableNames: 'amount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:43:56'!
+TestCase subclass: #SourcePata
+	instanceVariableNames: 'amount receptiveAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!SourcePata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:43:56'!
+initializeRegister: anAmount on: aReceptiveAccount 
+	self shouldBeImplemented.
+	amount := anAmount.
+	receptiveAccount := aReceptiveAccount.! !
+!SourcePata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:44:04' prior: 50475410!
+initializeRegister: anAmount on: aReceptiveAccount 
+
+	amount := anAmount.
+	receptiveAccount := aReceptiveAccount.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:44:07'!
+ERROR!
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:44:11'!
+register: aSmallInteger on: aReceptiveAccount 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeRegister: aSmallInteger on: aReceptiveAccount ! !
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:44:26' prior: 50475427!
+register: anAmount on: aReceptiveAccount 
+
+	^self new initializeRegister: anAmount on: aReceptiveAccount ! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:44:27'!
+ERROR!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:44:35'!
+TestCase subclass: #DestinationPata
+	instanceVariableNames: 'amount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:44:35'!
+TestCase subclass: #DestinationPata
+	instanceVariableNames: 'amount receptiveAccount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:44:35'!
+initializeRegister: anAmount on: aReceptiveAccount 
+	self shouldBeImplemented.
+	amount := anAmount.
+	receptiveAccount := aReceptiveAccount.! !
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:44:39' prior: 50475462!
+initializeRegister: anAmount on: aReceptiveAccount 
+
+	amount := anAmount.
+	receptiveAccount := aReceptiveAccount.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:44:40'!
+FAILURE!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:44:45'!
+FAILURE!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:44:45'!
+FAILURE!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:44:46'!
+FAILURE!
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:46:26' prior: 50475386!
+register: anAmount on: aReceptiveAccount 
+
+	| pata |
+	pata _ self new initializeRegister: anAmount on: aReceptiveAccount.
+	aReceptiveAccount register: pata.
+	
+	^pata! !
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:46:39' prior: 50475487!
+register: anAmount on: aReceptiveAccount 
+
+	| sourcePata |
+	sourcePata _ self new initializeRegister: anAmount on: aReceptiveAccount.
+	aReceptiveAccount register: sourcePata.
+	
+	^sourcePata! !
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:46:48' prior: 50475437!
+register: anAmount on: aReceptiveAccount 
+
+	| sourcePata |
+	sourcePata _ self new initializeRegister: anAmount on: aReceptiveAccount.
+	aReceptiveAccount register: sourcePata.
+	
+	^sourcePata! !
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:46:55' prior: 50475506!
+register: anAmount on: aReceptiveAccount 
+
+	| destinationPata |
+	destinationPata _ self new initializeRegister: anAmount on: aReceptiveAccount.
+	aReceptiveAccount register: destinationPata.
+	
+	^destinationPata! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:47:00'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:47:00'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:47:00'!
+ERROR!
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:47:08'!
+affectBalance: aSmallInteger 
+	self shouldBeImplemented.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:47:19'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:47:19'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:47:19'!
+ERROR!
+!SourcePata methodsFor: 'error handling' stamp: 'JDR 5/26/2022 21:47:22' overrides: 16902107!
+error: aString 
+	self shouldBeImplemented.! !
+
+!methodRemoval: SourcePata #error: stamp: 'JDR 5/26/2022 21:47:30'!
+error: aString 
+	self shouldBeImplemented.!
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:48:12' prior: 50475532!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger + amount.! !
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:48:15' prior: 50475552!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - amount.! !
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:48:23'!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - amount.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:48:29'!
+FAILURE!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:48:29'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:48:29'!
+FAILURE!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:48:34'!
+FAILURE!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:48:34'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:48:34'!
+FAILURE!
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:49:01' prior: 50475562!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger + amount.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:49:02'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:49:08'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:49:08'!
+PASSED!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:50:21'!
+test03
+
+	"a transfer should know both its transfer legs"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata otherPata) equals: transfer sourcePata.
+	self assert: (transfer sourcePata otherPata) equals: transfer destinationPata.! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:50:32' prior: 50475593!
+test03
+
+	
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata otherPata) equals: transfer sourcePata.
+	self assert: (transfer sourcePata otherPata) equals: transfer destinationPata.! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:50:33' prior: 50475611!
+test03
+
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata otherPata) equals: transfer sourcePata.
+	self assert: (transfer sourcePata otherPata) equals: transfer destinationPata.! !
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:53:49' prior: 50475356!
+initializeAn: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	ammount := anAmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ SourcePata registerFrom: self.
+	depositTransaction _ DestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourceTransaction.
+	destinationAccount register: depositTransaction! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:53:52'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:53:52'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:53:52'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:53:56'!
+ERROR!
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:54:01'!
+registerFrom: aTransfer 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeRegisterFrom: aTransfer ! !
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:54:09' prior: 50475667!
+registerFrom: aTransfer 
+
+	^self new initializeRegisterFrom: aTransfer ! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:54:15'!
+ERROR!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:54:31'!
+TestCase subclass: #SourcePata
+	instanceVariableNames: 'amount receptiveAccount transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!SourcePata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:54:31'!
+initializeRegisterFrom: aTransfer 
+	self shouldBeImplemented.
+	transfer := aTransfer.! !
+!SourcePata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:54:35' prior: 50475692!
+initializeRegisterFrom: aTransfer 
+	
+	transfer := aTransfer.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:54:36'!
+ERROR!
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:55:12' prior: 50475557!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - transfer value ! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:55:25'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:55:25'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:55:25'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:55:27'!
+ERROR!
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:55:31'!
+registerFrom: aTransfer 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeRegisterFrom: aTransfer ! !
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:55:34' prior: 50475721!
+registerFrom: aTransfer 
+
+	^self new initializeRegisterFrom: aTransfer ! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:55:35'!
+ERROR!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:55:39'!
+TestCase subclass: #DestinationPata
+	instanceVariableNames: 'amount receptiveAccount transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:55:39'!
+initializeRegisterFrom: aTransfer 
+	self shouldBeImplemented.
+	transfer := aTransfer.! !
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:55:42' prior: 50475746!
+initializeRegisterFrom: aTransfer 
+	
+	transfer := aTransfer.! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:55:43'!
+ERROR!
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:56:05' prior: 50475706!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - (transfer value) ! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:56:06'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:56:10'!
+ERROR!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:56:10'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:56:10'!
+ERROR!
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:56:29' prior: 50475581!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger + (transfer value).! !
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:56:51' overrides: 16902254!
+value
+
+	^self! !
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:56:59'!
+Object subclass: #Transfer
+	instanceVariableNames: 'value sourceAccount destinationAccount sourceTransaction depositTransaction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:56:59' prior: 50475643!
+initializeAn: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	value := anAmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourceTransaction _ SourcePata registerFrom: self.
+	depositTransaction _ DestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourceTransaction.
+	destinationAccount register: depositTransaction! !
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:57:04' prior: 50475781 overrides: 16902254!
+value
+
+	^value! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:57:04'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:57:04'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:04'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:04'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:57:17'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:57:17'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:57:17'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:17'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:17'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:57:20'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:57:22'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:23'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:23'!
+ERROR!
+
+!methodRemoval: DestinationPata #initializeRegister:on: stamp: 'JDR 5/26/2022 21:57:37'!
+initializeRegister: anAmount on: aReceptiveAccount 
+
+	amount := anAmount.
+	receptiveAccount := aReceptiveAccount.!
+
+!methodRemoval: DestinationPata class #register:on: stamp: 'JDR 5/26/2022 21:57:46'!
+register: anAmount on: aReceptiveAccount 
+
+	| destinationPata |
+	destinationPata _ self new initializeRegister: anAmount on: aReceptiveAccount.
+	aReceptiveAccount register: destinationPata.
+	
+	^destinationPata!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:57:48'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:57:48'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:48'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:57:48'!
+ERROR!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/26/2022 21:57:54'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:57:55'!
+PASSED!
+
+TestCase subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:58:12'!
+TestCase subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!methodRemoval: SourcePata #initializeRegister:on: stamp: 'JDR 5/26/2022 21:58:21'!
+initializeRegister: anAmount on: aReceptiveAccount 
+
+	amount := anAmount.
+	receptiveAccount := aReceptiveAccount.!
+
+TestCase subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/26/2022 21:58:32'!
+TestCase subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!methodRemoval: SourcePata class #register:on: stamp: 'JDR 5/26/2022 21:58:40'!
+register: anAmount on: aReceptiveAccount 
+
+	| sourcePata |
+	sourcePata _ self new initializeRegister: anAmount on: aReceptiveAccount.
+	aReceptiveAccount register: sourcePata.
+	
+	^sourcePata!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:58:46'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/26/2022 21:58:48'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:58:54'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/26/2022 21:58:54'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:58:59'!
+destinationPata
+	self shouldBeImplemented.! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:59:17' prior: 50475921!
+destinationPata
+	
+	^self! !
+
+----QUIT----(26 May 2022 21:59:43) CuisUniversity-5096.image priorSource: 4594877!
