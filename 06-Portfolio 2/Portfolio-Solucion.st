@@ -305,6 +305,153 @@ test07AccountKnowsItsTransactions
 ! !
 
 
+!classDefinition: #ReportTest category: 'Portfolio-Solucion'!
+TestCase subclass: #ReportTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:22:35'!
+test01
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	
+	expectedReport _ OrderedCollection with: 'Balance = 0'.
+	
+	self assert: expectedReport equals: (account accountSummary) .! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:33:17'!
+test02
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por 20.' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: (account accountSummary).! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:33:22'!
+test03
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Withdraw register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Extraccion por 20.' with: 'Balance = -20'.
+	
+	self assert: expectedReport equals: (account accountSummary).! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:35:31'!
+test04
+	
+	| destinationAccount expectedDestinationAccountReport expectedSourceAccountReport sourceAccount |
+	
+	sourceAccount _ ReceptiveAccount  new.
+	destinationAccount _ ReceptiveAccount  new.
+	
+	Transfer an: 20 from: sourceAccount to: destinationAccount.
+	
+	expectedSourceAccountReport _ OrderedCollection with: 'Salida por transferencia de 20.' with: 'Balance = -20'.
+	expectedDestinationAccountReport _ OrderedCollection with: 'Entrada por transferencia de 20.' with: 'Balance = 20'.
+	
+	self assert: expectedSourceAccountReport equals: (sourceAccount accountSummary).
+	self assert: expectedDestinationAccountReport equals: (destinationAccount accountSummary).! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:55:01'!
+test05
+
+	| account expectedReport portfolio |
+	
+	account _ ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	portfolio _ Portfolio new.
+	
+	portfolio add: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por 20.' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:29:12'!
+test055
+	
+	"| destinationAccount sourceAccount expectedDestinationAccountTransferNet expectedSourceAccountTransferNet |
+	
+	sourceAccount _ ReceptiveAccount  new.
+	destinationAccount _ ReceptiveAccount  new.
+	
+	expectedSourceAccountTransferNet _ 0.
+	expectedDestinationAccountTransferNet _ 0.
+	
+	self assert: expectedSourceAccountTransferNet equals: (sourceAccount transferNet).
+	self assert: expectedDestinationAccountTransferNet equals: (destinationAccount transferNet)."
+	
+	self assert: true.! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:11:50'!
+test06
+
+	| expectedReport portfolio portfolioToAdd |
+	
+	portfolioToAdd _ Portfolio new.
+	portfolio _ Portfolio new.
+	
+	portfolio add: portfolioToAdd.
+	
+	expectedReport _ OrderedCollection  with: 'Balance = 0'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:15:13'!
+test07
+
+	| expectedReport portfolio portfolioToAdd account |
+	
+	account _ ReceptiveAccount new.
+	Deposit register: 20 on: account.
+	portfolioToAdd _ Portfolio new.
+	portfolio _ Portfolio new.
+	
+	portfolioToAdd add: account.
+	portfolio add: portfolioToAdd.
+	
+	expectedReport _ OrderedCollection  with: 'Deposito por 20.' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:31:34'!
+test08
+
+	| expectedReport portfolio account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 20 on: account1.
+	account2 _ ReceptiveAccount new.
+	Withdraw register: 30 on: account2.
+	portfolio _ Portfolio new.
+	
+	portfolio add: account1.
+	portfolio add: account2.
+	
+	expectedReport _ OrderedCollection  with: 'Deposito por 20.' with: 'Extraccion por 30.' with: 'Balance = -10'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+
 !classDefinition: #TransferTest category: 'Portfolio-Solucion'!
 TestCase subclass: #TransferTest
 	instanceVariableNames: ''
@@ -328,10 +475,10 @@ test01
 	self assert: (sourceAccount balance) equals: (-1 * amount).
 	self assert: (destinationAccount balance) equals: amount ! !
 
-!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:56:46'!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:07'!
 test02
 
-	"creating a transfer affects source and destination balance	"
+	"a transfer should know both its transfer legs"
 	
 	| sourceAccount destinationAccount amount transfer |
 	
@@ -341,8 +488,62 @@ test02
 	
 	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
 	
-	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
-	self assert: (destinationAccount hasRegistered: transfer destinationTransactionASDSEGREGDFG)! !
+	self assert: (sourceAccount hasRegistered: transfer sourcePata).
+	self assert: (destinationAccount hasRegistered: transfer destinationPata)! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:22:40'!
+test03
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata otherPata) equals: transfer sourcePata.
+	self assert: (transfer sourcePata otherPata) equals: transfer destinationPata.! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:35:02'!
+test04
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata value) equals: transfer value.
+	self assert: (transfer sourcePata value) equals: transfer value.! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:48:36'!
+test05
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransactionErrorDescription ]! !
+
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:00:56'!
+test06
+
+	| sourceAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: sourceAccount ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer sourceAndDestinationCannotBeEqualErrorDescription ]
+	! !
 
 
 !classDefinition: #Account category: 'Portfolio-Solucion'!
@@ -479,6 +680,18 @@ isComposedBy: anAccount
 	^ self = anAccount or: [ accounts anySatisfy: [ :composedAccount | (composedAccount isComposedBy: anAccount) or: [ anAccount isComposedBy: composedAccount ]]]! !
 
 
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 13:28:43'!
+accountSummary
+
+	| accountSummaryReport |
+	accountSummaryReport _ OrderedCollection new.
+	
+	self addToAccountSummary: accountSummaryReport .
+	
+	accountSummaryReport add: 'Balance = ', self balance asString.
+	
+	^accountSummaryReport ! !
+
 !Portfolio methodsFor: 'account management - private' stamp: 'HAW 5/25/2019 12:17:31'!
 addRootParentsTo: rootParents
 
@@ -496,6 +709,14 @@ assertCanAdd: accountToAdd
 signalCanNotAddAccount
 	
 	self error: self class canNotAddAccountErrorMessage! !
+
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:32:27'!
+addToAccountSummary: anAccountSummaryReportToBeCompleted 
+
+	accounts do: [ :anAccount |
+		anAccount addToAccountSummary: anAccountSummaryReportToBeCompleted.
+	].! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -580,6 +801,29 @@ addedTo: aPortfolio
 	
 	! !
 
+
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:33:44'!
+accountSummary
+	
+	| anAccountSummaryReport |
+	anAccountSummaryReport _ OrderedCollection new.
+	
+	self addToAccountSummary: anAccountSummaryReport.
+	
+	anAccountSummaryReport add: 'Balance = ', (self balance asString). 
+	
+	^anAccountSummaryReport! !
+
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:18:42'!
+addToAccountSummary: anAccountSummaryReportToBeCompleted 
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Deposito por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Extraccion por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].! !
+
 
 !classDefinition: #AccountTransaction category: 'Portfolio-Solucion'!
 Object subclass: #AccountTransaction
@@ -652,6 +896,89 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion'!
+AccountTransaction subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:56:29'!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger + (transfer value).! !
+
+!DestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:55:42'!
+initializeRegisterFrom: aTransfer 
+	
+	transfer := aTransfer.! !
+
+
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:07'!
+otherPata
+	
+	^transfer sourcePata 
+! !
+
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:35:43'!
+value
+	
+	^transfer value
+! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'DestinationPata class' category: 'Portfolio-Solucion'!
+DestinationPata class
+	instanceVariableNames: ''!
+
+!DestinationPata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:55:34'!
+registerFrom: aTransfer 
+
+	^self new initializeRegisterFrom: aTransfer ! !
+
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion'!
+AccountTransaction subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!SourcePata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:54:35'!
+initializeRegisterFrom: aTransfer 
+	
+	transfer := aTransfer.! !
+
+
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/26/2022 21:56:05'!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - (transfer value) ! !
+
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:21:05'!
+otherPata
+	
+	^transfer destinationPata ! !
+
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:35:50'!
+value
+	
+	^transfer value
+! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'SourcePata class' category: 'Portfolio-Solucion'!
+SourcePata class
+	instanceVariableNames: ''!
+
+!SourcePata class methodsFor: 'instance creation' stamp: 'JDR 5/26/2022 21:54:09'!
+registerFrom: aTransfer 
+
+	^self new initializeRegisterFrom: aTransfer ! !
+
+
 !classDefinition: #Withdraw category: 'Portfolio-Solucion'!
 AccountTransaction subclass: #Withdraw
 	instanceVariableNames: 'value'
@@ -690,35 +1017,43 @@ for: aValue
 
 !classDefinition: #Transfer category: 'Portfolio-Solucion'!
 Object subclass: #Transfer
-	instanceVariableNames: 'ammount sourceAccount destinationAccount sourceTransaction depositTransaction'
+	instanceVariableNames: 'value sourceAccount destinationAccount sourcePata depositPata'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!Transfer methodsFor: 'initialization' stamp: 'JDR 5/23/2022 21:58:05'!
-initializeAn: anAmmount from: aSourceAccount to: aDestinationAccount 
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/28/2022 11:54:09'!
+initializeAn: aValue from: aSourceAccount to: aDestinationAccount 
 
-	ammount := anAmmount.
+	value := aValue.
 	sourceAccount := aSourceAccount.
 	destinationAccount := aDestinationAccount.
 	
-	sourceTransaction _ Withdraw register: anAmmount on: aSourceAccount.
-	depositTransaction _ Deposit  register: anAmmount on: aDestinationAccount.! !
+	sourcePata _ SourcePata registerFrom: self.
+	depositPata _ DestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourcePata.
+	destinationAccount register: depositPata! !
+
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:57:04'!
+value
+
+	^value! !
 
 
 !Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:26:41'!
 affectBalance: aSmallInteger 
 	self shouldBeImplemented.! !
 
-!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:58:05'!
-destinationTransactionASDSEGREGDFG
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:39:40'!
+destinationPata
 	
-	^depositTransaction ! !
+	^depositPata ! !
 
-!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/23/2022 21:57:10'!
-sourceTransactionASDSEGREGDFG
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:39:34'!
+sourcePata
 	
-	^ sourceTransaction.! !
+	^ sourcePata.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -726,7 +1061,21 @@ sourceTransactionASDSEGREGDFG
 Transfer class
 	instanceVariableNames: ''!
 
-!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/23/2022 21:56:24'!
-an: anAmount from: aSourceAccount to: aDestinationAccount 
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/28/2022 12:00:47'!
+an: aValue from: aSourceAccount to: aDestinationAccount 
 
-	^ self new initializeAn: anAmount from: aSourceAccount to: aDestinationAccount! !
+	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
+	(aValue = 0) ifTrue: [ self error: Transfer emptyTransactionErrorDescription ].
+
+	^ self new initializeAn: aValue from: aSourceAccount to: aDestinationAccount! !
+
+
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:49:40'!
+emptyTransactionErrorDescription
+
+	^'A transfer must have a positive value!!!!'! !
+
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:59:59'!
+sourceAndDestinationCannotBeEqualErrorDescription
+
+	^'Source and destination accounts cannot be the same'! !

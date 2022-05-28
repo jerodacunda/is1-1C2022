@@ -996,3 +996,2060 @@ destinationPata
 	^self! !
 
 ----QUIT----(26 May 2022 21:59:43) CuisUniversity-5096.image priorSource: 4594877!
+
+----STARTUP---- (28 May 2022 11:08:55) as /home/jerodacunda/Escritorio/7/linux64-7/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/jerodacunda/Escritorio/7/linux64-7/Portfolio-Solucion1.st----!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:14:08'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:14:08'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:14:24'!
+otherPata
+	self shouldBeImplemented.! !
+
+!methodRemoval: Transfer #otherPata stamp: 'JDR 5/28/2022 11:14:31'!
+otherPata
+	self shouldBeImplemented.!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:14:49'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:14:49'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:15:28' prior: 50474982!
+destinationPata
+	
+	^destinationAccount ! !
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:15:32'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:15:32'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:16:40' prior: 50475031!
+destinationPata
+	
+	^depositTransaction ! !
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:16:43'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:16:43'!
+ERROR!
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:16:52'!
+otherPata
+	self shouldBeImplemented.! !
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:17:14' prior: 50475049!
+otherPata
+	
+! !
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:17:47' prior: 50475054!
+otherPata
+	
+	^transfer sourceTransactionASDSEGREGDFG 
+! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 11:18:07'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 11:18:07'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:18:07'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:18:07'!
+ERROR!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:18:18'!
+sourcePata
+	self shouldBeImplemented.! !
+
+!methodRemoval: Transfer #sourcePata stamp: 'JDR 5/28/2022 11:19:16'!
+sourcePata
+	self shouldBeImplemented.!
+
+!methodRemoval: Transfer #destinationPata stamp: 'JDR 5/28/2022 11:19:21'!
+destinationPata
+	
+	^depositTransaction !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:19:42'!
+destinationPata
+	
+	^depositTransaction ! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:19:42' prior: 50474561!
+test02
+
+	"a transfer should know both its transfer legs"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourceTransactionASDSEGREGDFG).
+	self assert: (destinationAccount hasRegistered: transfer destinationPata)! !
+
+!methodRemoval: Transfer #destinationTransactionASDSEGREGDFG stamp: 'JDR 5/28/2022 11:19:42'!
+destinationTransactionASDSEGREGDFG
+	
+	^depositTransaction !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:07'!
+sourcePata
+	
+	^ sourceTransaction.! !
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:07' prior: 50475058!
+otherPata
+	
+	^transfer sourcePata 
+! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:07' prior: 50475088!
+test02
+
+	"a transfer should know both its transfer legs"
+	
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (sourceAccount hasRegistered: transfer sourcePata).
+	self assert: (destinationAccount hasRegistered: transfer destinationPata)! !
+
+!methodRemoval: Transfer #sourceTransactionASDSEGREGDFG stamp: 'JDR 5/28/2022 11:20:07'!
+sourceTransactionASDSEGREGDFG
+	
+	^ sourceTransaction.!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:20:19'!
+ERROR!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:20:19'!
+ERROR!
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:25'!
+otherPata
+	self shouldBeImplemented.! !
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:20:36' prior: 50475146!
+otherPata
+	
+	^transfer otherPata! !
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:20:37'!
+ERROR!
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:21:05' prior: 50475151!
+otherPata
+	
+	^transfer destinationPata ! !
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:21:07'!
+PASSED!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:22:40' prior: 50474579!
+test03
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata otherPata) equals: transfer sourcePata.
+	self assert: (transfer sourcePata otherPata) equals: transfer destinationPata.! !
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:22:43'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 11:22:43'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 11:22:43'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:22:43'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:30:15'!
+PASSED!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:35:02'!
+test04
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	
+	self assert: (transfer destinationPata value) equals: transfer value.
+	self assert: (transfer sourcePata value) equals: transfer value.! !
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 11:35:05'!
+FAILURE!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 11:35:05'!
+FAILURE!
+!DestinationPata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:35:43' overrides: 16902254!
+value
+	
+	^transfer value
+! !
+!SourcePata methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:35:50' overrides: 16902254!
+value
+	
+	^transfer value
+! !
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 11:36:07'!
+PASSED!
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 11:39:34'!
+Object subclass: #Transfer
+	instanceVariableNames: 'value sourceAccount destinationAccount sourcePata depositTransaction'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:39:34' prior: 50474959!
+initializeAn: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	value := anAmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourcePata _ SourcePata registerFrom: self.
+	depositTransaction _ DestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourcePata.
+	destinationAccount register: depositTransaction! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:39:34' prior: 50475110!
+sourcePata
+	
+	^ sourcePata.! !
+
+!classDefinition: #Transfer category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 11:39:40'!
+Object subclass: #Transfer
+	instanceVariableNames: 'value sourceAccount destinationAccount sourcePata depositPata'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:39:40' prior: 50475083!
+destinationPata
+	
+	^depositPata ! !
+!Transfer methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:39:40' prior: 50475232!
+initializeAn: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	value := anAmount.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourcePata _ SourcePata registerFrom: self.
+	depositPata _ DestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourcePata.
+	destinationAccount register: depositPata! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 11:39:50'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 11:39:50'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:39:50'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 11:39:50'!
+PASSED!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:43:50'!
+test05
+
+	self assert: true.! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:44:13'!
+test05DondeEstaElAssertion
+
+	self assert: true.! !
+
+!methodRemoval: TransferTest #test05 stamp: 'JDR 5/28/2022 11:44:13'!
+test05
+
+	self assert: true.!
+
+!testRun: #TransferTest #test05DondeEstaElAssertion stamp: 'JDR 5/28/2022 11:44:19'!
+PASSED!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:45:29'!
+test06
+
+	! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:46:25' prior: 50475303!
+test06
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:48:23' prior: 50475292!
+test05DondeEstaElAssertion
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransactionErrorDescription ]! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:48:36'!
+test05
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransactionErrorDescription ]! !
+
+!methodRemoval: TransferTest #test05DondeEstaElAssertion stamp: 'JDR 5/28/2022 11:48:36'!
+test05DondeEstaElAssertion
+	
+	| sourceAccount destinationAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransactionErrorDescription ]!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 11:48:56'!
+FAILURE!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 11:48:56'!
+FAILURE!
+!Transfer class methodsFor: 'nil' stamp: 'JDR 5/28/2022 11:49:40'!
+emptyTransactionErrorDescription
+
+	^'A transfer must have a positive value!!!!'! !
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 11:49:47'!
+FAILURE!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 11:49:47'!
+FAILURE!
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/28/2022 11:51:54' prior: 50475003!
+an: anAmount from: aSourceAccount to: aDestinationAccount 
+
+	(anAmount = 0) ifTrue: [ self error: Transfer emptyTransactionErrorDescription ].
+
+	^ self new initializeAn: anAmount from: aSourceAccount to: aDestinationAccount! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 11:51:55'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 11:51:55'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 11:51:55'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 11:51:55'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 11:51:55'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 11:51:55'!
+ERROR!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 11:51:55'!
+ERROR!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 11:52:15'!
+PASSED!
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/28/2022 11:54:09' prior: 50475265!
+initializeAn: aValue from: aSourceAccount to: aDestinationAccount 
+
+	value := aValue.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourcePata _ SourcePata registerFrom: self.
+	depositPata _ DestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourcePata.
+	destinationAccount register: depositPata! !
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/28/2022 11:54:17' prior: 50475381!
+an: aValue from: aSourceAccount to: aDestinationAccount 
+
+	(aValue = 0) ifTrue: [ self error: Transfer emptyTransactionErrorDescription ].
+
+	^ self new initializeAn: aValue from: aSourceAccount to: aDestinationAccount! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:55:37'!
+test06AlgunOtroAssertion
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	! !
+
+!methodRemoval: TransferTest #test06 stamp: 'JDR 5/28/2022 11:55:37'!
+test06
+
+	| sourceAccount destinationAccount amount transfer |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	amount _ 0.
+	
+	transfer _ Transfer an: amount from: sourceAccount to: destinationAccount.
+	!
+
+TestCase subclass: #ReportTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #ReportTest category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 11:57:10'!
+TestCase subclass: #ReportTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:59:14' prior: 50475434!
+test06AlgunOtroAssertion
+
+	| sourceAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: sourceAccount ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer sourceAndDestinationCannotBeEqualErrorDescription ]
+	! !
+
+!testRun: #TransferTest #test06AlgunOtroAssertion stamp: 'JDR 5/28/2022 11:59:23'!
+FAILURE!
+
+!testRun: #TransferTest #test06AlgunOtroAssertion stamp: 'JDR 5/28/2022 11:59:23'!
+FAILURE!
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 11:59:59'!
+sourceAndDestinationCannotBeEqualErrorDescription
+
+	^'Source and destination accounts cannot be the same'! !
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/28/2022 12:00:47' prior: 50475424!
+an: aValue from: aSourceAccount to: aDestinationAccount 
+
+	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
+	(aValue = 0) ifTrue: [ self error: Transfer emptyTransactionErrorDescription ].
+
+	^ self new initializeAn: aValue from: aSourceAccount to: aDestinationAccount! !
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 12:00:49'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 12:00:49'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 12:00:49'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 12:00:49'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 12:00:49'!
+PASSED!
+
+!testRun: #TransferTest #test06AlgunOtroAssertion stamp: 'JDR 5/28/2022 12:00:49'!
+PASSED!
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:00:56'!
+test06
+
+	| sourceAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: sourceAccount ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer sourceAndDestinationCannotBeEqualErrorDescription ]
+	! !
+
+!methodRemoval: TransferTest #test06AlgunOtroAssertion stamp: 'JDR 5/28/2022 12:00:56'!
+test06AlgunOtroAssertion
+
+	| sourceAccount amount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	amount _ 20.
+	
+	self should: [ Transfer an: amount from: sourceAccount to: sourceAccount ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer sourceAndDestinationCannotBeEqualErrorDescription ]
+	!
+!ReportTest methodsFor: 'no messages' stamp: 'JDR 5/28/2022 12:05:33'!
+test01
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	
+	expectedReport _ OrderedCollection with: 'Balance = 0'.
+	
+	self assert: (account accountSummary) equals: expectedReport.! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:05:40'!
+ERROR!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:05:49'!
+accountSummary
+	self shouldBeImplemented.! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:06:05' prior: 50475562!
+accountSummary
+	
+	^'balance = 0'! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:06:06'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:06:22' prior: 50475567!
+accountSummary
+	
+	^'Balance = 0'! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:06:26'!
+FAILURE!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:06:26'!
+FAILURE!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:06:54' prior: 50475550!
+test01
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	
+	expectedReport _ OrderedCollection with: 'Balance = 0'.
+	
+	self assert: (account accountSummary) equals: expectedReport first.! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:06:56'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:08:45'!
+test02
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Depósito por 20' with: 'Balance = 0'.
+	
+	self assert: (account accountSummary) equals: expectedReport.! !
+
+----End fileIn of /home/jerodacunda/Escritorio/7/linux64-7/Packages/TerseGuide.pck.st----!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:17:04' prior: 50475574!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	(transactions first isKindOf: #Deposit) ifTrue: [ summary add: 'Deposito por: ', transactions first value asString ] .
+	
+	summary add: 'Balance = ', (self balance asString). ! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:17:32' prior: 50478527!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	(transactions first isKindOf: #Deposit) ifTrue: [ summary add: 'Deposito por: ', transactions first value asString ] .
+	
+	summary add: 'Balance = ', (self balance asString). ! !
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:17:53' prior: 50475595!
+test02
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por: 20' with: 'Balance = 0'.
+	
+	self assert: (account accountSummary) equals: expectedReport.! !
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:17:55'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:18:57' prior: 50478538!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	(transactions first isKindOf: #Deposit) ifTrue: [ summary add: 'Deposito por: ', transactions first value asString ] .
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:00'!
+FAILURE!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:00'!
+FAILURE!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:19:11' prior: 50475583!
+test01
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	
+	expectedReport _ OrderedCollection with: 'Balance = 0'.
+	
+	self assert: (account accountSummary) equals: expectedReport.! !
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:12'!
+FAILURE!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:12'!
+FAILURE!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:19:27' prior: 50478549!
+test02
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por: 20' with: 'Balance = 20'.
+	
+	self assert: (account accountSummary) equals: expectedReport.! !
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:28'!
+FAILURE!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:28'!
+FAILURE!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:42'!
+FAILURE!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:19:42'!
+FAILURE!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:20:08' prior: 50478593!
+test02
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por: 20' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: (account accountSummary).! !
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:20:11'!
+FAILURE!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:20:11'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:21:48' prior: 50478563!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	(transactions first isKindOf: Deposit) ifTrue: [ summary add: 'Deposito por: ', transactions first value asString ] .
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:21:51'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:21:58'!
+ERROR!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:21:58'!
+ERROR!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:22:03'!
+ERROR!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:22:03'!
+ERROR!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:22:17'!
+ERROR!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:22:17'!
+ERROR!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:22:35' prior: 50478579!
+test01
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	
+	expectedReport _ OrderedCollection with: 'Balance = 0'.
+	
+	self assert: expectedReport equals: (account accountSummary) .! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:22:38'!
+ERROR!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:22:38'!
+ERROR!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:24:30' prior: 50478630!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ summary add: 'Deposito por: ', aTransaction value asString ] .
+	].
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:24:35'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:24:35'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:26:02'!
+test03
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Withdraw register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Extraccion por: 20' with: 'Balance = -20'.
+	
+	self assert: expectedReport equals: (account accountSummary).! !
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:26:04'!
+FAILURE!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:26:04'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:26:46' prior: 50478671!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ summary add: 'Deposito por: ', aTransaction value asString ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ summary add: 'Extraccion por: ', aTransaction value asString ] .
+	].
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:27:07'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:30:35'!
+test04
+	
+	| destinationAccount expectedDestinatioAccountReport expectedSourceAccountReport sourceAccount |
+	
+	sourceAccount _ ReceptiveAccount  new.
+	destinationAccount _ ReceptiveAccount  new.
+	
+	Transfer an: 20 from: sourceAccount to: destinationAccount.
+	
+	expectedSourceAccountReport _ OrderedCollection with: 'Salida por transferencia de 20.' with: 'Balance = -20'.
+	expectedDestinatioAccountReport _ OrderedCollection with: 'Entrada por transferencia de 20.' with: 'Balance = 20'.
+	
+	self assert: expectedSourceAccountReport equals: (sourceAccount accountSummary).
+	self assert: expectedDestinatioAccountReport equals: (destinationAccount accountSummary).! !
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 12:30:52'!
+FAILURE!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 12:30:52'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:32:50' prior: 50478704!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ summary add: 'Deposito por: ', aTransaction value asString ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ summary add: 'Extraccion por: ', aTransaction value asString ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ summary add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ summary add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 12:32:58'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:33:17' prior: 50478614!
+test02
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por 20.' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: (account accountSummary).! !
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:33:22' prior: 50478687!
+test03
+	
+	| account expectedReport |
+	
+	account := ReceptiveAccount  new.
+	Withdraw register: 20 on: account.
+	
+	expectedReport _ OrderedCollection with: 'Extraccion por 20.' with: 'Balance = -20'.
+	
+	self assert: expectedReport equals: (account accountSummary).! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:33:44' prior: 50478751!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ summary add: 'Deposito por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ summary add: 'Extraccion por ', aTransaction value asString. '.' ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ summary add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ summary add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:33:49'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:33:49'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:33:49'!
+FAILURE!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 12:33:49'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:33:49'!
+FAILURE!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:34:09'!
+FAILURE!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:34:09'!
+FAILURE!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:34:27' prior: 50478801!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ summary add: 'Deposito por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ summary add: 'Extraccion por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ summary add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ summary add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:34:31'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:34:31'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:34:31'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 12:34:31'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:35:31' prior: 50478722!
+test04
+	
+	| destinationAccount expectedDestinationAccountReport expectedSourceAccountReport sourceAccount |
+	
+	sourceAccount _ ReceptiveAccount  new.
+	destinationAccount _ ReceptiveAccount  new.
+	
+	Transfer an: 20 from: sourceAccount to: destinationAccount.
+	
+	expectedSourceAccountReport _ OrderedCollection with: 'Salida por transferencia de 20.' with: 'Balance = -20'.
+	expectedDestinationAccountReport _ OrderedCollection with: 'Entrada por transferencia de 20.' with: 'Balance = 20'.
+	
+	self assert: expectedSourceAccountReport equals: (sourceAccount accountSummary).
+	self assert: expectedDestinationAccountReport equals: (destinationAccount accountSummary).! !
+
+Object subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 12:36:15'!
+Object subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+Object subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 12:36:22'!
+Object subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 12:36:32'!
+PASSED!
+
+AccountTransaction subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #SourcePata category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 12:36:51'!
+AccountTransaction subclass: #SourcePata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+AccountTransaction subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+
+!classDefinition: #DestinationPata category: 'Portfolio-Solucion' stamp: 'JDR 5/28/2022 12:36:59'!
+AccountTransaction subclass: #DestinationPata
+	instanceVariableNames: 'transfer'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Solucion'!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:42:17'!
+test055
+	
+	| destinationAccount sourceAccount expectedDestinationAccountTransferNet expectedSourceAccountTransferNet |
+	
+	sourceAccount _ ReceptiveAccount  new.
+	destinationAccount _ ReceptiveAccount  new.
+	
+	expectedSourceAccountTransferNet _ 0.
+	expectedDestinationAccountTransferNet _ 0.
+	
+	self assert: expectedSourceAccountTransferNet equals: (sourceAccount transferNet).
+	self assert: expectedDestinationAccountTransferNet equals: (destinationAccount transferNet).! !
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 12:55:01'!
+test05
+
+	| account expectedReport portfolio |
+	
+	account _ ReceptiveAccount  new.
+	Deposit register: 20 on: account.
+	portfolio _ Portfolio new.
+	
+	portfolio add: account.
+	
+	expectedReport _ OrderedCollection with: 'Deposito por 20.' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 12:59:52'!
+accountSummary
+
+	| summary |
+	summary _ OrderedCollection new.
+	
+	accounts do: [ :anAccount |
+		
+	].! !
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 13:04:42' prior: 50479086!
+accountSummary
+
+	| summary |
+	summary _ OrderedCollection new.
+	
+	accounts do: [ :anAccount |
+		anAccount addToAccountSummary: summary 
+	].! !
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 13:04:56' prior: 50479093!
+accountSummary
+
+	| accountSummaryReport |
+	accountSummaryReport _ OrderedCollection new.
+	
+	accounts do: [ :anAccount |
+		anAccount addToAccountSummary: accountSummaryReport 
+	].! !
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 13:05:35' prior: 50479101!
+accountSummary
+
+	| accountSummaryReport |
+	accountSummaryReport _ OrderedCollection new.
+	
+	accounts first addToAccountSummary: accountSummaryReport .! !
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:05:42'!
+ERROR!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:05:42'!
+ERROR!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:05:50'!
+addToAccountSummary: anOrderedCollection 
+	self shouldBeImplemented.! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:07:35' prior: 50479122!
+addToAccountSummary: anOrderedCollection 
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ anOrderedCollection add: 'Deposito por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ anOrderedCollection add: 'Extraccion por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ anOrderedCollection add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ anOrderedCollection add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:07:47' prior: 50479128!
+addToAccountSummary: anAccountSummaryReport 
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ anAccountSummaryReport add: 'Deposito por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ anAccountSummaryReport add: 'Extraccion por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ anAccountSummaryReport add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ anAccountSummaryReport add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].! !
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:08:25'!
+FAILURE!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:08:25'!
+FAILURE!
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 13:09:52' prior: 50479110!
+accountSummary
+
+	| accountSummaryReport |
+	accountSummaryReport _ OrderedCollection new.
+	
+	accounts first addToAccountSummary: accountSummaryReport .
+	
+	accountSummaryReport add: 'Balance = ', self balance asString.
+	
+	^accountSummaryReport ! !
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:09:57'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:10:03'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:10:04'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:10:05'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:10:07'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:10:08'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:10:10'!
+ERROR!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:10:10'!
+ERROR!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:11:50'!
+test06
+
+	| expectedReport portfolio portfolioToAdd |
+	
+	portfolioToAdd _ Portfolio new.
+	portfolio _ Portfolio new.
+	
+	portfolio add: portfolioToAdd.
+	
+	expectedReport _ OrderedCollection  with: 'Balance = 0'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:11:55'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:11:55'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:13:03'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:13:03'!
+ERROR!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:13:09'!
+addToAccountSummary: anOrderedCollection 
+	self shouldBeImplemented.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:13:21' prior: 50479229!
+addToAccountSummary: anOrderedCollection 
+! !
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:13:22'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:13:25'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:15:13'!
+test07
+
+	| expectedReport portfolio portfolioToAdd account |
+	
+	account _ ReceptiveAccount new.
+	Deposit register: 20 on: account.
+	portfolioToAdd _ Portfolio new.
+	portfolio _ Portfolio new.
+	
+	portfolioToAdd add: account.
+	portfolio add: portfolioToAdd.
+	
+	expectedReport _ OrderedCollection  with: 'Deposito por 20.' with: 'Balance = 20'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:15:17'!
+FAILURE!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:15:17'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:18:01' prior: 50479235!
+addToAccountSummary: anOrderedCollection 
+
+	anOrderedCollection add: accounts first accountSummary.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:18:13' prior: 50479265!
+addToAccountSummary: anAccountSummaryReport 
+
+	anAccountSummaryReport add: accounts first accountSummary.! !
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:18:35' prior: 50479272!
+addToAccountSummary: anAccountSummaryReportToBeCompleted 
+
+	anAccountSummaryReportToBeCompleted add: accounts first accountSummary.! !
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:18:42' prior: 50479151!
+addToAccountSummary: anAccountSummaryReportToBeCompleted 
+	
+	transactions do: [ :aTransaction | 
+		(aTransaction isKindOf: Deposit) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Deposito por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: Withdraw) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Extraccion por ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: SourcePata) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Salida por transferencia de ', aTransaction value asString, '.' ] .
+		(aTransaction isKindOf: DestinationPata) ifTrue: [ anAccountSummaryReportToBeCompleted add: 'Entrada por transferencia de ', aTransaction value asString, '.' ] .
+	].! !
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:18:54'!
+FAILURE!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:18:54'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:25:36' prior: 50479279!
+addToAccountSummary: anAccountSummaryReportToBeCompleted 
+
+	accounts first addToAccountSummary: anAccountSummaryReportToBeCompleted.! !
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:25:41'!
+PASSED!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:25:48'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:25:48'!
+ERROR!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 13:25:48'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:25:54'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:26:08'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:26:08'!
+ERROR!
+!Portfolio methodsFor: 'account management - private' stamp: 'JDR 5/28/2022 13:28:43' prior: 50479179!
+accountSummary
+
+	| accountSummaryReport |
+	accountSummaryReport _ OrderedCollection new.
+	
+	self addToAccountSummary: accountSummaryReport .
+	
+	accountSummaryReport add: 'Balance = ', self balance asString.
+	
+	^accountSummaryReport ! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:28:45'!
+ERROR!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:28:45'!
+ERROR!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 13:28:45'!
+PASSED!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:29:12' prior: 50479055!
+test055
+	
+	"| destinationAccount sourceAccount expectedDestinationAccountTransferNet expectedSourceAccountTransferNet |
+	
+	sourceAccount _ ReceptiveAccount  new.
+	destinationAccount _ ReceptiveAccount  new.
+	
+	expectedSourceAccountTransferNet _ 0.
+	expectedDestinationAccountTransferNet _ 0.
+	
+	self assert: expectedSourceAccountTransferNet equals: (sourceAccount transferNet).
+	self assert: expectedDestinationAccountTransferNet equals: (destinationAccount transferNet)."
+	
+	self assert: true.! !
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:29:15'!
+ERROR!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 13:29:15'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:29:15'!
+ERROR!
+!ReportTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:31:34'!
+test08
+
+	| expectedReport portfolio account1 account2 |
+	
+	account1 _ ReceptiveAccount new.
+	Deposit register: 20 on: account1.
+	account2 _ ReceptiveAccount new.
+	Withdraw register: 30 on: account2.
+	portfolio _ Portfolio new.
+	
+	portfolio add: account1.
+	portfolio add: account2.
+	
+	expectedReport _ OrderedCollection  with: 'Deposito por 20.' with: 'Extraccion por 30.' with: 'Balance = -10'.
+	
+	self assert: expectedReport equals: portfolio accountSummary.
+	
+	! !
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:31:45'!
+FAILURE!
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:31:45'!
+FAILURE!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:32:27' prior: 50479317!
+addToAccountSummary: anAccountSummaryReportToBeCompleted 
+
+	accounts do: [ :anAccount |
+		anAccount addToAccountSummary: anAccountSummaryReportToBeCompleted.
+	].! !
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:32:32'!
+PASSED!
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 13:32:40'!
+PASSED!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:33:21' prior: 50478841!
+accountSummary
+	
+	| summary |
+	summary _ OrderedCollection new.
+	
+	self addToAccountSummary: summary.
+	
+	summary add: 'Balance = ', (self balance asString). 
+	
+	^summary! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 13:33:26'!
+PASSED!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'JDR 5/28/2022 13:33:44' prior: 50479873!
+accountSummary
+	
+	| anAccountSummaryReport |
+	anAccountSummaryReport _ OrderedCollection new.
+	
+	self addToAccountSummary: anAccountSummaryReport.
+	
+	anAccountSummaryReport add: 'Balance = ', (self balance asString). 
+	
+	^anAccountSummaryReport! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test01 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test02 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test03 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test04 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test05 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test055 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test06 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test07 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #ReportTest #test08 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #TransferTest #test01 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #TransferTest #test02 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #TransferTest #test03 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #TransferTest #test04 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #TransferTest #test05 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
+
+!testRun: #TransferTest #test06 stamp: 'JDR 5/28/2022 13:33:54'!
+PASSED!
