@@ -17890,3 +17890,1631 @@ initializeAn: aValue from: aSourceAccount to: aDestinationAccount
 	destinationAccount register: destinationPata! !
 
 ----QUIT----(28 May 2022 19:16:44) CuisUniversity-5096.image priorSource: 4557982!
+
+----STARTUP---- (28 May 2022 19:21:45) as /home/jerodacunda/Escritorio/7/linux64-7/CuisUniversity-5096.image!
+
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/28/2022 19:22:53'!
+PASSED!
+
+!methodRemoval: TransferDestinationPata #affectBalance: stamp: 'JDR 5/28/2022 19:24:01'!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger + (transfer value).!
+
+!methodRemoval: TransferSourcePata #affectBalance: stamp: 'JDR 5/28/2022 19:24:04'!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - (transfer value) !
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/28/2022 19:24:12'!
+ERROR!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/28/2022 19:24:12'!
+ERROR!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/28/2022 19:24:12'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/28/2022 19:24:13'!
+PASSED!
+
+----STARTUP---- (30 May 2022 13:01:26) as /home/jerodacunda/Escritorio/7/linux64-7/CuisUniversity-5096.image!
+
+!TransferNet methodsFor: 'accesing' stamp: 'JDR 5/30/2022 13:07:11' prior: 50475448 overrides: 50475319!
+report
+	
+	account addToReport: self.
+	
+	^transferNetReport ! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:07:12'!
+PASSED!
+!AccountSummary methodsFor: 'accesing' stamp: 'JDR 5/30/2022 13:08:11' prior: 50476127 overrides: 50475319!
+report
+	
+	account addToReport: self.
+	
+	accountSummaryReport add: 'Balance = ', (account balance asString). 
+	
+	^accountSummaryReport! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:08:11'!
+PASSED!
+!TransferSourcePata methodsFor: 'balance' stamp: 'JDR 5/30/2022 13:08:57' prior: 50475220 overrides: 50475076!
+affectBalance: aSmallInteger 
+	
+! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:08:57'!
+FAILURE!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:08:57'!
+FAILURE!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:08:57'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:09:17'!
+FAILURE!
+!TransferSourcePata methodsFor: 'balance' stamp: 'JDR 5/26/2022 21:56:05' prior: 50480637 overrides: 50475076!
+affectBalance: aSmallInteger 
+	
+	^aSmallInteger - (transfer value) ! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:14:26'!
+PASSED!
+!TransferDestinationPata methodsFor: 'balance' stamp: 'JDR 5/30/2022 13:14:51' prior: 50475154 overrides: 50475076!
+affectBalance: aBalance 
+	
+	^aBalance + (transfer value).! !
+!TransferSourcePata methodsFor: 'balance' stamp: 'JDR 5/30/2022 13:15:11' prior: 50480803 overrides: 50475076!
+affectBalance: aBalance 
+	
+	^aBalance - (transfer value) ! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:15:11'!
+PASSED!
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/30/2022 13:15:45'!
+initializeRegister: aValue from: aSourceAccount to: aDestinationAccount 
+
+	value := aValue.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourcePata _ TransferSourcePata registerFrom: self.
+	destinationPata _ TransferDestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourcePata.
+	destinationAccount register: destinationPata! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'JDR 5/30/2022 13:15:45' prior: 50476693!
+register: aValue from: aSourceAccount to: aDestinationAccount 
+
+	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
+	(aValue = 0) ifTrue: [ self error: Transfer emptyTransferErrorDescription ].
+
+	^ self new initializeRegister: aValue from: aSourceAccount to: aDestinationAccount! !
+
+!methodRemoval: Transfer #initializeAn:from:to: stamp: 'JDR 5/30/2022 13:15:45'!
+initializeAn: aValue from: aSourceAccount to: aDestinationAccount 
+
+	value := aValue.
+	sourceAccount := aSourceAccount.
+	destinationAccount := aDestinationAccount.
+	
+	sourcePata _ TransferSourcePata registerFrom: self.
+	destinationPata _ TransferDestinationPata  registerFrom: self.
+	
+	sourceAccount register: sourcePata.
+	destinationAccount register: destinationPata!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:15:48'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:17:38'!
+PASSED!
+!Report methodsFor: 'reporting protocol' stamp: 'JDR 5/30/2022 13:23:08' prior: 50475300!
+registerDeposit: aDeposit 
+
+	self subclassResponsibility.! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:23:08'!
+PASSED!
+
+	sourceAccount _ ReceptiveAccount new.!
+
+	destinationAccount _ ReceptiveAccount new.!
+
+	Transfer register: -5 from: sourceAccount to: destinationAccount !
+
+	destinationAccount balance!
+
+	destinationAccount balance!
+!TransferTest methodsFor: 'testing' stamp: 'JDR 5/30/2022 13:28:02'!
+test05CreatingATransferWithANonPositiveValueShouldRaiseAnError
+	
+	| sourceAccount destinationAccount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	
+	self should: [ Transfer register: 0 from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransferErrorDescription ]! !
+
+!methodRemoval: TransferTest #test05CreatingATransferWithZeroValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:28:02'!
+test05CreatingATransferWithZeroValueShouldRaiseAnError
+	
+	| sourceAccount destinationAccount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	
+	self should: [ Transfer register: 0 from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransferErrorDescription ]!
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/30/2022 13:28:57' prior: 50481150!
+register: aValue from: aSourceAccount to: aDestinationAccount 
+
+	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
+	(aValue <= 0) ifTrue: [ self error: Transfer emptyTransferErrorDescription ].
+
+	^ self new initializeRegister: aValue from: aSourceAccount to: aDestinationAccount! !
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithANonPositiveValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:28:57'!
+PASSED!
+!Transfer class methodsFor: 'error descriptions' stamp: 'JDR 5/30/2022 13:29:36'!
+invalidTransferErrorDescription
+
+	^'A transfer must have a positive value!!!!'! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/30/2022 13:29:36' prior: 50481662!
+test05CreatingATransferWithANonPositiveValueShouldRaiseAnError
+	
+	| sourceAccount destinationAccount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	
+	self should: [ Transfer register: 0 from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer invalidTransferErrorDescription ]! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'JDR 5/30/2022 13:29:36' prior: 50481696!
+register: aValue from: aSourceAccount to: aDestinationAccount 
+
+	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
+	(aValue <= 0) ifTrue: [ self error: Transfer invalidTransferErrorDescription ].
+
+	^ self new initializeRegister: aValue from: aSourceAccount to: aDestinationAccount! !
+
+!methodRemoval: Transfer class #emptyTransferErrorDescription stamp: 'JDR 5/30/2022 13:29:36'!
+emptyTransferErrorDescription
+
+	^'A transfer must have a positive value!!!!'!
+!Transfer class methodsFor: 'error descriptions' stamp: 'JDR 5/30/2022 13:30:00'!
+invalidTransferValueErrorDescription
+
+	^'A transfer must have a positive value!!!!'! !
+!TransferTest methodsFor: 'as yet unclassified' stamp: 'JDR 5/30/2022 13:30:00' prior: 50481874!
+test05CreatingATransferWithANonPositiveValueShouldRaiseAnError
+	
+	| sourceAccount destinationAccount |
+	
+	sourceAccount _ ReceptiveAccount new.
+	destinationAccount _ ReceptiveAccount new.
+	
+	self should: [ Transfer register: 0 from: sourceAccount to: destinationAccount. ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer invalidTransferValueErrorDescription ]! !
+!Transfer class methodsFor: 'as yet unclassified' stamp: 'JDR 5/30/2022 13:30:00' prior: 50481891!
+register: aValue from: aSourceAccount to: aDestinationAccount 
+
+	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
+	(aValue <= 0) ifTrue: [ self error: Transfer invalidTransferValueErrorDescription ].
+
+	^ self new initializeRegister: aValue from: aSourceAccount to: aDestinationAccount! !
+
+!methodRemoval: Transfer class #invalidTransferErrorDescription stamp: 'JDR 5/30/2022 13:30:00'!
+invalidTransferErrorDescription
+
+	^'A transfer must have a positive value!!!!'!
+
+!testRun: #TransferTest #test05CreatingATransferWithANonPositiveValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:30:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test01BalanceOfPortfolioWithoutAccountsIsZero stamp: 'JDR 5/30/2022 13:30:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test02BalanceOfPortfolioWithAccountsIsSumOfAccountsBalance stamp: 'JDR 5/30/2022 13:30:01'!
+PASSED!
+
+!testRun: #PortfolioTest #test03BalanceOfPortfolioIsCalculatedRecursivelyOnPortfolios stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioWithoutAccountsHasNoRegisteredTransaction stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioHasRegisteredItsAccountsTransactions stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioLooksForRegisteredTransactionsRecursively stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioHasNoTransactionWhenHasNoAccounts stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioTransactionsIncludesAllItsAccountsTransactions stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test09PortfolioTransactionsAreCalculatedRecursively stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test10PortfolioCanNotIncludeTheSameAccountMoreThanOnce stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test11PortfolioCanNotIncludeAccountOfItsPortfolios stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test12PortfolioCanNotIncludeItself stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test13ComposedPortfolioCanNotHaveParentPortfolioAccount stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test14ComposedPortfolioCanNotHaveAccountOfAnyRootParentRecursively stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #PortfolioTest #test15PortfolioCanNotIncludeAnyOfTheComposedAccountOfPortfolioToAdd stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test01SummaryOfANewReceptiveAccountShouldPrintAccountBalance stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test02SummaryOfAReceptiveAccountWithADepositShouldPrintDepositAndAccountBalance stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test03SummaryOfAReceptiveAccountWithAWithdrawShouldPrintWithdrawAndAccountBalance stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test04ATransferShouldBePrintedInBothAccountsSummaries stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test05SummaryOfAPortfolioWithAReceptiveAccountShouldBeAccountSummary stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test06SummaryOfAPortfolioWithAnEmptyPortfolioShouldPrintInnerPortfolioBalance stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test07SummaryOfAPortfolioWithAPortfolioShouldBeInnerPortfolioSummary stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test08SummaryOfAPortfolioWithAccountsShouldIncludeItsAccountsSummaries stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test09TransferNetOfANewReceptiveAccountShouldBeZero stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test10CreatingATransferAffectsBothAccountsTransferNets stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test11TransferNetOfAPortfolioWithAReceptiveAccountShouldBeItsAccountTransferNet stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #ReportTest #test12TransferNetOfAPortfolioWithAccountsShouldBeTheSumOfItsAccountsTransferNets stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #TransferTest #test01ANewTransferAffectsBothAccountsBalance stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #TransferTest #test02ANewTransferShouldRegisterSourceAndDestinationAccountsAsTransferPatas stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #TransferTest #test03BothPatasAreReachableFromEachOther stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #TransferTest #test04ValueOfBothPatasShouldBeTransferValue stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #TransferTest #test05CreatingATransferWithANonPositiveValueShouldRaiseAnError stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!
+
+!testRun: #TransferTest #test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError stamp: 'JDR 5/30/2022 13:30:02'!
+PASSED!

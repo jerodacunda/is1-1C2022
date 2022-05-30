@@ -568,8 +568,8 @@ test04ValueOfBothPatasShouldBeTransferValue
 	self assert: (transfer destinationPata value) equals: transfer value.
 	self assert: (transfer sourcePata value) equals: transfer value.! !
 
-!TransferTest methodsFor: 'testing' stamp: 'JDR 5/28/2022 17:46:18'!
-test05CreatingATransferWithZeroValueShouldRaiseAnError
+!TransferTest methodsFor: 'testing' stamp: 'JDR 5/30/2022 13:30:00'!
+test05CreatingATransferWithANonPositiveValueShouldRaiseAnError
 	
 	| sourceAccount destinationAccount |
 	
@@ -578,7 +578,7 @@ test05CreatingATransferWithZeroValueShouldRaiseAnError
 	
 	self should: [ Transfer register: 0 from: sourceAccount to: destinationAccount. ]
 		raise: Error - MessageNotUnderstood 
-		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer emptyTransferErrorDescription ]! !
+		withExceptionDo: [ :anException | self assert: anException messageText equals: Transfer invalidTransferValueErrorDescription ]! !
 
 !TransferTest methodsFor: 'testing' stamp: 'JDR 5/28/2022 17:44:52'!
 test06CreatingATransferFromSourceAccountToItselfShouldRaiseAnError
@@ -937,10 +937,10 @@ AccountTransaction subclass: #TransferDestinationPata
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!TransferDestinationPata methodsFor: 'balance' stamp: 'JDR 5/26/2022 21:56:29'!
-affectBalance: aSmallInteger 
+!TransferDestinationPata methodsFor: 'balance' stamp: 'JDR 5/30/2022 13:14:51'!
+affectBalance: aBalance 
 	
-	^aSmallInteger + (transfer value).! !
+	^aBalance + (transfer value).! !
 
 
 !TransferDestinationPata methodsFor: 'initialization' stamp: 'JDR 5/26/2022 21:55:42'!
@@ -1005,10 +1005,10 @@ value
 ! !
 
 
-!TransferSourcePata methodsFor: 'balance' stamp: 'JDR 5/26/2022 21:56:05'!
-affectBalance: aSmallInteger 
+!TransferSourcePata methodsFor: 'balance' stamp: 'JDR 5/30/2022 13:15:11'!
+affectBalance: aBalance 
 	
-	^aSmallInteger - (transfer value) ! !
+	^aBalance - (transfer value) ! !
 
 
 !TransferSourcePata methodsFor: 'reporting' stamp: 'AF 5/28/2022 16:48:47'!
@@ -1077,8 +1077,9 @@ Object subclass: #Report
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!Report methodsFor: 'reporting protocol' stamp: 'AF 5/28/2022 16:47:52'!
+!Report methodsFor: 'reporting protocol' stamp: 'JDR 5/30/2022 13:23:08'!
 registerDeposit: aDeposit 
+
 	self subclassResponsibility.! !
 
 !Report methodsFor: 'reporting protocol' stamp: 'AF 5/28/2022 16:48:18'!
@@ -1149,11 +1150,8 @@ registerWithdraw: aWithdraw
 	accountSummaryReport add: 'Extraccion por ', aWithdraw value asString, '.'.! !
 
 
-!AccountSummary methodsFor: 'accesing' stamp: 'JDR 5/28/2022 17:42:42'!
+!AccountSummary methodsFor: 'accesing' stamp: 'JDR 5/30/2022 13:08:11'!
 report
-	
-	
-	accountSummaryReport _ OrderedCollection new.
 	
 	account addToReport: self.
 	
@@ -1206,10 +1204,8 @@ registerWithdraw: aWithdraw
 ! !
 
 
-!TransferNet methodsFor: 'accesing' stamp: 'AF 5/28/2022 16:35:19'!
+!TransferNet methodsFor: 'accesing' stamp: 'JDR 5/30/2022 13:07:11'!
 report
-	
-	transferNetReport _ 0.
 	
 	account addToReport: self.
 	
@@ -1234,8 +1230,8 @@ Object subclass: #Transfer
 	poolDictionaries: ''
 	category: 'Portfolio-Solucion'!
 
-!Transfer methodsFor: 'initialization' stamp: 'JDR 5/28/2022 19:11:44'!
-initializeAn: aValue from: aSourceAccount to: aDestinationAccount 
+!Transfer methodsFor: 'initialization' stamp: 'JDR 5/30/2022 13:15:45'!
+initializeRegister: aValue from: aSourceAccount to: aDestinationAccount 
 
 	value := aValue.
 	sourceAccount := aSourceAccount.
@@ -1269,17 +1265,17 @@ value
 Transfer class
 	instanceVariableNames: ''!
 
-!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/28/2022 17:46:18'!
+!Transfer class methodsFor: 'instance creation' stamp: 'JDR 5/30/2022 13:30:00'!
 register: aValue from: aSourceAccount to: aDestinationAccount 
 
 	(aSourceAccount = aDestinationAccount) ifTrue: [ self error: Transfer sourceAndDestinationCannotBeEqualErrorDescription ].
-	(aValue = 0) ifTrue: [ self error: Transfer emptyTransferErrorDescription ].
+	(aValue <= 0) ifTrue: [ self error: Transfer invalidTransferValueErrorDescription ].
 
-	^ self new initializeAn: aValue from: aSourceAccount to: aDestinationAccount! !
+	^ self new initializeRegister: aValue from: aSourceAccount to: aDestinationAccount! !
 
 
-!Transfer class methodsFor: 'error descriptions' stamp: 'JDR 5/28/2022 17:46:18'!
-emptyTransferErrorDescription
+!Transfer class methodsFor: 'error descriptions' stamp: 'JDR 5/30/2022 13:30:00'!
+invalidTransferValueErrorDescription
 
 	^'A transfer must have a positive value!!!!'! !
 
