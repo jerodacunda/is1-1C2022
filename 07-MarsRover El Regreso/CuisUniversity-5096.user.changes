@@ -10872,3 +10872,301 @@ PASSED!
 
 !testRun: #MarsRoverWindowTest #test07WindowShouldExhibitNewHeadingAfterRotatingNorth stamp: 'JDR 6/1/2022 23:08:02'!
 PASSED!
+
+----QUIT----(1 June 2022 23:10:54) CuisUniversity-5096.image priorSource: 4557982!
+
+----STARTUP---- (2 June 2022 16:08:54) as /home/jerodacunda/Escritorio/8/linux64/CuisUniversity-5096.image!
+
+
+!testRun: #MarsRoverLoggerTest #test01PositionLoggerOfANewMarsRoverShouldBeEmptyString stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test02PositionLoggerShouldRegisterNewPositionAfterMovingForward stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test03PositionLoggerShouldRegisterNewPositionAfterMovingBackwards stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test04PositionLoggerShouldRegisterEveryMovingCommand stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test05HeadingLoggerShouldRegisterNewHeadingAfterRotatingToEast stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test06HeadingLoggerShouldRegisterNewHeadingAfterRotatingToNorth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test07HeadingLoggerShouldRegisterNewHeadingAfterRotatingToSouth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test08HeadingLoggerShouldRegisterNewHeadingAfterRotatingToWest stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test09PositionAndHeadingLoggerShouldRegisterEveryProcessedCommand stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test01DoesNotMoveWhenNoCommand stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test02IsAtFailsForDifferentPosition stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test03IsAtFailsForDifferentHeading stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test04IncrementsYAfterMovingForwardWhenHeadingNorth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test06DecrementsYAfterMovingBackwardsWhenHeadingNorth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test07PointToEashAfterRotatingRightWhenHeadingNorth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test08PointsToWestAfterRotatingLeftWhenPointingNorth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test09DoesNotProcessInvalidCommand stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test10CanProcessMoreThanOneCommand stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test11IncrementsXAfterMovingForwareWhenHeadingEast stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test12DecrementsXAfterMovingBackwardWhenHeadingEast stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test13PointsToSouthAfterRotatingRightWhenHeadingEast stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test14PointsToNorthAfterRotatingLeftWhenPointingEast stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test15ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingSouth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverTest #test16ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingWest stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test01WindowOfANewMarsRoverShouldExhibitEmptyStringAsLastPosition stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test02WindowOfANewMarsRoverShouldExhibitEmptyStringAsLastHeading stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test03WindowShouldExhibitNewPositionAfterProcessingAMovingCommand stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test04WindowShouldExhibitNewHeadingAfterRotatingEast stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test05WindowShouldExhibitNewHeadingAfterRotatingSouth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test06WindowShouldExhibitNewHeadingAfterRotatingWest stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test07WindowShouldExhibitNewHeadingAfterRotatingNorth stamp: 'JDR 6/2/2022 16:09:02'!
+PASSED!
+!MarsRover methodsFor: 'attaching' stamp: 'JDR 6/2/2022 16:09:51' prior: 50480978!
+followHeadingChangesWith: aHeadingObserver 
+	
+	headingObservers add: aHeadingObserver! !
+!MarsRover methodsFor: 'attaching' stamp: 'JDR 6/2/2022 16:10:01' prior: 50480947!
+followPositionChangesWith: aPositionObserver 
+	
+	positionObservers add: aPositionObserver.! !
+!MarsRoverObserver methodsFor: 'updating' stamp: 'JDR 6/2/2022 16:10:38' prior: 50479048!
+positionChangedTo: aPosition 
+
+	self subclassResponsibility! !
+
+!testRun: #MarsRoverLoggerTest #test01PositionLoggerOfANewMarsRoverShouldBeEmptyString stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test02PositionLoggerShouldRegisterNewPositionAfterMovingForward stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test03PositionLoggerShouldRegisterNewPositionAfterMovingBackwards stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test04PositionLoggerShouldRegisterEveryMovingCommand stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test05HeadingLoggerShouldRegisterNewHeadingAfterRotatingToEast stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test06HeadingLoggerShouldRegisterNewHeadingAfterRotatingToNorth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test07HeadingLoggerShouldRegisterNewHeadingAfterRotatingToSouth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test08HeadingLoggerShouldRegisterNewHeadingAfterRotatingToWest stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test09PositionAndHeadingLoggerShouldRegisterEveryProcessedCommand stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test01DoesNotMoveWhenNoCommand stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test02IsAtFailsForDifferentPosition stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test03IsAtFailsForDifferentHeading stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test04IncrementsYAfterMovingForwardWhenHeadingNorth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test06DecrementsYAfterMovingBackwardsWhenHeadingNorth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test07PointToEashAfterRotatingRightWhenHeadingNorth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test08PointsToWestAfterRotatingLeftWhenPointingNorth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test09DoesNotProcessInvalidCommand stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test10CanProcessMoreThanOneCommand stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test11IncrementsXAfterMovingForwareWhenHeadingEast stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test12DecrementsXAfterMovingBackwardWhenHeadingEast stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test13PointsToSouthAfterRotatingRightWhenHeadingEast stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test14PointsToNorthAfterRotatingLeftWhenPointingEast stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test15ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingSouth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverTest #test16ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingWest stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test01WindowOfANewMarsRoverShouldExhibitEmptyStringAsLastPosition stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test02WindowOfANewMarsRoverShouldExhibitEmptyStringAsLastHeading stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test03WindowShouldExhibitNewPositionAfterProcessingAMovingCommand stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test04WindowShouldExhibitNewHeadingAfterRotatingEast stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test05WindowShouldExhibitNewHeadingAfterRotatingSouth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test06WindowShouldExhibitNewHeadingAfterRotatingWest stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test07WindowShouldExhibitNewHeadingAfterRotatingNorth stamp: 'JDR 6/2/2022 16:10:39'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test01PositionLoggerOfANewMarsRoverShouldBeEmptyString stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test02PositionLoggerShouldRegisterNewPositionAfterMovingForward stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test03PositionLoggerShouldRegisterNewPositionAfterMovingBackwards stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test04PositionLoggerShouldRegisterEveryMovingCommand stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test05HeadingLoggerShouldRegisterNewHeadingAfterRotatingToEast stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test06HeadingLoggerShouldRegisterNewHeadingAfterRotatingToNorth stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test07HeadingLoggerShouldRegisterNewHeadingAfterRotatingToSouth stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test08HeadingLoggerShouldRegisterNewHeadingAfterRotatingToWest stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test09PositionAndHeadingLoggerShouldRegisterEveryProcessedCommand stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverTest #test01DoesNotMoveWhenNoCommand stamp: 'JDR 6/2/2022 16:11:24'!
+PASSED!
+
+!testRun: #MarsRoverTest #test02IsAtFailsForDifferentPosition stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test03IsAtFailsForDifferentHeading stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test04IncrementsYAfterMovingForwardWhenHeadingNorth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test06DecrementsYAfterMovingBackwardsWhenHeadingNorth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test07PointToEashAfterRotatingRightWhenHeadingNorth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test08PointsToWestAfterRotatingLeftWhenPointingNorth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test09DoesNotProcessInvalidCommand stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test10CanProcessMoreThanOneCommand stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test11IncrementsXAfterMovingForwareWhenHeadingEast stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test12DecrementsXAfterMovingBackwardWhenHeadingEast stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test13PointsToSouthAfterRotatingRightWhenHeadingEast stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test14PointsToNorthAfterRotatingLeftWhenPointingEast stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test15ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingSouth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverTest #test16ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingWest stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test01WindowOfANewMarsRoverShouldExhibitEmptyStringAsLastPosition stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test02WindowOfANewMarsRoverShouldExhibitEmptyStringAsLastHeading stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test03WindowShouldExhibitNewPositionAfterProcessingAMovingCommand stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test04WindowShouldExhibitNewHeadingAfterRotatingEast stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test05WindowShouldExhibitNewHeadingAfterRotatingSouth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test06WindowShouldExhibitNewHeadingAfterRotatingWest stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test07WindowShouldExhibitNewHeadingAfterRotatingNorth stamp: 'JDR 6/2/2022 16:11:25'!
+PASSED!
+
+----QUIT----(2 June 2022 16:11:28) CuisUniversity-5096.image priorSource: 4899539!

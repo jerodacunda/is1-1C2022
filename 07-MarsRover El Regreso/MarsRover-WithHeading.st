@@ -606,15 +606,15 @@ notifyPositionChange
 	positionObservers do: [ :anObserver | anObserver positionChangedTo: position ].! !
 
 
-!MarsRover methodsFor: 'attaching' stamp: 'JDR 6/1/2022 21:58:56'!
-followHeadingChangesWith: aSuperclaseDeLosLoggersInstance 
+!MarsRover methodsFor: 'attaching' stamp: 'JDR 6/2/2022 16:09:51'!
+followHeadingChangesWith: aHeadingObserver 
 	
-	headingObservers add: aSuperclaseDeLosLoggersInstance! !
+	headingObservers add: aHeadingObserver! !
 
-!MarsRover methodsFor: 'attaching' stamp: 'JDR 6/1/2022 21:58:49'!
-followPositionChangesWith: aSuperclaseDeLosLoggersInstance 
+!MarsRover methodsFor: 'attaching' stamp: 'JDR 6/2/2022 16:10:01'!
+followPositionChangesWith: aPositionObserver 
 	
-	positionObservers add: aSuperclaseDeLosLoggersInstance.! !
+	positionObservers add: aPositionObserver.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -839,8 +839,8 @@ headingChangedTo: aMarsRoverHeading
 
 	self subclassResponsibility! !
 
-!MarsRoverObserver methodsFor: 'updating' stamp: 'JDR 6/1/2022 20:51:30'!
-positionChangedTo: aPoint 
+!MarsRoverObserver methodsFor: 'updating' stamp: 'JDR 6/2/2022 16:10:38'!
+positionChangedTo: aPosition 
 
 	self subclassResponsibility! !
 
