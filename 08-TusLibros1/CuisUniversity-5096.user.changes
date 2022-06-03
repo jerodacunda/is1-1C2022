@@ -692,3 +692,570 @@ test04CanAddToCartAnAmountOfACertainBook
 	
 
 	! !
+
+----STARTUP---- (3 June 2022 03:17:21) as /home/jerodacunda/Escritorio/8-TusLibros1/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/jerodacunda/Documentos/GitHub/is1-1C2022/08-TusLibros1/TusLibros.st----!
+
+----End fileIn of /home/jerodacunda/Escritorio/8-TusLibros1/linux64/Packages/TerseGuide.pck.st----!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:22:10' prior: 50474135!
+test04CanAddToCartAnAmountOfACertainBook
+
+	| cart book amount |
+	cart _ Cart new.
+	book _ self book.
+	amount _ 3.
+	
+	cart add: book amount: amount.
+	
+	self assert: 3 equals: (cart content occurrencesOf: book)
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!testRun: #CartTest #test04CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:22:11'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:22:16'!
+add: aSmallInteger amount: aSmallInteger2 
+	self shouldBeImplemented.! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:22:37' prior: 50477122!
+add: aBook amount: aSmallInteger2 
+	self shouldBeImplemented.! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:22:42' prior: 50477128!
+add: aBook amount: anAmount 
+	self shouldBeImplemented.! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:23:16' prior: 50477133!
+add: aBook amount: anAmount 
+	
+	content add: aBook withOccurrences: anAmount! !
+
+!testRun: #CartTest #test04CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:23:17'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:24:45'!
+content
+	
+	^content ! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:25:11' prior: 50474164 overrides: 16920235!
+initialize
+
+	content _ Bag new.
+	catalog _ Set with: 1.! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:25:13'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:25:13'!
+PASSED!
+
+!testRun: #CartTest #test03OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:25:13'!
+PASSED!
+
+!testRun: #CartTest #test04CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:25:13'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:37:34'!
+test05CanConsultCartContents
+
+	| cart book expectedCartContent |
+	cart _ Cart new.
+	book _ self book.
+	
+	cart add: book amount: 1.
+	expectedCartContent _ Bag with: book.
+	
+	self assert: expectedCartContent equals: cart content
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!testRun: #CartTest #test05CanConsultCartContents stamp: 'JDR 6/3/2022 03:37:39'!
+PASSED!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:37:46' prior: 50477146!
+content
+	
+	^content copy! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:37:47'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:37:47'!
+PASSED!
+
+!testRun: #CartTest #test03OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:37:47'!
+PASSED!
+
+!testRun: #CartTest #test04CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:37:47'!
+PASSED!
+
+!testRun: #CartTest #test05CanConsultCartContents stamp: 'JDR 6/3/2022 03:37:47'!
+PASSED!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:40:25'!
+assertBookIncludedInCatalog: aBook
+
+	^ (catalog includes: aBook) ifFalse: [ self error: Cart cannotAddBooksNotInCatalog ]! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:40:25' prior: 50474157!
+add: aBook 
+	
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook.! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:40:35' prior: 50477138!
+add: aBook amount: anAmount 
+	
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook withOccurrences: anAmount! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:47:49'!
+test03CanAddToCartAnAmountOfACertainBook
+
+	| cart book amount |
+	cart _ Cart new.
+	book _ self book.
+	amount _ 3.
+	
+	cart add: book amount: amount.
+	
+	self assert: 3 equals: (cart content occurrencesOf: book)
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!methodRemoval: CartTest #test04CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:47:49'!
+test04CanAddToCartAnAmountOfACertainBook
+
+	| cart book amount |
+	cart _ Cart new.
+	book _ self book.
+	amount _ 3.
+	
+	cart add: book amount: amount.
+	
+	self assert: 3 equals: (cart content occurrencesOf: book)
+	
+	
+	
+					
+	
+
+	
+
+	!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:47:58'!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart book |
+	cart _ Cart new.
+	book _ 0.				
+	
+	self 
+		should: [ cart add: book ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalog.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!methodRemoval: CartTest #test03OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:48:03'!
+test03OnlyCanAddToCartBooksInCatalog
+
+	| cart book |
+	cart _ Cart new.
+	book _ 0.				
+	
+	self 
+		should: [ cart add: book ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalog.
+			self assert: cart isEmpty.
+		]
+	
+
+	!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:48:35' prior: 50477241!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart book |
+	cart _ Cart new.
+	book _ 0.				
+	
+	self 
+		should: [ cart add: book amount: 1 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalog.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:48:37'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:48:37'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:48:37'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:48:37'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:48:37'!
+PASSED!
+
+!testRun: #CartTest #test05CanConsultCartContents stamp: 'JDR 6/3/2022 03:48:37'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:48:59' prior: 50477267!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart unregisteredBook |
+	cart _ Cart new.
+	unregisteredBook _ 0.				
+	
+	self 
+		should: [ cart add: unregisteredBook amount: 1 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalog.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:51:22' prior: 50477299!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart unregisteredBook |
+	cart _ Cart new.
+	unregisteredBook _ 0.				
+	cart add: 1 amount: 0.
+	self 
+		should: [ cart add: unregisteredBook amount: 1 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalog.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:51:22'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:51:22'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:51:22'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:51:22'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:51:22'!
+PASSED!
+
+!testRun: #CartTest #test05CanConsultCartContents stamp: 'JDR 6/3/2022 03:51:22'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:51:34' prior: 50477314!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart unregisteredBook |
+	cart _ Cart new.
+	unregisteredBook _ 0.				
+	
+	self 
+		should: [ cart add: unregisteredBook amount: 1 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalog.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:51:34'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:51:34'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:51:34'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:51:34'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:51:34'!
+PASSED!
+
+!testRun: #CartTest #test05CanConsultCartContents stamp: 'JDR 6/3/2022 03:51:34'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:53:29'!
+test05OnlyCanAddToCartAPositiveAmountOfABook
+
+	| cart book |
+	cart _ Cart new.
+	book _ self book.				
+	
+	self 
+		should: [ cart add: book amount: 0 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart invalidBookAmountErrorDescription .
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+!Cart class methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:53:56'!
+cannotAddBooksNotInCatalogErrorDescription
+
+	^'Book is not edited by TusLibros.com'! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:53:56' prior: 50477348!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart unregisteredBook |
+	cart _ Cart new.
+	unregisteredBook _ 0.				
+	
+	self 
+		should: [ cart add: unregisteredBook amount: 1 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalogErrorDescription.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:53:56' prior: 50477201!
+assertBookIncludedInCatalog: aBook
+
+	^ (catalog includes: aBook) ifFalse: [ self error: Cart cannotAddBooksNotInCatalogErrorDescription ]! !
+
+!methodRemoval: Cart class #cannotAddBooksNotInCatalog stamp: 'JDR 6/3/2022 03:53:56'!
+cannotAddBooksNotInCatalog
+
+	^'Book is not edited by TusLibros.com'!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:54:07'!
+test06CanConsultCartContents
+
+	| cart book expectedCartContent |
+	cart _ Cart new.
+	book _ self book.
+	
+	cart add: book amount: 1.
+	expectedCartContent _ Bag with: book.
+	
+	self assert: expectedCartContent equals: cart content
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!methodRemoval: CartTest #test05CanConsultCartContents stamp: 'JDR 6/3/2022 03:54:07'!
+test05CanConsultCartContents
+
+	| cart book expectedCartContent |
+	cart _ Cart new.
+	book _ self book.
+	
+	cart add: book amount: 1.
+	expectedCartContent _ Bag with: book.
+	
+	self assert: expectedCartContent equals: cart content
+	
+	
+	
+					
+	
+
+	
+
+	!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:54:14'!
+FAILURE!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:54:14'!
+FAILURE!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:54:50' prior: 50477214!
+add: aBook amount: anAmount 
+	
+	self assertPositiveAmount: anAmount.
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook withOccurrences: anAmount! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:56:31' prior: 50477456!
+add: aBook amount: anAmount 
+	
+	anAmount positive ifFalse: [ self error: Cart ].
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook withOccurrences: anAmount! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:56:42' prior: 50477464!
+add: aBook amount: anAmount 
+	
+	anAmount positive ifFalse: [ self error: Cart invalidBookAmountErrorDescription ].
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook withOccurrences: anAmount! !
+!Cart class methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:57:03'!
+invalidBookAmountErrorDescription
+
+	^'Amount must be 1 or greater'! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:57:14'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:57:14'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:57:14'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:57:14'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:57:14'!
+FAILURE!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/3/2022 03:57:14'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:57:14'!
+FAILURE!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:57:48'!
+FAILURE!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:57:48'!
+FAILURE!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:58:31' prior: 50477381!
+test05OnlyCanAddToCartAPositiveAmountOfABook
+
+	| cart book invalidAmount |
+	cart _ Cart new.
+	book _ self book.			
+	invalidAmount _ 0.
+	
+	self 
+		should: [ cart add: book amount: invalidAmount ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart invalidBookAmountErrorDescription .
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:58:35'!
+FAILURE!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:58:35'!
+FAILURE!
+
+	0 positive!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:59:02' prior: 50477473!
+add: aBook amount: anAmount 
+	
+	anAmount strictlyPositive ifFalse: [ self error: Cart invalidBookAmountErrorDescription ].
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook withOccurrences: anAmount! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 03:59:02'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 03:59:02'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 03:59:02'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 03:59:02'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 03:59:02'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/3/2022 03:59:02'!
+PASSED!
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:59:33'!
+assertPositiveAmount: anAmount
+
+	^ anAmount strictlyPositive ifFalse: [ self error: Cart invalidBookAmountErrorDescription ]! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 03:59:33' prior: 50477539!
+add: aBook amount: anAmount 
+	
+	self assertPositiveAmount: anAmount.
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook withOccurrences: anAmount! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/3/2022 04:04:09' prior: 50477221!
+test03CanAddToCartAnAmountOfACertainBook
+
+	| cart book amount |
+	cart _ Cart new.
+	book _ self book.
+	amount _ 3.
+	
+	cart add: book amount: amount.
+	
+	self assert: amount equals: (cart content occurrencesOf: book)
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/3/2022 04:04:09'!
+PASSED!
+
+----QUIT----(3 June 2022 04:11:39) CuisUniversity-5096.image priorSource: 4557982!
