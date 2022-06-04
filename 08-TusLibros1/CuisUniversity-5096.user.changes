@@ -1259,3 +1259,410 @@ PASSED!
 PASSED!
 
 ----QUIT----(3 June 2022 04:11:39) CuisUniversity-5096.image priorSource: 4557982!
+
+----STARTUP---- (4 June 2022 11:09:26) as /home/agus/Documents/ing1 2022/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/agus/Documents/ing1 2022/linux64/TusLibros.st----!
+!Cart methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:19:41'!
+occurrencesOf: aBook
+
+	^ content occurrencesOf: aBook.! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:19:50' prior: 50474121!
+test03CanAddToCartAnAmountOfACertainBook
+
+	| cart book amount |
+	cart _ Cart new.
+	book _ self book.
+	amount _ 3.
+	
+	cart add: book amount: amount.
+	
+	self assert: amount equals: (cart occurrencesOf: book)
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:19:52'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:21:56' prior: 50474107!
+test01ANewCartShouldBeEmpty
+
+	| cart |
+	cart _ Cart with: self catalog.
+	
+	self assert: cart isEmpty! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:21:59'!
+ERROR!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:22:12'!
+catalog
+	self shouldBeImplemented.! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:22:29' prior: 50474288!
+catalog
+	^Set with: 1! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:22:30'!
+ERROR!
+!Cart class methodsFor: 'instance creation' stamp: 'AF 6/4/2022 11:22:40'!
+with: aSet 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeWith: aSet ! !
+!Cart class methodsFor: 'instance creation' stamp: 'AF 6/4/2022 11:22:57' prior: 50474299!
+with: aCatalog 
+
+	^self new initializeWith: aCatalog ! !
+!Cart class methodsFor: 'instance creation' stamp: 'AF 6/4/2022 11:23:06' prior: 50474307!
+with: aCatalog 
+
+	^self new initializeWith: aCatalog! !
+!Cart class methodsFor: 'instance creation' stamp: 'AF 6/4/2022 11:23:08' prior: 50474312!
+with: aCatalog 
+
+	^self new initializeWith: aCatalog! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:23:08'!
+ERROR!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:23:08'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:23:08'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:23:08'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:23:08'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:23:08'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:23:08'!
+ERROR!
+!Cart methodsFor: 'initialization' stamp: 'AF 6/4/2022 11:23:13'!
+initializeWith: aCatalog 
+	self shouldBeImplemented.
+	catalog := aCatalog.! !
+!Cart methodsFor: 'initialization' stamp: 'AF 6/4/2022 11:23:28' prior: 50474343!
+initializeWith: aCatalog 
+	
+	catalog := aCatalog.! !
+!Cart methodsFor: 'initialization' stamp: 'AF 6/4/2022 11:23:58' prior: 50474348!
+initializeWith: aCatalog 
+	
+	catalog := aCatalog.
+	content _ Bag new.! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:23:59'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:23:59'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:23:59'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:23:59'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:23:59'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:23:59'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:24:24' prior: 50474113!
+test02ACartShouldNotBeEmptyAfterAddingBookToCart
+
+	| cart book |
+	cart _ Cart with: self catalog.
+	book _ self book.
+	
+	cart add: book.
+	
+	self deny: cart isEmpty.! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:24:32' prior: 50474293!
+catalog
+	^Set with: self book! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:24:33'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:24:33'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:24:33'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:24:33'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:24:33'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:24:33'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:24:47' prior: 50474247!
+test03CanAddToCartAnAmountOfACertainBook
+
+	| cart book amount |
+	cart _ Cart with: self catalog.
+	book _ self book.
+	amount _ 3.
+	
+	cart add: book amount: amount.
+	
+	self assert: amount equals: (cart occurrencesOf: book)
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:24:48'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:24:55' prior: 50474131!
+test04OnlyCanAddToCartBooksInCatalog
+
+	| cart unregisteredBook |
+	cart _ Cart with: self catalog.
+	unregisteredBook _ 0.				
+	
+	self 
+		should: [ cart add: unregisteredBook amount: 1 ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalogErrorDescription.
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:24:55'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:25:31' prior: 50474146!
+test05OnlyCanAddToCartAPositiveAmountOfABook
+
+	| cart book invalidAmount |
+	cart _ Cart with: self catalog.
+	book _ self book.			
+	invalidAmount _ 0.
+	
+	self 
+		should: [ cart add: book amount: invalidAmount ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Cart invalidBookAmountErrorDescription .
+			self assert: cart isEmpty.
+		]
+	
+
+	! !
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:25:37'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'AF 6/4/2022 11:25:52' prior: 50474161!
+test06CanConsultCartContents
+
+	| cart book expectedCartContent |
+	cart _ Cart with: self catalog.
+	book _ self book.
+	
+	cart add: book amount: 1.
+	expectedCartContent _ Bag with: book.
+	
+	self assert: expectedCartContent equals: cart content
+	
+	
+	
+					
+	
+
+	
+
+	! !
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:25:52'!
+PASSED!
+
+!methodRemoval: Cart #initialize stamp: 'AF 6/4/2022 11:26:02'!
+initialize
+
+	content _ Bag new.
+	catalog _ Set with: 1.!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:26:05'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:26:05'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:26:05'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:26:05'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:26:05'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:26:05'!
+PASSED!
+!CartTest methodsFor: 'test - adding' stamp: 'AF 6/4/2022 11:46:39' prior: 50474377!
+test02ACartShouldNotBeEmptyAfterAddingBookToCart
+
+	| cart book |
+	cart _ Cart with: self catalog.
+	book _ self book.
+	
+	cart add: book amount: 1.
+	
+	self deny: cart isEmpty.! !
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:46:40'!
+PASSED!
+
+!methodRemoval: Cart #add: stamp: 'AF 6/4/2022 11:46:46'!
+add: aBook 
+	
+	self assertBookIncludedInCatalog: aBook.
+	content add: aBook.!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'AF 6/4/2022 11:46:48'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'AF 6/4/2022 11:46:48'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'AF 6/4/2022 11:46:48'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'AF 6/4/2022 11:46:48'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'AF 6/4/2022 11:46:48'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'AF 6/4/2022 11:46:48'!
+PASSED!
