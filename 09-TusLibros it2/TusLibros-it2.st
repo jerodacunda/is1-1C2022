@@ -5,20 +5,22 @@ TestCase subclass: #CartTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CartTest methodsFor: 'test - accesing' stamp: 'AF 6/4/2022 11:21:56'!
+!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 13:50:44'!
 test01ANewCartShouldBeEmpty
 
-	| cart |
-	cart _ Cart with: self catalog.
+	| cart testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
 	
 	self assert: cart isEmpty! !
 
-!CartTest methodsFor: 'test - accesing' stamp: 'AF 6/4/2022 11:25:52'!
+!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 13:51:37'!
 test06CanConsultCartContents
 
-	| cart book expectedCartContent |
-	cart _ Cart with: self catalog.
-	book _ self book.
+	| cart book expectedCartContent testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	book _ testingUtils book.
 	
 	cart add: book amount: 1.
 	expectedCartContent _ Bag with: book.
@@ -34,37 +36,40 @@ test06CanConsultCartContents
 
 	! !
 
-!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 04:27:23'!
+!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 13:51:47'!
 test08CanConsultCartTotalPrice
 	
-	| cart bookPrice |
-	cart _ Cart with: self catalog.
-	cart add: self book amount: 3.
+	| cart bookPrice testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	cart add: testingUtils book amount: 3.
 	
-	bookPrice _ self catalog at: self book.
+	bookPrice _ testingUtils catalog at: testingUtils book.
 	
 	self assert: 3 * bookPrice equals: cart subtotal.
 
 	! !
 
 
-!CartTest methodsFor: 'test - adding' stamp: 'AF 6/4/2022 11:46:39'!
+!CartTest methodsFor: 'test - adding' stamp: 'JDR 6/8/2022 13:50:57'!
 test02ACartShouldNotBeEmptyAfterAddingBookToCart
 
-	| cart book |
-	cart _ Cart with: self catalog.
-	book _ self book.
+	| cart book testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	book _ testingUtils book.
 	
 	cart add: book amount: 1.
 	
 	self deny: cart isEmpty.! !
 
-!CartTest methodsFor: 'test - adding' stamp: 'AF 6/4/2022 11:24:47'!
+!CartTest methodsFor: 'test - adding' stamp: 'JDR 6/8/2022 13:51:05'!
 test03CanAddToCartAnAmountOfACertainBook
 
-	| cart book amount |
-	cart _ Cart with: self catalog.
-	book _ self book.
+	| cart book amount testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	book _ testingUtils book.
 	amount _ 3.
 	
 	cart add: book amount: amount.
@@ -81,15 +86,15 @@ test03CanAddToCartAnAmountOfACertainBook
 	! !
 
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'AF 6/4/2022 11:24:55'!
+!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 13:51:12'!
 test04OnlyCanAddToCartBooksInCatalog
 
-	| cart unregisteredBook |
-	cart _ Cart with: self catalog.
-	unregisteredBook _ 0.				
+	| cart testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
 	
 	self 
-		should: [ cart add: unregisteredBook amount: 1 ] 
+		should: [ cart add: testingUtils unregisteredBook amount: 1 ] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError |
 			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalogErrorDescription.
@@ -99,12 +104,13 @@ test04OnlyCanAddToCartBooksInCatalog
 
 	! !
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'AF 6/4/2022 11:25:31'!
+!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 13:51:20'!
 test05OnlyCanAddToCartAPositiveAmountOfABook
 
-	| cart book invalidAmount |
-	cart _ Cart with: self catalog.
-	book _ self book.			
+	| cart book invalidAmount testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	book _ testingUtils book.			
 	invalidAmount _ 0.
 	
 	self 
@@ -118,12 +124,13 @@ test05OnlyCanAddToCartAPositiveAmountOfABook
 
 	! !
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/6/2022 17:37:38'!
+!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 13:51:42'!
 test07OnlyCanAddToCartAnIntegerAmountOfABook
 
-	| cart book invalidAmount |
-	cart _ Cart with: self catalog.
-	book _ self book.			
+	| cart book invalidAmount testingUtils |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	book _ testingUtils book.			
 	invalidAmount _ 1.1.
 	
 	self 
@@ -137,20 +144,6 @@ test07OnlyCanAddToCartAnIntegerAmountOfABook
 
 	! !
 
-
-!CartTest methodsFor: 'utils' stamp: 'JDR 6/2/2022 20:58:29'!
-book
-
-	^1! !
-
-!CartTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 19:17:17'!
-catalog
-	
-	| catalog |
-	catalog _ Dictionary new.
-	catalog at: self book put: 100.
-	^catalog! !
-
 
 !classDefinition: #CashierTest category: 'TusLibros'!
 TestCase subclass: #CashierTest
@@ -159,62 +152,101 @@ TestCase subclass: #CashierTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:09:02'!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:16'!
 test01CheckoutOfAnEmptyCartShouldRaiseAnError
 
-	| cart cashier xxx |
-	xxx _ XXX new.
-	cart _ Cart with: xxx catalog.
-	cashier _ Cashier new.
+	| cart cashier testingUtils salesBook merchantProcessor |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ CatchOutMerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	self should: [cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear] 
+	self should: [cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
-		withExceptionDo: [ :anError | self assert: Cashier cannotCheckoutEmptyCartErrorDescription equals: anError messageText].! !
+		withExceptionDo: [ :anError | 
+			self assert: Cashier cannotCheckoutEmptyCartErrorDescription equals: anError messageText.
+			self assert: salesBook isEmpty ].! !
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:08:53'!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:25'!
 test02CheckoutOfACartWithOneBookShouldMatchBookPrice
 	
-	| cart cashier xxx |
-	xxx _ XXX new.
-	cart _ Cart with: xxx catalog.
-	cart add: xxx book amount: 1.
-	cashier _ Cashier new.
+	| cart cashier testingUtils salesBook purchase merchantProcessor |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
 		
-	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
-	self assert: cart isEmpty.! !
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear ).	
+	self assert: cart isEmpty.
+	self assert: (salesBook hasRegistered: purchase).! !
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:08:23'!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:30'!
 test03CheckoutOfACartEqualsCartSubtotal
 	
-	| cart cashier expectedPrice xxx |
+	| cart cashier expectedPrice testingUtils salesBook purchase merchantProcessor |
 	
-	xxx _ XXX new.
-	cart _ Cart with: xxx catalog.
-	cashier _ Cashier new.	
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart add: xxx book amount: 3.
-	cart add: xxx book2 amount: 1.
+	cart add: testingUtils book amount: 3.
+	cart add: testingUtils book2 amount: 1.
+	purchase _ cart content.
 		
 	expectedPrice _ 350.
 	
-	self assert: expectedPrice equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear).
-	self assert: cart isEmpty.! !
+	self assert: expectedPrice equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear).
+	self assert: cart isEmpty.
+	self assert: (salesBook hasRegistered: purchase).! !
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:07:31'!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:35'!
 test04CheckoutWithAnExpiredCardShouldRaiseAnError
 	
-	| cart cashier xxx |
-	xxx _ XXX new.
-	cart _ Cart with: xxx catalog.
-	cashier _ Cashier new.
+	| cart cashier testingUtils salesBook purchase merchantProcessor |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ CatchOutMerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart add: xxx book amount: 1.
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
 
-	self should: [ cashier checkout: cart with: xxx expiredCreditCard on: xxx validCheckoutMonthOfYear] 
+	self should: [ cashier checkout: cart with: testingUtils expiredCreditCard on: testingUtils validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | 
 			self assert: Cashier expiredCardErrorDescription equals: anError messageText .
 			self deny: cart isEmpty.
+			self deny: (salesBook hasRegistered: purchase).
+		]! !
+
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:40'!
+test05CheckoutWithAStolenCardShouldRaiseAnError
+	
+	| cart cashier testingUtils salesBook purchase merchantProcessor |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
+
+	self should: [ cashier checkout: cart with: testingUtils stolenCreditCard on: testingUtils validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | 
+			self assert: MerchantProcessorSimulator stolenCreditCardErrorDescription equals: anError messageText .
+			self deny: cart isEmpty.
+			self deny: (salesBook hasRegistered: purchase).
 		]! !
 
 
@@ -225,35 +257,120 @@ TestCase subclass: #CreditCardTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:44:40'!
+!CreditCardTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:46'!
 test01CreditCardNumberMustBeLength16	
 	
-	| xxx |
-	xxx _ XXX new.
+	| testingUtils |
+	testingUtils _ TestingUtils new.
 	
-	self should: [CreditCard ownedBy: xxx validCardName with: xxx invalidCardNumber expiratingOn: xxx validCheckoutMonthOfYear] 
+	self should: [CreditCard ownedBy: testingUtils validCardName with: testingUtils invalidCardNumber expiratingOn: testingUtils validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [:anError | self assert: CreditCard invalidCardNumberErrorDescription equals: anError messageText ]. ! !
 
-!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:45:19'!
+!CreditCardTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:52:51'!
 test02CreditCardNameMustBeAValidName
 	
-	| xxx |
-	xxx _ XXX new.
+	| testingUtils |
+	testingUtils _ TestingUtils new.
 	
-	self should: [CreditCard ownedBy: xxx invalidCardName with: xxx validCardNumber expiratingOn: xxx validCheckoutMonthOfYear] 
+	self should: [CreditCard ownedBy: testingUtils invalidCardName with: testingUtils validCardNumber expiratingOn: testingUtils validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [:anError | self assert: CreditCard invalidNameErrorDescription equals: anError messageText ]. ! !
 
-!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:55:44'!
+!CreditCardTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:53:00'!
 test03CreditCardDateMustBeAMonthOfYear
 	
-	| xxx |
-	xxx _ XXX new.
+	| testingUtils |
+	testingUtils _ TestingUtils new.
 	
-	self should: [CreditCard ownedBy: xxx validCardName with: xxx validCardNumber expiratingOn: xxx invalidExpirationDate] 
+	self should: [CreditCard ownedBy: testingUtils validCardName with: testingUtils validCardNumber expiratingOn: testingUtils invalidExpirationDate] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [:anError | self assert: CreditCard invalidExpirationDateErrorDescription equals: anError messageText ]. ! !
+
+
+!classDefinition: #MerchantProcessorSimulatorTest category: 'TusLibros'!
+TestCase subclass: #MerchantProcessorSimulatorTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!MerchantProcessorSimulatorTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:53:04'!
+test01DebitFromAnythingButACreditCardShouldRaiseAnError
+
+	| merchantProcessor amount notACreditCard testingUtils |
+	testingUtils _ TestingUtils new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister.	
+	amount _ 100.
+	notACreditCard _ 'this is not a credit card'.
+	
+	self should: [merchantProcessor debit: amount from: notACreditCard on: testingUtils validCheckoutMonthOfYear ] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | self assert: MerchantProcessorSimulator onlyCanDebitFromACreditCardErrorDescription equals: anError messageText .]
+	
+	! !
+
+!MerchantProcessorSimulatorTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:53:09'!
+test02DebitFromAnExpiredCreditCardShouldRaiseAnError
+
+	| merchantProcessor amount testingUtils |
+	testingUtils _ TestingUtils new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister.	
+	amount _ 100.
+	
+	self should: [ merchantProcessor debit: amount from: testingUtils expiredCreditCard on: testingUtils validCheckoutMonthOfYear ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | self assert: MerchantProcessorSimulator expiredCreditCardErrorDescription equals: anError messageText .]
+	
+	! !
+
+!MerchantProcessorSimulatorTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:53:13'!
+test03DebitFromAStolenCreditCardShouldRaiseAnError
+
+	| merchantProcessor amount testingUtils |
+	testingUtils _ TestingUtils new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister.	
+	amount _ 100.
+	
+	self should: [ merchantProcessor debit: amount from: testingUtils stolenCreditCard on: testingUtils validCheckoutMonthOfYear ]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | self assert: MerchantProcessorSimulator stolenCreditCardErrorDescription equals: anError messageText .]
+	
+	! !
+
+
+!classDefinition: #SalesBookTest category: 'TusLibros'!
+TestCase subclass: #SalesBookTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:36:12'!
+test01ANewSalesBookShouldBeEmpty
+
+	| salesBook |
+	salesBook _ SalesBook new.
+
+	self assert: salesBook isEmpty.! !
+
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/8/2022 13:53:18'!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier testingUtils purchase merchantProcessor |
+	testingUtils _ TestingUtils new.	
+	cart _ Cart with: testingUtils catalog.
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear.
+	
+	self assert: (salesBook hasRegistered: purchase).
+	self deny: salesBook isEmpty .
+	! !
 
 
 !classDefinition: #Cart category: 'TusLibros'!
@@ -342,12 +459,12 @@ with: aCatalog
 
 !classDefinition: #Cashier category: 'TusLibros'!
 Object subclass: #Cashier
-	instanceVariableNames: ''
+	instanceVariableNames: 'salesBook merchantProcessorSimulator'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!Cashier methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:41:14'!
+!Cashier methodsFor: 'checking out' stamp: 'JDR 6/8/2022 13:09:31'!
 checkout: aCart with: aCreditCard on: aDate
 	
 	| subtotal |
@@ -358,9 +475,20 @@ checkout: aCart with: aCreditCard on: aDate
 	
 	subtotal _ aCart subtotal.
 	
+	merchantProcessorSimulator debit: subtotal from: aCreditCard on: aDate.
+	
+	salesBook add: aCart content.	
+	
 	aCart clearContent.
 	
 	^subtotal! !
+
+
+!Cashier methodsFor: 'initialization' stamp: 'JDR 6/8/2022 13:06:38'!
+initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator 
+	
+	salesBook := aSalesBook.
+	merchantProcessorSimulator := aMerchantProcessorSimulator.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -368,15 +496,57 @@ checkout: aCart with: aCreditCard on: aDate
 Cashier class
 	instanceVariableNames: ''!
 
-!Cashier class methodsFor: 'instance creation' stamp: 'JDR 6/6/2022 21:25:27'!
+!Cashier class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 13:05:47'!
+registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator 
+	
+	^self new initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator ! !
+
+
+!Cashier class methodsFor: 'error descriptions' stamp: 'JDR 6/6/2022 21:25:27'!
 cannotCheckoutEmptyCartErrorDescription
 	
 	^'cant checkout an empty cart'! !
 
-!Cashier class methodsFor: 'instance creation' stamp: 'JDR 6/6/2022 20:23:39'!
+!Cashier class methodsFor: 'error descriptions' stamp: 'JDR 6/6/2022 20:23:39'!
 expiredCardErrorDescription
 	
 	^'credit card is out of date'! !
+
+
+!classDefinition: #CatchOutMerchantProcessorSimulator category: 'TusLibros'!
+Object subclass: #CatchOutMerchantProcessorSimulator
+	instanceVariableNames: 'stolenCardRegister'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!CatchOutMerchantProcessorSimulator methodsFor: 'initialization' stamp: 'JDR 6/8/2022 13:25:00'!
+initializeWith: aStolenCardRegister 
+
+	stolenCardRegister := aStolenCardRegister.! !
+
+
+!CatchOutMerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:27:35'!
+debit: anAmount from: aCreditCard on: aMonthOfYear 
+
+	self error: CatchOutMerchantProcessorSimulator shouldNotBeDebitingErrorDescription! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'CatchOutMerchantProcessorSimulator class' category: 'TusLibros'!
+CatchOutMerchantProcessorSimulator class
+	instanceVariableNames: ''!
+
+!CatchOutMerchantProcessorSimulator class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 13:24:40'!
+with: aStolenCardRegister 
+	
+	^self new initializeWith: aStolenCardRegister ! !
+
+
+!CatchOutMerchantProcessorSimulator class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 13:29:02'!
+shouldNotBeDebitingErrorDescription
+
+	'You should not be trying to debit'! !
 
 
 !classDefinition: #CreditCard category: 'TusLibros'!
@@ -394,10 +564,32 @@ initializeFor: aName with: aCardNumber expiratingOn: aExpirationDate
 	expirationDate := aExpirationDate.! !
 
 
-!CreditCard methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:26:50'!
+!CreditCard methodsFor: 'testing' stamp: 'JDR 6/6/2022 21:26:50'!
 isExpiredOn: aMonthOfYear
 
 	^expirationDate < aMonthOfYear! !
+
+
+!CreditCard methodsFor: 'comparing' stamp: 'JDR 6/8/2022 12:58:44'!
+= aCreditCard
+
+	^(name = aCreditCard name) and: [cardNumber = aCreditCard cardNumber and: [ expirationDate = aCreditCard expirationDate ]] ! !
+
+
+!CreditCard methodsFor: 'accessing' stamp: 'JDR 6/8/2022 12:54:54'!
+cardNumber
+
+	^cardNumber ! !
+
+!CreditCard methodsFor: 'accessing' stamp: 'JDR 6/8/2022 12:55:06'!
+expirationDate
+
+	^expirationDate ! !
+
+!CreditCard methodsFor: 'accessing' stamp: 'JDR 6/8/2022 12:54:59'!
+name
+
+	^name! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -405,12 +597,14 @@ isExpiredOn: aMonthOfYear
 CreditCard class
 	instanceVariableNames: ''!
 
-!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 04:20:50'!
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 11:11:46'!
 ownedBy: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear 
 
-	((aName withoutSeparators) size between: 4 and: 30) ifFalse: [self error: CreditCard invalidNameErrorDescription ].	
-	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
-	(anExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ].	
+	self assertNameIsValid: aName.	
+	
+	self assertCardNumberIsValid: aCardNumber.
+	
+	self assertExpirationDateIsValid: anExpirationMonthOfYear.	
 	
 	^self new initializeFor: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear ! !
 
@@ -429,25 +623,185 @@ invalidNameErrorDescription
 
 	'Name is too short/long'! !
 
+
+!CreditCard class methodsFor: 'assertions' stamp: 'JDR 6/8/2022 11:11:32'!
+assertCardNumberIsValid: aCardNumber
+
+	^ (aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription]! !
+
+!CreditCard class methodsFor: 'assertions' stamp: 'JDR 6/8/2022 11:11:46'!
+assertExpirationDateIsValid: anExpirationMonthOfYear
+
+	^ (anExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ]! !
+
+!CreditCard class methodsFor: 'assertions' stamp: 'JDR 6/8/2022 11:11:18'!
+assertNameIsValid: aName
+
+	^ ((aName withoutSeparators) size between: 4 and: 30) ifFalse: [self error: CreditCard invalidNameErrorDescription ]! !
+
 
-!classDefinition: #XXX category: 'TusLibros'!
-Object subclass: #XXX
+!classDefinition: #MerchantProcessorSimulator category: 'TusLibros'!
+Object subclass: #MerchantProcessorSimulator
+	instanceVariableNames: 'stolenCardRegister'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!MerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:57:54'!
+assert: aCreditCard isNotExpiredOn: aMonthOfYear
+
+	^ (aCreditCard isExpiredOn: aMonthOfYear) ifTrue: [ self error: MerchantProcessorSimulator expiredCreditCardErrorDescription ]! !
+
+!MerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:57:26'!
+assertCreditCardIsAValidObject: aCreditCard
+
+	^ (aCreditCard isKindOf: CreditCard) ifFalse: [ self error: MerchantProcessorSimulator onlyCanDebitFromACreditCardErrorDescription ]! !
+
+!MerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:58:26'!
+assertCreditCardIsNotStolen: aCreditCard
+
+	^ (stolenCardRegister includes: aCreditCard) ifTrue: [ self error: MerchantProcessorSimulator stolenCreditCardErrorDescription ]! !
+
+!MerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:58:26'!
+debit: anAmount from: aCreditCard on: aMonthOfYear 
+
+	self assertCreditCardIsAValidObject: aCreditCard.
+	self assert: aCreditCard isNotExpiredOn: aMonthOfYear.
+	self assertCreditCardIsNotStolen: aCreditCard.! !
+
+
+!MerchantProcessorSimulator methodsFor: 'initialization' stamp: 'JDR 6/8/2022 13:46:13'!
+initializeWith: aStolenCardsRegister 
+
+	stolenCardRegister := aStolenCardsRegister.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'MerchantProcessorSimulator class' category: 'TusLibros'!
+MerchantProcessorSimulator class
+	instanceVariableNames: ''!
+
+!MerchantProcessorSimulator class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 12:33:28'!
+expiredCreditCardErrorDescription
+	
+	^'credit card has expired'! !
+
+!MerchantProcessorSimulator class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 12:27:49'!
+onlyCanDebitFromACreditCardErrorDescription
+	
+	^'invalid credit card format'! !
+
+!MerchantProcessorSimulator class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 12:40:37'!
+stolenCreditCardErrorDescription
+
+	^'that credit card is stolen'! !
+
+
+!MerchantProcessorSimulator class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 12:39:13'!
+with: aStolenCardsRegister
+	
+	^self new initializeWith: aStolenCardsRegister ! !
+
+
+!classDefinition: #SalesBook category: 'TusLibros'!
+Object subclass: #SalesBook
+	instanceVariableNames: 'sales'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!SalesBook methodsFor: 'adding' stamp: 'JDR 6/8/2022 11:53:51'!
+add: aPurchaseBag
+
+	sales add: aPurchaseBag! !
+
+
+!SalesBook methodsFor: 'testing' stamp: 'JDR 6/8/2022 11:53:29'!
+hasRegistered: aPurchaseBag
+ 
+	^sales includes: aPurchaseBag! !
+
+!SalesBook methodsFor: 'testing' stamp: 'JDR 6/8/2022 11:51:21'!
+isEmpty
+	^sales isEmpty! !
+
+
+!SalesBook methodsFor: 'initialization' stamp: 'JDR 6/8/2022 11:42:41'!
+initialize
+
+	sales _ OrderedCollection new.! !
+
+
+!classDefinition: #TestingUtils category: 'TusLibros'!
+Object subclass: #TestingUtils
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:06'!
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:41:37'!
+expiredCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber expiratingOn: (July of: 2020)! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 04:18:21'!
+invalidCardName
+
+	^ ' Jaigsrepgepiosegaisdgoipoñjasdjkljjdhfjlljafnv'! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:42:27'!
+invalidCardNumber
+	^'1'! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:58:03'!
+invalidExpirationDate
+	
+	^GregorianYear number: 2050! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 12:42:42'!
+stolenCreditCard
+	
+	^CreditCard ownedBy: 'Enrique' with: '1111222233334444' expiratingOn: self validCheckoutMonthOfYear ! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 13:01:07'!
+stolenCreditCardRegister 
+	^ OrderedCollection with: self stolenCreditCard.! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:53:35'!
+validCardName
+
+	^'Juancito'! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:53:42'!
+validCardNumber
+	^'4444555566667777'. ! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:42:47'!
+validCheckoutMonthOfYear
+	^July of: 2022. ! !
+
+!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/8/2022 03:42:47'!
+validCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber 	expiratingOn: self validCheckoutMonthOfYear . ! !
+
+
+!TestingUtils methodsFor: 'book' stamp: 'JDR 6/8/2022 03:37:06'!
 book
 
 	^1! !
 
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:19'!
+!TestingUtils methodsFor: 'book' stamp: 'JDR 6/8/2022 03:37:19'!
 book2
 
 	^2! !
 
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:33'!
+!TestingUtils methodsFor: 'book' stamp: 'JDR 6/8/2022 11:20:13'!
+unregisteredBook
+	^0! !
+
+
+!TestingUtils methodsFor: 'catalog' stamp: 'JDR 6/8/2022 03:37:33'!
 catalog
 	
 	| catalog |
@@ -455,40 +809,3 @@ catalog
 	catalog at: self book put: 100.
 	catalog at: self book2 put: 50.
 	^catalog! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:41:37'!
-expiredCreditCard
-	
-	^CreditCard ownedBy: self validCardName with: self validCardNumber expiratingOn: (July of: 2020)! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:18:21'!
-invalidCardName
-
-	^ ' Jaigsrepgepiosegaisdgoipoñjasdjkljjdhfjlljafnv'! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:27'!
-invalidCardNumber
-	^'1'! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:58:03'!
-invalidExpirationDate
-	
-	^GregorianYear number: 2050! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:35'!
-validCardName
-
-	^'Juancito'! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:42'!
-validCardNumber
-	^'4444555566667777'. ! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:47'!
-validCheckoutMonthOfYear
-	^July of: 2022. ! !
-
-!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:47'!
-validCreditCard
-	
-	^CreditCard ownedBy: self validCardName with: self validCardNumber 	expiratingOn: self validCheckoutMonthOfYear . ! !
