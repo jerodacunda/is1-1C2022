@@ -34,6 +34,19 @@ test06CanConsultCartContents
 
 	! !
 
+!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 04:27:23'!
+test08CanConsultCartTotalPrice
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	! !
+
 
 !CartTest methodsFor: 'test - adding' stamp: 'AF 6/4/2022 11:46:39'!
 test02ACartShouldNotBeEmptyAfterAddingBookToCart
@@ -124,32 +137,6 @@ test07OnlyCanAddToCartAnIntegerAmountOfABook
 
 	! !
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/6/2022 19:15:21'!
-test08
-	
-	| cart bookPrice |
-	cart _ Cart with: self catalog.
-	cart add: self book amount: 1.
-	
-	bookPrice _ self catalog at: self book.
-	
-	self assert: bookPrice equals: cart subtotal.
-
-	! !
-
-!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/6/2022 19:23:14'!
-test09
-	
-	| cart bookPrice |
-	cart _ Cart with: self catalog.
-	cart add: self book amount: 3.
-	
-	bookPrice _ self catalog at: self book.
-	
-	self assert: 3 * bookPrice equals: cart subtotal.
-
-	! !
-
 
 !CartTest methodsFor: 'utils' stamp: 'JDR 6/2/2022 20:58:29'!
 book
@@ -172,86 +159,58 @@ TestCase subclass: #CashierTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CashierTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 18:52:25'!
-book
-
-	^1! !
-
-!CashierTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 19:35:05'!
-book2
-
-	^2! !
-
-!CashierTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 19:35:56'!
-catalog
-	
-	| catalog |
-	catalog _ Dictionary new.
-	catalog at: self book put: 100.
-	catalog at: self book2 put: 50.
-	^catalog! !
-
-!CashierTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 20:38:59'!
-expiredCreditCard
-	
-	^CreditCard with: '1111222233334444' expiratingOn: (July of: 2020)! !
-
-!CashierTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 21:43:29'!
-validCheckOutMonthOfYear
-	^July of: 2022. ! !
-
-!CashierTest methodsFor: 'utils' stamp: 'JDR 6/6/2022 20:38:39'!
-validCreditCard
-	^CreditCard with: '4444555566667777' 	expiratingOn: (July of: 2024). ! !
-
-
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:44:29'!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:09:02'!
 test01CheckoutOfAnEmptyCartShouldRaiseAnError
 
-	| cart cashier |
-	cart _ Cart with: self catalog.
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
 	cashier _ Cashier new.
 	
-	self should: [cashier checkout: cart with: self validCreditCard on: self validCheckOutMonthOfYear] 
+	self should: [cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | self assert: Cashier cannotCheckoutEmptyCartErrorDescription equals: anError messageText].! !
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:44:20'!
-test02ChekoutOfACartWithOneBookShouldBeBookPrice
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:08:53'!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
 	
-	| cart cashier |
-	cart _ Cart with: self catalog.
-	cart add: self book amount: 1.
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cart add: xxx book amount: 1.
 	cashier _ Cashier new.
-	
-	self assert: 100 equals: (cashier checkout: cart with: self validCreditCard on: self validCheckOutMonthOfYear ).
+		
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
 	self assert: cart isEmpty.! !
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:44:01'!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:08:23'!
 test03CheckoutOfACartEqualsCartSubtotal
 	
-	| cart cashier expectedPrice |
-	cart _ Cart with: self catalog.
-	cashier _ Cashier new.
+	| cart cashier expectedPrice xxx |
 	
-	cart add: self book amount: 3.
-	cart add: self book2 amount: 1.
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cashier _ Cashier new.	
+	
+	cart add: xxx book amount: 3.
+	cart add: xxx book2 amount: 1.
 		
 	expectedPrice _ 350.
 	
-	self assert: expectedPrice equals: (cashier checkout: cart with: self validCreditCard on: self validCheckOutMonthOfYear).
+	self assert: expectedPrice equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear).
 	self assert: cart isEmpty.! !
 
-!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:45:06'!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:07:31'!
 test04CheckoutWithAnExpiredCardShouldRaiseAnError
 	
-	| cart cashier |
-	cart _ Cart with: self catalog.
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
 	cashier _ Cashier new.
 	
-	cart add: self book amount: 1.
+	cart add: xxx book amount: 1.
 
-	self should: [ cashier checkout: cart with: self expiredCreditCard on: self validCheckOutMonthOfYear] 
+	self should: [ cashier checkout: cart with: xxx expiredCreditCard on: xxx validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | 
 			self assert: Cashier expiredCardErrorDescription equals: anError messageText .
@@ -266,20 +225,35 @@ TestCase subclass: #CreditCardTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:50:15'!
-invalidCreditCardNumber
-	^'1'! !
-
-!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:52:31'!
-test01	
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:44:40'!
+test01CreditCardNumberMustBeLength16	
 	
-	self should: [CreditCard ownedBy: self validCardName with: self invalidCreditCardNumber expiratingOn: self validCheckOutMonthOfYear] 
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx validCardName with: xxx invalidCardNumber expiratingOn: xxx validCheckoutMonthOfYear] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [:anError | self assert: CreditCard invalidCardNumberErrorDescription equals: anError messageText ]. ! !
 
-!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:51:21'!
-validCheckOutMonthOfYear
-	^July of: 2022. ! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:45:19'!
+test02CreditCardNameMustBeAValidName
+	
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx invalidCardName with: xxx validCardNumber expiratingOn: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidNameErrorDescription equals: anError messageText ]. ! !
+
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:55:44'!
+test03CreditCardDateMustBeAMonthOfYear
+	
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx validCardName with: xxx validCardNumber expiratingOn: xxx invalidExpirationDate] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidExpirationDateErrorDescription equals: anError messageText ]. ! !
 
 
 !classDefinition: #Cart category: 'TusLibros'!
@@ -373,22 +347,6 @@ Object subclass: #Cashier
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!Cashier methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:27:22'!
-checkout: aCart with: aCreditCard 
-	
-	| subtotal currentDate |
-	
-	(aCart isEmpty) ifTrue:[self error: Cashier cannotCheckoutEmptyCartErrorDescription].
-	
-	currentDate _ GregorianMonthOfYear current .
-	(aCreditCard isExpiredOn: currentDate) ifTrue: [self error: Cashier expiredCardErrorDescription]. 
-	
-	subtotal _ aCart subtotal.
-	
-	aCart clearContent.
-	
-	^subtotal! !
-
 !Cashier methodsFor: 'as yet unclassified' stamp: 'JDR 6/6/2022 21:41:14'!
 checkout: aCart with: aCreditCard on: aDate
 	
@@ -423,14 +381,15 @@ expiredCardErrorDescription
 
 !classDefinition: #CreditCard category: 'TusLibros'!
 Object subclass: #CreditCard
-	instanceVariableNames: 'cardNumber expirationDate'
+	instanceVariableNames: 'cardNumber expirationDate name'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CreditCard methodsFor: 'initialization' stamp: 'JDR 6/6/2022 20:05:31'!
-initializeWith: aCardNumber expiratingOn: aExpirationDate 
+!CreditCard methodsFor: 'initialization' stamp: 'JDR 6/8/2022 04:03:03'!
+initializeFor: aName with: aCardNumber expiratingOn: aExpirationDate 
 	
+	name := aName.
 	cardNumber := aCardNumber.
 	expirationDate := aExpirationDate.! !
 
@@ -446,21 +405,90 @@ isExpiredOn: aMonthOfYear
 CreditCard class
 	instanceVariableNames: ''!
 
-!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/6/2022 21:53:49'!
-ownedBy: aName with: aCardNumber expiratingOn: aExpirationMonthOfYear 
-	
-	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
-	
-	^self new initializeWith: aCardNumber expiratingOn: aExpirationMonthOfYear ! !
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 04:20:50'!
+ownedBy: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear 
 
-!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/6/2022 20:06:05'!
-with: aCardNumber expiratingOn: aExpirationMonthOfYear 
-	
+	((aName withoutSeparators) size between: 4 and: 30) ifFalse: [self error: CreditCard invalidNameErrorDescription ].	
 	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	(anExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ].	
 	
-	^self new initializeWith: aCardNumber expiratingOn: aExpirationMonthOfYear ! !
+	^self new initializeFor: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear ! !
 
 
 !CreditCard class methodsFor: 'error descriptions' stamp: 'JDR 6/6/2022 19:55:38'!
 invalidCardNumberErrorDescription
 	^ 'the credit card number must be 16'! !
+
+!CreditCard class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 03:58:52'!
+invalidExpirationDateErrorDescription
+
+	^'Expiration date must be a month and a year'! !
+
+!CreditCard class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 04:22:07'!
+invalidNameErrorDescription
+
+	'Name is too short/long'! !
+
+
+!classDefinition: #XXX category: 'TusLibros'!
+Object subclass: #XXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:06'!
+book
+
+	^1! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:19'!
+book2
+
+	^2! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:33'!
+catalog
+	
+	| catalog |
+	catalog _ Dictionary new.
+	catalog at: self book put: 100.
+	catalog at: self book2 put: 50.
+	^catalog! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:41:37'!
+expiredCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber expiratingOn: (July of: 2020)! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:18:21'!
+invalidCardName
+
+	^ ' Jaigsrepgepiosegaisdgoipoñjasdjkljjdhfjlljafnv'! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:27'!
+invalidCardNumber
+	^'1'! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:58:03'!
+invalidExpirationDate
+	
+	^GregorianYear number: 2050! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:35'!
+validCardName
+
+	^'Juancito'! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:42'!
+validCardNumber
+	^'4444555566667777'. ! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:47'!
+validCheckoutMonthOfYear
+	^July of: 2022. ! !
+
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:47'!
+validCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber 	expiratingOn: self validCheckoutMonthOfYear . ! !

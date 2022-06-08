@@ -3832,3 +3832,1157 @@ ownedBy: aName with: aCardNumber expiratingOn: aExpirationMonthOfYear
 	^self new initializeWith: aCardNumber expiratingOn: aExpirationMonthOfYear ! !
 
 ----QUIT----(6 June 2022 21:54:05) CuisUniversity-5096.image priorSource: 4575835!
+
+----STARTUP---- (8 June 2022 03:04:44) as /home/jerodacunda/Escritorio/9-TusLibros2/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/jerodacunda/Documentos/GitHub/is1-1C2022/09-TusLibros it2/TusLibros-it2.st----!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:20:25'!
+validCreditCard
+	^CreditCard with: '4444555566667777' 	expiratingOn: (July of: 2024). ! !
+
+!testRun: #CreditCardTest #test01 stamp: 'JDR 6/8/2022 03:20:32'!
+ERROR!
+
+!testRun: #CreditCardTest #test01 stamp: 'JDR 6/8/2022 03:20:32'!
+ERROR!
+
+!methodRemoval: CreditCardTest #validCreditCard stamp: 'JDR 6/8/2022 03:21:03'!
+validCreditCard
+	^CreditCard with: '4444555566667777' 	expiratingOn: (July of: 2024). !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:23:27'!
+validCardName
+
+	'Juancito'! !
+
+!testRun: #CreditCardTest #test01 stamp: 'JDR 6/8/2022 03:23:30'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:24:50'!
+test01CreditCardNumberMustBeLength16	
+	
+	self should: [CreditCard ownedBy: self validCardName with: self invalidCreditCardNumber expiratingOn: self validCheckOutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidCardNumberErrorDescription equals: anError messageText ]. ! !
+
+!methodRemoval: CreditCardTest #test01 stamp: 'JDR 6/8/2022 03:24:51'!
+test01	
+	
+	self should: [CreditCard ownedBy: self validCardName with: self invalidCreditCardNumber expiratingOn: self validCheckOutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidCardNumberErrorDescription equals: anError messageText ]. !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:29:16'!
+test02CreditCardNameMustBeAValidName
+	
+	self should: [CreditCard ownedBy: self invalidCardName with: self validCreditCardNumber expiratingOn: self validCheckOutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidNameErrorDescription equals: anError messageText ]. ! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CashierTest #test02ChekoutOfACartWithOneBookShouldBeBookPrice stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:29:56'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:29:56'!
+ERROR!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:29:56'!
+ERROR!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 03:30:04'!
+PASSED!
+
+!testRun: #CashierTest #test02ChekoutOfACartWithOneBookShouldBeBookPrice stamp: 'JDR 6/8/2022 03:30:04'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 03:30:04'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 03:30:04'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:35:29'!
+validCardNumber
+	'4444555566667777'. ! !
+
+Object subclass: #ObjectToTestCreator
+	instanceVariableNames: ' '
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #ObjectToTestCreator category: 'TusLibros' stamp: 'JDR 6/8/2022 03:36:10'!
+Object subclass: #ObjectToTestCreator
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!ObjectToTestCreator methodsFor: 'no messages' stamp: 'JDR 6/8/2022 03:37:06'!
+book
+
+	^1! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:19'!
+book2
+
+	^2! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:37:33'!
+catalog
+	
+	| catalog |
+	catalog _ Dictionary new.
+	catalog at: self book put: 100.
+	catalog at: self book2 put: 50.
+	^catalog! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:38:17'!
+validCheckOutMonthOfYear
+	^July of: 2022. ! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:38:29'!
+validCardName
+
+	'Juancito'! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:38:35'!
+validCardNumber
+	'4444555566667777'. ! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:39:00'!
+validCreditCard
+	^CreditCard with: '4444555566667777' 	expiratingOn: (July of: 2024). ! !
+!ObjectToTestCreator methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:39:09'!
+expiredCreditCard
+	
+	^CreditCard with: '1111222233334444' expiratingOn: (July of: 2020)! !
+
+!classRenamed: #ObjectToTestCreator as: #XXX stamp: 'JDR 6/8/2022 03:39:29'!
+Smalltalk renameClassNamed: #ObjectToTestCreator as: #XXX!
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:40:40' prior: 50474708!
+validCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber 	expiratingOn: self validCheckOutMonthOfYear . ! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:41:37' prior: 50474714!
+expiredCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber expiratingOn: (July of: 2020)! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:14'!
+invalidCreditCardNumber
+	^'1'! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:27'!
+invalidCardNumber
+	^'1'! !
+
+!methodRemoval: XXX #invalidCreditCardNumber stamp: 'JDR 6/8/2022 03:42:27'!
+invalidCreditCardNumber
+	^'1'!
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:47'!
+validCheckoutMonthOfYear
+	^July of: 2022. ! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:42:47' prior: 50474724!
+validCreditCard
+	
+	^CreditCard ownedBy: self validCardName with: self validCardNumber 	expiratingOn: self validCheckoutMonthOfYear . ! !
+
+!methodRemoval: XXX #validCheckOutMonthOfYear stamp: 'JDR 6/8/2022 03:42:47'!
+validCheckOutMonthOfYear
+	^July of: 2022. !
+
+!methodRemoval: CreditCardTest #validCardName stamp: 'JDR 6/8/2022 03:43:04'!
+validCardName
+
+	'Juancito'!
+
+!methodRemoval: CreditCardTest #validCardNumber stamp: 'JDR 6/8/2022 03:43:06'!
+validCardNumber
+	'4444555566667777'. !
+
+!methodRemoval: CreditCardTest #validCheckOutMonthOfYear stamp: 'JDR 6/8/2022 03:43:08'!
+validCheckOutMonthOfYear
+	^July of: 2022. !
+
+!methodRemoval: CreditCardTest #invalidCreditCardNumber stamp: 'JDR 6/8/2022 03:43:10'!
+invalidCreditCardNumber
+	^'1'!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:44:19' prior: 50474562!
+test01CreditCardNumberMustBeLength16	
+	
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx validCardName with: xxx invalidCardNumber expiratingOn: xxx validCheckOutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidCardNumberErrorDescription equals: anError messageText ]. ! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:44:23'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:44:23'!
+ERROR!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:44:40' prior: 50474780!
+test01CreditCardNumberMustBeLength16	
+	
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx validCardName with: xxx invalidCardNumber expiratingOn: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidCardNumberErrorDescription equals: anError messageText ]. ! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:44:41'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:45:19' prior: 50474587!
+test02CreditCardNameMustBeAValidName
+	
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx invalidCardName with: xxx validCardNumber expiratingOn: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidNameErrorDescription equals: anError messageText ]. ! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:46:33'!
+invalidCardName
+
+	' J u a '! !
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 03:47:48'!
+invalidNameErrorDescription
+
+	'Name is too short'! !
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:48:34'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:48:34'!
+FAILURE!
+
+----End fileIn of /home/jerodacunda/Escritorio/9-TusLibros2/linux64/Packages/TerseGuide.pck.st----!
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 03:52:12' prior: 50474510!
+ownedBy: aName with: aCardNumber expiratingOn: aExpirationMonthOfYear 
+
+	((aName withoutSeparators) size > 3) ifFalse: [self error: CreditCard invalidNameErrorDescription ].
+	
+	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	
+	^self new initializeWith: aCardNumber expiratingOn: aExpirationMonthOfYear ! !
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:52:31'!
+ERROR!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:52:31'!
+ERROR!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:52:39'!
+ERROR!
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:03' prior: 50474833!
+invalidCardName
+
+	^ ' J u a '! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:53:06'!
+ERROR!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:53:06'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:53:06'!
+ERROR!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:53:10'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:53:12'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:53:12'!
+ERROR!
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:35' prior: 50474700!
+validCardName
+
+	^'Juancito'! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:53:42' prior: 50474704!
+validCardNumber
+	^'4444555566667777'. ! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 03:53:47'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 03:53:47'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 03:53:47'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 03:53:47'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 03:53:47'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CashierTest #test02ChekoutOfACartWithOneBookShouldBeBookPrice stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:53:48'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 03:53:54'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:55:44'!
+test03CreditCardDateMustBeAMonthOfYear
+	
+	| xxx |
+	xxx _ XXX new.
+	
+	self should: [CreditCard ownedBy: xxx validCardName with: xxx validCardNumber expiratingOn: xxx invalidExpirationDate] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [:anError | self assert: CreditCard invalidExpirationDateErrorDescription equals: anError messageText ]. ! !
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 03:55:47'!
+ERROR!
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:55:51'!
+invalidExpirationDate
+	self shouldBeImplemented.! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 03:58:03' prior: 50477893!
+invalidExpirationDate
+	
+	^GregorianYear number: 2050! !
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 03:58:04'!
+FAILURE!
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 03:58:52'!
+invalidExpirationDateErrorDescription
+
+	^'Expiration date must be a month and a year'! !
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 04:00:15' prior: 50477769!
+ownedBy: aName with: aCardNumber expiratingOn: aExpirationMonthOfYear 
+
+	((aName withoutSeparators) size > 3) ifFalse: [self error: CreditCard invalidNameErrorDescription ].	
+	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	(aExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ].	
+	
+	^self new initializeWith: aCardNumber expiratingOn: aExpirationMonthOfYear ! !
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:00:31'!
+PASSED!
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 04:01:52' prior: 50477912!
+ownedBy: aName with: aCardNumber expiratingOn: aExpirationMonthOfYear 
+
+	((aName withoutSeparators) size > 3) ifFalse: [self error: CreditCard invalidNameErrorDescription ].	
+	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	(aExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ].	
+	
+	^self new initializeFor: aName with: aCardNumber expiratingOn: aExpirationMonthOfYear ! !
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 04:02:02' prior: 50477934!
+ownedBy: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear 
+
+	((aName withoutSeparators) size > 3) ifFalse: [self error: CreditCard invalidNameErrorDescription ].	
+	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	(anExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ].	
+	
+	^self new initializeFor: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear ! !
+
+!classDefinition: #CreditCard category: 'TusLibros' stamp: 'JDR 6/8/2022 04:03:04'!
+Object subclass: #CreditCard
+	instanceVariableNames: 'cardNumber expirationDate name'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCard methodsFor: 'initialization' stamp: 'JDR 6/8/2022 04:03:03'!
+initializeFor: aName with: aCardNumber expiratingOn: aExpirationDate 
+	
+	name := aName.
+	cardNumber := aCardNumber.
+	expirationDate := aExpirationDate.! !
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CashierTest #test02ChekoutOfACartWithOneBookShouldBeBookPrice stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:04:14'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:04:55' prior: 50474252!
+test01CheckoutOfAnEmptyCartShouldRaiseAnError
+
+	| cart cashier xxx |
+	cart _ Cart with: self catalog.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	self should: [cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | self assert: Cashier cannotCheckoutEmptyCartErrorDescription equals: anError messageText].! !
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:04:59'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:04:59'!
+PASSED!
+
+!testRun: #CashierTest #test02ChekoutOfACartWithOneBookShouldBeBookPrice stamp: 'JDR 6/8/2022 04:04:59'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:04:59'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:04:59'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:05:15' prior: 50474267!
+test02ChekoutOfACartWithOneBookShouldBeBookPrice
+	
+	| cart cashier xxx |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 1.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
+	self assert: cart isEmpty.! !
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:05:26'!
+test02ChekoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier xxx |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 1.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
+	self assert: cart isEmpty.! !
+
+!methodRemoval: CashierTest #test02ChekoutOfACartWithOneBookShouldBeBookPrice stamp: 'JDR 6/8/2022 04:05:26'!
+test02ChekoutOfACartWithOneBookShouldBeBookPrice
+	
+	| cart cashier xxx |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 1.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
+	self assert: cart isEmpty.!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:05:56' prior: 50474279!
+test03CheckoutOfACartEqualsCartSubtotal
+	
+	| cart cashier expectedPrice xxx |
+	cart _ Cart with: self catalog.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	cart add: xxx book amount: 3.
+	cart add: xxx book2 amount: 1.
+		
+	expectedPrice _ 350.
+	
+	self assert: expectedPrice equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear).
+	self assert: cart isEmpty.! !
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:05:58'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:05:58'!
+PASSED!
+
+!testRun: #CashierTest #test02ChekoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:05:58'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:05:58'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:05:58'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:06:24'!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier xxx |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 1.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
+	self assert: cart isEmpty.! !
+
+!methodRemoval: CashierTest #test02ChekoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:06:24'!
+test02ChekoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier xxx |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 1.
+	cashier _ Cashier new.
+	xxx _ XXX new.
+	
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
+	self assert: cart isEmpty.!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:06:52' prior: 50474294!
+test04CheckoutWithAnExpiredCardShouldRaiseAnError
+	
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cashier _ Cashier new.
+	
+	cart add: self book amount: 1.
+
+	self should: [ cashier checkout: cart with: xxx expiredCreditCard on: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | 
+			self assert: Cashier expiredCardErrorDescription equals: anError messageText .
+			self deny: cart isEmpty.
+		]! !
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:06:54'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:06:54'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:06:54'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:06:54'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:06:54'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:07:31' prior: 50478175!
+test04CheckoutWithAnExpiredCardShouldRaiseAnError
+	
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cashier _ Cashier new.
+	
+	cart add: xxx book amount: 1.
+
+	self should: [ cashier checkout: cart with: xxx expiredCreditCard on: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | 
+			self assert: Cashier expiredCardErrorDescription equals: anError messageText .
+			self deny: cart isEmpty.
+		]! !
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:07:32'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:07:32'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:07:32'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:07:32'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:07:32'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:08:23' prior: 50478115!
+test03CheckoutOfACartEqualsCartSubtotal
+	
+	| cart cashier expectedPrice xxx |
+	
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cashier _ Cashier new.	
+	
+	cart add: xxx book amount: 3.
+	cart add: xxx book2 amount: 1.
+		
+	expectedPrice _ 350.
+	
+	self assert: expectedPrice equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear).
+	self assert: cart isEmpty.! !
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:08:23'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:08:53' prior: 50478148!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cart add: xxx book amount: 1.
+	cashier _ Cashier new.
+		
+	self assert: 100 equals: (cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear ).
+	self assert: cart isEmpty.! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:08:53'!
+PASSED!
+!CashierTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:09:02' prior: 50478041!
+test01CheckoutOfAnEmptyCartShouldRaiseAnError
+
+	| cart cashier xxx |
+	xxx _ XXX new.
+	cart _ Cart with: xxx catalog.
+	cashier _ Cashier new.
+	
+	self should: [cashier checkout: cart with: xxx validCreditCard on: xxx validCheckoutMonthOfYear] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | self assert: Cashier cannotCheckoutEmptyCartErrorDescription equals: anError messageText].! !
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:09:02'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:09:03'!
+PASSED!
+
+!methodRemoval: CreditCard class #with:expiratingOn: stamp: 'JDR 6/8/2022 04:10:35'!
+with: aCardNumber expiratingOn: aExpirationMonthOfYear 
+	
+	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	
+	^self new initializeWith: aCardNumber expiratingOn: aExpirationMonthOfYear !
+
+!methodRemoval: CreditCard #initializeWith:expiratingOn: stamp: 'JDR 6/8/2022 04:10:40'!
+initializeWith: aCardNumber expiratingOn: aExpirationDate 
+	
+	cardNumber := aCardNumber.
+	expirationDate := aExpirationDate.!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:10:44'!
+PASSED!
+
+!methodRemoval: CashierTest #book stamp: 'JDR 6/8/2022 04:11:19'!
+book
+
+	^1!
+
+!methodRemoval: CashierTest #book2 stamp: 'JDR 6/8/2022 04:11:21'!
+book2
+
+	^2!
+
+!methodRemoval: CashierTest #catalog stamp: 'JDR 6/8/2022 04:11:23'!
+catalog
+	
+	| catalog |
+	catalog _ Dictionary new.
+	catalog at: self book put: 100.
+	catalog at: self book2 put: 50.
+	^catalog!
+
+!methodRemoval: CashierTest #expiredCreditCard stamp: 'JDR 6/8/2022 04:11:26'!
+expiredCreditCard
+	
+	^CreditCard with: '1111222233334444' expiratingOn: (July of: 2020)!
+
+!methodRemoval: CashierTest #validCheckOutMonthOfYear stamp: 'JDR 6/8/2022 04:11:27'!
+validCheckOutMonthOfYear
+	^July of: 2022. !
+
+!methodRemoval: CashierTest #validCreditCard stamp: 'JDR 6/8/2022 04:11:31'!
+validCreditCard
+	^CreditCard with: '4444555566667777' 	expiratingOn: (July of: 2024). !
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:11:40'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:11:40'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:11:40'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:11:40'!
+PASSED!
+
+!methodRemoval: Cashier #checkout:with: stamp: 'JDR 6/8/2022 04:12:28'!
+checkout: aCart with: aCreditCard 
+	
+	| subtotal currentDate |
+	
+	(aCart isEmpty) ifTrue:[self error: Cashier cannotCheckoutEmptyCartErrorDescription].
+	
+	currentDate _ GregorianMonthOfYear current .
+	(aCreditCard isExpiredOn: currentDate) ifTrue: [self error: Cashier expiredCardErrorDescription]. 
+	
+	subtotal _ aCart subtotal.
+	
+	aCart clearContent.
+	
+	^subtotal!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:12:30'!
+PASSED!
+!XXX methodsFor: 'as yet unclassified' stamp: 'JDR 6/8/2022 04:18:21' prior: 50477793!
+invalidCardName
+
+	^ ' Jaigsrepgepiosegaisdgoipoñjasdjkljjdhfjlljafnv'! !
+!CreditCard class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 04:20:50' prior: 50477953!
+ownedBy: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear 
+
+	((aName withoutSeparators) size between: 4 and: 30) ifFalse: [self error: CreditCard invalidNameErrorDescription ].	
+	(aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription].
+	(anExpirationMonthOfYear isKindOf: GregorianMonthOfYear) ifFalse: [self error: CreditCard invalidExpirationDateErrorDescription ].	
+	
+	^self new initializeFor: aName with: aCardNumber expiratingOn: anExpirationMonthOfYear ! !
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test08 stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CartTest #test09 stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/8/2022 04:20:50'!
+PASSED!
+!CreditCard class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 04:22:07' prior: 50474837!
+invalidNameErrorDescription
+
+	'Name is too short/long'! !
+
+!methodRemoval: CartTest #test08 stamp: 'JDR 6/8/2022 04:25:29'!
+test08
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 1.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: bookPrice equals: cart subtotal.
+
+	!
+!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 04:25:33'!
+test08
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	! !
+
+!methodRemoval: CartTest #test09 stamp: 'JDR 6/8/2022 04:25:33'!
+test09
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	!
+!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 04:26:55'!
+test08CanObtainCartTotalPrice
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	! !
+
+!methodRemoval: CartTest #test08 stamp: 'JDR 6/8/2022 04:26:55'!
+test08
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	!
+!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 04:27:23'!
+test08CanConsultCartTotalPrice
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	! !
+
+!methodRemoval: CartTest #test08CanObtainCartTotalPrice stamp: 'JDR 6/8/2022 04:27:23'!
+test08CanObtainCartTotalPrice
+	
+	| cart bookPrice |
+	cart _ Cart with: self catalog.
+	cart add: self book amount: 3.
+	
+	bookPrice _ self catalog at: self book.
+	
+	self assert: 3 * bookPrice equals: cart subtotal.
+
+	!
+
+----QUIT----(8 June 2022 04:30:03) CuisUniversity-5096.image priorSource: 4557982!
