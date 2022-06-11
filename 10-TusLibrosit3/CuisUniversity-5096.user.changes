@@ -19168,3 +19168,2814 @@ PASSED!
 
 !testRun: #SalesBookTest #test09 stamp: 'AF\ 6/11/2022 17:37:38'!
 PASSED!
+
+----STARTUP---- (11 June 2022 17:51:38) as /home/jerodacunda/Escritorio/10-TusLibros3/2/linux64/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/jerodacunda/Documentos/GitHub/is1-1C2022/10-TusLibrosit3/TusLibros.st----!
+
+!testRun: #SystemFacadeTest #test11CheckoutOfAnInvalidCartIDShouldRaiseError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CartTest #test08CanConsultCartTotalPrice stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CashierTest #test05CheckoutWithAStolenCardShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test01DebitFromAnythingButACreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test02DebitFromAnExpiredCreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test03DebitFromAStolenCreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test04DebitFromAFundlessCreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test01CreatingACartWithAnUnregisteredUsernameShouldRaiseAnError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test02CreatingACartWithARegisteredUsernameAndAWrongPassworrdShouldRiseError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test03NewCartShouldBeEmpy stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test04TwoCreatedCartsShouldHaveDifferentsIDs stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test05ListCartShouldNotBeEmptyAfterAddingAProduct stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test06ListingTwoDifferentCartsMustHaveAddedProductsRespectively stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test07AddingProductsWithAnInvalidCartIDShouldRaiseError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test08CantListCartOfAnInvalidCartID stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test09AddingAProductNotInCatalogShouldRaiseError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test10CheckoutOfAnEmotyCartShouldRiseError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test11CheckoutOfAnInvalidCartIDShouldRaiseError stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test12ListingPurchasesOfClientMustHaveChackedoutCartsSADFDFERGTEGRDFSGDFSG stamp: 'JDR 6/11/2022 17:54:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test13 stamp: 'JDR 6/11/2022 17:54:05'!
+FAILURE!
+
+!testRun: #SystemFacadeTest #test13 stamp: 'JDR 6/11/2022 17:54:05'!
+FAILURE!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 17:59:56' prior: 50474548!
+test06
+	
+	| cart cashier testingUtils salesBook purchase merchantProcessor expectedPurchases expectedPurchaseContent |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart isEmpty.
+	self assert: (salesBook hasRegistered: purchase).
+	self assert: expectedPurchases equals: (salesBook purchasesOf: testingUtils clientID1) ! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:02:03' prior: 50476121!
+test06
+	
+	| cart cashier testingUtils salesBook purchase merchantProcessor expectedPurchases expectedPurchaseContent |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty.	
+	
+	
+	self assert: expectedPurchaseContent equals: (salesBook purchasesOf: testingUtils clientID1) ! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:03:07' prior: 50476150!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty.	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils clientID1).
+	self assert: expectedPurchaseContent equals: clientPurchases cartContentsSAFASFDFS .! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:04:03' prior: 50476178!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty.	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: clientPurchases first clientID.
+	self assert: expectedPurchaseContent equals: clientPurchases cartContentsSAFASFDFS .! !
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:04:20'!
+ERROR!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:04:20'!
+ERROR!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:05:48' prior: 50476207!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty.	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: clientPurchases first clientID.
+	self assert: expectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:05:49'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:06:59' prior: 50474578!
+test07
+	
+	| cashier testingUtils salesBook merchantProcessor cart1 cart2 purchaseForClient1 purchaseForClient2 purchasesOfClient1 purchasesOfClient2 |
+	testingUtils _ TestingUtils new.
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	purchaseForClient1 _ Sale with: cart1 content for: testingUtils clientID1.
+	purchasesOfClient1 _ OrderedCollection  with: purchaseForClient1.	
+	
+	cart2 add: testingUtils book2 amount: 1.
+	purchaseForClient2 _ Sale with: cart2 content for: testingUtils clientID2.
+	purchasesOfClient2 _ OrderedCollection  with: purchaseForClient2.
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2).	
+	self assert: cart2 isEmpty.	
+	
+	self assert: purchasesOfClient1 equals: (salesBook purchasesOf: testingUtils clientID1).
+	self assert: purchasesOfClient2 equals: (salesBook purchasesOf: testingUtils clientID2) ! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:09:33' prior: 50476295!
+test07
+	
+	| cashier testingUtils salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	testingUtils _ TestingUtils new.
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2).	
+	self assert: cart2 isEmpty.	
+	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils clientID1.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils clientID2.	
+	
+	self assert: purchasesOfClient1 equals: (salesBook purchasesOf: testingUtils clientID1).
+	self assert: purchasesOfClient2 equals: (salesBook purchasesOf: testingUtils clientID2) ! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:10:39' prior: 50476343!
+test07
+	
+	| cashier testingUtils salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	testingUtils _ TestingUtils new.
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2).	
+	self assert: cart2 isEmpty.		
+	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils clientID1.		
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils clientID2.	
+	
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:11:22' prior: 50476390!
+test07
+	
+	| cashier testingUtils salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 expectedPurchaseContent |
+	testingUtils _ TestingUtils new.
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2).	
+	self assert: cart2 isEmpty.		
+	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils clientID1.		
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils clientID2.	
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient1 first clientID.
+	self assert: expectedPurchaseContent equals: purchasesOfClient1 first cartContentsSAFASFDFS .
+	
+	self assert: testingUtils clientID2 equals: purchasesOfClient2 first clientID.
+	self assert: expectedPurchaseContent equals: purchasesOfClient2 first cartContentsSAFASFDFS .
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:11:57' prior: 50476432!
+test07
+	
+	| cashier testingUtils salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	testingUtils _ TestingUtils new.
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2).	
+	self assert: cart2 isEmpty.		
+	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils clientID1.		
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils clientID2.	
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient1 first clientID.
+	self assert: expectedPurchaseContent1 equals: purchasesOfClient1 first cartContentsSAFASFDFS .
+	
+	self assert: testingUtils clientID2 equals: purchasesOfClient2 first clientID.
+	self assert: expectedPurchaseContent2 equals: purchasesOfClient2 first cartContentsSAFASFDFS .
+	! !
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:12:03'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:14:27' prior: 50474524!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier testingUtils merchantProcessor expectedPurchase |
+	testingUtils _ TestingUtils new.	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear.
+	cart add: testingUtils book amount: 1.
+	expectedPurchase _ Bag with: testingUtils book.
+	
+	self deny: salesBook isEmpty .
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:16:27' prior: 50476557!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier testingUtils merchantProcessor expectedPurchase purchaseOfClient |
+	testingUtils _ TestingUtils new.	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchase _ Bag with: testingUtils book.
+	
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self deny: salesBook isEmpty .
+	
+	purchaseOfClient _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	 ! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:17:00' prior: 50476581!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier testingUtils merchantProcessor purchaseOfClient expectedPurchaseContent |
+	testingUtils _ TestingUtils new.	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils book.
+	
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self deny: salesBook isEmpty .
+	
+	purchaseOfClient _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: purchaseOfClient first clientID.
+	self assert: expectedPurchaseContent equals: purchaseOfClient first cartContentsSAFASFDFS .
+	
+	 ! !
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:17:05'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:18:57' prior: 50476609!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier testingUtils merchantProcessor purchaseOfClient expectedPurchaseContent |
+	testingUtils _ TestingUtils new.	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils book.
+	
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty .
+	
+	purchaseOfClient _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: purchaseOfClient first clientID.
+	self assert: expectedPurchaseContent equals: purchaseOfClient first cartContentsSAFASFDFS .
+	
+	 ! !
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:18:58'!
+PASSED!
+
+!classDefinition: #SalesBookTest category: 'TusLibros' stamp: 'JDR 6/11/2022 18:29:16'!
+TestCase subclass: #SalesBookTest
+	instanceVariableNames: 'testingUtils2'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:29:15'!
+assertaVKL: aValue asf: aCashier alaf: aClientID vsdoh: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:29:43' overrides: 16961394!
+setUp
+
+	testingUtils2 _ TestingUtils new.! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:30:26' prior: 50476664!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier merchantProcessor purchaseOfClient expectedPurchaseContent |	
+	cart _ Cart with: testingUtils2 catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils2 stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils2 book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils2 book.
+	
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).		
+	self assert: cart isEmpty .
+	
+	purchaseOfClient _ (salesBook purchasesOf: testingUtils2 clientID1).
+	
+	self assert: testingUtils2 clientID1 equals: purchaseOfClient first clientID.
+	self assert: expectedPurchaseContent equals: purchaseOfClient first cartContentsSAFASFDFS .
+	
+	 ! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:30:50' prior: 50476244!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils2 stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils2 book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils2 book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).		
+	self assert: cart isEmpty.	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils2 clientID1).
+	
+	self assert: testingUtils2 clientID1 equals: clientPurchases first clientID.
+	self assert: expectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:31:30' prior: 50476485!
+test07
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils2 catalog.
+	cart2 _ Cart with: testingUtils2 catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils2 stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils2 book amount: 1.	
+	cart2 add: testingUtils2 book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils2 book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils2 book2.	
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID2).	
+	self assert: cart2 isEmpty.		
+	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils2 clientID1.		
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils2 clientID2.	
+	
+	self assert: testingUtils2 clientID1 equals: purchasesOfClient1 first clientID.
+	self assert: expectedPurchaseContent1 equals: purchasesOfClient1 first cartContentsSAFASFDFS .
+	
+	self assert: testingUtils2 clientID2 equals: purchasesOfClient2 first clientID.
+	self assert: expectedPurchaseContent2 equals: purchasesOfClient2 first cartContentsSAFASFDFS .
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:32:06' prior: 50474629!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils2 catalog.
+	cart2 _ Cart with: testingUtils2 catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils2 stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils2 book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils2 book.
+		
+	cart2 add: testingUtils2 book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils2 book2.
+
+		
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).	
+	self assert: cart1 isEmpty.
+
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).	
+	self assert: cart2 isEmpty.
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils2 clientID1.
+	
+	self assert: testingUtils2 clientID1 equals: purchasesOfClient first clientID.
+	self assert: expectedFirstPurchaseContents equals:  purchasesOfClient first cartContentsSAFASFDFS.
+	
+	self assert: testingUtils2 clientID1 equals: purchasesOfClient second clientID.
+	self assert: expectedSecondPurchaseContents equals:  purchasesOfClient second cartContentsSAFASFDFS.
+	
+
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:32:30' prior: 50474682!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils2 catalog.
+	cart2 _ Cart with: testingUtils2 catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils2 stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils2 book amount: 1.
+	cart2 add: testingUtils2 book2 amount: 1.
+		
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).	
+	self assert: cart1 isEmpty.
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).	
+	self assert: cart2 isEmpty.
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils2 clientID1.
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID.! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:33:00' prior: 50476775!
+test06
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	cart _ Cart with: testingUtils2 catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils2 stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils2 book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils2 book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils2 validCreditCard on: testingUtils2 validCheckoutMonthOfYear for: testingUtils2 clientID1).		
+	self assert: cart isEmpty.	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils2 clientID1).
+	
+	self assert: testingUtils2 clientID1 equals: clientPurchases first clientID.
+	self assert: expectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+
+!classDefinition: #SalesBookTest category: 'TusLibros' stamp: 'JDR 6/11/2022 18:33:06'!
+TestCase subclass: #SalesBookTest
+	instanceVariableNames: 'testingUtils'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476910!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+		
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart2 isEmpty.
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID.! !
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476806!
+test07
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.	
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2).	
+	self assert: cart2 isEmpty.		
+	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils clientID1.		
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils clientID2.	
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient1 first clientID.
+	self assert: expectedPurchaseContent1 equals: purchasesOfClient1 first cartContentsSAFASFDFS .
+	
+	self assert: testingUtils clientID2 equals: purchasesOfClient2 first clientID.
+	self assert: expectedPurchaseContent2 equals: purchasesOfClient2 first cartContentsSAFASFDFS .
+	! !
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476726!
+assertaVKL: aValue asf: aCashier alaf: aClientID vsdoh: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	! !
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476737 overrides: 16961394!
+setUp
+
+	testingUtils _ TestingUtils new.! !
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476858!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+
+		
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.
+
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart2 isEmpty.
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient first clientID.
+	self assert: expectedFirstPurchaseContents equals:  purchasesOfClient first cartContentsSAFASFDFS.
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient second clientID.
+	self assert: expectedSecondPurchaseContents equals:  purchasesOfClient second cartContentsSAFASFDFS.
+	
+
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID! !
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476742!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier merchantProcessor purchaseOfClient expectedPurchaseContent |	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils book.
+	
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty .
+	
+	purchaseOfClient _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: purchaseOfClient first clientID.
+	self assert: expectedPurchaseContent equals: purchaseOfClient first cartContentsSAFASFDFS .
+	
+	 ! !
+!SalesBookTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 18:33:06' prior: 50476945!
+test06
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+		
+	self assert: 100 equals: (cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).		
+	self assert: cart isEmpty.	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: clientPurchases first clientID.
+	self assert: expectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:34:56'!
+assert: aValue equalsCheckoutBy: aCashier of: aClientID for: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	! !
+
+!methodRemoval: SalesBookTest #assertaVKL:asf:alaf:vsdoh: stamp: 'JDR 6/11/2022 18:34:57'!
+assertaVKL: aValue asf: aCashier alaf: aClientID vsdoh: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:35:15'!
+assert: aValue equalsCheckoutBy: aCashier for: aClientID of: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	! !
+
+!methodRemoval: SalesBookTest #assert:equalsCheckoutBy:of:for: stamp: 'JDR 6/11/2022 18:35:15'!
+assert: aValue equalsCheckoutBy: aCashier of: aClientID for: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:35:45'!
+assert: aValue equalsCheckoutOf: aCashier for: aClientID by: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	! !
+
+!methodRemoval: SalesBookTest #assert:equalsCheckoutBy:for:of: stamp: 'JDR 6/11/2022 18:35:45'!
+assert: aValue equalsCheckoutBy: aCashier for: aClientID of: aCart
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:35:58' prior: 50477245!
+assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier
+	
+	self assert: aValue equals: (aCashier checkout: aCart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: aClientID).	
+	self assert: aCart isEmpty.	
+	
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:37:05' prior: 50477139!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier merchantProcessor purchaseOfClient expectedPurchaseContent |	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils book.
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier. 
+	
+	purchaseOfClient _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: purchaseOfClient first clientID.
+	self assert: expectedPurchaseContent equals: purchaseOfClient first cartContentsSAFASFDFS .
+	
+	 ! !
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test01ANewCartShouldBeEmpty stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test02ACartShouldNotBeEmptyAfterAddingBookToCart stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test03CanAddToCartAnAmountOfACertainBook stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test04OnlyCanAddToCartBooksInCatalog stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test05OnlyCanAddToCartAPositiveAmountOfABook stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test06CanConsultCartContents stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test07OnlyCanAddToCartAnIntegerAmountOfABook stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CartTest #test08CanConsultCartTotalPrice stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CashierTest #test05CheckoutWithAStolenCardShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberMustBeLength16 stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNameMustBeAValidName stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardDateMustBeAMonthOfYear stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test01DebitFromAnythingButACreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test02DebitFromAnExpiredCreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test03DebitFromAStolenCreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #MerchantProcessorSimulatorTest #test04DebitFromAFundlessCreditCardShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test01CreatingACartWithAnUnregisteredUsernameShouldRaiseAnError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test02CreatingACartWithARegisteredUsernameAndAWrongPassworrdShouldRiseError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test03NewCartShouldBeEmpy stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test04TwoCreatedCartsShouldHaveDifferentsIDs stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test05ListCartShouldNotBeEmptyAfterAddingAProduct stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test06ListingTwoDifferentCartsMustHaveAddedProductsRespectively stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test07AddingProductsWithAnInvalidCartIDShouldRaiseError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test08CantListCartOfAnInvalidCartID stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test09AddingAProductNotInCatalogShouldRaiseError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test10CheckoutOfAnEmotyCartShouldRiseError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test11CheckoutOfAnInvalidCartIDShouldRaiseError stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test12ListingPurchasesOfClientMustHaveChackedoutCartsSADFDFERGTEGRDFSGDFSG stamp: 'JDR 6/11/2022 18:37:05'!
+PASSED!
+
+!testRun: #SystemFacadeTest #test13 stamp: 'JDR 6/11/2022 18:37:05'!
+FAILURE!
+
+!testRun: #SystemFacadeTest #test13 stamp: 'JDR 6/11/2022 18:37:05'!
+FAILURE!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:37:08'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:37:36' prior: 50477172!
+test06
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent clientPurchases |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier. 	
+	
+	clientPurchases _ (salesBook purchasesOf: testingUtils clientID1).
+	
+	self assert: testingUtils clientID1 equals: clientPurchases first clientID.
+	self assert: expectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:37:36'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:38:24' prior: 50477019!
+test07
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient1 purchasesOfClient2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier. 
+	
+	purchasesOfClient1 _ salesBook purchasesOf: testingUtils clientID1.		
+	purchasesOfClient2 _ salesBook purchasesOf: testingUtils clientID2.	
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient1 first clientID.
+	self assert: expectedPurchaseContent1 equals: purchasesOfClient1 first cartContentsSAFASFDFS .
+	
+	self assert: testingUtils clientID2 equals: purchasesOfClient2 first clientID.
+	self assert: expectedPurchaseContent2 equals: purchasesOfClient2 first cartContentsSAFASFDFS .
+	! !
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:38:24'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:39:12' prior: 50477087!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier. 
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient first clientID.
+	self assert: expectedFirstPurchaseContents equals:  purchasesOfClient first cartContentsSAFASFDFS.
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient second clientID.
+	self assert: expectedSecondPurchaseContents equals:  purchasesOfClient second cartContentsSAFASFDFS.
+	
+
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:39:12'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:43:09'!
+assert: anExpectedPurchaseContent iskjag: aClientID gjaj: aSalesBook
+	
+	| clientPurchases |
+	clientPurchases _ (aSalesBook purchasesOf: aClientID).
+	
+	self assert: aClientID equals: clientPurchases first clientID.
+	self assert: anExpectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:44:09'!
+assert: anExpectedPurchaseContent equalsPurchasesOf: aClientID from: aSalesBook
+	
+	| clientPurchases |
+	clientPurchases _ (aSalesBook purchasesOf: aClientID).
+	
+	self assert: aClientID equals: clientPurchases first clientID.
+	self assert: anExpectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+
+!methodRemoval: SalesBookTest #assert:iskjag:gjaj: stamp: 'JDR 6/11/2022 18:44:09'!
+assert: anExpectedPurchaseContent iskjag: aClientID gjaj: aSalesBook
+	
+	| clientPurchases |
+	clientPurchases _ (aSalesBook purchasesOf: aClientID).
+	
+	self assert: aClientID equals: clientPurchases first clientID.
+	self assert: anExpectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:45:20' prior: 50477278!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier merchantProcessor expectedPurchaseContent |	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils book.
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier. 
+	self assert: expectedPurchaseContent equalsPurchasesOf: testingUtils clientID1 from: salesBook.
+
+	
+	 ! !
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:45:22'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:45:45' prior: 50477471!
+test06
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier. 		
+	self assert: expectedPurchaseContent equalsPurchasesOf: testingUtils clientID1 from: salesBook.! !
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:45:46'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:46:37' prior: 50477517!
+test07
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier. 
+	
+	self assert: expectedPurchaseContent1 equalsPurchasesOf: testingUtils clientID1 from: salesBook.
+	self assert: expectedPurchaseContent2 equalsPurchasesOf: testingUtils clientID2 from: salesBook.! !
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:46:39'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:48:14' prior: 50477581!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier. 
+	
+	self assert: expectedFirstPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook.	
+	self assert: expectedSecondPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook.	
+
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:49:09' prior: 50477822!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier. 	
+	
+	self assert: expectedFirstPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook.	
+	self assert: expectedSecondPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook.	
+	
+	clientPurchases _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: clientPurchases first saleID = clientPurchases second saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:49:15'!
+FAILURE!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:49:29'!
+FAILURE!
+
+----End fileIn of /home/jerodacunda/Escritorio/10-TusLibros3/2/linux64/Packages/TerseGuide.pck.st----!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:58:02' prior: 50477657!
+assert: anExpectedPurchaseContent equalsPurchasesOf: aClientID from: aSalesBook
+	
+	| clientPurchases purchase |
+	clientPurchases _ (aSalesBook purchasesOf: aClientID).
+	purchase _ clientPurchases detect: [ :aPurchase | aPurchase clientID = aClientID ] ifNone: [self error: 'there are not any purchases for that client id'].
+	
+	self assert: anExpectedPurchaseContent equals: purchase cartContentsSAFASFDFS .! !
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 18:58:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 18:58:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 18:58:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 18:58:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:58:05'!
+FAILURE!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 18:58:05'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 18:58:05'!
+FAILURE!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:44:09' prior: 50480825!
+assert: anExpectedPurchaseContent equalsPurchasesOf: aClientID from: aSalesBook
+	
+	| clientPurchases |
+	clientPurchases _ (aSalesBook purchasesOf: aClientID).
+	
+	self assert: aClientID equals: clientPurchases first clientID.
+	self assert: anExpectedPurchaseContent equals: clientPurchases first cartContentsSAFASFDFS .! !
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:00:38'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:00:38'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:00:38'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:00:38'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:00:38'!
+FAILURE!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:00:38'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:00:38'!
+FAILURE!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 18:39:12' prior: 50477860!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier. 
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient first clientID.
+	self assert: expectedFirstPurchaseContents equals:  purchasesOfClient first cartContentsSAFASFDFS.
+	
+	self assert: testingUtils clientID1 equals: purchasesOfClient second clientID.
+	self assert: expectedSecondPurchaseContents equals:  purchasesOfClient second cartContentsSAFASFDFS.
+	
+
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:01:18'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:01:52' prior: 50476984!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier. 
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID.! !
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:01:52'!
+ERROR!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:02:00' prior: 50480956!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+		
+	self assert: 100 equals: (cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart1 isEmpty.
+	
+	self assert: 50 equals: (cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1).	
+	self assert: cart2 isEmpty.
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID.! !
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:02:00'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:05:10'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:05:34'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:10:16' prior: 50480892!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier. 
+	
+	self assert: expectedFirstPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook. 
+	self assert: expectedSecondPurchaseContents equalsPurchasesOf: testingUtils clientID2 from: salesBook. 
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:10:23'!
+ERROR!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:11:52'!
+ERROR!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:11:52'!
+ERROR!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:11:57'!
+ERROR!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:11:57'!
+ERROR!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:14:21' prior: 50481077!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self assert: expectedFirstPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook. 
+	self assert: expectedSecondPurchaseContents equalsPurchasesOf: testingUtils clientID2 from: salesBook. 
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:14:21'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:14:33' prior: 50481131!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self assert: expectedFirstPurchaseContents equalsPurchasesOf: testingUtils clientID1 from: salesBook. 
+	self assert: expectedSecondPurchaseContents equalsPurchasesOf: testingUtils clientID2 from: salesBook. 
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:14:33'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:20:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:22:11'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:26:19'!
+assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier aas: anExpectedPurchaseContent ff: aSalesBook
+
+	self assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier. 
+	self assert: anExpectedPurchaseContent equalsPurchasesOf: aClientID from: aSalesBook.
+
+	
+	! !
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:27:03'!
+assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier expecting: anExpectedPurchaseContent using: aSalesBook
+
+	self assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier. 
+	self assert: anExpectedPurchaseContent equalsPurchasesOf: aClientID from: aSalesBook.
+
+	
+	! !
+
+!methodRemoval: SalesBookTest #assert:equalsCheckoutOf:for:by:aas:ff: stamp: 'JDR 6/11/2022 19:27:03'!
+assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier aas: anExpectedPurchaseContent ff: aSalesBook
+
+	self assert: aValue equalsCheckoutOf: aCart for: aClientID by: aCashier. 
+	self assert: anExpectedPurchaseContent equalsPurchasesOf: aClientID from: aSalesBook.
+
+	
+	!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:27:51' prior: 50477683!
+test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook
+
+	| salesBook cart cashier merchantProcessor expectedPurchaseContent |	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	expectedPurchaseContent _ Bag with: testingUtils book.
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier expecting: expectedPurchaseContent using: salesBook.
+
+	
+	 ! !
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:27:52'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:28:41' prior: 50477728!
+test06
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier expecting: expectedPurchaseContent using: salesBook.! !
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:28:42'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:29:41' prior: 50477769!
+test07
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 		expecting: expectedPurchaseContent1 using: salesBook.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedPurchaseContent2 using: salesBook.! !
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:29:41'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:31:09' prior: 50481193!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:31:09'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:33:12' prior: 50480986!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 purchasesOfClient |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier.	
+	
+	purchasesOfClient _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: purchasesOfClient first saleID = purchasesOfClient second saleID.! !
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:33:12'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:33:51' prior: 50481521!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 clientPurchases |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier.	
+	
+	clientPurchases _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: clientPurchases first saleID = clientPurchases second saleID.! !
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+
+!testRun: #SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+
+!testRun: #SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+
+!testRun: #SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+
+!testRun: #SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:33:51'!
+PASSED!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:34:51'!
+test03
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier expecting: expectedPurchaseContent using: salesBook.! !
+
+!methodRemoval: SalesBookTest #test06 stamp: 'JDR 6/11/2022 19:34:51'!
+test06
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.
+	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier expecting: expectedPurchaseContent using: salesBook.!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:35:38' prior: 50481614!
+test03
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier expecting: expectedPurchaseContent using: salesBook.! !
+
+!methodRemoval: SalesBookTest #test03 stamp: 'JDR 6/11/2022 19:36:00'!
+test03
+	
+	| cart cashier salesBook merchantProcessor expectedPurchaseContent |
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart add: testingUtils book amount: 1.	
+	expectedPurchaseContent _ Bag  with: testingUtils book.	
+	
+	self assert: 100 equalsCheckoutOf: cart for: testingUtils clientID1 by: cashier expecting: expectedPurchaseContent using: salesBook.!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:36:45'!
+test03CheckoutOfTwoCartsShouldRegisterEachPurchaseOn
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 		expecting: expectedPurchaseContent1 using: salesBook.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedPurchaseContent2 using: salesBook.! !
+
+!methodRemoval: SalesBookTest #test07 stamp: 'JDR 6/11/2022 19:36:45'!
+test07
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 		expecting: expectedPurchaseContent1 using: salesBook.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedPurchaseContent2 using: salesBook.!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:37:43'!
+test03CheckoutOfTwoCartsShouldRegisterEachPurchaseOnSalesBook
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 		expecting: expectedPurchaseContent1 using: salesBook.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedPurchaseContent2 using: salesBook.! !
+
+!methodRemoval: SalesBookTest #test03CheckoutOfTwoCartsShouldRegisterEachPurchaseOn stamp: 'JDR 6/11/2022 19:37:43'!
+test03CheckoutOfTwoCartsShouldRegisterEachPurchaseOn
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedPurchaseContent1 expectedPurchaseContent2 |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.	
+	cart2 add: testingUtils book2 amount: 1.	
+	expectedPurchaseContent1 _ Bag with: testingUtils book.	
+	expectedPurchaseContent2 _ Bag with: testingUtils book2.	
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 		expecting: expectedPurchaseContent1 using: salesBook.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedPurchaseContent2 using: salesBook.!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:39:50'!
+test08CheckoutOfTwoCartsShouldHaveDifferentSaleIDs
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!methodRemoval: SalesBookTest #test08 stamp: 'JDR 6/11/2022 19:39:50'!
+test08
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:40:01'!
+test04CheckoutOfTwoCartsShouldHaveDifferentSaleIDs
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!methodRemoval: SalesBookTest #test08CheckoutOfTwoCartsShouldHaveDifferentSaleIDs stamp: 'JDR 6/11/2022 19:40:01'!
+test08CheckoutOfTwoCartsShouldHaveDifferentSaleIDs
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:40:51'!
+test04CheckoutOfTwoCartsFromDifferentClientsShouldHaveDifferentSaleIDs
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID! !
+
+!methodRemoval: SalesBookTest #test04CheckoutOfTwoCartsShouldHaveDifferentSaleIDs stamp: 'JDR 6/11/2022 19:40:51'!
+test04CheckoutOfTwoCartsShouldHaveDifferentSaleIDs
+	
+	| cashier salesBook merchantProcessor cart1 cart2 expectedFirstPurchaseContents expectedSecondPurchaseContents clientPurchases1 clientPurchases2 |	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	expectedFirstPurchaseContents _ Bag with: testingUtils book.
+		
+	cart2 add: testingUtils book2 amount: 1.
+	expectedSecondPurchaseContents _ Bag with: testingUtils book2.
+		
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier 	expecting: expectedFirstPurchaseContents using: salesBook. 	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID2 by: cashier expecting: expectedSecondPurchaseContents using: salesBook. 
+	
+	clientPurchases1 _ salesBook purchasesOf: testingUtils clientID1.
+	clientPurchases2 _ salesBook purchasesOf: testingUtils clientID2.
+	
+	self deny: clientPurchases1 first saleID = clientPurchases2 first saleID!
+!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 19:41:22'!
+test05CheckoutOfTwoCartsFromTheSameClientShouldHaveDifferentSaleIDs
+	
+	| cashier salesBook merchantProcessor cart1 cart2 clientPurchases |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier.	
+	
+	clientPurchases _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: clientPurchases first saleID = clientPurchases second saleID.! !
+
+!methodRemoval: SalesBookTest #test09 stamp: 'JDR 6/11/2022 19:41:22'!
+test09
+	
+	| cashier salesBook merchantProcessor cart1 cart2 clientPurchases |
+	
+	cart1 _ Cart with: testingUtils catalog.
+	cart2 _ Cart with: testingUtils catalog	.
+	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.	
+	
+	cart1 add: testingUtils book amount: 1.
+	cart2 add: testingUtils book2 amount: 1.
+	
+	self assert: 100 equalsCheckoutOf: cart1 for: testingUtils clientID1 by: cashier.	
+	self assert: 50 equalsCheckoutOf: cart2 for: testingUtils clientID1 by: cashier.	
+	
+	clientPurchases _ salesBook purchasesOf: testingUtils clientID1.
+	self deny: clientPurchases first saleID = clientPurchases second saleID.!
+
+!testRun: #SalesBookTest #test05CheckoutOfTwoCartsFromTheSameClientShouldHaveDifferentSaleIDs stamp: 'JDR 6/11/2022 19:41:25'!
+PASSED!
+
+!testRun: #SalesBookTest #test01ANewSalesBookShouldBeEmpty stamp: 'JDR 6/11/2022 19:41:25'!
+PASSED!
+
+!testRun: #SalesBookTest #test02CheckoutOfACartWithACashierShouldRegisterPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:41:25'!
+PASSED!
+
+!testRun: #SalesBookTest #test03CheckoutOfTwoCartsShouldRegisterEachPurchaseOnSalesBook stamp: 'JDR 6/11/2022 19:41:25'!
+PASSED!
+
+!testRun: #SalesBookTest #test04CheckoutOfTwoCartsFromDifferentClientsShouldHaveDifferentSaleIDs stamp: 'JDR 6/11/2022 19:41:25'!
+PASSED!
+
+!testRun: #SalesBookTest #test05CheckoutOfTwoCartsFromTheSameClientShouldHaveDifferentSaleIDs stamp: 'JDR 6/11/2022 19:41:25'!
+PASSED!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:07:59' prior: 50474247!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier testingUtils salesBook purchase merchantProcessor sale |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+		
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1 .
+	self assert: cart isEmpty.
+		
+	self assert: 100 equals: sale total.	
+	self assert: testingUtils clientID1 equals: sale clientID.	
+	self assert: sale isValid.	
+	self assert: (salesBook hasRegistered: sale).! !
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:08:42' prior: 50482146!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier testingUtils salesBook purchase merchantProcessor sale |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+		
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1 .
+	self assert: cart isEmpty.
+		
+	self assert: 100 equals: sale total.	
+	self assert: testingUtils clientID1 equals: sale clientID.	
+	self assert: (salesBook hasRegistered: sale).! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:08:45'!
+ERROR!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:10:28' prior: 50482175!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier testingUtils salesBook purchase merchantProcessor sale |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+		
+	cart add: testingUtils book amount: 1.
+	purchase _ cart content.
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1 .
+	self assert: cart isEmpty.
+		
+	self assert: 100 equals: sale total.	
+	self assert: testingUtils clientID1 equals: sale clientID.	
+	self assert: (salesBook hasRegistered: sale).! !
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:10:36' prior: 50482207!
+test02CheckoutOfACartWithOneBookShouldMatchBookPrice
+	
+	| cart cashier testingUtils salesBook merchantProcessor sale |
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+		
+	cart add: testingUtils book amount: 1.
+		
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1 .
+	self assert: cart isEmpty.
+		
+	self assert: 100 equals: sale total.	
+	self assert: testingUtils clientID1 equals: sale clientID.	
+	self assert: (salesBook hasRegistered: sale).! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:10:41'!
+ERROR!
+!Cashier methodsFor: 'checking out' stamp: 'JDR 6/11/2022 20:12:12' prior: 50475179!
+checkout: aCart with: aCreditCard on: aDate for: aClientID 
+	
+	| subtotal sale |
+	
+	(aCart isEmpty) ifTrue:[self error: Cashier cannotCheckoutEmptyCartErrorDescription].
+	
+	(aCreditCard isExpiredOn: aDate) ifTrue: [self error: Cashier expiredCardErrorDescription]. 
+	
+	subtotal _ aCart subtotal.
+	
+	merchantProcessorSimulator debit: subtotal from: aCreditCard on: aDate.
+	
+	sale _ salesBook addSaleOf: aCart for: aClientID with: subtotal. 
+	
+	aCart clearContent.
+	
+	^sale! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:12:27'!
+ERROR!
+!SalesBook methodsFor: 'adding' stamp: 'JDR 6/11/2022 20:12:36'!
+addSaleOf: aCart for: aString with: aSmallInteger 
+	self shouldBeImplemented.! !
+!SalesBook methodsFor: 'adding' stamp: 'JDR 6/11/2022 20:15:41' prior: 50482287!
+addSaleOf: aCart for: aClientID with: aTotal	
+	
+	| sale idForThisSale |
+	
+	idForThisSale _ lastSaleID. 
+	lastSaleID _ lastSaleID + 1.
+	
+	sale _  Sale with: aCart content for: aClientID withSaleID: idForThisSale pricing: aTotal.
+	
+	sales add: sale.
+	
+	^sale! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:15:48'!
+ERROR!
+!Sale class methodsFor: 'instance creation' stamp: 'JDR 6/11/2022 20:15:54'!
+with: aBag for: aString withSaleID: aSmallInteger pricing: aSmallInteger4 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeWith: aBag for: aString withSaleID: aSmallInteger pricing: aSmallInteger4 ! !
+!Sale class methodsFor: 'instance creation' stamp: 'JDR 6/11/2022 20:16:52' prior: 50482308!
+with: aCartContents for: aClientID withSaleID: aSaleID  pricing: aTotal
+		
+	^self new initializeWith: aCartContents for: aClientID withSaleID: aSaleID pricing: aTotal! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:16:58'!
+ERROR!
+
+!classDefinition: #Sale category: 'TusLibros' stamp: 'JDR 6/11/2022 20:17:03'!
+Object subclass: #Sale
+	instanceVariableNames: 'cartContentsAFDGRGESG clientID saleID cartContents'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Sale category: 'TusLibros' stamp: 'JDR 6/11/2022 20:17:03'!
+Object subclass: #Sale
+	instanceVariableNames: 'cartContentsAFDGRGESG clientID saleID cartContents total'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Sale methodsFor: 'initialization' stamp: 'JDR 6/11/2022 20:17:03'!
+initializeWith: aCartContents for: aClientID withSaleID: aSaleID pricing: aTotal 
+	self shouldBeImplemented.
+	cartContents := aCartContents.
+	clientID := aClientID.
+	saleID := aSaleID.
+	total := aTotal.! !
+!Sale methodsFor: 'initialization' stamp: 'JDR 6/11/2022 20:17:14' prior: 50482347!
+initializeWith: aCartContents for: aClientID withSaleID: aSaleID pricing: aTotal 
+	
+	cartContents := aCartContents.
+	clientID := aClientID.
+	saleID := aSaleID.
+	total := aTotal.! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:17:16'!
+ERROR!
+!Sale methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 20:17:22'!
+total
+	self shouldBeImplemented.
+	^total! !
+!Sale methodsFor: 'as yet unclassified' stamp: 'JDR 6/11/2022 20:17:28' prior: 50482369!
+total
+	
+	^total! !
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:17:44'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/11/2022 20:17:44'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:17:44'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 20:17:44'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/11/2022 20:17:44'!
+PASSED!
+
+!testRun: #CashierTest #test05CheckoutWithAStolenCardShouldRaiseAnError stamp: 'JDR 6/11/2022 20:17:44'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:17:46'!
+PASSED!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:21:03' prior: 50474271!
+test03CheckoutOfACartEqualsCartSubtotal
+	
+	| cart cashier testingUtils salesBook merchantProcessor sale |
+	
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cart add: testingUtils book amount: 3.
+	cart add: testingUtils book2 amount: 1.	
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear.	
+	self assert: cart isEmpty.	
+	
+	self assert: 350 equals: sale total.
+	self assert: testingUtils clientID1 equals: sale clientID.	
+	self assert: (salesBook hasRegistered: sale).
+
+	
+! !
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 20:21:12'!
+ERROR!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:21:33' prior: 50482403!
+test03CheckoutOfACartEqualsCartSubtotal
+	
+	| cart cashier testingUtils salesBook merchantProcessor sale |
+	
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cart add: testingUtils book amount: 3.
+	cart add: testingUtils book2 amount: 1.	
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.	
+	self assert: cart isEmpty.	
+	
+	self assert: 350 equals: sale total.
+	self assert: testingUtils clientID1 equals: sale clientID.	
+	self assert: (salesBook hasRegistered: sale).
+
+	
+! !
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 20:21:33'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/11/2022 20:21:33'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:21:33'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 20:21:33'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/11/2022 20:21:33'!
+PASSED!
+
+!testRun: #CashierTest #test05CheckoutWithAStolenCardShouldRaiseAnError stamp: 'JDR 6/11/2022 20:21:33'!
+PASSED!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:26:25'!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor sale expectedContent |
+	
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cart add: testingUtils book amount: 3.
+	cart add: testingUtils book2 amount: 1.	
+	
+	expectedContent _ Bag new.
+	expectedContent add: testingUtils book.
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.	
+	self assert: cart isEmpty.	
+	
+	self assert: expectedContent equals: sale content.
+
+	
+! !
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:27:26' prior: 50482481!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor sale expectedContent |
+	
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cart add: testingUtils book amount: 3.
+	cart add: testingUtils book2 amount: 1.	
+	
+	expectedContent _ Bag new.
+	expectedContent add: testingUtils book withOccurrences: 3.
+	expectedContent add: testingUtils book2 .
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.	
+	self assert: cart isEmpty.	
+	
+	self assert: expectedContent equals: sale content.
+
+	
+! !
+
+!testRun: #CashierTest #test06 stamp: 'JDR 6/11/2022 20:27:27'!
+ERROR!
+!Sale methodsFor: 'initialization' stamp: 'JDR 6/11/2022 20:27:52' prior: 50482357!
+initializeWith: aCartContents for: aClientID withSaleID: aSaleID pricing: aTotal 
+	
+	cartContentsAFDGRGESG := aCartContents.
+	clientID := aClientID.
+	saleID := aSaleID.
+	total := aTotal.! !
+
+!classDefinition: #Sale category: 'TusLibros' stamp: 'JDR 6/11/2022 20:27:58'!
+Object subclass: #Sale
+	instanceVariableNames: 'cartContentsAFDGRGESG clientID saleID total'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CashierTest methodsFor: 'testing' stamp: 'JDR 6/11/2022 20:28:52' prior: 50482508!
+test06
+	
+	| cart cashier testingUtils salesBook merchantProcessor sale expectedContent |
+	
+	testingUtils _ TestingUtils new.
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	
+	cart add: testingUtils book amount: 3.
+	cart add: testingUtils book2 amount: 1.	
+	
+	expectedContent _ Bag new.
+	expectedContent add: testingUtils book withOccurrences: 3.
+	expectedContent add: testingUtils book2 .
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.	
+	self assert: cart isEmpty.	
+	
+	self assert: expectedContent equals: sale cartContentsSAFASFDFS .
+
+	
+! !
+
+!testRun: #CashierTest #test06 stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
+
+!testRun: #CashierTest #test01CheckoutOfAnEmptyCartShouldRaiseAnError stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
+
+!testRun: #CashierTest #test02CheckoutOfACartWithOneBookShouldMatchBookPrice stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
+
+!testRun: #CashierTest #test03CheckoutOfACartEqualsCartSubtotal stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutWithAnExpiredCardShouldRaiseAnError stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
+
+!testRun: #CashierTest #test05CheckoutWithAStolenCardShouldRaiseAnError stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
+
+!testRun: #CashierTest #test06 stamp: 'JDR 6/11/2022 20:28:53'!
+PASSED!
