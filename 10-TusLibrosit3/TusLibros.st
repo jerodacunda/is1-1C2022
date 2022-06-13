@@ -14,13 +14,13 @@ test01ANewCartShouldBeEmpty
 	
 	self assert: cart isEmpty! !
 
-!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 13:51:37'!
+!CartTest methodsFor: 'test - accesing' stamp: 'AF 6/13/2022 12:39:44'!
 test06CanConsultCartContents
 
 	| cart book expectedCartContent testingUtils |
 	testingUtils _ TestingUtils new.
 	cart _ Cart with: testingUtils catalog.
-	book _ testingUtils book.
+	book _ testingUtils bookISBN.
 	
 	cart add: book amount: 1.
 	expectedCartContent _ Bag with: book.
@@ -36,40 +36,40 @@ test06CanConsultCartContents
 
 	! !
 
-!CartTest methodsFor: 'test - accesing' stamp: 'JDR 6/8/2022 13:51:47'!
+!CartTest methodsFor: 'test - accesing' stamp: 'AF 6/13/2022 12:39:44'!
 test08CanConsultCartTotalPrice
 	
 	| cart bookPrice testingUtils |
 	testingUtils _ TestingUtils new.
 	cart _ Cart with: testingUtils catalog.
-	cart add: testingUtils book amount: 3.
+	cart add: testingUtils bookISBN amount: 3.
 	
-	bookPrice _ testingUtils catalog at: testingUtils book.
+	bookPrice _ testingUtils catalog at: testingUtils bookISBN.
 	
 	self assert: 3 * bookPrice equals: cart subtotal.
 
 	! !
 
 
-!CartTest methodsFor: 'test - adding' stamp: 'JDR 6/8/2022 13:50:57'!
+!CartTest methodsFor: 'test - adding' stamp: 'AF 6/13/2022 12:39:44'!
 test02ACartShouldNotBeEmptyAfterAddingBookToCart
 
 	| cart book testingUtils |
 	testingUtils _ TestingUtils new.
 	cart _ Cart with: testingUtils catalog.
-	book _ testingUtils book.
+	book _ testingUtils bookISBN.
 	
 	cart add: book amount: 1.
 	
 	self deny: cart isEmpty.! !
 
-!CartTest methodsFor: 'test - adding' stamp: 'JDR 6/8/2022 13:51:05'!
+!CartTest methodsFor: 'test - adding' stamp: 'AF 6/13/2022 12:39:44'!
 test03CanAddToCartAnAmountOfACertainBook
 
 	| cart book amount testingUtils |
 	testingUtils _ TestingUtils new.
 	cart _ Cart with: testingUtils catalog.
-	book _ testingUtils book.
+	book _ testingUtils bookISBN.
 	amount _ 3.
 	
 	cart add: book amount: amount.
@@ -86,7 +86,7 @@ test03CanAddToCartAnAmountOfACertainBook
 	! !
 
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 13:51:12'!
+!CartTest methodsFor: 'test - exceptions' stamp: 'AF 6/13/2022 12:40:54'!
 test04OnlyCanAddToCartBooksInCatalog
 
 	| cart testingUtils |
@@ -94,7 +94,7 @@ test04OnlyCanAddToCartBooksInCatalog
 	cart _ Cart with: testingUtils catalog.
 	
 	self 
-		should: [ cart add: testingUtils unregisteredBook amount: 1 ] 
+		should: [ cart add: testingUtils unregisteredBookISBN amount: 1 ] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError |
 			self assert: anError messageText equals: Cart cannotAddBooksNotInCatalogErrorDescription.
@@ -104,13 +104,13 @@ test04OnlyCanAddToCartBooksInCatalog
 
 	! !
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 13:51:20'!
+!CartTest methodsFor: 'test - exceptions' stamp: 'AF 6/13/2022 12:39:44'!
 test05OnlyCanAddToCartAPositiveAmountOfABook
 
 	| cart book invalidAmount testingUtils |
 	testingUtils _ TestingUtils new.
 	cart _ Cart with: testingUtils catalog.
-	book _ testingUtils book.			
+	book _ testingUtils bookISBN.			
 	invalidAmount _ 0.
 	
 	self 
@@ -124,13 +124,13 @@ test05OnlyCanAddToCartAPositiveAmountOfABook
 
 	! !
 
-!CartTest methodsFor: 'test - exceptions' stamp: 'JDR 6/8/2022 13:51:42'!
+!CartTest methodsFor: 'test - exceptions' stamp: 'AF 6/13/2022 12:39:44'!
 test07OnlyCanAddToCartAnIntegerAmountOfABook
 
 	| cart book invalidAmount testingUtils |
 	testingUtils _ TestingUtils new.
 	cart _ Cart with: testingUtils catalog.
-	book _ testingUtils book.			
+	book _ testingUtils bookISBN.			
 	invalidAmount _ 1.1.
 	
 	self 
@@ -147,25 +147,26 @@ test07OnlyCanAddToCartAnIntegerAmountOfABook
 
 !classDefinition: #CashierTest category: 'TusLibros'!
 TestCase subclass: #CashierTest
-	instanceVariableNames: 'testingUtils'
+	instanceVariableNames: 'testingUtils debitBehavior'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!CashierTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 02:42:31'!
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 11:40:35'!
 setUp
 
-	testingUtils _ TestingUtils new.! !
+	testingUtils _ TestingUtils new.
+	debitBehavior  _ [:aFinalPrice :aCreditCart :aDate| ]! !
 
-!CashierTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 02:42:31'!
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:24:11'!
 test01CheckoutOfAnEmptyCartShouldRaiseAnError
 
-	| cart cashier salesBook merchantProcessor |
+	| cart cashier salesBook |
 	
 	cart _ Cart with: testingUtils catalog.
 	salesBook _ SalesBook new.
-	merchantProcessor _ CatchOutMerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
-	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: self.
+	self shouldNotDebitOnThisTest.
 	
 	self should: [cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1] 
 		raise: Error - MessageNotUnderstood 
@@ -173,18 +174,15 @@ test01CheckoutOfAnEmptyCartShouldRaiseAnError
 			self assert: Cashier cannotCheckoutEmptyCartErrorDescription equals: anError messageText.
 			self assert: salesBook isEmpty ].! !
 
-!CashierTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 02:42:31'!
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test02CheckoutOfACartWithOneBookShouldMatchBookPrice
 	
-	| cart cashier salesBook merchantProcessor sale |
+	| cart cashier salesBook sale |
 	
 	cart _ Cart with: testingUtils catalog.	
 	salesBook _ SalesBook new.
-	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
-	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
-	
-	
-	cart add: testingUtils book amount: 1.
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: self.
+	cart add: testingUtils bookISBN amount: 1.
 	
 	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
 		
@@ -192,7 +190,7 @@ test02CheckoutOfACartWithOneBookShouldMatchBookPrice
 	self assert: cart isEmpty.
 	self assert: (salesBook hasRegistered: sale).! !
 
-!CashierTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 02:42:31'!
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test03CheckoutOfACartEqualsCartSubtotal
 	
 	| cart cashier expectedPrice salesBook merchantProcessor sale |
@@ -202,8 +200,8 @@ test03CheckoutOfACartEqualsCartSubtotal
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart add: testingUtils book amount: 3.
-	cart add: testingUtils book2 amount: 1.
+	cart add: testingUtils bookISBN amount: 3.
+	cart add: testingUtils bookISBN2 amount: 1.
 	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
 		
 	expectedPrice _ 350.
@@ -212,18 +210,20 @@ test03CheckoutOfACartEqualsCartSubtotal
 	self assert: cart isEmpty.
 	self assert: (salesBook hasRegistered: sale).! !
 
-!CashierTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 02:42:31'!
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test04CheckoutWithAnExpiredCardShouldRaiseAnError
 	
-	| cart cashier salesBook purchase merchantProcessor |
+	| cart cashier salesBook purchase |
 	
 	cart _ Cart with: testingUtils catalog.
-	salesBook _ SalesBook new.
-	merchantProcessor _ CatchOutMerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
-	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	salesBook _ SalesBook new..
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: self.
 	
-	cart add: testingUtils book amount: 1.
+	self shouldNotDebitOnThisTest.
+	
+	cart add: testingUtils bookISBN amount: 1.
 	purchase _ cart content.
+	
 
 	self should: [ cashier checkout: cart with: testingUtils expiredCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1] 
 		raise: Error - MessageNotUnderstood 
@@ -233,26 +233,89 @@ test04CheckoutWithAnExpiredCardShouldRaiseAnError
 			self deny: (salesBook hasRegistered: purchase).
 		]! !
 
-!CashierTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 02:42:31'!
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test05CheckoutWithAStolenCardShouldRaiseAnError
 	
-	| cart cashier salesBook purchase merchantProcessor |
+	| cart cashier salesBook purchase |
 	
 	cart _ Cart with: testingUtils catalog.
 	salesBook _ SalesBook new.
-	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
-	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: self.
 	
-	cart add: testingUtils book amount: 1.
+	cart add: testingUtils bookISBN amount: 1.
 	purchase _ cart content.
+
+	debitBehavior _  [ :aFinalPrice :aCreditCard :aDate | 
+		(testingUtils stolenCreditCardRegister includes: aCreditCard) ifTrue: [ self error: Cashier stolenCreditCardErrorDescription]
+	].
 
 	self should: [ cashier checkout: cart with: testingUtils stolenCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1] 
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | 
-			self assert: MerchantProcessorSimulator stolenCreditCardErrorDescription equals: anError messageText .
+			self assert: Cashier stolenCreditCardErrorDescription equals: anError messageText .
 			self deny: cart isEmpty.
 			self deny: (salesBook hasRegistered: purchase).
 		]! !
+
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
+test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit
+	
+	| cart cashier salesBook purchase |
+	
+	cart _ Cart with: testingUtils catalog.
+	salesBook _ SalesBook new.
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: self.
+	
+	cart add: testingUtils bookISBN amount: 1.
+	purchase _ cart content.
+
+	debitBehavior _  [ :aFinalPrice :aCreditCard :aDate | self error: Cashier cannotDebitFromAFundlessCreditCard ].
+
+	self should: [ cashier checkout: cart with: testingUtils stolenCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1] 
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError | 
+			self assert: Cashier cannotDebitFromAFundlessCreditCard equals: anError messageText .
+			self deny: cart isEmpty.
+			self deny: (salesBook hasRegistered: purchase).
+		]! !
+
+!CashierTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
+test07CashierChargesCreditCardUsingMerchantProcessor
+	
+	| cart cashier salesBook sale debitedAmount debitedCreditCard debitedDate |
+	
+	cart _ Cart with: testingUtils catalog.	
+	salesBook _ SalesBook new.
+
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: self.
+	
+	debitedAmount _ 100.
+	debitedCreditCard _ testingUtils validCreditCard.
+	debitBehavior _ [ :aFinalPrice :aCreditCard :aDate |  
+		debitedAmount _ aFinalPrice.
+		debitedCreditCard _ aCreditCard.
+		debitedDate _ aDate.
+	].
+	
+	cart add: testingUtils bookISBN amount: 1.
+	
+	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
+		
+	self assert: debitedAmount equals: sale total.	
+	self assert: debitedCreditCard equals: testingUtils validCreditCard.
+	self assert: debitedDate equals: testingUtils validCheckoutMonthOfYear.! !
+
+
+!CashierTest methodsFor: 'merchant processor - protocol' stamp: 'AF 6/13/2022 11:39:53'!
+debit: finalPrice from: aCreditCard on: aDate.
+
+	^debitBehavior value: finalPrice value: aCreditCard value: aDate! !
+
+
+!CashierTest methodsFor: 'merchant procesor - private' stamp: 'AF 6/13/2022 12:19:59'!
+shouldNotDebitOnThisTest
+	
+	debitBehavior _[:aFinalPrice :aCreditCart :aDate | self error: 'should not be debiting'].! !
 
 
 !classDefinition: #CreditCardTest category: 'TusLibros'!
@@ -333,20 +396,6 @@ test03DebitFromAStolenCreditCardShouldRaiseAnError
 	
 	! !
 
-!MerchantProcessorSimulatorTest methodsFor: 'testing' stamp: 'JDR 6/9/2022 19:53:27'!
-test04DebitFromAFundlessCreditCardShouldRaiseAnError
-
-	"| merchantProcessor amount testingUtils |
-	testingUtils _ TestingUtils new.
-	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister.
-	amount _ 100.
-	
-	self should: [ merchantProcessor debit: amount from: testingUtils fundlessCreditCard on: testingUtils validCheckoutMonthOfYear ]
-		raise: Error - MessageNotUnderstood 
-		withExceptionDo: [ :anError | self assert: MerchantProcessorSimulator fundlessCreditCardErrorDescription equals: anError messageText .]"
-	
-	! !
-
 
 !classDefinition: #SalesBookTest category: 'TusLibros'!
 TestCase subclass: #SalesBookTest
@@ -368,7 +417,7 @@ test01ANewSalesBookShouldBeEmpty
 
 	self assert: salesBook isEmpty.! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test02CheckoutOfACartWithACashierShouldRegisterSaleOnSalesBook
 
 	| salesBook cart cashier merchantProcessor sale |
@@ -378,14 +427,14 @@ test02CheckoutOfACartWithACashierShouldRegisterSaleOnSalesBook
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart add: testingUtils book amount: 1.	
+	cart add: testingUtils bookISBN amount: 1.	
 	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
 	
 	self assert: (salesBook hasRegistered: sale).
 	self deny: salesBook isEmpty .
 	! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test03ClientIDOfACheckedOutSaleShouldBeBuyerID
 
 	| salesBook cart cashier merchantProcessor sale |
@@ -395,13 +444,13 @@ test03ClientIDOfACheckedOutSaleShouldBeBuyerID
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart add: testingUtils book amount: 1.	
+	cart add: testingUtils bookISBN amount: 1.	
 	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.	
 	
 	self assert: testingUtils clientID1 equals: sale clientID.
 	! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test04ContentOfACheckedOutSaleShouldBeSaleContent
 
 	| salesBook cart cashier merchantProcessor sale saleContents |
@@ -411,14 +460,14 @@ test04ContentOfACheckedOutSaleShouldBeSaleContent
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart add: testingUtils book amount: 1.
+	cart add: testingUtils bookISBN amount: 1.
 	saleContents _ cart content.	
 	sale _ cashier checkout: cart with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
 	
 	self assert: saleContents  equals: sale content.
 	! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test05TransactionIDOfDifferentCheckoutsShouldBeDifferent
 
 	| salesBook cashier merchantProcessor cart1 cart2 sale1 sale2 |
@@ -429,8 +478,8 @@ test05TransactionIDOfDifferentCheckoutsShouldBeDifferent
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart1 add: testingUtils book amount: 1.
-	cart2 add: testingUtils book amount: 1.
+	cart1 add: testingUtils bookISBN amount: 1.
+	cart2 add: testingUtils bookISBN amount: 1.
 	
 	sale1 _ cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
 	sale2 _ cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
@@ -438,7 +487,7 @@ test05TransactionIDOfDifferentCheckoutsShouldBeDifferent
 	self deny: (sale1 transactionID) = (sale2 transactionID).
 	! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test06ASaleShouldBeRegisteredOnSalesBookUnderItsBuyerID
 
 	| salesBook cashier merchantProcessor cart1 cart2 sale1 expectedSaleOfClient |
@@ -449,8 +498,8 @@ test06ASaleShouldBeRegisteredOnSalesBookUnderItsBuyerID
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 		
-	cart1 add: testingUtils book amount: 1.
-	cart2 add: testingUtils book amount: 1.
+	cart1 add: testingUtils bookISBN amount: 1.
+	cart2 add: testingUtils bookISBN amount: 1.
 	
 	sale1 _ cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
 	expectedSaleOfClient _ OrderedCollection with: sale1.
@@ -458,7 +507,7 @@ test06ASaleShouldBeRegisteredOnSalesBookUnderItsBuyerID
 	self assert: expectedSaleOfClient equals: (salesBook getSalesBy: testingUtils clientID1).
 	! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test07SalesOfDifferentClientsShouldBeDistinguishedOnSalesBook
 
 	| salesBook cashier merchantProcessor cart1 cart2 sale1 sale2 expectedSaleOfClient1 expectedSaleOfClient2 |
@@ -469,8 +518,8 @@ test07SalesOfDifferentClientsShouldBeDistinguishedOnSalesBook
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart1 add: testingUtils book amount: 1.
-	cart2 add: testingUtils book amount: 1.	
+	cart1 add: testingUtils bookISBN amount: 1.
+	cart2 add: testingUtils bookISBN amount: 1.	
 	sale1 _ cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1. 
 	sale2 _ cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID2.
 		
@@ -481,7 +530,7 @@ test07SalesOfDifferentClientsShouldBeDistinguishedOnSalesBook
 	self assert: expectedSaleOfClient2 equals: (salesBook getSalesBy: testingUtils clientID2).
 	! !
 
-!SalesBookTest methodsFor: 'testing' stamp: 'JDR 6/13/2022 03:28:22'!
+!SalesBookTest methodsFor: 'testing' stamp: 'AF 6/13/2022 12:39:44'!
 test08MultipleSalesOfASingleClientShouldBeRegisteredOnSalesBookUnderTheSameBuyerID
 
 	| salesBook cashier merchantProcessor cart1 cart2 sale1 sale2 expectedSalesOfClient1 |
@@ -492,8 +541,8 @@ test08MultipleSalesOfASingleClientShouldBeRegisteredOnSalesBookUnderTheSameBuyer
 	merchantProcessor _ MerchantProcessorSimulator with: testingUtils stolenCreditCardRegister .
 	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
-	cart1 add: testingUtils book amount: 1.
-	cart2 add: testingUtils book amount: 1.
+	cart1 add: testingUtils bookISBN amount: 1.
+	cart2 add: testingUtils bookISBN amount: 1.
 	
 	sale1 _ cashier checkout: cart1 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1. 
 	sale2 _ cashier checkout: cart2 with: testingUtils validCreditCard on: testingUtils validCheckoutMonthOfYear for: testingUtils clientID1.
@@ -511,7 +560,7 @@ TestCase subclass: #SystemFacadeTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'JDR 6/13/2022 04:02:18'!
+!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'AF 6/13/2022 12:39:44'!
 test13ListPurchasesOfAClientWithAPurchaseShouldReturnThatPurchase
 
 	| systemFacade systemAuthenticator merchantProcessor salesBook cartID1 expectedPurchase purchase timePassSimulator |
@@ -524,10 +573,10 @@ test13ListPurchasesOfAClientWithAPurchaseShouldReturnThatPurchase
 	
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
 	
-	systemFacade add: testingUtils book amount: 1 to: cartID1.		
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.		
 	systemFacade checkout: cartID1 with: testingUtils validCreditCard.
 	
-	expectedPurchase _ Bag with: testingUtils book.
+	expectedPurchase _ Bag with: testingUtils bookISBN.
 	purchase _ systemFacade listPurchasesOf: testingUtils clientID1 withPassword: testingUtils password1.
 	
 	self assert: expectedPurchase equals: purchase key.
@@ -535,7 +584,7 @@ test13ListPurchasesOfAClientWithAPurchaseShouldReturnThatPurchase
 	 
 	! !
 
-!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'JDR 6/13/2022 04:00:38'!
+!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'AF 6/13/2022 12:39:44'!
 test14ListPurchasesOfAClientShouldUnifyDifferentPurchasesOfAGivenItem
 
 	| systemFacade systemAuthenticator merchantProcessor salesBook cartID1 expectedPurchase purchase cartID2 timePassSimulator |
@@ -547,17 +596,17 @@ test14ListPurchasesOfAClientShouldUnifyDifferentPurchasesOfAGivenItem
 	systemFacade _ SystemFacade authenticatingWith: systemAuthenticator with: catalog registeringSalesOn: salesBook debitingFrom: merchantProcessor measuringTimeWith: timePassSimulator.
 	
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
-	systemFacade add: testingUtils book amount: 1 to: cartID1.		
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.		
 	systemFacade checkout: cartID1 with: testingUtils validCreditCard.
 	
 	cartID2 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
-	systemFacade add: testingUtils book amount: 1 to: cartID2.	
-	systemFacade add: testingUtils book2 amount: 1 to: cartID2.		
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID2.	
+	systemFacade add: testingUtils bookISBN2 amount: 1 to: cartID2.		
 	systemFacade checkout: cartID2 with: testingUtils validCreditCard.
 	
 	expectedPurchase _ Bag new.
-	expectedPurchase add: testingUtils book withOccurrences: 2.
-	expectedPurchase add: testingUtils book2 withOccurrences: 1.
+	expectedPurchase add: testingUtils bookISBN withOccurrences: 2.
+	expectedPurchase add: testingUtils bookISBN2 withOccurrences: 1.
 	
 	purchase _ systemFacade listPurchasesOf: testingUtils clientID1 withPassword: testingUtils password1.
 	
@@ -566,7 +615,7 @@ test14ListPurchasesOfAClientShouldUnifyDifferentPurchasesOfAGivenItem
 	 
 	! !
 
-!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'JDR 6/13/2022 04:02:59'!
+!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'AF 6/13/2022 12:39:44'!
 test15ListPurchasesOfAClientShouldReturnTotalAmountOfThosePurchases
 
 	| systemFacade systemAuthenticator merchantProcessor salesBook cartID1 expectedPurchase purchase expectedTotalAmount timePassSimulator |
@@ -579,11 +628,11 @@ test15ListPurchasesOfAClientShouldReturnTotalAmountOfThosePurchases
 	
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
 	
-	systemFacade add: testingUtils book amount: 1 to: cartID1.		
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.		
 	systemFacade checkout: cartID1 with: testingUtils validCreditCard.
 	
-	expectedPurchase _ Bag with: testingUtils book.
-	expectedTotalAmount _ testingUtils catalog at: testingUtils book..
+	expectedPurchase _ Bag with: testingUtils bookISBN.
+	expectedTotalAmount _ testingUtils catalog at: testingUtils bookISBN..
 	
 	purchase _ systemFacade listPurchasesOf: testingUtils clientID1 withPassword: testingUtils password1.
 	
@@ -609,7 +658,7 @@ test16ListPurchasesOfAnUnauthenticatedClientShouldRaiseAnError
 	 
 	! !
 
-!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'JDR 6/13/2022 04:05:01'!
+!SystemFacadeTest methodsFor: 'testing - list purchases' stamp: 'AF 6/13/2022 12:39:44'!
 test17ListPurchasesOfDifferentClientsShouldReturnClientsPurchasesAndTotalAmountCorrectly
 
 	| systemFacade systemAuthenticator merchantProcessor salesBook cartID1 cartID2 client1Purchases client1expectedPurchase client1expectedTotalAmmount client2Purchases client2expectedPurchase client2expectedTotalAmmount timePassSimulator |
@@ -621,18 +670,18 @@ test17ListPurchasesOfDifferentClientsShouldReturnClientsPurchasesAndTotalAmountC
 	systemFacade _ SystemFacade authenticatingWith: systemAuthenticator with: catalog registeringSalesOn: salesBook debitingFrom: merchantProcessor measuringTimeWith: timePassSimulator.
 	
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
-	systemFacade add: testingUtils book amount: 1 to: cartID1.		
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.		
 	systemFacade checkout: cartID1 with: testingUtils validCreditCard.
 	
-	client1expectedPurchase _ Bag with: testingUtils book.
-	client1expectedTotalAmmount _ testingUtils catalog at: testingUtils book.
+	client1expectedPurchase _ Bag with: testingUtils bookISBN.
+	client1expectedTotalAmmount _ testingUtils catalog at: testingUtils bookISBN.
 	
 	cartID2 _ systemFacade createCartForUser: testingUtils clientID2 withPassword: testingUtils password2.
-	systemFacade add: testingUtils book2 amount: 1 to: cartID2.		
+	systemFacade add: testingUtils bookISBN2 amount: 1 to: cartID2.		
 	systemFacade checkout: cartID2 with: testingUtils validCreditCard.
 	
-	client2expectedPurchase _ Bag with: testingUtils book2.
-	client2expectedTotalAmmount _ testingUtils catalog at: testingUtils book2.	
+	client2expectedPurchase _ Bag with: testingUtils bookISBN2.
+	client2expectedTotalAmmount _ testingUtils catalog at: testingUtils bookISBN2.	
 	
 	client1Purchases _ systemFacade listPurchasesOf: testingUtils clientID1 withPassword: testingUtils password1.
 	client2Purchases _ systemFacade listPurchasesOf: testingUtils clientID2 withPassword: testingUtils password2.
@@ -646,7 +695,7 @@ test17ListPurchasesOfDifferentClientsShouldReturnClientsPurchasesAndTotalAmountC
 	! !
 
 
-!SystemFacadeTest methodsFor: 'testing - add' stamp: 'JDR 6/13/2022 03:44:45'!
+!SystemFacadeTest methodsFor: 'testing - add' stamp: 'AF 6/13/2022 12:39:44'!
 test07AddingAnItemToAInvalidCartIDShouldRaiseAnError
 
 	| systemFacade systemAuthenticator merchantProcessor salesBook timePassSimulator |
@@ -657,12 +706,12 @@ test07AddingAnItemToAInvalidCartIDShouldRaiseAnError
 	timePassSimulator _ TimePassSimulator startingOn: dateTime.
 	systemFacade _ SystemFacade authenticatingWith: systemAuthenticator with: catalog registeringSalesOn: salesBook debitingFrom: merchantProcessor measuringTimeWith: timePassSimulator.
 			
-	self should: [systemFacade add: testingUtils book amount: 1 to: testingUtils invalidCartID]
+	self should: [systemFacade add: testingUtils bookISBN amount: 1 to: testingUtils invalidCartID]
 		raise:  Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | self assert: SystemFacade cannotAddToAnInvalidCartIdErrorDescription equals: anError messageText ].
 ! !
 
-!SystemFacadeTest methodsFor: 'testing - add' stamp: 'JDR 6/13/2022 03:45:18'!
+!SystemFacadeTest methodsFor: 'testing - add' stamp: 'AF 6/13/2022 12:40:58'!
 test09AddingToCartABookNotInCatalogShouldRaiseAnError
 
 	| systemFacade systemAuthenticator cartID merchantProcessor salesBook timePassSimulator |
@@ -675,12 +724,12 @@ test09AddingToCartABookNotInCatalogShouldRaiseAnError
 	
 	cartID _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
 		
-	self should: [systemFacade add: testingUtils unregisteredBook amount: 1 to: cartID]
+	self should: [systemFacade add: testingUtils unregisteredBookISBN amount: 1 to: cartID]
 		raise:  Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | self assert: SystemFacade cannotAddBooksNotInCatalogErrorDescription equals: anError messageText ].
 ! !
 
-!SystemFacadeTest methodsFor: 'testing - add' stamp: 'JDR 6/13/2022 03:52:14'!
+!SystemFacadeTest methodsFor: 'testing - add' stamp: 'AF 6/13/2022 12:39:44'!
 test20AddingToCartAfter30MinutesOfInactivityShouldRaiseAnError
 
 	| systemFacade cartID systemAuthenticator merchantProcessor salesBook timePassSimulator |
@@ -694,13 +743,13 @@ test20AddingToCartAfter30MinutesOfInactivityShouldRaiseAnError
 	cartID _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1. 
 	
 	timePassSimulator minutesPassed: 10* minute.		
-	systemFacade add: testingUtils book amount: 1 to: cartID.
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID.
 	
 	timePassSimulator minutesPassed: 25* minute.	
-	systemFacade add: testingUtils book amount: 1 to: cartID.
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID.
 	
 	timePassSimulator minutesPassed: 30* minute.
-	self should: [ systemFacade add: testingUtils book amount: 1 to: cartID.]
+	self should: [ systemFacade add: testingUtils bookISBN amount: 1 to: cartID.]
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | self assert: CartSession cannotAddToAnExpiredCartErrorDescription equals: anError messageText ]
 	
@@ -773,7 +822,7 @@ test03ListCartOfACreatedCartShouldBeEmpty
 	
 	self assert: (systemFacade listCart: cartID) isEmpty.! !
 
-!SystemFacadeTest methodsFor: 'testing - list cart' stamp: 'JDR 6/13/2022 03:40:42'!
+!SystemFacadeTest methodsFor: 'testing - list cart' stamp: 'AF 6/13/2022 12:39:44'!
 test05ListCartOfACartAfterAddingAnItemShouldNotBeEmpty
 
 	| systemFacade systemAuthenticator cartID1 merchantProcessor salesBook timePassSimulator |
@@ -785,11 +834,11 @@ test05ListCartOfACartAfterAddingAnItemShouldNotBeEmpty
 	systemFacade _ SystemFacade authenticatingWith: systemAuthenticator with: catalog registeringSalesOn: salesBook debitingFrom: merchantProcessor measuringTimeWith: timePassSimulator.
 	
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1. 
-	systemFacade add: testingUtils book amount: 1 to: cartID1.
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.
 		
 	self deny: (systemFacade listCart: cartID1) isEmpty.! !
 
-!SystemFacadeTest methodsFor: 'testing - list cart' stamp: 'JDR 6/13/2022 03:42:17'!
+!SystemFacadeTest methodsFor: 'testing - list cart' stamp: 'AF 6/13/2022 12:39:44'!
 test06ListCartOfDifferentCartsShouldMatchTheirExpectedContent
 
 	| systemFacade systemAuthenticator cartID1 cartID2 expectedCartContentsForCart1 expectedCartContentsForCart2 merchantProcessor salesBook timePassSimulator |
@@ -803,11 +852,11 @@ test06ListCartOfDifferentCartsShouldMatchTheirExpectedContent
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1. 
 	cartID2 _ systemFacade createCartForUser: testingUtils clientID2 withPassword: testingUtils password2.
 	
-	systemFacade add: testingUtils book amount: 1 to: cartID1.
-	systemFacade add: testingUtils book2 amount: 1 to: cartID2.
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.
+	systemFacade add: testingUtils bookISBN2 amount: 1 to: cartID2.
 	
-	expectedCartContentsForCart1 _ Bag with: testingUtils book.
-	expectedCartContentsForCart2 _ Bag with: testingUtils book2.
+	expectedCartContentsForCart1 _ Bag with: testingUtils bookISBN.
+	expectedCartContentsForCart2 _ Bag with: testingUtils bookISBN2.
 		
 	self assert: expectedCartContentsForCart1 equals: (systemFacade listCart: cartID1).
 	self assert: expectedCartContentsForCart2 equals: (systemFacade listCart: cartID2).! !
@@ -905,7 +954,7 @@ test11CheckoutOfAnInvalidCartIDShouldRaiseAnError
 		withExceptionDo: [:anError | self assert: SystemFacade cannotCheckoutWithAnInvalidCartIDErrorDescription  equals: anError messageText] .
 	! !
 
-!SystemFacadeTest methodsFor: 'testing - checkout' stamp: 'JDR 6/13/2022 03:48:03'!
+!SystemFacadeTest methodsFor: 'testing - checkout' stamp: 'AF 6/13/2022 12:39:44'!
 test12TransactionIDsForDifferentCheckoutsShouldBeDifferent
 
 	| systemFacade systemAuthenticator merchantProcessor salesBook cartID1 cartID2 transactionID1 transactionID2 timePassSimulator |
@@ -919,8 +968,8 @@ test12TransactionIDsForDifferentCheckoutsShouldBeDifferent
 	cartID1 _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1.
 	cartID2 _ systemFacade createCartForUser: testingUtils clientID2 withPassword: testingUtils password2.
 	
-	systemFacade add: testingUtils book amount: 1 to: cartID1.
-	systemFacade add: testingUtils book amount: 1 to: cartID2.
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID1.
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID2.
 		
 	transactionID1 _ systemFacade checkout: cartID1 with: testingUtils validCreditCard.
 	transactionID2 _ systemFacade checkout: cartID2 with: testingUtils validCreditCard	.
@@ -931,7 +980,7 @@ test12TransactionIDsForDifferentCheckoutsShouldBeDifferent
 	 
 	! !
 
-!SystemFacadeTest methodsFor: 'testing - checkout' stamp: 'JDR 6/13/2022 03:52:39'!
+!SystemFacadeTest methodsFor: 'testing - checkout' stamp: 'AF 6/13/2022 12:39:44'!
 test21CheckoutOfACartAfter30MinutesOfInactivityShouldRaiseAnError
 
 	| systemFacade cartID systemAuthenticator merchantProcessor salesBook timePassSimulator |
@@ -943,7 +992,7 @@ test21CheckoutOfACartAfter30MinutesOfInactivityShouldRaiseAnError
 	systemFacade _ SystemFacade authenticatingWith: systemAuthenticator with: catalog registeringSalesOn: salesBook debitingFrom: merchantProcessor measuringTimeWith: timePassSimulator.
 	
 	cartID _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1. 
-	systemFacade add: testingUtils book amount: 1 to: cartID.	
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID.	
 	
 	timePassSimulator minutesPassed: 30 * minute.
 	
@@ -953,7 +1002,7 @@ test21CheckoutOfACartAfter30MinutesOfInactivityShouldRaiseAnError
 	
 	! !
 
-!SystemFacadeTest methodsFor: 'testing - checkout' stamp: 'JDR 6/13/2022 03:53:37'!
+!SystemFacadeTest methodsFor: 'testing - checkout' stamp: 'AF 6/13/2022 12:39:44'!
 test22CheckoutOfACartShouldRemoveCartIDFromSystem
 
 	| systemFacade cartID systemAuthenticator merchantProcessor salesBook timePassSimulator |
@@ -965,14 +1014,14 @@ test22CheckoutOfACartShouldRemoveCartIDFromSystem
 	systemFacade _ SystemFacade authenticatingWith: systemAuthenticator with: catalog registeringSalesOn: salesBook debitingFrom: merchantProcessor measuringTimeWith: timePassSimulator.
 	
 	cartID _ systemFacade createCartForUser: testingUtils clientID1 withPassword: testingUtils password1. 
-	systemFacade add: testingUtils book amount: 1 to: cartID.	
+	systemFacade add: testingUtils bookISBN amount: 1 to: cartID.	
 	systemFacade checkout: cartID with: (testingUtils validCreditCard).
 		
 	self should: [ systemFacade listCart: cartID ]
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | self assert: SystemFacade cannotListAnInvalidCartIdErrorDescription equals: anError messageText ].
 		
-	self should: [ systemFacade add: testingUtils book amount: 1 to: cartID ]
+	self should: [ systemFacade add: testingUtils bookISBN amount: 1 to: cartID ]
 		raise: Error - MessageNotUnderstood 
 		withExceptionDo: [ :anError | self assert: SystemFacade cannotAddToAnInvalidCartIdErrorDescription equals: anError messageText ].
 		
@@ -1116,7 +1165,7 @@ updateLastInteraction: aDateTime
 	! !
 
 
-!CartSession methodsFor: 'as yet unclassified' stamp: 'JDR 6/13/2022 01:37:03'!
+!CartSession methodsFor: 'expiration handling' stamp: 'JDR 6/13/2022 01:37:03'!
 isExpiredOn: aDateTime do: anExceptionBlock 
 	
 	(aDateTime >= (lastInteractionDateTime next: 30*minute)) ifTrue: anExceptionBlock ! !
@@ -1153,23 +1202,30 @@ cannotListAnExpiredCartErrorDescription
 
 !classDefinition: #Cashier category: 'TusLibros'!
 Object subclass: #Cashier
-	instanceVariableNames: 'salesBook merchantProcessorSimulator'
+	instanceVariableNames: 'salesBook merchantProcessor'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!Cashier methodsFor: 'checking out' stamp: 'AF 6/12/2022 20:23:46'!
+!Cashier methodsFor: 'checking out' stamp: 'AF 6/13/2022 11:37:42'!
+assert: aCreditCard isNotExpiredOn: aDate
+	
+	(aCreditCard isExpiredOn: aDate) ifTrue: [self error: Cashier expiredCardErrorDescription]. ! !
+
+!Cashier methodsFor: 'checking out' stamp: 'AF 6/13/2022 11:36:50'!
+assertIsNotEmpty: aCart
+
+	(aCart isEmpty) ifTrue:[self error: Cashier cannotCheckoutEmptyCartErrorDescription].! !
+
+!Cashier methodsFor: 'checking out' stamp: 'AF 6/13/2022 12:35:47'!
 checkout: aCart with: aCreditCard on: aDate for: aClientID 
 
 	| sale finalPrice |
-	(aCart isEmpty) ifTrue:[self error: Cashier cannotCheckoutEmptyCartErrorDescription].
-	
-	(aCreditCard isExpiredOn: aDate) ifTrue: [self error: Cashier expiredCardErrorDescription]. 
+	self assertIsNotEmpty: aCart.
+	self assert: aCreditCard isNotExpiredOn: aDate. 
 	
 	finalPrice _ self finalPrice: aCart subtotal.
-	
-	merchantProcessorSimulator debit: finalPrice from: aCreditCard on: aDate.
-	
+	merchantProcessor debit: finalPrice from: aCreditCard on: aDate.
 	sale _ salesBook addSaleWith: aCart content pricing: finalPrice for: aClientID.	
 	
 	aCart clearContent.
@@ -1182,11 +1238,11 @@ finalPrice: aSubtotal
 	^ aSubtotal! !
 
 
-!Cashier methodsFor: 'initialization' stamp: 'JDR 6/8/2022 13:06:38'!
-initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator 
+!Cashier methodsFor: 'initialization' stamp: 'AF 6/13/2022 12:35:47'!
+initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessor 
 	
 	salesBook := aSalesBook.
-	merchantProcessorSimulator := aMerchantProcessorSimulator.! !
+	merchantProcessor := aMerchantProcessor.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -1194,10 +1250,21 @@ initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulat
 Cashier class
 	instanceVariableNames: ''!
 
-!Cashier class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 13:05:47'!
-registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator 
+!Cashier class methodsFor: 'instance creation' stamp: 'AF 6/13/2022 12:35:30'!
+registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessor 
 	
-	^self new initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator ! !
+	^self new initializeRegisteringSalesOn: aSalesBook debitingFrom: aMerchantProcessor ! !
+
+
+!Cashier class methodsFor: 'error descriptions - merchant processor' stamp: 'AF 6/13/2022 11:53:39'!
+cannotDebitFromAFundlessCreditCard
+	
+	^'Cant debit from a fundless credit card'! !
+
+!Cashier class methodsFor: 'error descriptions - merchant processor' stamp: 'AF 6/13/2022 11:49:46'!
+stolenCreditCardErrorDescription
+	
+	^'cannot debit from a stolen credit card'! !
 
 
 !Cashier class methodsFor: 'error descriptions' stamp: 'JDR 6/6/2022 21:25:27'!
@@ -1209,42 +1276,6 @@ cannotCheckoutEmptyCartErrorDescription
 expiredCardErrorDescription
 	
 	^'credit card is out of date'! !
-
-
-!classDefinition: #CatchOutMerchantProcessorSimulator category: 'TusLibros'!
-Object subclass: #CatchOutMerchantProcessorSimulator
-	instanceVariableNames: 'stolenCardRegister'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'TusLibros'!
-
-!CatchOutMerchantProcessorSimulator methodsFor: 'initialization' stamp: 'JDR 6/8/2022 13:25:00'!
-initializeWith: aStolenCardRegister 
-
-	stolenCardRegister := aStolenCardRegister.! !
-
-
-!CatchOutMerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:27:35'!
-debit: anAmount from: aCreditCard on: aMonthOfYear 
-
-	self error: CatchOutMerchantProcessorSimulator shouldNotBeDebitingErrorDescription! !
-
-"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
-
-!classDefinition: 'CatchOutMerchantProcessorSimulator class' category: 'TusLibros'!
-CatchOutMerchantProcessorSimulator class
-	instanceVariableNames: ''!
-
-!CatchOutMerchantProcessorSimulator class methodsFor: 'instance creation' stamp: 'JDR 6/8/2022 13:24:40'!
-with: aStolenCardRegister 
-	
-	^self new initializeWith: aStolenCardRegister ! !
-
-
-!CatchOutMerchantProcessorSimulator class methodsFor: 'error descriptions' stamp: 'JDR 6/8/2022 13:29:02'!
-shouldNotBeDebitingErrorDescription
-
-	'You should not be trying to debit'! !
 
 
 !classDefinition: #CreditCard category: 'TusLibros'!
@@ -1320,10 +1351,10 @@ assertCardNumberIsValid: aCardNumber
 
 	^ (aCardNumber size = 16) ifFalse: [self error: CreditCard invalidCardNumberErrorDescription]! !
 
-!CreditCard class methodsFor: 'assertions' stamp: 'JDR 6/13/2022 04:16:34'!
+!CreditCard class methodsFor: 'assertions' stamp: 'AF 6/13/2022 12:43:06'!
 assertNameIsValid: aName
 
-	((aName withoutSeparators isEmpty not) and: [self assertOnlyLetters: aName]) 		ifFalse: [self error: CreditCard invalidNameErrorDescription ]
+	((aName withoutSeparators isEmpty not) and: [self assertOnlyLetters: (aName withoutSeparators)]) 		ifFalse: [self error: CreditCard invalidNameErrorDescription ]
 		! !
 
 !CreditCard class methodsFor: 'assertions' stamp: 'JDR 6/13/2022 04:14:40'!
@@ -1354,7 +1385,7 @@ assertCreditCardIsNotStolen: aCreditCard
 
 	^ (stolenCardRegister includes: aCreditCard) ifTrue: [ self error: MerchantProcessorSimulator stolenCreditCardErrorDescription ]! !
 
-!MerchantProcessorSimulator methodsFor: 'debiting' stamp: 'JDR 6/8/2022 13:58:26'!
+!MerchantProcessorSimulator methodsFor: 'debiting' stamp: 'AF 6/13/2022 12:29:13'!
 debit: anAmount from: aCreditCard on: aMonthOfYear 
 
 	self assertCreditCardIsAValidObject: aCreditCard.
@@ -1450,25 +1481,25 @@ with: aSaleContent pricing: aFinalPrice for: aClientID identifyingBy: aTransacti
 
 !classDefinition: #SalesBook category: 'TusLibros'!
 Object subclass: #SalesBook
-	instanceVariableNames: 'sales nextSaleID'
+	instanceVariableNames: 'sales currentSaleID'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!SalesBook methodsFor: 'adding - private' stamp: 'JDR 6/13/2022 02:53:15'!
-getNextSaleID
+!SalesBook methodsFor: 'adding - private' stamp: 'AF 6/13/2022 12:38:13'!
+getCurrentSaleID
 	
 	| saleID |
-	saleID _ nextSaleID.
-	nextSaleID _ nextSaleID + 1	.
+	saleID _ currentSaleID.
+	currentSaleID _ currentSaleID + 1	.
 	^saleID! !
 
 
-!SalesBook methodsFor: 'adding' stamp: 'JDR 6/13/2022 02:52:58'!
+!SalesBook methodsFor: 'adding' stamp: 'AF 6/13/2022 12:38:13'!
 addSaleWith: aSaleContents pricing: aFinalPrice for: aClientID 
 	
 	| sale saleID |
-	saleID _ self getNextSaleID.
+	saleID _ self getCurrentSaleID.
 	sale _ Sale with: aSaleContents pricing: aFinalPrice for: aClientID identifyingBy: saleID.
 	sales add: sale.
 	
@@ -1485,11 +1516,11 @@ isEmpty
 	^sales isEmpty! !
 
 
-!SalesBook methodsFor: 'initialization' stamp: 'AF 6/12/2022 19:22:56'!
+!SalesBook methodsFor: 'initialization' stamp: 'AF 6/13/2022 12:37:22'!
 initialize
 
 	sales _ OrderedCollection new.
-	nextSaleID _ 1.! !
+	currentSaleID _ 1.! !
 
 
 !SalesBook methodsFor: 'accessing' stamp: 'AF 6/12/2022 19:38:20'!
@@ -1550,7 +1581,7 @@ with: aUserRegister
 
 !classDefinition: #SystemFacade category: 'TusLibros'!
 Object subclass: #SystemFacade
-	instanceVariableNames: 'systemAuthenticator currentCartId catalog salesBook merchantProcessorSimulator cartSessions timePass'
+	instanceVariableNames: 'systemAuthenticator currentCartId catalog salesBook merchantProcessor cartSessions timePass'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
@@ -1569,15 +1600,15 @@ createCartForUser: aClientID withPassword: aPassword
 	! !
 
 
-!SystemFacade methodsFor: 'initialization' stamp: 'JDR 6/13/2022 01:20:03'!
-initializeAuthenticatingWith: aSystemAuthenticator with: aCatalog registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator measuringTimeWith: aTimePass 
+!SystemFacade methodsFor: 'initialization' stamp: 'AF 6/13/2022 12:35:08'!
+initializeAuthenticatingWith: aSystemAuthenticator with: aCatalog registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessor measuringTimeWith: aTimePass 
 	
 	currentCartId _ 1.
 	cartSessions _ OrderedCollection new.
 	systemAuthenticator := aSystemAuthenticator.
 	catalog := aCatalog.
 	salesBook := aSalesBook.
-	merchantProcessorSimulator := aMerchantProcessorSimulator.
+	merchantProcessor := aMerchantProcessor.
 	timePass := aTimePass.! !
 
 
@@ -1594,7 +1625,7 @@ add: aBook amount: anAmount to: aCartID
 	! !
 
 
-!SystemFacade methodsFor: 'checkout' stamp: 'JDR 6/13/2022 03:24:33'!
+!SystemFacade methodsFor: 'checkout' stamp: 'AF 6/13/2022 12:34:59'!
 checkout: aCartID with: aCreditCard 
 	
 	| cart cashier sale cartSession |
@@ -1602,7 +1633,7 @@ checkout: aCartID with: aCreditCard
 	cart _ cartSession cart.
 	
 	cart isEmpty ifTrue: [self error: SystemFacade cannotCheckoutAnEmptyCartErrorDescription].
-	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessorSimulator.
+	cashier _ Cashier registeringSalesOn: salesBook debitingFrom: merchantProcessor.
 	
 	cartSession isExpiredOn: timePass now do: [ self error: CartSession cannotCheckoutAnExpiredCartErrorDescription ].
 	sale _ cashier checkout: cart with: aCreditCard on: timePass nowAsMonthOfYear for: cartSession clientID .
@@ -1678,10 +1709,10 @@ assertRegisteredProduct: aBook
 SystemFacade class
 	instanceVariableNames: ''!
 
-!SystemFacade class methodsFor: 'instance creation' stamp: 'JDR 6/13/2022 01:20:10'!
-authenticatingWith: aSystemAuthenticator with: aCatalog registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator measuringTimeWith: aTimePass 
+!SystemFacade class methodsFor: 'instance creation' stamp: 'AF 6/13/2022 12:35:16'!
+authenticatingWith: aSystemAuthenticator with: aCatalog registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessor measuringTimeWith: aTimePass 
 	
-	^self new initializeAuthenticatingWith: aSystemAuthenticator with: aCatalog registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessorSimulator measuringTimeWith: aTimePass ! !
+	^self new initializeAuthenticatingWith: aSystemAuthenticator with: aCatalog registeringSalesOn: aSalesBook debitingFrom: aMerchantProcessor measuringTimeWith: aTimePass ! !
 
 
 !SystemFacade class methodsFor: 'error descriptions' stamp: 'AF\ 6/11/2022 12:36:54'!
@@ -1721,17 +1752,6 @@ Object subclass: #TestingUtils
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/9/2022 17:47:10'!
-creditCardFundRegister
-
-	| dictionary |
-	dictionary _ Dictionary new.
-	dictionary at: self validCardNumber put: 100000.
-	dictionary at: self stolenCreditCardNumber put: 100000.
-	dictionary at: self expiredCreditCardNumber put: 100000.
-	dictionary at: self fundlessCardNumber put: 0.
-	^dictionary! !
-
 !TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/9/2022 17:43:51'!
 expiredCreditCard
 	
@@ -1741,16 +1761,6 @@ expiredCreditCard
 expiredCreditCardNumber
 
 	^ '8888888888888888'! !
-
-!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/9/2022 17:47:40'!
-fundlessCardNumber 
-
-	^'3333333333333333'! !
-
-!TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/9/2022 17:48:35'!
-fundlessCreditCard
-	
-	^CreditCard ownedBy: 'Jorge Sin Fondos' with: self fundlessCardNumber expiratingOn: self validCheckoutMonthOfYear ! !
 
 !TestingUtils methodsFor: 'credit card' stamp: 'JDR 6/13/2022 04:11:03'!
 invalidCardName
@@ -1809,28 +1819,28 @@ validYear
 	^2022! !
 
 
-!TestingUtils methodsFor: 'book' stamp: 'JDR 6/8/2022 03:37:06'!
-book
+!TestingUtils methodsFor: 'book' stamp: 'AF 6/13/2022 12:39:44'!
+bookISBN
 
 	^1! !
 
-!TestingUtils methodsFor: 'book' stamp: 'JDR 6/8/2022 03:37:19'!
-book2
+!TestingUtils methodsFor: 'book' stamp: 'AF 6/13/2022 12:39:25'!
+bookISBN2
 
 	^2! !
 
-!TestingUtils methodsFor: 'book' stamp: 'JDR 6/8/2022 11:20:13'!
-unregisteredBook
+!TestingUtils methodsFor: 'book' stamp: 'AF 6/13/2022 12:40:03'!
+unregisteredBookISBN
 	^0! !
 
 
-!TestingUtils methodsFor: 'catalog' stamp: 'JDR 6/8/2022 03:37:33'!
+!TestingUtils methodsFor: 'catalog' stamp: 'AF 6/13/2022 12:39:44'!
 catalog
 	
 	| catalog |
 	catalog _ Dictionary new.
-	catalog at: self book put: 100.
-	catalog at: self book2 put: 50.
+	catalog at: self bookISBN put: 100.
+	catalog at: self bookISBN2 put: 50.
 	^catalog! !
 
 
@@ -1889,7 +1899,7 @@ dateTime
 
 !classDefinition: #TimePassSimulator category: 'TusLibros'!
 Object subclass: #TimePassSimulator
-	instanceVariableNames: 'now gregorianDateTime'
+	instanceVariableNames: 'now'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
