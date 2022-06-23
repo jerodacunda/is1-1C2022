@@ -1,0 +1,503 @@
+
+
+----STARTUP---- (23 June 2022 13:36:51) as /home/jerodacunda/Escritorio/12/linux64/CuisUniversity-5301.image!
+
+
+----End fileIn of /home/jerodacunda/Documentos/GitHub/is1-1C2022/12-CostumerImporter it1/CustomerImporter-ultimo.st----!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:40:42'!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: withType   
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: 'D' equals: customer1 identificationType .
+	self assert: '22333444' equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:40:42' prior: 50519306!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	
+	self assert: 2 equals: allCustomers size.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	
+	self assertJJJJJJ: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D'.
+	
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 namedFFFFFFFFFFFFFFF: 'San Martin' .
+	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.
+	
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 namedFFFFFFFFFFFFFFF: 'Maipu'.
+	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+
+! !
+
+!methodRemoval: ImportTest #assertJJJJJJ:firstNameIs:lastNameIs: stamp: 'JDR 6/23/2022 13:40:42'!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName  
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: 'D' equals: customer1 identificationType .
+	self assert: '22333444' equals: customer1 identificationNumber!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:40:42' prior: 50519673!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: withType   
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: withType equals: customer1 identificationType .
+	self assert: '22333444' equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:41:09' prior: 50519730!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType   
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: anIdentificationType equals: customer1 identificationType .
+	self assert: '22333444' equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:42:03'!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType identifiedWithNumber: anIdentificationNumber    
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: anIdentificationType equals: customer1 identificationType .
+	self assert: '22333444' equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:42:03' prior: 50519687!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	
+	self assert: 2 equals: allCustomers size.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	
+	self assertJJJJJJ: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.
+	
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 namedFFFFFFFFFFFFFFF: 'San Martin' .
+	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.
+	
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 namedFFFFFFFFFFFFFFF: 'Maipu'.
+	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+
+! !
+
+!methodRemoval: ImportTest #assertJJJJJJ:firstNameIs:lastNameIs:withType: stamp: 'JDR 6/23/2022 13:42:03'!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType   
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: anIdentificationType equals: customer1 identificationType .
+	self assert: '22333444' equals: customer1 identificationNumber!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:42:03' prior: 50519758!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType identifiedWithNumber: anIdentificationNumber    
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: anIdentificationType equals: customer1 identificationType .
+	self assert: anIdentificationNumber equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:42:50'!
+assert: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType identifiedWithNumber: anIdentificationNumber    
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: anIdentificationType equals: customer1 identificationType .
+	self assert: anIdentificationNumber equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:42:51' prior: 50519774!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	
+	self assert: 2 equals: allCustomers size.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.
+	
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 namedFFFFFFFFFFFFFFF: 'San Martin' .
+	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.
+	
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 namedFFFFFFFFFFFFFFF: 'Maipu'.
+	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+
+! !
+
+!methodRemoval: ImportTest #assertJJJJJJ:firstNameIs:lastNameIs:withType:identifiedWithNumber: stamp: 'JDR 6/23/2022 13:42:51'!
+assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType identifiedWithNumber: anIdentificationNumber    
+
+	self assert: aFirstName equals: customer1 firstName.
+	self assert: aLastName equals: customer1 lastName.
+	self assert: anIdentificationType equals: customer1 identificationType .
+	self assert: anIdentificationNumber equals: customer1 identificationNumber!
+!Customer methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:44:32'!
+giveMeAnAddressAt: aStreetNumber withName: aStreetName 
+	
+	^addresses detect: [:anAddress | anAddress isNamed: aStreetName withNumber: aStreetNumber ].! !
+
+!methodRemoval: Customer #giveMeAnAddressAt:namedFFFFFFFFFFFFFFF: stamp: 'JDR 6/23/2022 13:44:32'!
+giveMeAnAddressAt: aStreetNumber namedFFFFFFFFFFFFFFF: aStreetName 
+	
+	^addresses detect: [:anAddress | anAddress isNamed: aStreetName withNumber: aStreetNumber ].!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:44:55' prior: 50519852!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	
+	self assert: 2 equals: allCustomers size.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.
+	
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.
+	
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:44:57'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:44:58'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:47:04' prior: 50519917!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:47:06'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:47:07'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:47:21' prior: 50519836!
+assert: aCustomer firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType identifiedWithNumber: anIdentificationNumber    
+
+	self assert: aFirstName equals: aCustomer firstName.
+	self assert: aLastName equals: aCustomer lastName.
+	self assert: anIdentificationType equals: aCustomer identificationType .
+	self assert: anIdentificationNumber equals: aCustomer identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:53:22' prior: 50519953!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 customer2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-256666777-9']] ofType: Customer) anyOne.
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-256666777-9'.	
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:53:27'!
+ERROR!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:53:57' prior: 50520005!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 customer2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') ] ofType: Customer) anyOne.
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-256666777-9'.	
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:53:57'!
+FAILURE!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:54:27' prior: 50520047!
+test01Import
+
+	| allCustomers customer1 customerAddress1 customerAddress2 customer2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:54:29'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:54:30'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:54:41' prior: 50520088!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customerAddress2 customer2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customerAddress2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+
+! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:54:47' prior: 50520133!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+
+! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:56:36' prior: 50520173!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:56:39'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 13:56:40'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:59:21'!
+m1
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:59:21' prior: 50520213!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ self m1.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:00:03'!
+m1: anIdentificationType
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:00:03' prior: 50520271!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ self m1: 'D'.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+
+!methodRemoval: ImportTest #m1 stamp: 'JDR 6/23/2022 14:00:03'!
+m1
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:00:03' prior: 50520312!
+m1: anIdentificationType
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:00:36'!
+m1: anIdentificationType identifiedWithNumber: anIdentificationNumber 
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:00:36' prior: 50520321!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ self m1: 'D' identifiedWithNumber: '22333444'.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+
+!methodRemoval: ImportTest #m1: stamp: 'JDR 6/23/2022 14:00:36'!
+m1: anIdentificationType
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:00:36' prior: 50520379!
+m1: anIdentificationType identifiedWithNumber: anIdentificationNumber 
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = anIdentificationNumber]] ofType: Customer) anyOne! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 14:00:48'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 14:00:49'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:01:22'!
+giveMeACostumerOfType: anIdentificationType identifiedWithNumber: anIdentificationNumber 
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = anIdentificationNumber]] ofType: Customer) anyOne! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:01:22' prior: 50520390!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ self giveMeACostumerOfType: 'D' identifiedWithNumber: '22333444'.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ (session select: [ :aCustomer | (aCustomer identificationType = 'C') and: [aCustomer identificationNumber = '23-25666777-9']] ofType: Customer) anyOne.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+
+!methodRemoval: ImportTest #m1:identifiedWithNumber: stamp: 'JDR 6/23/2022 14:01:22'!
+m1: anIdentificationType identifiedWithNumber: anIdentificationNumber 
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = anIdentificationNumber]] ofType: Customer) anyOne!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:02:07' prior: 50520469!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ self giveMeACostumerOfType: 'D' identifiedWithNumber: '22333444'.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ self giveMeACostumerOfType: 'C' identifiedWithNumber: '23-25666777-9'.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 14:02:08'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 14:02:09'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 14:02:10'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 14:02:10'!
+PASSED!
+
+----QUIT----(23 June 2022 14:04:42) CuisUniversity-5301.image priorSource: 6002664!

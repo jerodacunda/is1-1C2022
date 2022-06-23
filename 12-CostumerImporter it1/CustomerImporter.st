@@ -5,7 +5,52 @@ TestCase subclass: #ImportTest
 	poolDictionaries: ''
 	category: 'CustomerImporter'!
 
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:46:06'!
+!ImportTest methodsFor: 'testing' stamp: 'JDR 6/23/2022 14:02:07'!
+test01Import
+
+	| allCustomers customer1 customer1Address1 customer1Address2 customer2 customer2Address |
+	self importCustomers: self openStream. 
+	
+	allCustomers _ session selectAllOfType: Customer.
+	customer1 _ self giveMeACostumerOfType: 'D' identifiedWithNumber: '22333444'.
+	customer1Address1 _ customer1 giveMeAnAddressAt: 3322 withName: 'San Martin' .
+	customer1Address2 _ customer1 giveMeAnAddressAt: 888 withName: 'Maipu'.
+	customer2 _ self giveMeACostumerOfType: 'C' identifiedWithNumber: '23-25666777-9'.
+	customer2Address _ customer2 giveMeAnAddressAt: 1122 withName: 'Alem'. 
+	
+	self assert: 2 equals: allCustomers size.	
+	self assert: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez' withType: 'D' identifiedWithNumber: '22333444'.	
+	self assert: customer1Address1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.	
+	self assert: customer1Address2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
+	self assert: customer2 firstNameIs: 'Juan' lastNameIs: 'Perez' withType: 'C' identifiedWithNumber: '23-25666777-9'.	
+	self assert: customer2Address isNamed: 'Alem' at: 1122 with: 1001 inTown: 'CABA' inProvince: 'CABA'.
+
+! !
+
+
+!ImportTest methodsFor: 'setUp' stamp: 'AF 6/16/2022 21:31:27'!
+setUp
+
+	session := DataBaseSession for: (Array with: Address with: Customer).
+	session beginTransaction! !
+
+
+!ImportTest methodsFor: 'tearDown' stamp: 'AF 6/16/2022 21:30:49'!
+tearDown
+
+	session commit.
+	session close! !
+
+
+!ImportTest methodsFor: 'assertions' stamp: 'JDR 6/23/2022 13:47:21'!
+assert: aCustomer firstNameIs: aFirstName lastNameIs: aLastName withType: anIdentificationType identifiedWithNumber: anIdentificationNumber    
+
+	self assert: aFirstName equals: aCustomer firstName.
+	self assert: aLastName equals: aCustomer lastName.
+	self assert: anIdentificationType equals: aCustomer identificationType .
+	self assert: anIdentificationNumber equals: aCustomer identificationNumber! !
+
+!ImportTest methodsFor: 'assertions' stamp: 'AF 6/16/2022 21:46:06'!
 assert: aCustomerAddress isNamed: aStreetName at: aStreetNumber with: aZipCode inTown: aTown inProvince: aProvince     
 
 	self assert: aStreetName equals: aCustomerAddress streetName.
@@ -14,13 +59,11 @@ assert: aCustomerAddress isNamed: aStreetName at: aStreetNumber with: aZipCode i
 	self assert: aTown equals: aCustomerAddress town.
 	self assert: aProvince equals: aCustomerAddress province! !
 
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:49:33'!
-assertJJJJJJ: customer1 firstNameIs: aFirstName lastNameIs: aLastName  
 
-	self assert: aFirstName equals: customer1 firstName.
-	self assert: aLastName equals: customer1 lastName.
-	self assert: 'D' equals: customer1 identificationType .
-	self assert: '22333444' equals: customer1 identificationNumber! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 14:01:22'!
+giveMeACostumerOfType: anIdentificationType identifiedWithNumber: anIdentificationNumber 
+
+	^ (session select: [ :aCustomer | (aCustomer identificationType = anIdentificationType) and: [aCustomer identificationNumber = anIdentificationNumber]] ofType: Customer) anyOne! !
 
 !ImportTest methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:37:38'!
 importCustomers: aStream
@@ -34,41 +77,6 @@ A,San Martin,3322,Olivos,1636,BsAs
 A,Maipu,888,Florida,1122,Buenos Aires
 C,Juan,Perez,C,23-25666777-9
 A,Alem,1122,CABA,1001,CABA'.! !
-
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:31:27'!
-setUp
-
-	session := DataBaseSession for: (Array with: Address with: Customer).
-	session beginTransaction! !
-
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:30:49'!
-tearDown
-
-	session commit.
-	session close! !
-
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:49:33'!
-test01Import
-
-	| allCustomers customer1 customerAddress1 customerAddress2 |
-	self importCustomers: self openStream. 
-	
-	allCustomers _ session selectAllOfType: Customer.
-	
-	self assert: 2 equals: allCustomers size.
-	customer1 _ (session select: [ :aCustomer | (aCustomer identificationType = 'D') and: [aCustomer identificationNumber = '22333444']] ofType: Customer) anyOne.
-	
-	self assertJJJJJJ: customer1 firstNameIs: 'Pepe' lastNameIs: 'Sanchez'.
-	
-	customerAddress1 _ customer1 giveMeAnAddressAt: 3322 namedFFFFFFFFFFFFFFF: 'San Martin' .
-	
-	self assert: customerAddress1 isNamed: 'San Martin' at: 3322 with: 1636 inTown: 'Olivos' inProvince: 'BsAs'.
-	
-	customerAddress2 _ customer1 giveMeAnAddressAt: 888 namedFFFFFFFFFFFFFFF: 'Maipu'.
-	
-	self assert: customerAddress2 isNamed: 'Maipu' at: 888 with: 1122 inTown: 'Florida' inProvince: 'Buenos Aires'.
-
-! !
 
 
 !classDefinition: #Address category: 'CustomerImporter'!
@@ -89,6 +97,11 @@ province: aProvince
 	province := aProvince
 	! !
 
+
+!Address methodsFor: 'street' stamp: 'AF 6/16/2022 21:10:35'!
+isNamed: aStreetName withNumber: aStreetNumber 
+	
+	^(streetName = aStreetName) and: [streetNumber = aStreetNumber ]! !
 
 !Address methodsFor: 'street' stamp: 'HAW 5/22/2022 00:19:29'!
 streetName
@@ -111,12 +124,12 @@ streetNumber: aStreetNumber
 	streetNumber := aStreetNumber ! !
 
 
-!Address methodsFor: 'twon' stamp: 'HAW 5/22/2022 00:19:29'!
+!Address methodsFor: 'town' stamp: 'HAW 5/22/2022 00:19:29'!
 town
 
 	^town! !
 
-!Address methodsFor: 'twon' stamp: 'HAW 5/22/2022 00:19:29'!
+!Address methodsFor: 'town' stamp: 'HAW 5/22/2022 00:19:29'!
 town: aTown
 
 	town := aTown! !
@@ -131,12 +144,6 @@ zipCode
 zipCode: aZipCode
 
 	zipCode := aZipCode! !
-
-
-!Address methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:10:35'!
-isNamed: aStreetName withNumber: aStreetNumber 
-	
-	^(streetName = aStreetName) and: [streetNumber = aStreetNumber ]! !
 
 
 !classDefinition: #Customer category: 'CustomerImporter'!
@@ -207,8 +214,8 @@ initialize
 	addresses := OrderedCollection new.! !
 
 
-!Customer methodsFor: 'as yet unclassified' stamp: 'AF 6/16/2022 21:09:01'!
-giveMeAnAddressAt: aStreetNumber namedFFFFFFFFFFFFFFF: aStreetName 
+!Customer methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 13:44:32'!
+giveMeAnAddressAt: aStreetNumber withName: aStreetName 
 	
 	^addresses detect: [:anAddress | anAddress isNamed: aStreetName withNumber: aStreetNumber ].! !
 
