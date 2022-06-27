@@ -1,1442 +1,646 @@
 
 
-----STARTUP---- (23 June 2022 18:57:55) as /home/clinux01/Escritorio/inge1/linux64/CuisUniversity-5301.image!
+----STARTUP---- (26 June 2022 21:41:53) as /home/jerodacunda/Escritorio/13/linux64/CuisUniversity-5301.image!
 
 
-----End fileIn of /home/clinux01/Escritorio/inge1/CustomerImporter-35.st----!
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 18:59:05' prior: 50519503 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	| newCustomer  |
-
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ | customerData |
-			customerData := line findTokens: $,.
-			newCustomer := Customer new.
-			newCustomer firstName: customerData second.
-			newCustomer lastName: customerData third.
-			newCustomer identificationType: customerData fourth.
-			newCustomer identificationNumber: customerData fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!classDefinition: #CustomerImporter category: 'CustomerImporter' stamp: 'JDR 6/23/2022 18:59:05'!
-Object subclass: #CustomerImporter
-	instanceVariableNames: 'session readStream line'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'CustomerImporter'!
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 19:17:52' prior: 50519655 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	 
-
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ | customerData |
-			customerData := line findTokens: $,.
-			newCustomer := Customer new.
-			newCustomer firstName: customerData second.
-			newCustomer lastName: customerData third.
-			newCustomer identificationType: customerData fourth.
-			newCustomer identificationNumber: customerData fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!classDefinition: #CustomerImporter category: 'CustomerImporter' stamp: 'JDR 6/23/2022 19:17:52'!
-Object subclass: #CustomerImporter
-	instanceVariableNames: 'session readStream line newCustomer'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'CustomerImporter'!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:18:10' prior: 50519696 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ | customerData |
-			customerData := line findTokens: $,.
-			newCustomer := Customer new.
-			newCustomer firstName: customerData second.
-			newCustomer lastName: customerData third.
-			newCustomer identificationType: customerData fourth.
-			newCustomer identificationNumber: customerData fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:18:10'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:19:23' prior: 50519737 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ newCustomer := Customer new.
-			newCustomer firstName: (line findTokens: $,) second.
-			newCustomer lastName: (line findTokens: $,) third.
-			newCustomer identificationType: (line findTokens: $,) fourth.
-			newCustomer identificationNumber: (line findTokens: $,) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:19:23' prior: 50519772 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ newCustomer := Customer new.
-			newCustomer firstName: (line findTokens: $,) second.
-			newCustomer lastName: (line findTokens: $,) third.
-			newCustomer identificationType: (line findTokens: $,) fourth.
-			newCustomer identificationNumber: (line findTokens: $,) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:18:10' prior: 50519804 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ | customerData |
-			customerData := line findTokens: $,.
-			newCustomer := Customer new.
-			newCustomer firstName: customerData second.
-			newCustomer lastName: customerData third.
-			newCustomer identificationType: customerData fourth.
-			newCustomer identificationNumber: customerData fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:20:26' prior: 50519836 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ newCustomer := Customer new.
-			newCustomer firstName: (line findTokens: $,) second.
-			newCustomer lastName: (line findTokens: $,) third.
-			newCustomer identificationType: (line findTokens: $,) fourth.
-			newCustomer identificationNumber: (line findTokens: $,) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:24:24' prior: 50519869 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ | record |
-	newCustomer := Customer new.
-			record := line findTokens: $,.
-	newCustomer firstName: (record) second.
-			newCustomer lastName: (line findTokens: $,) third.
-			newCustomer identificationType: (line findTokens: $,) fourth.
-			newCustomer identificationNumber: (line findTokens: $,) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:25:09' prior: 50519901 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-	newCustomer := Customer new.
-	newCustomer firstName: (record) second.
-			newCustomer lastName: (line findTokens: $,) third.
-			newCustomer identificationType: (line findTokens: $,) fourth.
-			newCustomer identificationNumber: (line findTokens: $,) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:25:13'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:25:23' prior: 50519934 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-	newCustomer := Customer new.
-	newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (line findTokens: $,) fourth.
-			newCustomer identificationNumber: (line findTokens: $,) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:25:24'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:25:29'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:25:50' prior: 50519969 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-	newCustomer := Customer new.
-	newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := record.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:25:50'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:28:48' prior: 50520006 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-			newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := record.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:29:00'!
-importCustomer: record
-
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:29:00' prior: 50520040 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-			self importCustomer: record ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := record.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:29:11'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:29:40' prior: 50520083 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-			self importCustomer: record ].
-
-		(line beginsWith: 'A') ifTrue: [ | newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:29:46'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:30:36'!
-importAddress: record
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:30:36' prior: 50520110 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [
-			self importCustomer: record ].
-
-		(line beginsWith: 'A') ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:31:16' prior: 50520148 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [self importCustomer: record ].
-
-		(line beginsWith: 'A') ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:33:16' prior: 50520162 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(line beginsWith: 'C') ifTrue: [self importCustomer: record ].
-		(line beginsWith: 'A') ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:33:40'!
-isCustomerRecord
-
-	^ line beginsWith: 'C'! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:33:40' prior: 50520176 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(self isCustomerRecord) ifTrue: [self importCustomer: record ].
-		(line beginsWith: 'A') ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:34:35'!
-isAddressRecord
-
-	^ line beginsWith: 'A'! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:34:35' prior: 50520194 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [ | record |
-		record := line findTokens: $,.
-		(self isCustomerRecord) ifTrue: [self importCustomer: record ].
-		(self isAddressRecord) ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:35:15' prior: 50520134!
-importAddress: record1
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record1 second.
-			newAddress streetNumber: record1 third asNumber .
-			newAddress town: record1 fourth.
-			newAddress zipCode: record1 fifth asNumber .
-			newAddress province: record1 sixth! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:35:26' prior: 50520070!
-importCustomer: record1
-
-	newCustomer := Customer new.
-			newCustomer firstName: (record1) second.
-			newCustomer lastName: (record1) third.
-			newCustomer identificationType: (record1) fourth.
-			newCustomer identificationNumber: (record1) fifth.
-			session persist: newCustomer! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 19:35:44' prior: 50520212 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [  
-		record := line findTokens: $,.
-		(self isCustomerRecord) ifTrue: [self importCustomer: record ].
-		(self isAddressRecord) ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!classDefinition: #CustomerImporter category: 'CustomerImporter' stamp: 'JDR 6/23/2022 19:35:44'!
-Object subclass: #CustomerImporter
-	instanceVariableNames: 'session readStream line newCustomer record'
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'CustomerImporter'!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:36:04' prior: 50520225!
-importAddress: record1
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:36:16' prior: 50520239!
-importCustomer: record1
-
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:36:19'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:36:57'!
-importCustomer
-
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 19:36:57' prior: 50520252 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [  
-		record := line findTokens: $,.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress: record ].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!methodRemoval: CustomerImporter #importCustomer: stamp: 'JDR 6/23/2022 19:36:57'!
-importCustomer: record1
-
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:37:13'!
-importAddress
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 19:37:13' prior: 50520314 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [  
-		record := line findTokens: $,.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress].
-
-		line := readStream nextLine. ].
-
-	! !
-
-!methodRemoval: CustomerImporter #importAddress: stamp: 'JDR 6/23/2022 19:37:13'!
-importAddress: record1
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:37:36'!
-nextRecord
-
-	^ record := line findTokens: $,! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:37:36' prior: 50520351 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ line notNil ] whileTrue: [  
-		self nextRecord.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:38:09'!
-hasNextLineEEEE
-
-	^ line notNil! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:38:09' prior: 50520381 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	line := readStream nextLine.
-	
-	[ self hasNextLineEEEE ] whileTrue: [  
-		self nextRecord.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:38:33' prior: 50520397 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	
-	
-	[ self hasNextLineEEEE ] whileTrue: [  
-		self nextRecord.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:38:36' prior: 50520410 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	[ self hasNextLineEEEE ] whileTrue: [  
-		self nextRecord.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress].
-
-		line := readStream nextLine. ].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:38:42' prior: 50520392!
-hasNextLineEEEE
-
-	line := readStream nextLine.
-	^ line notNil! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:38:49' prior: 50520422 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	
-	[ self hasNextLineEEEE ] whileTrue: [  
-		self nextRecord.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress]. ].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:38:51'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:39:26' prior: 50520439 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	[ self hasNextLineEEEE ] whileTrue: [  
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress]. 
-	].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:39:33' prior: 50520433!
-hasNextLineEEEE
-
-	line := readStream nextLine.
-	self nextRecord.
-	^ line notNil! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:39:34'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:39:34'!
-ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:39:42' prior: 50520462!
-hasNextLineEEEE
-
-	line := readStream nextLine.
-	^ line notNil! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:39:50' prior: 50520452 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	[ self hasNextLineEEEE ] whileTrue: [ 
-		self nextRecord.
-		(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress]. 
-	].
-
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:39:51'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:40:57'!
-importRecord
-
-	(self isCustomerRecord) ifTrue: [self importCustomer].
-		(self isAddressRecord) ifTrue: [ self importAddress]! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:40:57' prior: 50520479 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	[ self hasNextLineEEEE ] whileTrue: [ 
-		self nextRecord.
-		self importRecord. 
-	].
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:41:14'!
-createRecord
-
-	^ record := line findTokens: $,! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 19:41:14' prior: 50520499 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	[ self hasNextLineEEEE ] whileTrue: [ 
-		self createRecord.
-		self importRecord. 
-	].
-
-	! !
-
-!methodRemoval: CustomerImporter #nextRecord stamp: 'JDR 6/23/2022 19:41:14'!
-nextRecord
-
-	^ record := line findTokens: $,!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:41:57'!
-hasLineToImport
-
-	line := readStream nextLine.
-	^ line notNil! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 19:41:57' prior: 50520512 overrides: 16902254!
-value
-
-	"
-	self importCustomers
-	"
-	[ self hasLineToImport ] whileTrue: [ 
-		self createRecord.
-		self importRecord. 
-	].
-
-	! !
-
-!methodRemoval: CustomerImporter #hasNextLineEEEE stamp: 'JDR 6/23/2022 19:41:57'!
-hasNextLineEEEE
-
-	line := readStream nextLine.
-	^ line notNil!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:42:15' prior: 50520529 overrides: 16902254!
-value
-
-	[ self hasLineToImport ] whileTrue: [ 
-		self createRecord.
-		self importRecord. 
-	].
-
-	! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:42:47'!
-test02
+----End fileIn of /home/jerodacunda/Documentos/GitHub/is1-1C2022/13-CustomerImporter it2/CustomerImporter-2.st----!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:43:03'!
+test01ValidCustomersImportCorrectly
 
 	CustomerImporter valueFrom: self validImportData into: session..
 
 	self assertImportedRightNumberOfCustomers.
 	self assertPepeSanchezWasImportedCorrecty.
 	self assertJuanPerezWasImportedCorrectly ! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:45:56' prior: 50520548!
-test02
 
-	self should: (CustomerImporter valueFrom: self invalid into: session) 
-	raise: Error 
-	withExceptionDo:[] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:46:53' prior: 50520558!
-test02
+!methodRemoval: ImportTest #test01Import stamp: 'JDR 6/26/2022 21:43:03'!
+test01Import
 
-	self should: (CustomerImporter valueFrom: self invalidIdentificationTypeData into: session) 
-	raise: Error 
-	withExceptionDo:[] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:47:12' prior: 50520565!
-test02
+	CustomerImporter valueFrom: self validImportData into: session..
 
-	self should: (CustomerImporter valueFrom: self invalidIdentificationTypeData into: session) 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:47:32' prior: 50520572!
-test02
-
-	self should: (CustomerImporter valueFrom: self invalidIdentificationTypeData into: session) 
-	raise: Error 
-	withExceptionDo:[] .! !
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:47:32'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:47:47' prior: 50520580!
-test02
-
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error 
-	withExceptionDo:[] .! !
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:47:47'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:47:56' prior: 50520590!
-test02
-
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error 
-	withExceptionDo:[:anError] .! !
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:47:56'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:47:56'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:47:56'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:48:08' prior: 50520600!
-test02
+	self assertImportedRightNumberOfCustomers.
+	self assertPepeSanchezWasImportedCorrecty.
+	self assertJuanPerezWasImportedCorrectly !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:45:43' prior: 50519261!
+test02CustomerIdTypeMustBeC
 
 	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError] .! !
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		 self assert: 0 equals: (session selectAllOfType: Customer) size ] .! !
 
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:48:08'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 19:48:18'!
-invalidIdentificationTypeData
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 19:48:36' prior: 50520625!
-invalidIdentificationTypeData
-	^nil! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 19:49:46' prior: 50520630!
-invalidIdentificationTypeData
-	^'CC,Pepe,Sanchez,D,22333444'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:49:55'!
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 21:45:44'!
 PASSED!
 
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:49:56'!
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 21:45:44'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+
+!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+
+!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 21:45:45'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:46:11' prior: 50519273!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		self assert: 0 equals: (session selectAllOfType: Customer) size ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:46:12'!
+FAILURE!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:46:49' prior: 50519960!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:46:50'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 21:46:51'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:47:12'!
+test06AddressRecordHasLessThanSevenFields
+
+	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
+
+!methodRemoval: ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 21:47:12'!
+test06CustomerRecordHasLessThanSevenFields
+
+	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText ] .!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:47:22'!
+test07AddressRecordHasMoreThanFiveFields
+
+	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
+
+!methodRemoval: ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 21:47:22'!
+test07CustomerRecordHasMoreThanFiveFields
+
+	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText ] .!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:47:42' prior: 50519285!
+test04CustomerRecordHasLessThanSixFields
+
+	self should: [CustomerImporter valueFrom: self tooManyCostumerFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText.
+		self assert: 0 equals: (session selectAllOfType: Customer) size ] .! !
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 21:47:43'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 21:47:44'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 21:47:44'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:47:44'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 21:47:44'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 21:47:44'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 21:47:45'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 21:47:45'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 21:47:45'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:47:54' prior: 50519297!
+test05CustomerRecordHasMoreThanFourFields
+
+	self should: [CustomerImporter valueFrom: self tooFewCostumerFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText .
+		self assert: 0 equals: (session selectAllOfType: Customer) size] .! !
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 21:47:55'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 21:47:56'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 21:47:56'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:47:56'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 21:47:56'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 21:47:57'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 21:47:57'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 21:47:57'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 21:47:57'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:53:32' prior: 50519978!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer | 
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		
+		importedCustomer := self assertCustomerWithIdentificationType: 'D' number: '22333444' hasFirstName: 'Pepe' lastName: 'Sanchez'.
+		self assert: importedCustomer addresses isEmpty.
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:53:35'!
 ERROR!
 
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:49:56'!
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:53:45'!
 ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:50:57' prior: 50520189!
-isCustomerRecord
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:54:00' prior: 50520157!
+test03AddressIdTypeMustBeA
 
-	^ line first = 'C'! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:52:44' prior: 50520491!
-importRecord
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer | 
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		
+		importedCustomer := self assertCustomerWithIdentificationType: 'C' number: '22333444' hasFirstName: 'Pepe' lastName: 'Sanchez'.
+		self assert: importedCustomer addresses isEmpty.
+		 ] .! !
 
-	(self isCustomerRecord) ifTrue: [self importCustomer].
-	(self isAddressRecord) ifTrue: [ self importAddress].
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:54:01'!
+ERROR!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:54:05' prior: 50520182!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer | 
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		
+		importedCustomer := self assertCustomerWithIdentificationType: 'D' number: '22333444' hasFirstName: 'Pepe' lastName: 'Sanchez'.
+		self assert: importedCustomer addresses isEmpty.
+		 ] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:56:31' prior: 50520204!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer | 
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		
+		importedCustomer := self assertCustomerWithIdentificationType: 'D' number: '22333444' hasFirstName: 'Pepe' lastName: 'Sanchez'.
+		
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:56:40'!
+ERROR!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:57:12'!
+ERROR!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 21:58:27' prior: 50520223!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |  
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:58:29'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 21:58:30'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 21:58:30'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 21:58:30'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 21:58:30'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 21:58:31'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 21:58:31'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 21:58:31'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 21:58:31'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:00:51' prior: 50520246!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer |  
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		importedCustomer := self customerWithIdentificationType: 'D' number: 2.
+		 ] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:01:33' prior: 50520287!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer |  
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		importedCustomer := self customerWithIdentificationType: 'D' number: '22333444'.
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:01:36'!
+ERROR!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:03:04' prior: 50520303!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer |  
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		importedCustomer := (session selectAllOfType: Customer) anyOne.
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:03:07'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:03:07'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:03:08'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:03:08'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:03:08'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:03:08'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:03:08'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:03:09'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:03:09'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:04:13' prior: 50520322!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | | importedCustomer |  
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		importedCustomer := (session selectAllOfType: Customer) anyOne.
+		self assert: importedCustomer addresses isEmpty.
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:04:15'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:04:16'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:04:16'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:04:16'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:04:16'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:04:17'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:04:17'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:04:17'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:04:17'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:05:34' prior: 50520366!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |   
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		self assert: ( (session selectAllOfType: Customer) anyOne) addresses isEmpty.
+		 ] .! !
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:05:43'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:05:43'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:05:44'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:06:00' prior: 50520019!
+test06AddressRecordHasLessThanSevenFields
+
+	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText.
+		self assert: ( (session selectAllOfType: Customer) anyOne) addresses isEmpty. ] .! !
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:06:01'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:06:01'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:06:02'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:06:13' prior: 50520044!
+test07AddressRecordHasMoreThanFiveFields
+
+	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText.
+		self assert: ( (session selectAllOfType: Customer) anyOne) addresses isEmpty. ] .! !
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:06:14'!
+PASSED!
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:06:14'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:06:14'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:06:15'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:06:15'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:06:15'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:06:15'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:06:15'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:06:15'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:06:32' prior: 50519333!
+test08AddressRecordMustBelongToACostumer
+
+	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
+		self assert: ( (session selectAllOfType: Customer) anyOne) addresses isEmpty. ] .! !
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:06:33'!
+ERROR!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:06:52' prior: 50520544!
+test08AddressRecordMustBelongToACostumer
+
+	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
+		] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37'!
+assertCustomerHasNoAddresses
+
+	^ self assert: ( (session selectAllOfType: Customer) anyOne) addresses isEmpty! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37' prior: 50520500!
+test07AddressRecordHasMoreThanFiveFields
+
+	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText.
+		self assertCustomerHasNoAddresses. ] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37' prior: 50520456!
+test06AddressRecordHasLessThanSevenFields
+
+	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText.
+		self assertCustomerHasNoAddresses. ] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37' prior: 50520412!
+test03AddressIdTypeMustBeA
+
+	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |   
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		self assertCustomerHasNoAddresses.
+		 ] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:11:37'!
+assertSessionHasNoCostumers
+
+	^ self assert: 0 equals: (session selectAllOfType: Customer) size! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:11:37' prior: 50520113!
+test05CustomerRecordHasMoreThanFourFields
+
+	self should: [CustomerImporter valueFrom: self tooFewCostumerFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText .
+		self assertSessionHasNoCostumers] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:11:37' prior: 50519917!
+test02CustomerIdTypeMustBeC
+
+	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		 self assertSessionHasNoCostumers ] .! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:11:37' prior: 50520069!
+test04CustomerRecordHasLessThanSixFields
+
+	self should: [CustomerImporter valueFrom: self tooManyCostumerFieldsData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText.
+		self assertSessionHasNoCostumers ] .! !
+!ImportTest methodsFor: 'test data' stamp: 'JDR 6/26/2022 22:13:21'!
+invalidEmptyData
+
+	^ReadStream on: '
+'.! !
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:14:28'!
+test09EmptyData
+
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		 self assertSessionHasNoCostumers ] .! !
+!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/26/2022 22:15:31'!
+invalidEmptyDataErrorDescription
+
+	  ^'no data to load costumers'! !
+
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:15:47'!
+FAILURE!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:15:56' prior: 50520674!
+test09EmptyData
+
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		  ] .! !
+
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:15:56'!
+FAILURE!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:30:42' prior: 50519683!
+importCustomer
+
+	self assertCustomerRecordSizeIsFive.
+	self assertRecordIsNotEmpty.
 	
-	self error: CustomerImporter invalidIdentificationTypeErrorDescription.! !
+	newCustomer := Customer new.
+			newCustomer firstName: (record) second.
+			newCustomer lastName: (record) third.
+			newCustomer identificationType: (record) fourth.
+			newCustomer identificationNumber: (record) fifth.
+			session persist: newCustomer! !
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/26/2022 22:31:31'!
+assertRecordIsNotEmpty
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:52:48'!
-ERROR!
+	(record size = 1) ifTrue: [self error: CustomerImporter invalidEmptyDataErrorDescription ]! !
 
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:52:48'!
-ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:53:04' prior: 50520651!
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:31:41'!
+FAILURE!
+
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:31:41'!
+FAILURE!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:33:53' prior: 50519696!
 importRecord
 
+	(record isEmpty) ifTrue: [self error: CustomerImporter invalidEmptyDataErrorDescription ].
+	
 	(self isCustomerRecord) ifTrue: [^self importCustomer].
 	(self isAddressRecord) ifTrue: [^self importAddress].
 	
 	self error: CustomerImporter invalidIdentificationTypeErrorDescription.! !
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:53:05'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:53:05'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:53:47'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:53:47'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:53:54'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:53:54'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:53:56'!
-ERROR!
-
-line first = 'C'!
-
-line!
-
-self first!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:55:53'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:55:57'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:55:57'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:55:58'!
-ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:56:12' prior: 50520646!
-isCustomerRecord
-
-	^ line first = $C! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:56:15'!
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:34:01'!
 PASSED!
 
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:56:19'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:56:52'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 19:58:12' prior: 50520634!
-invalidIdentificationTypeData
-	^ReadStream on: 'CC,Pepe,Sanchez,D,22333444'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 19:58:13'!
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:34:06'!
 PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:58:14'!
-FAILURE!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:58:14'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 19:59:39' prior: 50520615!
-test02
-
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeDataErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 19:59:40'!
-FAILURE!
-
-line first!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:01:27' prior: 50520702!
-isCustomerRecord
-
-	^ record first  = $C! !
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:01:30'!
-ERROR!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:01:46'!
-invalidIdentificationTypeErrorDescription
-	self shouldBeImplemented.! !
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:02:17' prior: 50520747!
-invalidIdentificationTypeErrorDescription
-	'Invalid indentification data'! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:02:35' prior: 50520207!
-isAddressRecord
-
-	^ line beginsWith: 'A'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:02:37'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:02:37'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:02:50'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:02:50'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:02:51'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:02:51'!
-ERROR!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:03:32' prior: 50520753!
-invalidIdentificationTypeErrorDescription
-	^'Invalid indentification data'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:03:32'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:03:32'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:03:37'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:03:41'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:03:55'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:04:09' prior: 50520725!
-test02
-
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:04:09'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:04:09'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:04:09'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:04:09'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:04:12'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:04:12'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:04:12'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:04:12'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:04:44'!
-ERROR!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:04:44'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:04:44'!
-ERROR!
-
-record first!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:05:26' prior: 50520740!
-isCustomerRecord
-
-	^ record first = 'C'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:05:27'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:05:31'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:05:32'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:05:33'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:06:54'!
-test03
-
-	self should: [CustomerImporter valueFrom: self invalidAddresIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:07:19'!
-ERROR!
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:07:29'!
-invalidAddresIdentificationTypeData
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:07:38' prior: 50520860!
-invalidAddresIdentificationTypeData
-	! !
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:07:41'!
-ERROR!
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:08:07' prior: 50520866!
-invalidAddresIdentificationTypeData
-
-	^ReadStream on: 'CC,Pepe,Sanchez,D,22333444'! !
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:08:41' prior: 50520873!
-invalidAddresIdentificationTypeData
-
-	^ReadStream on: 'C,Pepe,Sanchez,D,22333444	
-Aj,San Martin,3322,Olivos,1636,BsAs'! !
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:09:00'!
-invalidAddressIdentificationTypeData
-
-	^ReadStream on: 'C,Pepe,Sanchez,D,22333444	
-Aj,San Martin,3322,Olivos,1636,BsAs'! !
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:09:00' prior: 50520846!
-test03
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
-
-!methodRemoval: ImportTest #invalidAddresIdentificationTypeData stamp: 'JDR 6/23/2022 20:09:00'!
-invalidAddresIdentificationTypeData
-
-	^ReadStream on: 'C,Pepe,Sanchez,D,22333444	
-Aj,San Martin,3322,Olivos,1636,BsAs'!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:09:17'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:09:18'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:09:18'!
-FAILURE!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:09:18'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:09:54' prior: 50520759!
-isAddressRecord
-
-	^ record first = 'A'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:09:54'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:09:54'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:09:54'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:10:02'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:10:02'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:02'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:16'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:10:17'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:10:17'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:17'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:22'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:10:23'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:10:23'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:23'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:27'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:10:28'!
-PASSED!
-
-!testRun: #ImportTest #test02 stamp: 'JDR 6/23/2022 20:10:28'!
-PASSED!
-
-!testRun: #ImportTest #test03 stamp: 'JDR 6/23/2022 20:10:28'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:11:11'!
-test02CustomerIdTypeMustBeC
-
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
-
-!methodRemoval: ImportTest #test02 stamp: 'JDR 6/23/2022 20:11:11'!
-test02
-
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:11:24'!
-test03AddressIdTypeMustBeA
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
-
-!methodRemoval: ImportTest #test03 stamp: 'JDR 6/23/2022 20:11:24'!
-test03
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:16:04'!
-test04CustomerRecordHasFiveFields
-
-	self should: [CustomerImporter valueFrom: self invalidCostumerFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidAmountOfFieldsErrorDescription equals: anError messageText ] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:17:35'!
-invalidCostumerFieldsData 
-
-	^ReadStream on: 'C,Pepe,San,chez,D,22333444'! !
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:18:06'!
-FAILURE!
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:18:06'!
-FAILURE!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:20:09'!
-invalidAmountOfFieldsErrorDescription
-
-	'incorrect amount of fields'! !
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:20:45'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:21:33' prior: 50520506!
-createRecord
-
-	record := line findTokens: $,! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:21:34'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:21:34'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:21:34'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:21:34'!
-FAILURE!
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:21:35'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:21:42' prior: 50521045!
-createRecord
-
-	record := line findTokens: $,! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:21:43'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:21:43'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:21:43'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:21:43'!
-FAILURE!
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:21:43'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:22:15' prior: 50520833!
-isCustomerRecord
-
-	^ record first = 'C' and: [record size = 5]! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:28:50' prior: 50520301!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:34:24' prior: 50520709!
 importCustomer
 
-	self assertCostumerRecordSizeLowerThanSix.
+	self assertCustomerRecordSizeIsFive.	
 	
 	newCustomer := Customer new.
 			newCustomer firstName: (record) second.
@@ -1445,1288 +649,282 @@ importCustomer
 			newCustomer identificationNumber: (record) fifth.
 			session persist: newCustomer! !
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:28:53'!
-ERROR!
+!methodRemoval: CustomerImporter #assertRecordIsNotEmpty stamp: 'JDR 6/26/2022 22:34:59'!
+assertRecordIsNotEmpty
 
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:28:53'!
-PASSED!
+	(record size = 1) ifTrue: [self error: CustomerImporter invalidEmptyDataErrorDescription ]!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:35:19'!
+assertRecordIsNotEmpty
 
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:28:53'!
-ERROR!
+	^ (record isEmpty) ifTrue: [self error: CustomerImporter invalidEmptyDataErrorDescription ]! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:35:19' prior: 50520734!
+importRecord
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:28:53'!
-FAILURE!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:28:56'!
-ERROR!
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:29:01'!
-assertCostumerRecordSizeLowerThanSix
-	self shouldBeImplemented.! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:31:12' prior: 50521115!
-assertCostumerRecordSizeLowerThanSix
+	self assertRecordIsNotEmpty.
 	
-	(record size < 6) ifFalse: [ 	self error: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription. ]! !
+	(self isCustomerRecord) ifTrue: [^self importCustomer].
+	(self isAddressRecord) ifTrue: [^self importAddress].
+	
+	self error: CustomerImporter invalidIdentificationTypeErrorDescription.! !
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:31:18'!
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:35:25'!
 PASSED!
 
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:31:21'!
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:35:25'!
 PASSED!
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:31:22'!
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:35:26'!
 PASSED!
 
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:31:22'!
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:35:26'!
 PASSED!
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:31:22'!
-FAILURE!
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:31:22'!
-FAILURE!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:32:28'!
-tooManyFieldsInCustomerRecordErrorDescription
-
-	'customer record cannot have more than five fields'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:32:31'!
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:35:26'!
 PASSED!
 
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:32:31'!
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:35:26'!
 PASSED!
 
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:32:31'!
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:35:26'!
 PASSED!
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:32:31'!
-FAILURE!
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:35:26'!
+PASSED!
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:32:31'!
-FAILURE!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:33:12' prior: 50521036!
-invalidAmountOfFieldsErrorDescription
+!testRun: #ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:35:26'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:36:00'!
+test09EmptyRecordShouldNotLoad
 
-	^'incorrect amount of fields'! !
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:33:16'!
-FAILURE!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:33:37' prior: 50521146!
-tooManyFieldsInCustomerRecordErrorDescription
-
-	^'customer record cannot have more than five fields'! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:34:13' prior: 50521012!
-test04CustomerRecordHasFiveFields
-
-	self should: [CustomerImporter valueFrom: self invalidCostumerFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		  ] .! !
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:34:14'!
-FAILURE!
+!methodRemoval: ImportTest #test09EmptyData stamp: 'JDR 6/26/2022 22:36:00'!
+test09EmptyData
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:34:46'!
-FAILURE!
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		  ] .!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:36:31' prior: 50520816!
+test09EmptyRecordShouldNotLoad
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:35:05'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:35:46' prior: 50521083!
-isCustomerRecord
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertSessionHasNoCostumers 
+		  ] .! !
 
-	^ record first = 'C' ! !
-
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:35:47'!
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:36:33'!
 PASSED!
 
-!testRun: #ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:35:50'!
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:36:33'!
 PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:36:29'!
-test04CustomerRecordHasLessThanSixFields
 
-	self should: [CustomerImporter valueFrom: self invalidCostumerFieldsData into: session] 
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:36:33'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:36:34'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:36:34'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:36:34'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:36:34'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:36:34'!
+PASSED!
+
+!testRun: #ImportTest #test09EmptyRecordShouldNotLoad stamp: 'JDR 6/26/2022 22:36:34'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:38:08' prior: 50520562!
+test08AddressRecordMustBelongToACostumer
+
+	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
+		self assertSessionHasNoCostumers ] .! !
 
-!methodRemoval: ImportTest #test04CustomerRecordHasFiveFields stamp: 'JDR 6/23/2022 20:36:29'!
-test04CustomerRecordHasFiveFields
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:38:08'!
+PASSED!
 
-	self should: [CustomerImporter valueFrom: self invalidCostumerFieldsData into: session] 
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:38:09'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:38:09'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:38:10'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:38:10'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:38:10'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:38:10'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:38:10'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:38:10'!
+PASSED!
+
+!testRun: #ImportTest #test09EmptyRecordShouldNotLoad stamp: 'JDR 6/26/2022 22:38:11'!
+PASSED!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:38:44' prior: 50519898!
+test01ValidCustomersImportCorrectly
+
+	CustomerImporter valueFrom: self validImportData into: session.
+
+	self assertImportedRightNumberOfCustomers.
+	self assertPepeSanchezWasImportedCorrecty.
+	self assertJuanPerezWasImportedCorrectly ! !
+
+!testRun: #ImportTest #test01ValidCustomersImportCorrectly stamp: 'JDR 6/26/2022 22:38:46'!
+PASSED!
+
+!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/26/2022 22:38:46'!
+PASSED!
+
+!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/26/2022 22:38:46'!
+PASSED!
+
+!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/26/2022 22:38:46'!
+PASSED!
+
+!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/26/2022 22:38:46'!
+PASSED!
+
+!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/26/2022 22:38:47'!
+PASSED!
+
+!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/26/2022 22:38:47'!
+PASSED!
+
+!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/26/2022 22:38:47'!
+PASSED!
+
+!testRun: #ImportTest #test09EmptyRecordShouldNotLoad stamp: 'JDR 6/26/2022 22:38:47'!
+PASSED!
+!ImportTest methodsFor: 'assertions' stamp: 'JDR 6/26/2022 22:46:16'!
+assertNoCostumersImported
+
+	^ self assert: 0 equals: (session selectAllOfType: Customer) size! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/26/2022 22:46:16' prior: 50520881!
+test08AddressRecordMustBelongToACostumer
+
+	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:36:57'!
-test05CustomerRecordHasMoreThanFourFields
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
+		self assertNoCostumersImported ] .! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/26/2022 22:46:16' prior: 50520642!
+test02CustomerIdTypeMustBeC
 
-	self should: [CustomerImporter valueFrom: self invalidCostumerFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:37:26'!
-tooManyCostumerFieldsData 
-
-	^ReadStream on: 'C,Pepe,San,chez,D,22333444'! !
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:37:26' prior: 50521214!
-test04CustomerRecordHasLessThanSixFields
-
-	self should: [CustomerImporter valueFrom: self tooManyCostumerFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:37:27' prior: 50521239!
-test05CustomerRecordHasMoreThanFourFields
-
-	self should: [CustomerImporter valueFrom: self tooManyCostumerFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
-
-!methodRemoval: ImportTest #invalidCostumerFieldsData stamp: 'JDR 6/23/2022 20:37:27'!
-invalidCostumerFieldsData 
-
-	^ReadStream on: 'C,Pepe,San,chez,D,22333444'!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:37:40' prior: 50521270!
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		 self assertNoCostumersImported ] .! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/26/2022 22:46:16' prior: 50520628!
 test05CustomerRecordHasMoreThanFourFields
 
 	self should: [CustomerImporter valueFrom: self tooFewCostumerFieldsData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:37:49' prior: 50521288!
-test05CustomerRecordHasMoreThanFourFields
-
-	self should: [CustomerImporter valueFrom: self tooFewCostumerFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:37:51'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:38:00'!
-tooFewCostumerFieldsData
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:38:03' prior: 50521317!
-tooFewCostumerFieldsData
-	! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:38:27' prior: 50521322!
-tooFewCostumerFieldsData
-	
-	^ReadStream on: 'C,Pepe,D,22333444'! !
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:40:36'!
-tooFewFieldsInCustomerRecordErrorDescription
-
-	^'customer record cannot have less than five fields'! !
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:40:48'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:41:16' prior: 50521088!
-importCustomer
-
-	self assertCostumerRecordSizeLowerThanSix.
-	self assertCostumerRecordSizeGreaterThanFour.
-	
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:41:21'!
-ERROR!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:41:21'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:41:21'!
-ERROR!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:41:21'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:41:21'!
-ERROR!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:41:23'!
-ERROR!
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:41:30'!
-assertCostumerRecordSizeGreaterThanFour
-	self shouldBeImplemented.! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:44:31' prior: 50521373!
-assertCostumerRecordSizeGreaterThanFour
-	
-	(record size >= 5) ifTrue:[ self error: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription ]! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:45:13' prior: 50521379!
-assertCostumerRecordSizeGreaterThanFour
-	
-	(record size > 4) ifFalse:[ self error: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription ]! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:45:14'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:45:14'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:45:14'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:45:14'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:45:14'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:45:56'!
-assertCustomerRecord
-
-	self assertCostumerRecordSizeLowerThanSix.
-	self assertCostumerRecordSizeGreaterThanFour! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:45:56' prior: 50521341!
-importCustomer
-
-	self assertCustomerRecord.
-	
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:46:20'!
-assertCustomerRecordSizeIsFive
-
-	self assertCostumerRecordSizeLowerThanSix.
-	self assertCostumerRecordSizeGreaterThanFour! !
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:46:20' prior: 50521416!
-importCustomer
-
-	self assertCustomerRecordSizeIsFive.
-	
-	newCustomer := Customer new.
-			newCustomer firstName: (record) second.
-			newCustomer lastName: (record) third.
-			newCustomer identificationType: (record) fourth.
-			newCustomer identificationNumber: (record) fifth.
-			session persist: newCustomer! !
-
-!methodRemoval: CustomerImporter #assertCustomerRecord stamp: 'JDR 6/23/2022 20:46:20'!
-assertCustomerRecord
-
-	self assertCostumerRecordSizeLowerThanSix.
-	self assertCostumerRecordSizeGreaterThanFour!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:46:22'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:46:22'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:46:22'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:46:22'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:46:22'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:46:51'!
-test06CustomerRecordHasMoreThanFourFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:47:20' prior: 50521469!
-test06CustomerRecordHasMoreThanFourFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:47:30'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:47:38'!
-tooManyAddressFieldsData
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:47:42' prior: 50521498!
-tooManyAddressFieldsData
-	! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:49:32' prior: 50521503!
-tooManyAddressFieldsData
-	
-	^ ReadStream on:
-'C,Pepe,Sanchez,D,22333444
-A,San,Martin,3322,Olivos,1636,BsAs'! !
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:50:27'!
-tooManyFieldsInAddressRecordErrorDescription
-
-	^'address record cannot have more than six fields'! !
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:50:36'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:51:51' prior: 50520337!
-importAddress
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth
-			
-	self assertAddressRecordSizeLowerThanSeven.! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:52:38'!
-assertAddressRecordSizeLowerThanSeven
-
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:53:03' prior: 50521538!
-assertAddressRecordSizeLowerThanSeven
-
-	(record size < 7) ifFalse: [ 	self error: CustomerImporter tooManyFieldsInAddressRecordErrorDescription. ]! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:53:04'!
-ERROR!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:53:04'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:53:04'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:53:04'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:53:04'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:53:04'!
-FAILURE!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:53:06'!
-ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:53:24' prior: 50521524!
-importAddress
-
-	| newAddress |
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.
-			
-	self assertAddressRecordSizeLowerThanSeven.! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:53:26'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:53:26'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:53:26'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:53:26'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:53:26'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:53:26'!
-FAILURE!
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:53:26'!
-FAILURE!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:53:57' prior: 50521572!
-importAddress
-
-	| newAddress |
-	
-	self assertAddressRecordSizeLowerThanSeven.
-	
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.			
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:53:59'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:53:59'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:53:59'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:53:59'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:53:59'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:54:00'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:54:04'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:54:04'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:54:04'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:54:04'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:54:04'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:54:04'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:54:41'!
-test07CustomerRecordHasMoreThanFiveFields
-
-	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:54:58'!
-test06CustomerRecordHasLessThanSevenFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
-
-!methodRemoval: ImportTest #test06CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:54:58'!
-test06CustomerRecordHasMoreThanFourFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText ] .!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 20:55:11'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:55:16'!
-tooFewAddressFieldsData
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:55:20' prior: 50521699!
-tooFewAddressFieldsData
-	! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 20:56:04' prior: 50521704!
-tooFewAddressFieldsData
-	
-	^ ReadStream on:
-'C,Pepe,Sanchez,D,22333444
-A,San Martin,3322'! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:56:26' prior: 50521608!
-importAddress
-
-	| newAddress |
-	
-	self assertAddressRecordSizeLowerThanSeven.
-	self assertAddressRecordSizeGreaterThanFive.
-	
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.			
-	! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:57:10'!
-assertAddressRecordSizeGreaterThanFive
-
-	(record size > 5) ifFalse:[ self error: CustomerImporter tooFewFieldsInAddressRecordErrorDescription ]! !
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:57:39'!
-tooFewFieldsInAddressRecordErrorDescription
-
-	^'address record cannot have less than six fields'! !
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 20:57:47'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 20:57:48'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:58:06'!
-assertAddressRecordSizeIsSix
-
-	self assertAddressRecordSizeLowerThanSeven.
-	self assertAddressRecordSizeGreaterThanFive! !
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:58:06' prior: 50521714!
-importAddress
-
-	| newAddress |
-	
-	self assertAddressRecordSizeIsSix.
-	
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.			
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 20:58:09'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 20:58:13'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:01:59'!
-test08AddressRecordMustBelongToACostumer
-
-	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:02:04'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:02:08'!
-addressWithoutCustomerData
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:02:11' prior: 50521848!
-addressWithoutCustomerData
-	! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:02:37' prior: 50521853!
-addressWithoutCustomerData
-	
-	^ ReadStream on:
-'A,San Martin,3322,Olivos,1636,BsAs'! !
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 21:03:24'!
-addressWithoutCustomerErrorDescription
-
-	^'an address must follow up a costumer'! !
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:03:34'!
-ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 21:05:56' prior: 50521776!
-importAddress
-
-	| newAddress |
-	
-	self assertAddressRecordSizeIsSix.
-	
-			newAddress := Address new.
-			newCustomer ifNil:[ newCustomer addAddress: newAddress].
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.			
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:05:58'!
-FAILURE!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:05:58'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:05:58'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:05:58'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:05:58'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:05:58'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:05:58'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:05:58'!
-ERROR!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 21:06:37' prior: 50521872!
-importAddress
-
-	| newAddress |
-	
-	self assertAddressRecordSizeIsSix.
-	
-			newAddress := Address new.
-			newCustomer ifNil: [self error: CustomerImporter addressWithoutCustomerErrorDescription ] ifNotNil:[ newCustomer addAddress: newAddress].
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.			
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:06:38'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:06:38'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:06:38'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:06:38'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:06:38'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:06:39'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:06:39'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:06:39'!
-PASSED!
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 21:06:49' prior: 50521912!
-importAddress
-
-	| newAddress |
-	
-	self assertAddressRecordSizeIsSix.
-	
-			newAddress := Address new.
-			newCustomer 
-				ifNil: [self error: CustomerImporter addressWithoutCustomerErrorDescription ]
-				ifNotNil:[ newCustomer addAddress: newAddress].
-			newAddress streetName: record second.
-			newAddress streetNumber: record third asNumber .
-			newAddress town: record fourth.
-			newAddress zipCode: record fifth asNumber .
-			newAddress province: record sixth.			
-	! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:06:50'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:06:50'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:06:51'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:06:51'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:06:51'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:06:51'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:06:51'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:06:51'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:06:54'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:06:54'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:06:55'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:06:55'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:06:55'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:06:55'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:06:55'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:06:55'!
-PASSED!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:09:52'!
-test09
-
-	self should: [CustomerImporter valueFrom: self AAAA into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter AErrorDescription equals: anError messageText ] .! !
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:09:54'!
-ERROR!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:10:03'!
-AAAA
-	self shouldBeImplemented.! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:10:16' prior: 50522034!
-AAAA
-	! !
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:10:41' prior: 50522038!
-AAAA
-		^ ReadStream on:'
-'.! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:10:45'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:10:45'!
-ERROR!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:10:45'!
-ERROR!
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 21:10:50'!
-AErrorDescription
-	self shouldBeImplemented.! !
-!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 21:11:06' prior: 50522075!
-AErrorDescription
-	^'Algun Error'! !
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:11:06'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:11:28'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:12:55' prior: 50520966!
-test02CustomerIdTypeMustBeC
-	
-	
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
 	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText
-		] .! !
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:13:24' prior: 50522089!
-test02CustomerIdTypeMustBeC
-	
-	
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
+		self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText .
+		self assertNoCostumersImported] .! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/26/2022 22:46:17' prior: 50520839!
+test09EmptyRecordShouldNotLoad
+
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) size] .! !
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:13:24'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:13:25'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:13:25'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:13:25'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:13:50' prior: 50520989!
-test03AddressIdTypeMustBeA
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) isEmpty ] .! !
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:13:51'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:14:42' prior: 50522102!
-test02CustomerIdTypeMustBeC
-	
-	
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) addresses size] .! !
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:14:42'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:14:49' prior: 50522166!
-test02CustomerIdTypeMustBeC
-	
-	
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) first addresses size] .! !
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:14:49'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:15:21' prior: 50522184!
-test02CustomerIdTypeMustBeC
-	
-	
-	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) size] .! !
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:15:21'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:15:22'!
-FAILURE!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:15:22'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:15:22'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:15:57' prior: 50522149!
-test03AddressIdTypeMustBeA
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) first addresses isEmpty ] .! !
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:15:58'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:16:16' prior: 50522247!
-test03AddressIdTypeMustBeA
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) anyOne addresses isEmpty ] .! !
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:16:16'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:16:40' prior: 50522265!
-test03AddressIdTypeMustBeA
-
-	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | 
-		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty ] .! !
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:16:41'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:16:41'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:16:42'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:16:42'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:16:42'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:17:25' prior: 50521257!
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'JDR 6/26/2022 22:46:17' prior: 50520656!
 test04CustomerRecordHasLessThanSixFields
 
 	self should: [CustomerImporter valueFrom: self tooManyCostumerFieldsData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText. 
-		self assert: 0 equals: (session selectAllOfType: Customer) size.] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText.
+		self assertNoCostumersImported ] .! !
 
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:17:25'!
-PASSED!
+!methodRemoval: ImportTest #assertSessionHasNoCostumers stamp: 'JDR 6/26/2022 22:46:17'!
+assertSessionHasNoCostumers
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
+	^ self assert: 0 equals: (session selectAllOfType: Customer) size!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:49:01'!
+test09EmptyRecordShouldImportAnything
 
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:17:26'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:17:26'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:17:26'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:17:45' prior: 50521301!
-test05CustomerRecordHasMoreThanFourFields
-
-	self should: [CustomerImporter valueFrom: self tooFewCostumerFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText. 
-		self assert: 0 equals: (session selectAllOfType: Customer) size. ] .! !
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .! !
 
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:17:45'!
-PASSED!
+!methodRemoval: ImportTest #test09EmptyRecordShouldNotLoad stamp: 'JDR 6/26/2022 22:49:01'!
+test09EmptyRecordShouldNotLoad
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:17:45'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:17:46'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:17:46'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:17:46'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:18:01' prior: 50521671!
-test06CustomerRecordHasLessThanSevenFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty  ] .! !
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:49:07'!
+test09EmptyRecordShouldNotImportAnything
 
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:18:01'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:18:02'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:18:02'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:18:02'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:18:02'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:18:02'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:18:03'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:18:03'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:18:03'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:18:03'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:18:03'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:18:09' prior: 50521659!
-test07CustomerRecordHasMoreThanFiveFields
-
-	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty  ] .! !
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .! !
 
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:18:10'!
-PASSED!
+!methodRemoval: ImportTest #test09EmptyRecordShouldImportAnything stamp: 'JDR 6/26/2022 22:49:07'!
+test09EmptyRecordShouldImportAnything
 
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:18:10'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:18:10'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:18:11'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:18:11'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:18:11'!
-PASSED!
-
-!testRun: #ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:18:11'!
-PASSED!
-
-!testRun: #ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:18:11'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:18:11'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:18:11'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:18:11'!
-FAILURE!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:18:34'!
-test06AddressRecordHasLessThanSevenFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty  ] .! !
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:49:22'!
+test09EmptyRecordShouldNotImport
 
-!methodRemoval: ImportTest #test06CustomerRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:18:34'!
-test06CustomerRecordHasLessThanSevenFields
-
-	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty  ] .!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:18:41'!
-test07AddressRecordHasMoreThanFiveFields
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .! !
 
-	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
+!methodRemoval: ImportTest #test09EmptyRecordShouldNotImportAnything stamp: 'JDR 6/26/2022 22:49:22'!
+test09EmptyRecordShouldNotImportAnything
+
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty  ] .! !
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .!
 
-!methodRemoval: ImportTest #test07CustomerRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:18:41'!
-test07CustomerRecordHasMoreThanFiveFields
-
-	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty  ] .!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:20:33' prior: 50521833!
-test08AddressRecordMustBelongToACostumer
-
-	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty. ] .! !
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:20:33'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:21:03' prior: 50522581!
-test08AddressRecordMustBelongToACostumer
-
-	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
-		self assert: (session selectAllOfType: Customer) anyOne addresses isEmpty ] .! !
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:21:03'!
-ERROR!
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:21:16' prior: 50522599!
-test08AddressRecordMustBelongToACostumer
-
-	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
-	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
-		self assert: 0 equals: (session selectAllOfType: Customer) size ] .! !
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:21:16'!
-PASSED!
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:21:16'!
-PASSED!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:21:17'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:21:17'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:21:17'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:21:17'!
-PASSED!
-
-!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:21:17'!
-PASSED!
-
-!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:21:18'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:21:18'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:21:18'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:21:18'!
-FAILURE!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:21:55'!
-FAILURE!
-!ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 21:23:41' prior: 50519355!
-validImportData
-
-	^ ReadStream on:
-'
-'! !
-
-!testRun: #ImportTest #test01Import stamp: 'JDR 6/23/2022 21:23:43'!
-ERROR!
-
-!testRun: #ImportTest #test02CustomerIdTypeMustBeC stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test03AddressIdTypeMustBeA stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test04CustomerRecordHasLessThanSixFields stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test05CustomerRecordHasMoreThanFourFields stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test06AddressRecordHasLessThanSevenFields stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test07AddressRecordHasMoreThanFiveFields stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test08AddressRecordMustBelongToACostumer stamp: 'JDR 6/23/2022 21:23:44'!
-PASSED!
-
-!testRun: #ImportTest #test09 stamp: 'JDR 6/23/2022 21:23:44'!
-FAILURE!
+----QUIT----(26 June 2022 22:50:01) CuisUniversity-5301.image priorSource: 6002664!

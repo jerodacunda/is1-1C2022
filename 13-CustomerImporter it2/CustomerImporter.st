@@ -5,63 +5,88 @@ TestCase subclass: #ImportTest
 	poolDictionaries: ''
 	category: 'CustomerImporter'!
 
-!ImportTest methodsFor: 'tests' stamp: 'HAW 5/22/2022 18:17:51'!
-test01Import
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:38:44'!
+test01ValidCustomersImportCorrectly
 
-	CustomerImporter valueFrom: self validImportData into: session..
+	CustomerImporter valueFrom: self validImportData into: session.
 
 	self assertImportedRightNumberOfCustomers.
 	self assertPepeSanchezWasImportedCorrecty.
 	self assertJuanPerezWasImportedCorrectly ! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:11:11'!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:46:16'!
 test02CustomerIdTypeMustBeC
 
 	self should: [CustomerImporter valueFrom: self invalidIdentificationTypeData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError |
+		 self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.
+		 self assertNoCostumersImported ] .! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:11:24'!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37'!
 test03AddressIdTypeMustBeA
 
 	self should: [CustomerImporter valueFrom: self invalidAddressIdentificationTypeData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError |   
+		self assert: CustomerImporter invalidIdentificationTypeErrorDescription equals: anError messageText.		
+		self assertCustomerHasNoAddresses.
+		 ] .! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:37:26'!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:46:17'!
 test04CustomerRecordHasLessThanSixFields
 
 	self should: [CustomerImporter valueFrom: self tooManyCostumerFieldsData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription equals: anError messageText.
+		self assertNoCostumersImported ] .! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:37:49'!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:46:16'!
 test05CustomerRecordHasMoreThanFourFields
 
 	self should: [CustomerImporter valueFrom: self tooFewCostumerFieldsData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription equals: anError messageText .
+		self assertNoCostumersImported] .! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:54:58'!
-test06CustomerRecordHasLessThanSevenFields
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37'!
+test06AddressRecordHasLessThanSevenFields
 
 	self should: [CustomerImporter valueFrom: self tooManyAddressFieldsData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooManyFieldsInAddressRecordErrorDescription equals: anError messageText.
+		self assertCustomerHasNoAddresses. ] .! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 20:54:41'!
-test07CustomerRecordHasMoreThanFiveFields
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:07:37'!
+test07AddressRecordHasMoreThanFiveFields
 
 	self should: [CustomerImporter valueFrom: self tooFewAddressFieldsData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter tooFewFieldsInAddressRecordErrorDescription equals: anError messageText.
+		self assertCustomerHasNoAddresses. ] .! !
 
-!ImportTest methodsFor: 'tests' stamp: 'JDR 6/23/2022 21:01:59'!
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:46:16'!
 test08AddressRecordMustBelongToACostumer
 
 	self should: [CustomerImporter valueFrom: self addressWithoutCustomerData into: session] 
 	raise: Error - MessageNotUnderstood 
-	withExceptionDo:[:anError | self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText ] .! !
+	withExceptionDo:[:anError | 
+		self assert: CustomerImporter addressWithoutCustomerErrorDescription equals: anError messageText.
+		self assertNoCostumersImported ] .! !
+
+!ImportTest methodsFor: 'tests' stamp: 'JDR 6/26/2022 22:49:22'!
+test09EmptyRecordShouldNotImport
+
+	self should: [CustomerImporter valueFrom: self invalidEmptyData into: session] 
+	raise: Error - MessageNotUnderstood 
+	withExceptionDo:[:anError |
+		self assert: CustomerImporter invalidEmptyDataErrorDescription equals: anError messageText.
+		self assertNoCostumersImported 
+		  ] .! !
 
 
 !ImportTest methodsFor: 'assertions' stamp: 'HAW 5/22/2022 18:22:05'!
@@ -77,6 +102,11 @@ assertAddressOf: importedCustomer at: aStreetName hasNumber: aNumber town: aTown
 	self assert: aProvince equals: importedAddress province.
 
 	! !
+
+!ImportTest methodsFor: 'assertions' stamp: 'JDR 6/26/2022 22:07:37'!
+assertCustomerHasNoAddresses
+
+	^ self assert: ( (session selectAllOfType: Customer) anyOne) addresses isEmpty! !
 
 !ImportTest methodsFor: 'assertions' stamp: 'HAW 5/22/2022 18:27:57'!
 assertCustomerWithIdentificationType: anIdType number: anIdNumber hasFirstName: aFirstName lastName: aLastName
@@ -107,6 +137,11 @@ assertJuanPerezWasImportedCorrectly
 	importedCustomer := self assertCustomerWithIdentificationType: 'C' number: '23-25666777-9' hasFirstName: 'Juan' lastName: 'Perez'.
 	self assertAddressOf: importedCustomer at: 'Alem' hasNumber: 1122 town: 'CABA' zipCode: 1001 province: 'CABA'
 	! !
+
+!ImportTest methodsFor: 'assertions' stamp: 'JDR 6/26/2022 22:46:16'!
+assertNoCostumersImported
+
+	^ self assert: 0 equals: (session selectAllOfType: Customer) size! !
 
 !ImportTest methodsFor: 'assertions' stamp: 'HAW 5/22/2022 18:28:05'!
 assertPepeSanchezWasImportedCorrecty
@@ -155,6 +190,12 @@ invalidAddressIdentificationTypeData
 
 	^ReadStream on: 'C,Pepe,Sanchez,D,22333444	
 Aj,San Martin,3322,Olivos,1636,BsAs'! !
+
+!ImportTest methodsFor: 'test data' stamp: 'JDR 6/26/2022 22:13:21'!
+invalidEmptyData
+
+	^ReadStream on: '
+'.! !
 
 !ImportTest methodsFor: 'test data' stamp: 'JDR 6/23/2022 19:58:12'!
 invalidIdentificationTypeData
@@ -348,27 +389,10 @@ initializeFrom: aReadStream into: aSession
 	readStream := aReadStream.! !
 
 
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:57:10'!
-assertAddressRecordSizeGreaterThanFive
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:35:19'!
+assertRecordIsNotEmpty
 
-	(record size > 5) ifFalse:[ self error: CustomerImporter tooFewFieldsInAddressRecordErrorDescription ]! !
-
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:58:06'!
-assertAddressRecordSizeIsSix
-
-	self assertAddressRecordSizeLowerThanSeven.
-	self assertAddressRecordSizeGreaterThanFive! !
-
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:53:03'!
-assertAddressRecordSizeLowerThanSeven
-
-	(record size < 7) ifFalse: [ 	self error: CustomerImporter tooManyFieldsInAddressRecordErrorDescription. ]! !
-
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:46:20'!
-assertCustomerRecordSizeIsFive
-
-	self assertCostumerRecordSizeLowerThanSix.
-	self assertCostumerRecordSizeGreaterThanFour! !
+	^ (record isEmpty) ifTrue: [self error: CustomerImporter invalidEmptyDataErrorDescription ]! !
 
 !CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:21:42'!
 createRecord
@@ -399,10 +423,10 @@ importAddress
 			newAddress province: record sixth.			
 	! !
 
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 20:46:20'!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:34:24'!
 importCustomer
 
-	self assertCustomerRecordSizeIsFive.
+	self assertCustomerRecordSizeIsFive.	
 	
 	newCustomer := Customer new.
 			newCustomer firstName: (record) second.
@@ -411,9 +435,11 @@ importCustomer
 			newCustomer identificationNumber: (record) fifth.
 			session persist: newCustomer! !
 
-!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/23/2022 19:53:04'!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'JDR 6/26/2022 22:35:19'!
 importRecord
 
+	self assertRecordIsNotEmpty.
+	
 	(self isCustomerRecord) ifTrue: [^self importCustomer].
 	(self isAddressRecord) ifTrue: [^self importAddress].
 	
@@ -440,15 +466,37 @@ value
 	! !
 
 
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:45:13'!
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/23/2022 20:57:10'!
+assertAddressRecordSizeGreaterThanFive
+
+	(record size > 5) ifFalse:[ self error: CustomerImporter tooFewFieldsInAddressRecordErrorDescription ]! !
+
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/23/2022 20:58:06'!
+assertAddressRecordSizeIsSix
+
+	self assertAddressRecordSizeLowerThanSeven.
+	self assertAddressRecordSizeGreaterThanFive! !
+
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/23/2022 20:53:03'!
+assertAddressRecordSizeLowerThanSeven
+
+	(record size < 7) ifFalse: [ 	self error: CustomerImporter tooManyFieldsInAddressRecordErrorDescription. ]! !
+
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/23/2022 20:45:13'!
 assertCostumerRecordSizeGreaterThanFour
 	
 	(record size > 4) ifFalse:[ self error: CustomerImporter tooFewFieldsInCustomerRecordErrorDescription ]! !
 
-!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'JDR 6/23/2022 20:31:12'!
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/23/2022 20:31:12'!
 assertCostumerRecordSizeLowerThanSix
 	
 	(record size < 6) ifFalse: [ 	self error: CustomerImporter tooManyFieldsInCustomerRecordErrorDescription. ]! !
+
+!CustomerImporter methodsFor: 'assertions' stamp: 'JDR 6/23/2022 20:46:20'!
+assertCustomerRecordSizeIsFive
+
+	self assertCostumerRecordSizeLowerThanSix.
+	self assertCostumerRecordSizeGreaterThanFour! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -476,6 +524,11 @@ addressWithoutCustomerErrorDescription
 invalidAmountOfFieldsErrorDescription
 
 	^'incorrect amount of fields'! !
+
+!CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/26/2022 22:15:31'!
+invalidEmptyDataErrorDescription
+
+	  ^'no data to load costumers'! !
 
 !CustomerImporter class methodsFor: 'error descriptions' stamp: 'JDR 6/23/2022 20:03:32'!
 invalidIdentificationTypeErrorDescription
