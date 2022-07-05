@@ -1,0 +1,3570 @@
+
+
+----STARTUP---- (4 July 2022 21:09:02) as /home/clinux01/Escritorio/parcial inge1/parcial2/CuisUniversity-5096.image!
+
+
+----End fileIn of /home/clinux01/Escritorio/parcial inge1/parcial/parcial2021-1c-20-46.st----!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:10:00'!
+ERROR!
+!XXXLader class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:10:07'!
+departsFrom: aPoint in: aSmallInteger goingTo: aPoint3 in: aSmallInteger4 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeDepartsFrom: aPoint in: aSmallInteger goingTo: aPoint3 in: aSmallInteger4 ! !
+!XXXLader class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:10:46' prior: 50474761!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor ! !
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:10:47'!
+ERROR!
+
+!classDefinition: #XXXLader category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:10:52'!
+Object subclass: #XXXLader
+	instanceVariableNames: 'departurePosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXLader category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:10:52'!
+Object subclass: #XXXLader
+	instanceVariableNames: 'departurePosition departureFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXLader category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:10:52'!
+Object subclass: #XXXLader
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXLader category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:10:52'!
+Object subclass: #XXXLader
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion destiantionFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+!XXXLader methodsFor: '*Aconcagua-Extensions' stamp: 'Af 7/4/2022 21:10:52'!
+initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	self shouldBeImplemented.
+	departurePosition := aDeparturePosition.
+	departureFloor := aDepartureFloor.
+	destinationPostion := aDestinationPostion.
+	destiantionFloor := aDestiantionFloor.! !
+!XXXLader methodsFor: '*Aconcagua-Extensions' stamp: 'Af 7/4/2022 21:10:55' prior: 50474818!
+initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	departurePosition := aDeparturePosition.
+	departureFloor := aDepartureFloor.
+	destinationPostion := aDestinationPostion.
+	destiantionFloor := aDestiantionFloor.! !
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:11:22' prior: 50474579!
+play: aPlayer 
+	
+	| xMotion yMotion playerTile |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerTile _ importantTileXXX detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerTile moveInX: xMotion andInY: yMotion.
+	
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:11:39' prior: 50474843!
+play: aPlayer 
+	
+	| xMotion yMotion playerPosition |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerPosition _ importantTileXXX detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerPosition moveInX: xMotion andInY: yMotion.
+	
+	
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+
+!classDefinition: #Game category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:11:56'!
+Object subclass: #Game
+	instanceVariableNames: 'listOfPlayers startingPoint florToStart endingPoint florToEnd floorSizes dice playerPositions turn'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:11:56' prior: 50474858!
+play: aPlayer 
+	
+	| xMotion yMotion playerPosition |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerPosition _ playerPositions detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerPosition moveInX: xMotion andInY: yMotion.
+	
+	
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:11:56' prior: 50474568!
+is: aPlayer on: aPosition in: aFloorNumber 
+	| tile |
+	
+	tile _ playerPositions detect: [ :aSquare | aSquare doYouHave: aPlayer] ifNone:[self error: self class thatPlayerDosentExistErrordescription] .
+	
+	
+	^ (tile isInFloor: aFloorNumber) and: [tile isInPosition: aPosition]! !
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:11:56' prior: 50474537!
+initializePlayers: aListOfPlayers stating: aStartingPoint in: aFlorToStart ending: aEndingPoint in: aFlorToEnd withFlors: aFloorSizes rollingWith: aDice raisingWith: aListOfLadders fallingWith: aListOfSlides   
+	
+	listOfPlayers := aListOfPlayers.
+	
+	
+	playerPositions _ OrderedCollection new.
+	
+	listOfPlayers do:[:aPlayer | playerPositions add: (PlayerPosition add: aPlayer on: aStartingPoint in: aFlorToStart floorsWith: aFloorSizes) ].
+	turn _ 1.
+	
+	startingPoint := aStartingPoint.
+	florToStart := aFlorToStart.
+	endingPoint := aEndingPoint.
+	florToEnd := aFlorToEnd.
+	floorSizes := aFloorSizes.
+	dice := aDice.
+	
+	! !
+
+!classDefinition: #Game category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:12:27'!
+Object subclass: #Game
+	instanceVariableNames: 'listOfPlayers startingPoint florToStart endingPoint florToEnd floorSizes dice playerPositions turn listOfLadders'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #Game category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:12:28'!
+Object subclass: #Game
+	instanceVariableNames: 'listOfPlayers startingPoint florToStart endingPoint florToEnd floorSizes dice playerPositions turn listOfLadders listOfSlides'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+!Game methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:12:25' prior: 50474911!
+initializePlayers: aListOfPlayers stating: aStartingPoint in: aFlorToStart ending: aEndingPoint in: aFlorToEnd withFlors: aFloorSizes rollingWith: aDice raisingWith: aListOfLadders fallingWith: aListOfSlides   
+	
+	listOfPlayers := aListOfPlayers.
+	
+	
+	playerPositions _ OrderedCollection new.
+	
+	listOfPlayers do:[:aPlayer | playerPositions add: (PlayerPosition add: aPlayer on: aStartingPoint in: aFlorToStart floorsWith: aFloorSizes) ].
+	turn _ 1.
+	
+	startingPoint := aStartingPoint.
+	florToStart := aFlorToStart.
+	endingPoint := aEndingPoint.
+	florToEnd := aFlorToEnd.
+	floorSizes := aFloorSizes.
+	dice := aDice.
+	
+	listOfLadders _ aListOfLadders .
+	listOfSlides _ aListOfSlides.
+	
+	! !
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:12:53' prior: 50474883!
+play: aPlayer 
+	
+	| xMotion yMotion playerPosition |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerPosition _ playerPositions detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerPosition moveInX: xMotion andInY: yMotion.
+	
+	listOfSlides aPlayerJustMovedOn: playerPosition.
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:12:55'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:12:55'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:12:55'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:12:55'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:12:55'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:12:55'!
+ERROR!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:12:57'!
+ERROR!
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:13:50' prior: 50474979!
+play: aPlayer 
+	
+	| xMotion yMotion playerPosition |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerPosition _ playerPositions detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerPosition moveInX: xMotion andInY: yMotion.
+	
+	listOfLadders do: [:aLadder | aLadder aPlayerJustMovedOn: playerPosition.]
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+
+!classRenamed: #XXXLader as: #XXXLadder stamp: 'Af 7/4/2022 21:13:54'!
+Smalltalk renameClassNamed: #XXXLader as: #XXXLadder!
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:13:54' prior: 50474298!
+test15
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 1 goingTo: endingLadderPoint  in: 1.
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ Game players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 1). ! !
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:13:59'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:13:59'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:13:59'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:13:59'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:13:59'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:13:59'!
+ERROR!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:14:02'!
+ERROR!
+!Game methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:14:10' prior: 50475030!
+play: aPlayer 
+	
+	| xMotion yMotion playerPosition |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerPosition _ playerPositions detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerPosition moveInX: xMotion andInY: yMotion.
+	
+	listOfLadders do: [:aLadder | aLadder aPlayerJustMovedOn: playerPosition.].
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:14:11'!
+PASSED!
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:14:12'!
+PASSED!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:14:12'!
+ERROR!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:14:12'!
+ERROR!
+!XXXLadder methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:14:17'!
+aPlayerJustMovedOn: aPlayerPosition 
+	self shouldBeImplemented.! !
+!XXXLadder methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:15:37' prior: 50475163!
+aPlayerJustMovedOn: aPlayerPosition 
+	
+	((aPlayerPosition isInFloor: departureFloor) and: [aPlayerPosition isInPosition: departurePosition ]) ifTrue: []! !
+!XXXLadder methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:16:08' prior: 50475168!
+aPlayerJustMovedOn: aPlayerPosition 
+	
+	((aPlayerPosition isInFloor: departureFloor) and: [aPlayerPosition isInPosition: departurePosition ]) ifTrue: [aPlayerPosition riseTo: departurePosition on: departureFloor ]! !
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:16:09'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:16:09'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:16:09'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:16:09'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:16:09'!
+PASSED!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:16:09'!
+PASSED!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:16:10'!
+PASSED!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:16:10'!
+ERROR!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:16:10'!
+ERROR!
+!PlayerPosition methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:16:15'!
+riseTo: aPoint on: aSmallInteger 
+	self shouldBeImplemented.! !
+!PlayerPosition methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:16:51' prior: 50475220!
+riseTo: aEndingLadderPositon on: aEndingLadderFloor 
+
+	position _ aEndingLadderPositon .
+	floorNumber _ aEndingLadderFloor .! !
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:16:52'!
+FAILURE!
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:16:58'!
+PASSED!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:16:58'!
+FAILURE!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:16:58'!
+FAILURE!
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:18:30'!
+PASSED!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:18:30'!
+FAILURE!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:18:30'!
+FAILURE!
+
+aPlayerPosition isInFloor: departureFloor!
+
+aPlayerPosition isInPosition: departurePosition!
+!XXXLadder methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:19:30' prior: 50475176!
+aPlayerJustMovedOn: aPlayerPosition 
+	
+	((aPlayerPosition isInFloor: departureFloor) and: [aPlayerPosition isInPosition: departurePosition ]) ifTrue: [aPlayerPosition riseTo: destinationPostion on: destiantionFloor ]! !
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:19:31'!
+PASSED!
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:19:33'!
+PASSED!
+
+!classRenamed: #Game as: #LaddersAndSlidesGame stamp: 'Af 7/4/2022 21:19:47'!
+Smalltalk renameClassNamed: #Game as: #LaddersAndSlidesGame!
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474151!
+test03
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 2.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  ! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474494!
+test11
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 20@20 in: 2)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50475052!
+test15
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 1 goingTo: endingLadderPoint  in: 1.
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 1). ! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474467!
+test10
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@10.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@10 in: 1)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474205!
+test12
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	
+	self should: [game play: aCollectionOfPlayers second]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474363!
+test06
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 2@2 in: 1)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474176!
+test04
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 2.
+	
+	
+	self should: [game is: #invalidPlayer on: aStartingPoint in: aFloorNumber] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: LaddersAndSlidesGame thatPlayerDosentExistErrordescription. 
+	! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474441!
+test09
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 5) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@1 in: 1)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474234!
+test13
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	
+	self should: [game play: aCollectionOfPlayers second.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474266!
+test14
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	
+	self should: [game play: aCollectionOfPlayers second.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474112!
+test01
+
+	| aFloorNumber game |
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self assert: (game is: #player1 on: startingPoint in: aFloorNumber)  ! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474415!
+test08
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@5.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@6 in: 1)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474337!
+test05
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(6 6) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@1 in: 1)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474389!
+test07
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)! !
+!GameTest methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:19:47' prior: 50474126!
+test02
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  ! !
+
+!testRun: #GameTest #test01 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test02 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test03 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test04 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test05 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test06 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test07 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test08 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test09 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test10 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test11 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test12 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test13 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test14 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!testRun: #GameTest #test15 stamp: 'Af 7/4/2022 21:19:53'!
+PASSED!
+
+!classRenamed: #GameTest as: #LaddersAndSlidesTest stamp: 'Af 7/4/2022 21:20:19'!
+Smalltalk renameClassNamed: #GameTest as: #LaddersAndSlidesTest!
+
+!classRenamed: #LaddersAndSlidesTest as: #LaddersAndSlidesGameTest stamp: 'Af 7/4/2022 21:20:23'!
+Smalltalk renameClassNamed: #LaddersAndSlidesTest as: #LaddersAndSlidesGameTest!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:21:02'!
+test16
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 2 goingTo: endingLadderPoint  in: 1.
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 1). ! !
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:21:02'!
+PASSED!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:22:30' prior: 50475808!
+test16
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 2 goingTo: endingLadderPoint  in: 3.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 1). ! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:22:59' prior: 50475878!
+test16
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 2 goingTo: endingLadderPoint  in: 3.
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 1). ! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:23:25' prior: 50475902!
+test16
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 2 goingTo: endingLadderPoint  in: 3.
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 3). ! !
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:23:25'!
+PASSED!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:25:06'!
+test17
+
+	| game ladder1 ladder2 |
+	
+	
+	ladder1 _ XXXLadder departsFrom: 2@2 in: 2 goingTo: 2@6  in: 3.
+	ladder2 _ XXXLadder departsFrom: 4@4 in: 1 goingTo: 5@5  in: 2.
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	ladders add: ladder1.
+	ladders add: ladder2.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 5@5 in: 2). ! !
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:25:10'!
+PASSED!
+
+!classDefinition: #XXXSlide category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:26:49'!
+Object subclass: #XXXSlide
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:26:47'!
+test18
+
+	| game ladder1 ladder2 slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: ladder1.
+	slides add: ladder2.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:26:59' prior: 50476083!
+test18
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:27:04' prior: 50476110!
+test18
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:27:04'!
+ERROR!
+!XXXSlide class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:27:13'!
+departsFrom: aPoint in: aSmallInteger goingTo: aPoint3 in: aSmallInteger4 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeDepartsFrom: aPoint in: aSmallInteger goingTo: aPoint3 in: aSmallInteger4 ! !
+!XXXSlide class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:28:00' prior: 50476163!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor 
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor ! !
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:28:01'!
+ERROR!
+
+!classDefinition: #XXXSlide category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:28:06'!
+Object subclass: #XXXSlide
+	instanceVariableNames: 'departurePosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXSlide category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:28:07'!
+Object subclass: #XXXSlide
+	instanceVariableNames: 'departurePosition departureFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXSlide category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:28:07'!
+Object subclass: #XXXSlide
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXSlide category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:28:07'!
+Object subclass: #XXXSlide
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion destinationFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+!XXXSlide methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:28:07'!
+initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor 
+	self shouldBeImplemented.
+	departurePosition := aDeparturePosition.
+	departureFloor := aDepartureFloor.
+	destinationPostion := aDestinationPostion.
+	destinationFloor := aDestinationFloor.! !
+!XXXSlide methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:28:10' prior: 50476220!
+initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor 
+	departurePosition := aDeparturePosition.
+	departureFloor := aDepartureFloor.
+	destinationPostion := aDestinationPostion.
+	destinationFloor := aDestinationFloor.! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:28:19'!
+test19
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:28:19'!
+test18
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). !
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:28:21'!
+FAILURE!
+!XXXSlide methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:29:02'!
+aPlayerJustMovedOn: aPlayerPosition 
+	
+	((aPlayerPosition isInFloor: departureFloor) and: [aPlayerPosition isInPosition: departurePosition ]) ifTrue: [aPlayerPosition riseTo: destinationPostion on: destinationFloor ]! !
+!LaddersAndSlidesGame methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:29:31' prior: 50475109!
+play: aPlayer 
+	
+	| xMotion yMotion playerPosition |
+	
+	((listOfPlayers at: turn) = aPlayer) ifFalse:[self error: self class notThatPlayerTurnErrorDescription ].
+	
+	xMotion _ self getMovement.
+	yMotion _ self getMovement.
+	
+	playerPosition _ playerPositions detect: [ :aSquare | aSquare doYouHave: aPlayer].
+	
+	playerPosition moveInX: xMotion andInY: yMotion.
+	
+	listOfLadders do: [:aLadder | aLadder aPlayerJustMovedOn: playerPosition.].
+	listOfSlides do: [:aLadder | aLadder aPlayerJustMovedOn: playerPosition.].
+	
+	self advanceTurn.
+	
+	
+	
+	
+
+! !
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:29:32'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:29:32'!
+FAILURE!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:29:32'!
+FAILURE!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:29:59' prior: 50476245!
+test19
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:30:00'!
+PASSED!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:31:51'!
+test18
+
+	
+	
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:31:58' prior: 50476453!
+test18
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:31:58'!
+ERROR!
+!XXXLadder class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:32:03'!
+cantCreateALadderThatDoesNotGoesUpErrorDescription
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeCantCreateALadderThatDoesNotGoesUpErrorDescription! !
+!XXXLadder class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:32:33' prior: 50476476!
+cantCreateALadderThatDoesNotGoesUpErrorDescription
+	
+	^'a ladder can only go up'! !
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:32:35'!
+FAILURE!
+!XXXLadder class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:34:04' prior: 50474773!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	(aDepartureFloor > aDestiantionFloor) ifTrue: [self error: (self cantCreateALadderThatDoesNotGoesUpErrorDescription )].
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor ! !
+!XXXLadder class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:34:07' prior: 50476495!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	(aDepartureFloor > aDestiantionFloor) ifTrue: [self error: (self cantCreateALadderThatDoesNotGoesUpErrorDescription)].
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor ! !
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:34:07'!
+PASSED!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:34:24'!
+test20
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:34:24'!
+test19
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:34:29' prior: 50476464!
+test18
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:31:58' prior: 50476625!
+test18
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:34:47'!
+test19
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+!XXXLadder class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:35:09' prior: 50476510!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	(aDepartureFloor >= aDestiantionFloor) ifTrue: [self error: (self cantCreateALadderThatDoesNotGoesUpErrorDescription)].
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor ! !
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:35:09'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:35:09'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:35:09'!
+ERROR!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:35:20' prior: 50475410!
+test15
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 1 goingTo: endingLadderPoint  in: 2.
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 2). ! !
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:35:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:35:24'!
+PASSED!
+!PlayerPosition methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 21:35:54'!
+goTo: aEndingLadderPositon on: aEndingLadderFloor 
+
+	position _ aEndingLadderPositon .
+	floorNumber _ aEndingLadderFloor .! !
+
+!methodRemoval: PlayerPosition #riseTo:on: stamp: 'Af 7/4/2022 21:35:54'!
+riseTo: aEndingLadderPositon on: aEndingLadderFloor 
+
+	position _ aEndingLadderPositon .
+	floorNumber _ aEndingLadderFloor .!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:36:47' prior: 50476645!
+test19
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:36:59'!
+test21
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:34:47' prior: 50476818!
+test19
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:37:09'!
+ERROR!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:37:42' prior: 50476828!
+test21
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:37:48'!
+test22
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+!XXXSlide class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:38:32' prior: 50476175!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor 
+	
+	| aDestiantionFloor |
+	(aDepartureFloor <= aDestiantionFloor) ifTrue: [self error: (self errorCategoryName)].
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor ! !
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:38:35'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:38:35'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:38:35'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:38:35'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:38:35'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:38:35'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:38:35'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:38:37'!
+ERROR!
+!XXXSlide methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:38:52' prior: 50476296!
+aPlayerJustMovedOn: aPlayerPosition 
+	
+	((aPlayerPosition isInFloor: departureFloor) and: [aPlayerPosition isInPosition: departurePosition ]) ifTrue: [aPlayerPosition goTo: destinationPostion on: destinationFloor ]! !
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:38:52'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:38:52'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:38:52'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:38:52'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:38:52'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:38:52'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:38:52'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:38:54'!
+ERROR!
+!XXXLadder methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:39:02' prior: 50475306!
+aPlayerJustMovedOn: aPlayerPosition 
+	
+	((aPlayerPosition isInFloor: departureFloor) and: [aPlayerPosition isInPosition: departurePosition ]) ifTrue: [aPlayerPosition goTo: destinationPostion on: destiantionFloor ]! !
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:39:03'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:39:04'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:39:04'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:39:04'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:39:04'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:39:06'!
+ERROR!
+!XXXSlide class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:39:21' prior: 50476871!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor 
+	
+	
+	(aDepartureFloor <= aDestinationFloor) ifTrue: [self error: (self errorCategoryName)].
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor ! !
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:39:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:39:23'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:39:23'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:39:23'!
+ERROR!
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:39:24'!
+ERROR!
+!XXXLadder class methodsFor: 'error descriptions' stamp: 'Af 7/4/2022 21:39:33'!
+cantCreateASlidesThatDoesNotGoesDownErrorDescription
+	self shouldBeImplemented.! !
+!XXXLadder class methodsFor: 'error descriptions' stamp: 'Af 7/4/2022 21:39:54' prior: 50477164!
+cantCreateASlidesThatDoesNotGoesDownErrorDescription
+	
+	^'cant create a slide that dosent go down'! !
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:39:55'!
+FAILURE!
+
+!methodRemoval: XXXLadder class #cantCreateASlidesThatDoesNotGoesDownErrorDescription stamp: 'Af 7/4/2022 21:40:24'!
+cantCreateASlidesThatDoesNotGoesDownErrorDescription
+	
+	^'cant create a slide that dosent go down'!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:40:35' prior: 50476851!
+test21
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:40:40' prior: 50476861!
+test22
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:40:40'!
+ERROR!
+!XXXSlide class methodsFor: 'error descriptions' stamp: 'Af 7/4/2022 21:40:49'!
+cantCreateASlidesThatDoesNotGoesDownErrorDescription
+	self shouldBeImplemented.! !
+!XXXSlide class methodsFor: 'error descriptions' stamp: 'Af 7/4/2022 21:41:09' prior: 50477209!
+cantCreateASlidesThatDoesNotGoesDownErrorDescription
+	
+	^'a slide must go down'! !
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:41:09'!
+FAILURE!
+!XXXSlide class methodsFor: 'instance creation' stamp: 'Af 7/4/2022 21:41:20' prior: 50477088!
+departsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor 
+	
+	
+	(aDepartureFloor <= aDestinationFloor) ifTrue: [self error: (self cantCreateASlidesThatDoesNotGoesDownErrorDescription )].
+	
+	^self new initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestinationFloor ! !
+
+!testRun: #LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:41:21'!
+PASSED!
+
+Object subclass: #Shortcut
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #Shortcut category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:41:59'!
+Object subclass: #Shortcut
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+Shortcut subclass: #XXXLadder
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion destiantionFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXLadder category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:42:03'!
+Shortcut subclass: #XXXLadder
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion destiantionFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+Shortcut subclass: #XXXSlide
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion destinationFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+
+!classDefinition: #XXXSlide category: 'parcial2021-1c' stamp: 'Af 7/4/2022 21:42:06'!
+Shortcut subclass: #XXXSlide
+	instanceVariableNames: 'departurePosition departureFloor destinationPostion destinationFloor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'parcial2021-1c'!
+!LaddersAndSlidesGameTest methodsFor: 'testing - is on in' stamp: 'Af 7/4/2022 21:42:46'!
+test01aPlayerStartsWhereItHaveToStart
+
+	| aFloorNumber game |
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self assert: (game is: #player1 on: startingPoint in: aFloorNumber)  ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test01 stamp: 'Af 7/4/2022 21:42:46'!
+test01
+
+	| aFloorNumber game |
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self assert: (game is: #player1 on: startingPoint in: aFloorNumber)  !
+!LaddersAndSlidesGameTest methodsFor: 'testing - is on in' stamp: 'Af 7/4/2022 21:43:15'!
+test02MultiplePlayersStartWereTheySHouldStart
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test02 stamp: 'Af 7/4/2022 21:43:15'!
+test02
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  !
+!LaddersAndSlidesGameTest methodsFor: 'testing - is on in' stamp: 'Af 7/4/2022 21:43:23'!
+test02MultiplePlayersStartWereTheyShouldStart
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test02MultiplePlayersStartWereTheySHouldStart stamp: 'Af 7/4/2022 21:43:23'!
+test02MultiplePlayersStartWereTheySHouldStart
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 1.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  !
+
+!methodRemoval: LaddersAndSlidesGameTest #test03 stamp: 'Af 7/4/2022 21:43:46'!
+test03
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 2.
+	
+	
+	self deny: (game is: #player2 on: aStartingPoint + (1@1) in: aFloorNumber)  !
+!LaddersAndSlidesGameTest methodsFor: 'testing - is on in' stamp: 'Af 7/4/2022 21:44:13'!
+test04cantCheckThePositionOfAnInexistentPlayer
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 2.
+	
+	
+	self should: [game is: #invalidPlayer on: aStartingPoint in: aFloorNumber] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: LaddersAndSlidesGame thatPlayerDosentExistErrordescription. 
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test04 stamp: 'Af 7/4/2022 21:44:13'!
+test04
+
+	| aCollectionOfPlayers aDice aEndingPoint aFloorNumber aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ nil.
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	aFloorNumber _ 2.
+	
+	
+	self should: [game is: #invalidPlayer on: aStartingPoint in: aFloorNumber] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: LaddersAndSlidesGame thatPlayerDosentExistErrordescription. 
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:44:56'!
+test05PlayingMovesFirstPlayer
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(6 6) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@1 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test05 stamp: 'Af 7/4/2022 21:44:56'!
+test05
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(6 6) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@1 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:45:54'!
+test05PlayingAndGettingSixtySixFromDiceLeavesPlayerInItsPlace
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(6 6) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@1 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test05PlayingMovesFirstPlayer stamp: 'Af 7/4/2022 21:45:54'!
+test05PlayingMovesFirstPlayer
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(6 6) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@1 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:46:08'!
+test06PlayinMovesPlayer
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 2@2 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test06 stamp: 'Af 7/4/2022 21:46:08'!
+test06
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 2@2 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:46:13'!
+test06PlayingMovesPlayer
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 2@2 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test06PlayinMovesPlayer stamp: 'Af 7/4/2022 21:46:13'!
+test06PlayinMovesPlayer
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 2@2 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:47:04'!
+test07PlayingCanMoveBack
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test07 stamp: 'Af 7/4/2022 21:47:04'!
+test07
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:47:11'!
+test07PlayingCanMoveBackwardsOnXPosition
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test07PlayingCanMoveBack stamp: 'Af 7/4/2022 21:47:11'!
+test07PlayingCanMoveBack
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:47:49'!
+test07PlayingMovingBackwardsOnXPositionTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test07PlayingCanMoveBackwardsOnXPosition stamp: 'Af 7/4/2022 21:47:49'!
+test07PlayingCanMoveBackwardsOnXPosition
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:48:16'!
+test08PlayingMovinFowardTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@5.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@6 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test08 stamp: 'Af 7/4/2022 21:48:16'!
+test08
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@5.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@6 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:48:26'!
+test08PlayingMovinFowardOnXTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@5.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@6 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test08PlayingMovinFowardTrunckatesOnEdgeOfFloor stamp: 'Af 7/4/2022 21:48:26'!
+test08PlayingMovinFowardTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@5.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@6 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:48:33'!
+test07PlayingMovingBackwardsOnXTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test07PlayingMovingBackwardsOnXPositionTrunckatesOnEdgeOfFloor stamp: 'Af 7/4/2022 21:48:33'!
+test07PlayingMovingBackwardsOnXPositionTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 1@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(5 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 1@2 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:49:11'!
+test09PlayingMovingFowardOnYTrunckatesOnEdgeOfFloor
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 5) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@1 in: 1)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test09 stamp: 'Af 7/4/2022 21:49:11'!
+test09
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@1.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 5) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@1 in: 1)!
+
+!methodRemoval: LaddersAndSlidesGameTest #test10 stamp: 'Af 7/4/2022 21:49:33'!
+test10
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 10@10.
+	aNumberFlorToStart _ 1.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 10@10 in: 1)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - movement' stamp: 'Af 7/4/2022 21:49:50'!
+test11PlatingMovingTrunckatesOnMultipleFloors
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 20@20 in: 2)! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test11 stamp: 'Af 7/4/2022 21:49:50'!
+test11
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 20@20 in: 2)!
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 21:50:58'!
+test12SecondPlayerOnListCantPlayFirst
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	
+	self should: [game play: aCollectionOfPlayers second]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test12 stamp: 'Af 7/4/2022 21:50:58'!
+test12
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	
+	self should: [game play: aCollectionOfPlayers second]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 21:51:50' prior: 50475610!
+test14
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	game play: aCollectionOfPlayers first.
+	
+	self should: [game play: aCollectionOfPlayers first.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 21:52:23' prior: 50475577!
+test13
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	
+	self should: [game play: aCollectionOfPlayers first.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 20:40:14' prior: 50478324!
+test14
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ Game players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	
+	self should: [game play: aCollectionOfPlayers second.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: Game notThatPlayerTurnErrorDescription.
+	
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 21:19:47' prior: 50478391!
+test14
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	
+	self should: [game play: aCollectionOfPlayers second.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 21:53:06'!
+test13FirstPLayerOnListcanPlayTwiceInARow
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	
+	self should: [game play: aCollectionOfPlayers first.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test13 stamp: 'Af 7/4/2022 21:53:06'!
+test13
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	
+	self should: [game play: aCollectionOfPlayers first.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - turns' stamp: 'Af 7/4/2022 21:54:00'!
+test14PlayingTheRoundOfTurnsGoAllTheWayDown
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	
+	self should: [game play: aCollectionOfPlayers second.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test14 stamp: 'Af 7/4/2022 21:54:00'!
+test14
+
+	| aCollectionOfPlayers aDice aEndingPoint aListOfSizeingFlors aNumberFlorToEnd aNumberFlorToStart aStartingPoint game |
+	aCollectionOfPlayers  _ OrderedCollection with: #player1 with: #player2.
+	aStartingPoint _ 20@20.
+	aNumberFlorToStart _ 2.
+	aEndingPoint _ 10@10.
+	aNumberFlorToEnd _ 1.
+	aListOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20}.
+	aDice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: aCollectionOfPlayers stating: aStartingPoint in: aNumberFlorToStart ending: aEndingPoint in: aNumberFlorToEnd withFlors: aListOfSizeingFlors rollingWith: aDice raisingWith: ladders fallingWith: slides.
+	
+	game play: aCollectionOfPlayers first.
+	game play: aCollectionOfPlayers second.
+	
+	self should: [game play: aCollectionOfPlayers second.]
+		raise: Error - MessageNotUnderstood  
+		withMessageText: LaddersAndSlidesGame notThatPlayerTurnErrorDescription.
+	
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:54:51'!
+test15PlayerEndsInBegginingOfLadderGoesAllTheWayUP
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 1 goingTo: endingLadderPoint  in: 2.
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 2). ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test15 stamp: 'Af 7/4/2022 21:54:51'!
+test15
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 1 goingTo: endingLadderPoint  in: 2.
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 2). !
+
+!methodRemoval: LaddersAndSlidesGameTest #test16 stamp: 'Af 7/4/2022 21:55:19'!
+test16
+
+	| game ladder endingLadderPoint |
+	
+	endingLadderPoint _ 3@3.
+	ladder _ XXXLadder departsFrom: 2@2 in: 2 goingTo: endingLadderPoint  in: 3.
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	ladders add: ladder.
+	
+	startingPoint _ 1@1.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: endingLadderPoint in: 3). !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:55:32'!
+test17GameSupporsMultipleLadders
+
+	| game ladder1 ladder2 |
+	
+	
+	ladder1 _ XXXLadder departsFrom: 2@2 in: 2 goingTo: 2@6  in: 3.
+	ladder2 _ XXXLadder departsFrom: 4@4 in: 1 goingTo: 5@5  in: 2.
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	ladders add: ladder1.
+	ladders add: ladder2.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 5@5 in: 2). ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test17 stamp: 'Af 7/4/2022 21:55:32'!
+test17
+
+	| game ladder1 ladder2 |
+	
+	
+	ladder1 _ XXXLadder departsFrom: 2@2 in: 2 goingTo: 2@6  in: 3.
+	ladder2 _ XXXLadder departsFrom: 4@4 in: 1 goingTo: 5@5  in: 2.
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	ladders add: ladder1.
+	ladders add: ladder2.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 1.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on: 5@5 in: 2). !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:55:49'!
+test18CantCreateLadderThatGoesDown
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test18 stamp: 'Af 7/4/2022 21:55:49'!
+test18
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:56:04'!
+test19CantCreateLadderThatGoesToTheSameFloor
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test19 stamp: 'Af 7/4/2022 21:56:04'!
+test19
+
+	self should: [	XXXLadder departsFrom: 2@2 in: 2 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXLadder cantCreateALadderThatDoesNotGoesUpErrorDescription.
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:56:36'!
+test20PlayerEndsInBegginingOfSlideGoesAllTheWayDown
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). ! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test20 stamp: 'Af 7/4/2022 21:56:36'!
+test20
+
+	| game slide |
+	
+	
+	slide _ XXXSlide departsFrom: 4@4 in: 2 goingTo: 2@6  in: 1.
+	
+	listOfSizeingFlors _ OrderedCollection with: {10. 10} with: {20. 20} with: {30. 30}.
+	
+	slides add: slide.
+	
+	startingPoint _ 3@3.
+	numberFlorToStart _ 2.
+	endingPoint _ 10@10.
+	numberFlorToEnd _ 1.
+	
+	dice _ SimulatedDice with: (CircularReadStream on: #(7 7) moving: NullUnit new).
+	
+	game _ LaddersAndSlidesGame players: collectionOfPlayers stating: startingPoint in: numberFlorToStart ending: endingPoint in: numberFlorToEnd withFlors: listOfSizeingFlors rollingWith: dice raisingWith: ladders fallingWith: slides.
+	
+	game play: #player1.
+	
+	self assert: (game is: #player1 on:  2@6 in: 1). !
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:56:55'!
+test21SlideCantGoUp
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test21 stamp: 'Af 7/4/2022 21:56:55'!
+test21
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:57:09'!
+test22CantCreateASlideThatGoesToTheSameFloor
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test22 stamp: 'Af 7/4/2022 21:57:09'!
+test22
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 1] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	!
+!LaddersAndSlidesGameTest methodsFor: 'testing - ladder and slides' stamp: 'Af 7/4/2022 21:57:15'!
+test21CantSlideCantGoUp
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	! !
+
+!methodRemoval: LaddersAndSlidesGameTest #test21SlideCantGoUp stamp: 'Af 7/4/2022 21:57:15'!
+test21SlideCantGoUp
+
+	self should: [	XXXSlide departsFrom: 2@2 in: 1 goingTo: 4@4  in: 2] 
+		raise: Error - MessageNotUnderstood 
+		withMessageText: XXXSlide cantCreateASlidesThatDoesNotGoesDownErrorDescription.
+	!
+!LaddersAndSlidesGame methodsFor: 'initialization' stamp: 'Af 7/4/2022 21:57:34' prior: 50474954!
+initializePlayers: aListOfPlayers stating: aStartingPoint in: aFlorToStart ending: aEndingPoint in: aFlorToEnd withFlors: aFloorSizes rollingWith: aDice raisingWith: aListOfLadders fallingWith: aListOfSlides   
+	
+	listOfPlayers := aListOfPlayers.
+	
+	
+	playerPositions _ OrderedCollection new.
+	
+	listOfPlayers do:[:aPlayer | playerPositions add: (PlayerPosition add: aPlayer on: aStartingPoint in: aFlorToStart floorsWith: aFloorSizes) ].
+	turn _ 1.
+	
+	endingPoint := aEndingPoint.
+	florToEnd := aFlorToEnd.
+	floorSizes := aFloorSizes.
+	dice := aDice.
+	
+	listOfLadders _ aListOfLadders .
+	listOfSlides _ aListOfSlides.
+	
+	! !
+
+!testRun: #LaddersAndSlidesGameTest #test01aPlayerStartsWhereItHaveToStart stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test02MultiplePlayersStartWereTheyShouldStart stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test04cantCheckThePositionOfAnInexistentPlayer stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test05PlayingAndGettingSixtySixFromDiceLeavesPlayerInItsPlace stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test06PlayingMovesPlayer stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test07PlayingMovingBackwardsOnXTrunckatesOnEdgeOfFloor stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test08PlayingMovinFowardOnXTrunckatesOnEdgeOfFloor stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test09PlayingMovingFowardOnYTrunckatesOnEdgeOfFloor stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test11PlatingMovingTrunckatesOnMultipleFloors stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test12SecondPlayerOnListCantPlayFirst stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test13FirstPLayerOnListcanPlayTwiceInARow stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test14PlayingTheRoundOfTurnsGoAllTheWayDown stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test15PlayerEndsInBegginingOfLadderGoesAllTheWayUP stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test17GameSupporsMultipleLadders stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test18CantCreateLadderThatGoesDown stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test19CantCreateLadderThatGoesToTheSameFloor stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test20PlayerEndsInBegginingOfSlideGoesAllTheWayDown stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test21CantSlideCantGoUp stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+
+!testRun: #LaddersAndSlidesGameTest #test22CantCreateASlideThatGoesToTheSameFloor stamp: 'Af 7/4/2022 21:58:45'!
+PASSED!
+!Shortcut methodsFor: 'no messages' stamp: 'Af 7/4/2022 22:00:58'!
+aPlayerJustMovedOn: aPlayerPosition 
+
+	self subclassResponsibility ! !
+!Shortcut methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 22:01:12'!
+initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	self subclassResponsibility ! !
+!Shortcut methodsFor: 'as yet unclassified' stamp: 'Af 7/4/2022 22:01:12' prior: 50478969!
+initializeDepartsFrom: aDeparturePosition in: aDepartureFloor goingTo: aDestinationPostion in: aDestiantionFloor 
+	
+	self subclassResponsibility.! !
